@@ -4,9 +4,16 @@ const mongoose = require('mongoose')
 const PORT = 5004
 const app = express()
 
-app.get('/', (req, res) => {
-    app.json({msg: 'Ahoy matey'})
-})
+const {
+    SayItSpellIt
+} = require('./controllers/SayItSpellIt')
+
+// app.get('/', (req, res) => {
+//     app.json({msg: 'Ahoy matey'})
+// })
+
+app.post('/api/SayItSpellIt', SayItSpellIt)
+
 
 
 mongoose.connect(process.env.MONGO_URI)
