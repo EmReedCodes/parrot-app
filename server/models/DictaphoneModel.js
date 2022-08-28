@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
-const DictaphoneWords = new Schema ({
+const DictaphoneSchema = new Schema ({
     user: { //want type to be objectID
         type: mongoose.Schema.Types.ObjectId,
         required: true,
@@ -17,4 +17,4 @@ const DictaphoneWords = new Schema ({
     
 }, {timestamps: true})
 
-module.exports = mongoose.model('DictaphoneWord', DictaphoneWords)
+module.exports = mongoose.model('Dictaphone', DictaphoneSchema)
