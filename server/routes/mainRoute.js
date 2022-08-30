@@ -7,6 +7,8 @@ const router = express.Router()
 //@route
 //access Private or Public 
 
+//when making routes dont need Await.User.findById(req.user.id)
+//just check for req.user
 
 //@route api/home
 router.get('/', (req, res) => {

@@ -1,9 +1,10 @@
 const jwt = require('jsonwebtoken')
 const asyncHandler = require('express-async-handler')
 const User = require('../models/UserModel')
-
+//TODO: add passport maybe
 //protect users route
 //need next since its middleware
+
 const protect = asyncHandler(async(req, res, next) => {
     let token 
     //sent as http header we need to check if it has auth header and starts with bearer
