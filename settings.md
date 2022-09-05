@@ -27,3 +27,11 @@
     "nodemon": "^2.0.19"
   }
 }
+
+
+My .env
+
+NODE_ENV = development
+PORT = 5004
+MONGO_URI = mongodb+srv://EmilyReed89:hT7sUOIeNmoqAOdf@cluster0.bgqtrfn.mongodb.net/?retryWrites=true&w=majority
+JWT_SECRET = abc123
