@@ -3,6 +3,8 @@ import Home from './pages/Home' //dont need to add index it looks for infex
 import Register from './pages/register/Register';
 //import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/react-toastify.css'
 
 function App() {
 
@@ -24,10 +26,11 @@ function App() {
                   </Routes>
   
               </div>
-</main>
+    </main>
 
-          
+          <ToastContainer />
         </Router>
+        
   );
 }
 

@@ -1,6 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
+  "proxy": "http://localhost:5004",
   "private": true,
   "dependencies": {
     "@picocss/pico": "^1.5.3",

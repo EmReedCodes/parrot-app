@@ -1,7 +1,7 @@
 //reducers and initial state go here
 
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-
+import authService from './authService'
 //we need to get our token back to access those routes and save it to local storage
 
 //Get user from localStorage
@@ -20,7 +20,9 @@ export const register = createAsyncThunk('auth/register', async (user, thunkAPI)
     try {
         return await authService.register(user)
     } catch(error){
-
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+        //thunkAPI has a message that says with payload
+        return thunkAPI.rejectWithValue
     }
 })
 
@@ -38,7 +40,28 @@ export const authSlice = createSlice({
             state.message = ''
         }
     },
-    extraReducers:() => {},  //async will go here
+    //async here //need to account for pending/fulfilled/rejected here
+    extraReducers:(builder) => {
+        builder
+            .addCase(register.pending, (state) => {
+                //what state do we want when its pending
+                state.isLoading = true
+            })
+            .addCase(register.fulfilled, (state, action) => {
+                state.isLoading = false
+                state.isSuccess = true
+                //whats going to be returned up there (the payload)
+                state.user = action.payload
+            })
+            .addCase(register.rejected, (state, action) => {
+                state.isLoading = false
+                state.isError = true
+                //because up there in catch(error) we call thunk rejectwithValue and it will pass the msg as the payload
+                //which we set here
+                state.message = action.payload
+                state.user = null
+            })
+    },  
 })
 
 //have to export this differnetly for actions
