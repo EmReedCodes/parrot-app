@@ -1,35 +1,32 @@
-import './styles/main.css'
-import Home from './pages/Home' //dont need to add index it looks for infex
-import Register from './pages/register/Register';
-//import Navbar from './components/Navbar';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import "./styles/main.css"
+import Home from "./pages/Home"
+import Login from './pages/login/Login'
+import Register from './pages/register/Register'
+import Dashboard from './pages/dashboard/Dashboard'
+import Navbar from "./components/Navbar"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { ToastContainer } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-
   return (
-    
+    <>
+      <main className="container">
+  
         <Router>
-          
-
-<main className="container">
-  
-              <div className="content">
-  
-  
-                  <Routes>
-                    <Route path='/' element={<Home />}>
-                    </Route>
-                    <Route path='/register' element={<Register />}>
-                    </Route>
-                  </Routes>
-  
-              </div>
-</main>
-
-          
+        <Navbar />
+              <Routes>
+                <Route path="/" element={<Home />}></Route>
+                <Route path="/login" element={<Login />}></Route>
+                <Route path="/register" element={<Register />}></Route>
+                <Route path="/dashboard" element={<Dashboard />}></Route>
+          </Routes>
+          <ToastContainer />
         </Router>
-  );
+  
+      </main>
+    </>
+  )
 }
 
-export default App;
-
+export default App

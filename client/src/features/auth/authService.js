@@ -1,6 +1,39 @@
 //this is for making the http req and sending it back
-import axios from 'axios'
+import axios from "axios"
 
-const API_URL = '/api/users/'
+const API_URL = "/api/user/"
 
 //Register user
+const register = async authData => {
+  //we are making the req then putting the response into the variable
+  const response = await axios.post(API_URL, authData)
+  //when using axios it puts the response in data (the word)
+  if (response.data) {
+    localStorage.setItem("user", JSON.stringify(response.data))
+  }
+  return response.data
+}
+
+//login user
+const login = async authData => {
+  const response = await axios.post(API_URL + "login", authData)
+  if (response.data) {
+    localStorage.setItem("user", JSON.stringify(response.data))
+  }
+
+  return response.data
+}
+
+//logout user
+const logout = () => {
+  localStorage.removeItem("user")
+}
+
+//anything we create and want to export put inside here
+const authService = {
+  register,
+  login,
+  logout
+}
+
+export default authService

@@ -1,12 +1,13 @@
 # prehome
 
 ### does
-show login
-show login info to folder
+show login button
+show register button
 
 ---
 
 ### does not
 
 * show register form
+* show login form
 * overwhelm the user with info
