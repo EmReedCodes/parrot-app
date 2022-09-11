@@ -6,8 +6,6 @@
   "dependencies": {
     "@picocss/pico": "^1.5.3",
     "@reduxjs/toolkit": "^1.8.5",
-    "@speechly/react-client": "^2.1.2",
-    "@speechly/react-ui": "^2.7.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
@@ -17,6 +15,7 @@
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-speech-recognition": "^3.9.1",
     "react-toastify": "^9.0.8",
     "web-vitals": "^2.1.4"
   },

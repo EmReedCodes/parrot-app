@@ -1,7 +1,7 @@
 const dotenv = require('dotenv').config()
 const express = require('express')
 const colors = require('colors');
-const mainRoutes = require('./routes/mainRoute')
+const speechRoutes = require('./routes/speechRoute')
 const userRoutes = require('./routes/userRoute')
 const { errorHandler } = require('./middleware/errorMiddleware')
 const connectDB = require('./config/db')
@@ -18,10 +18,12 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false })) //trav uses false?
 
 
-//my home page where Ill do my auth 
+
 //@desc sending to my routes
-app.use('/api/home', mainRoutes)
+app.use('/api/speech', speechRoutes)
 app.use('/api/user', userRoutes)
+//future tts portion
+//app.use('/api/text')
 
 //this will overwrite the default errors
 app.use(errorHandler)
