@@ -34,12 +34,13 @@ const registerUser = asyncHandler(async (req, res) => {
         email,
         password: hashedPassword
       })
-      //check that now
-    //might need to send ID later 
-      if(user) {
+
+    //might need to send ID later
+    if (user) {
+          console.log(user)
           res.status(201).json({
-            name: user.name,
-            //need dat token
+              _id: user.id,
+              name: user.name,
             token: generateToken(user._id)
         })
       } else {
@@ -48,6 +49,7 @@ const registerUser = asyncHandler(async (req, res) => {
       }
  
 })
+
 
 //@desc auth a user
 //@route POST /api/user/login 

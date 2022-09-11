@@ -1,9 +1,9 @@
-//reducers and initial state go here
 
+//TODO: general when logged in takes me to login/register page
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import authService from './authService'
-//we need to get our token back to access those routes and save it to local storage
 
+//we need to get our token back to access those routes and save it to local storage
 //Get user from localStorage
 const user = JSON.parse(localStorage.getItem('user'))
 
@@ -15,7 +15,7 @@ const initialState = {
     message: ''
 }
 
-//Register user                                               //this will get passed in from register page
+//Register user                                            
 export const register = createAsyncThunk(
     'auth/register',
     async (user, thunkAPI) => {

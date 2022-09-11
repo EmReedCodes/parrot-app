@@ -1,5 +1,3 @@
-//Ive updated file name so its easier to understand will need to change this across Parrot
-
 const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema

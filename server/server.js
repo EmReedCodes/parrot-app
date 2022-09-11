@@ -15,7 +15,7 @@ const app = express()
 //middleware
 app.use(express.json())
 //in order to use body data (req.body) set to false maybe
-app.use(express.urlencoded({ extended: false })) //trav uses false?
+app.use(express.urlencoded({ extended: false })) //try both 
 
 
 
