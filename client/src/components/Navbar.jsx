@@ -3,14 +3,14 @@ import { useNavigate, Link } from "react-router-dom"
 import { logout, reset } from "../features/auth/authSlice"
 
 const Navbar = () => {
-  const navigate = useNavigate
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const { user } = useSelector(state => state.auth)
 
   const onLogout = () => {
     dispatch(logout())
     dispatch(reset())
-    navigate("/")
+    return navigate("/")
   }
   return (
     <nav>
