@@ -1,6 +1,5 @@
 //this is for making the http req and sending it back
 import axios from "axios"
-
 const API_URL = "/api/user/"
 
 //Register user
@@ -23,7 +22,7 @@ const login = async authData => {
 
   return response.data
 }
-
+//TODO: redirect to home on logout
 //logout user
 const logout = () => {
   localStorage.removeItem("user")

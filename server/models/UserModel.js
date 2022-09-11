@@ -16,6 +16,9 @@ const UserSchema = new Schema({
         type: String,
         required: [true, 'Please add name']
     }
-}, {timestamps: true})
+},
+    { timestamps: true },
+    //{ collection: 'userAuth' } alright didnt work.... why are all my collections named test >:(
+)
 
 module.exports = mongoose.model('User', UserSchema)

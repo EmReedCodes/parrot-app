@@ -12,3 +12,7 @@
 
 * show user data
 * have any input 
+
+### todo
+
+* add settings feature

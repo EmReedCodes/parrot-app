@@ -4,7 +4,7 @@ const Home = () => {
     return ( 
         <div className="contain">
             <h1>Welcome to Parrot!</h1>
-            <button><Link to="/login"></Link>Login</button>
+            <Link to="/login"><button>Login</button></Link>
             <Link to='/register'><button>Register</button></Link>
         </div>
      );
