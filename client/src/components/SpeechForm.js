@@ -1,42 +1,26 @@
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { createSpeechWord } from '../features/speech/speechSlice'
+import { useState } from "react"
+import { useDispatch } from "react-redux"
+import { createSpeechWord } from "../features/speech/speechSlice"
 
-function SpeechForm() {
-  const [text, setText] = useState('')
+function SpeechForm(props) {
+  //finalWord is now being sent to db as req.body.finalWord
+  const { finalWord, setFinalWord } = props
+  //const [text, setText] = useState("")
 
   const dispatch = useDispatch()
 
-  const onSubmit = (e) => {
+  const onSubmit = e => {
     e.preventDefault()
 
-    dispatch(createSpeechWord({ text }))
-    setText('')
-    }
-    
-    return (
-       
-          <div className="contain">
-              <form onSubmit={onSubmit}>
-                <div className='form-group'>
-                  <label htmlFor='text'>Word</label>
-                  <input
-                    type='text'
-                    name='text'
-                    id='text'
-                    value={text}
-                    onChange={(e) => setText(e.target.value)}
-                  />
-                </div>
-                <div className='form-group'>
-                  <button type='submit'>
-                   Save Word  
-                  </button>
-                </div>
-              </form>
-          </div>
+    dispatch(createSpeechWord({ finalWord }))
+  }
+
+  return (
+    <>
       
-      )
-    }
-    
-    export default SpeechForm
+      <button onClick={e => onSubmit(e)}>Save {finalWord}</button>
+    </>
+  )
+}
+
+export default SpeechForm
