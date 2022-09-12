@@ -4,7 +4,6 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { reset } from "../../features/speech/speechSlice"
-//hes importing get not the create
 //changed reset from speechslice to auth slice
 //import { reset } from '../../features/auth/authSlice'
 
