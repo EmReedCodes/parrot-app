@@ -1,4 +1,4 @@
-import { useState } from "react"
+
 import { useDispatch } from "react-redux"
 import { createSpeechWord } from "../features/speech/speechSlice"
 
@@ -13,6 +13,7 @@ function SpeechForm(props) {
     e.preventDefault()
 
     dispatch(createSpeechWord({ finalWord }))
+    
   }
 
   return (

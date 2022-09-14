@@ -1,10 +1,9 @@
-import { useEffect } from "react"
+import { useState, useEffect } from "react"
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition"
 import { toast } from "react-toastify"
 
 const Dictaphone = props => {
     const { word, setWord, finalWord, setFinalWord } = props
-    
 
   const {
     // transcript,
@@ -14,25 +13,38 @@ const Dictaphone = props => {
     browserSupportsSpeechRecognition,
     isMicrophoneAvailable
   } = useSpeechRecognition()
+//logic
+//do I need to slice the word here or would I do it within the drag and drop component?
+//need to lowercase spoken word
+//have 2 copies of word one to slice one to input to db
+//need to hold the letters that were sliced out of word in a new variable
+//access to alphabet so at random can also throw in incorrect letters with correct letters
+  //so exclude correct letters from randomization of alphabet letters
+//How to export const letters? Redux?
 
   useEffect(() => {
+
     const calculateSlicedWord = () => {
-      //tried listening === 'off' no go
+   
+     
       if (finalTranscript !== "") {
+        const letters = []
         const word = finalTranscript.split("")
-        const removeLetters = word.map(char => (Math.random() > 0.7 ? "_" : char)).join(" ")
-        console.log(removeLetters)
-        //need to grab missing letters to use elsewhere too
-        return removeLetters
+        const removeLetters = word.map(char => (Math.random() > 0.7 ? letters.push(char) && "_" : char))
+          console.log(removeLetters)
+          console.log(letters)
+          
+        return removeLetters 
       }
-      }
-      setFinalWord(finalTranscript)
+    }
+    
+    setFinalWord(finalTranscript)
     setWord(calculateSlicedWord())
   }, [finalTranscript, setWord, setFinalWord])
 
-  if (!browserSupportsSpeechRecognition) {
-    return null
-  }
+
+
+
   if (!browserSupportsSpeechRecognition) {
     console.log("Try chrome")
     return toast.error("Unavailable in this browser")
@@ -41,16 +53,7 @@ const Dictaphone = props => {
     return toast.error("Microphone must be on")
   }
 
-  //this rerenders way too much
 
-  //TODO: have nicer permissions alert for using microphone
-  //TODO: create microphone that switches on/off
-  //maybe transcribing? if transcribing
-  //reset will actually need to fire if word heard back is rejected
-
-  //grab the value of finalTranscript
-  //take value create copy (or can I just export finalTranscript) and slice out a few letters
-  //export the whole copy to sayItSpellIt so they can decide to send to db
 
   return (
     <div className="speech">
@@ -58,6 +61,7 @@ const Dictaphone = props => {
       <button onClick={resetTranscript}>Reset</button>
       <button onClick={SpeechRecognition.startListening}>Start</button>
       <span>{word}</span>
+      <span>Missing letters: </span>
     </div>
   )
 }
