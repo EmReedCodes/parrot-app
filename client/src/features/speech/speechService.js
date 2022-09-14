@@ -1,5 +1,6 @@
 //rechecked OK
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 const API_URL = '/api/speech'
 
@@ -12,8 +13,11 @@ const saveWord = async (speechData, token) => {
     }
 
     const response = await axios.post(API_URL, speechData, config)
-    console.log(response.data)
-    return response.data
+    if (response.status === 200) {
+        toast.success('Saved!')
+    }
+    // console.log(response.data)
+    // return response.data
 }
 
 const speechService = {
