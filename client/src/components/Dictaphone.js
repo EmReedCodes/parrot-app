@@ -40,7 +40,7 @@ const Dictaphone = props => {
     
     setFinalWord(finalTranscript)
     setWord(calculateSlicedWord())
-  }, [finalTranscript, setWord, setFinalWord])
+  }, [finalTranscript, setWord, setFinalWord, resetTranscript])
 
 
 
@@ -57,11 +57,14 @@ const Dictaphone = props => {
 
   return (
     <div className="speech">
+      {!word &&
+        <>
+      <h3>Start by saying a word</h3>
       <p>Microphone: {listening ? "on" : "off"}</p>
-      <button onClick={resetTranscript}>Reset</button>
       <button onClick={SpeechRecognition.startListening}>Start</button>
-      <span>{word}</span>
-      <span>Missing letters: </span>
+        </>
+      }
+      <button onClick={resetTranscript}>Reset</button>
     </div>
   )
 }

@@ -1,0 +1,18 @@
+#listRow {
+  color: red !important;
+  font-size: 3em;
+}
+
+ul {
+  display: flex;
+  gap: 2em;
+}
+
+ul li {
+  list-style: none;
+}
+
+.containReplay {
+  margin: 0 auto;
+  width: 30%;
+}/*# sourceMappingURL=style.css.map */

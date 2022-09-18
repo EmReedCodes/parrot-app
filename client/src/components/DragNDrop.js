@@ -1,5 +1,4 @@
 //import Dictaphone from "./Dictaphone";
-import Dictaphone from './Dictaphone';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import { useState } from "react";
 const DragNDrop = (props) => {
@@ -18,12 +17,16 @@ const DragNDrop = (props) => {
 
     }
 
+    const listItems = word.map((char, idx) => {
+        return <li key={idx} id="listRow">{char}</li>
+    })
+
     //because word isnt created yet
 
     return (
         <DragDropContext onDragEnd={handleDragEnd}>
             <ul>
-             
+                {listItems}
             </ul>
         </DragDropContext>
     );
