@@ -14,13 +14,8 @@ const Dictaphone = props => {
     isMicrophoneAvailable
   } = useSpeechRecognition()
 //logic
-//do I need to slice the word here or would I do it within the drag and drop component?
-//need to lowercase spoken word
-//have 2 copies of word one to slice one to input to db
-//need to hold the letters that were sliced out of word in a new variable
-//access to alphabet so at random can also throw in incorrect letters with correct letters
-  //so exclude correct letters from randomization of alphabet letters
-//How to export const letters? Redux?
+//need to export sliced out letters below in const letters
+//I can get both values I need from the one function how to export both?
 
   useEffect(() => {
 
