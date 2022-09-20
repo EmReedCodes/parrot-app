@@ -48,7 +48,7 @@ const DragNDrop = props => {
           draggableChars.push(randomChars[idx])
         }
         }
-        
+        //https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
         for (let i = draggableChars.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [draggableChars[i], draggableChars[j]] = [draggableChars[j], draggableChars[i]];
@@ -60,8 +60,9 @@ const DragNDrop = props => {
           setRandomChars(temp)
   }, [word, finalWord, setRandomChars])
 
-  const handleDragEnd = result => {}
 
+//Independent nested lists - a list can be a child of another list, but you cannot drag items from the parent list into a child list
+  
   const listItems = word.map((char, idx) => {
     if (char === " ")
       return (
@@ -77,39 +78,27 @@ const DragNDrop = props => {
       )
   })
 
-  const listRandomItems = function (randomChars) {
-    return (
-      <>
-    
-        {randomChars.map((character, index) => {
+
+  const listRandomItems = randomChars.map((character, index) => {
           return (
-            <li key={index} id="listColumn">
+            <li key={index} id="listRandom">
               {character}
             </li>
           )
-        })}
-      </>
-    )
-  }
+  })
+//move item from one list to another
 
-    // const listRandomItems = [...randomChars].map((char, idx) => {
-    //   return (
-    //     <li key={idx} id="listColumn">
-    //       {char}
-    //     </li>
-    //   )
-    // })
-//    {randomChars !== undefined && randomChars !== null && <ul>{listRandomItems(randomChars)}</ul>}
-  //my drop zone will only be the empty spaces in li or _ currently
-  //so to focus in on dropzones in listItem find them by idx or ' ' ?
+
+console.log(typeof randomChars)
 
   return (
-      <DragDropContext onDragEnd={handleDragEnd}>
+      <DragDropContext>
           
-          {randomChars !== undefined && randomChars !== null && <ul>{listRandomItems(randomChars)}</ul>}
+          <ul>{listRandomItems}</ul>
         
 
       <ul>{listItems}</ul>
+      <div className="check">{ randomChars}</div>
     </DragDropContext>
   )
 }

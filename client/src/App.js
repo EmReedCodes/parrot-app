@@ -25,7 +25,8 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />}></Route>
             <Route path="/sayitspellit" element={<SayItSpellIt />}></Route>
           </Routes>
-          <ToastContainer />
+          
+          <ToastContainer autoClose={2000} />
         </Router>
       </main>
     </>

@@ -12,9 +12,14 @@ ul {
 
 ul li {
   list-style: none;
+  text-align: center;
 }
 
 .containReplay {
   margin: 0 auto;
   width: 30%;
+}
+
+#listRandom {
+  font-size: 3em;
 }/*# sourceMappingURL=style.css.map */

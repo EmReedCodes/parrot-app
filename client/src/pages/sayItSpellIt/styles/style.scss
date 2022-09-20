@@ -13,6 +13,7 @@ ul {
 
 ul li {  
     list-style: none;
+    text-align: center;
 }
 
 .containReplay {
@@ -20,3 +21,6 @@ ul li {
     width: 30%;
 }
 
+#listRandom {
+    font-size: 3em;
+}

@@ -2,7 +2,7 @@ import Dictaphone from "../../components/Dictaphone"
 import SpeechForm from "../../components/SpeechForm"
 import DragNDrop from "../../components/DragNDrop"
 import "./styles/style.css"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useSelector } from "react-redux"
 import { FaRegPlayCircle } from 'react-icons/fa'
 
