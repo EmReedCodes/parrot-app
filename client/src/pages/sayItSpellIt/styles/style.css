@@ -1,0 +1,25 @@
+#listRow {
+  color: red !important;
+  font-size: 3em;
+  border-bottom: 2px solid black;
+  width: 0.5em;
+}
+
+ul {
+  display: flex;
+  gap: 2em;
+}
+
+ul li {
+  list-style: none;
+  text-align: center;
+}
+
+.containReplay {
+  margin: 0 auto;
+  width: 30%;
+}
+
+#listRandom {
+  font-size: 3em;
+}/*# sourceMappingURL=style.css.map */

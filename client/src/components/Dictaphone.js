@@ -2,8 +2,14 @@ import { useState, useEffect } from "react"
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition"
 import { toast } from "react-toastify"
 
-const Dictaphone = props => {
-    const { word, setWord, finalWord, setFinalWord } = props
+const Dictaphone = (props) => {
+
+  //welllll I finally have the value stored in an array but how to get it to other components ?
+  //const [letterArray, setLetterArray] = useState([])
+
+  const { word, setWord, finalWord, setFinalWord } = props
+  
+
 
   const {
     // transcript,
@@ -14,34 +20,29 @@ const Dictaphone = props => {
     isMicrophoneAvailable
   } = useSpeechRecognition()
 //logic
-//do I need to slice the word here or would I do it within the drag and drop component?
-//need to lowercase spoken word
-//have 2 copies of word one to slice one to input to db
-//need to hold the letters that were sliced out of word in a new variable
-//access to alphabet so at random can also throw in incorrect letters with correct letters
-  //so exclude correct letters from randomization of alphabet letters
-//How to export const letters? Redux?
+//need to export sliced out letters below in const letters
+//I can get both values I need from the one function how to export both?
 
   useEffect(() => {
-
+    
     const calculateSlicedWord = () => {
    
      
       if (finalTranscript !== "") {
-        const letters = []
+        const letterArray = []
+        //const removeLetters = word.map(char => (Math.random() > 0.7 ? letterArray.push(char) && " " : char))
         const word = finalTranscript.split("")
-        const removeLetters = word.map(char => (Math.random() > 0.7 ? letters.push(char) && "_" : char))
-          console.log(removeLetters)
-          console.log(letters)
-          
-        return removeLetters 
+        const removeLetters = word.map(char => (Math.random() > 0.7 ?  " " : char))
+        console.log(removeLetters)
+        console.log(letterArray)
+        return removeLetters
       }
     }
-    
+
+   //set letterArray is not a function akejhfoidnhf
     setFinalWord(finalTranscript)
     setWord(calculateSlicedWord())
   }, [finalTranscript, setWord, setFinalWord])
-
 
 
 
@@ -57,11 +58,14 @@ const Dictaphone = props => {
 
   return (
     <div className="speech">
+      {!word &&
+        <>
+      <h3>Start by saying a word</h3>
       <p>Microphone: {listening ? "on" : "off"}</p>
-      <button onClick={resetTranscript}>Reset</button>
       <button onClick={SpeechRecognition.startListening}>Start</button>
-      <span>{word}</span>
-      <span>Missing letters: </span>
+        </>
+      }
+      <button onClick={resetTranscript}>Reset</button>
     </div>
   )
 }

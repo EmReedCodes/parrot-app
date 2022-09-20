@@ -10,10 +10,13 @@ import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 
 function App() {
+
+
   return (
     <>
       <main className="container">
         <Router>
+         
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />}></Route>
@@ -22,7 +25,8 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />}></Route>
             <Route path="/sayitspellit" element={<SayItSpellIt />}></Route>
           </Routes>
-          <ToastContainer />
+          
+          <ToastContainer autoClose={2000} />
         </Router>
       </main>
     </>
