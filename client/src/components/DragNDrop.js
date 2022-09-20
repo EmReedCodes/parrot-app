@@ -5,28 +5,6 @@ import { useEffect } from "react"
 const DragNDrop = props => {
   const { word, finalWord, randomChars, setRandomChars } = props
 
-  //     useEffect(() => {
-  //  //useeffect for the array alphabet
-  //         const createArrayOfLetters = (splitWord, fullWord) => {
-  //             let randomChars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-
-  //             const draggableChars = finalWord.split('').filter((item, idx) => item !== word[idx])
-  //             console.log(draggableChars)
-
-  //             while (draggableChars.length < 5) {
-  //                 const idx = Math.floor(Math.random() * 26)
-  //                 if (draggableChars.includes(randomChars[idx])) {
-  //                     continue
-  //                 } else {
-  //                     draggableChars.push(randomChars[idx])
-  //                 }
-  //             }
-  //             console.log(draggableChars)
-  //             return draggableChars
-  //         }
-  //        setRandomChars(createArrayOfLetters(word, finalWord))
-
-  //     }, [word, finalWord, setRandomChars ])
 
   useEffect(() => {
     const createArrayOfLetters = (splitWord, fullWord) => {
@@ -98,7 +76,7 @@ const DragNDrop = props => {
     return (
       <>
     
-        {[...randomChars].map((character, index) => {
+        {randomChars.map((character, index) => {
           return (
             <li key={index} id="listColumn">
               {character}

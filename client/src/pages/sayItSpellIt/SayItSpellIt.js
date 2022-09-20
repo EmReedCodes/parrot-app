@@ -18,7 +18,7 @@ const SayItSpellIt = (props) => {
   //finalWord complete word 
   const [finalWord, setFinalWord] = useState("")
 
-  const [randomChars, setRandomChars] = useState("")
+  const [randomChars, setRandomChars] = useState([])
 
 
 
