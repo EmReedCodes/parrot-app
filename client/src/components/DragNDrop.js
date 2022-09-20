@@ -47,7 +47,12 @@ const DragNDrop = props => {
         } else {
           draggableChars.push(randomChars[idx])
         }
-      }
+        }
+        
+        for (let i = draggableChars.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [draggableChars[i], draggableChars[j]] = [draggableChars[j], draggableChars[i]];
+        }
       console.log(draggableChars)
       return draggableChars
     }
