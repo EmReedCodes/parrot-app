@@ -18,7 +18,8 @@ const SayItSpellIt = (props) => {
   //finalWord complete word 
   const [finalWord, setFinalWord] = useState("")
 
-  
+  const [randomChars, setRandomChars] = useState("")
+
 
 
 //can check and confirm spoken word here
@@ -45,16 +46,17 @@ const SayItSpellIt = (props) => {
         <div className="containReplay">
           <button className='replay-btn' onClick={() => speechHandler(finalWord)}>Replay <FaRegPlayCircle />
           </button>
+
           </div>
-          <DragNDrop word={word} />
+        <DragNDrop word={word} finalWord={finalWord} randomChars={randomChars} setRandomChars={setRandomChars} />
         </>
       }
      
      
-      <Dictaphone word={word} setWord={setWord} finalWord={finalWord} setFinalWord={setFinalWord} />
+      <Dictaphone word={word} setWord={setWord} finalWord={finalWord} setFinalWord={setFinalWord}/>
   
       {finalWord && 
-        <SpeechForm word={word} setWord={setWord} finalWord={finalWord} setFinalWord={setFinalWord} />
+        <SpeechForm word={word} setWord={setWord} finalWord={finalWord} setFinalWord={setFinalWord}  />
       }
     </div>
   )

@@ -2,8 +2,14 @@ import { useState, useEffect } from "react"
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition"
 import { toast } from "react-toastify"
 
-const Dictaphone = props => {
-    const { word, setWord, finalWord, setFinalWord } = props
+const Dictaphone = (props) => {
+
+  //welllll I finally have the value stored in an array but how to get it to other components ?
+  //const [letterArray, setLetterArray] = useState([])
+
+  const { word, setWord, finalWord, setFinalWord } = props
+  
+
 
   const {
     // transcript,
@@ -18,25 +24,25 @@ const Dictaphone = props => {
 //I can get both values I need from the one function how to export both?
 
   useEffect(() => {
-
+    
     const calculateSlicedWord = () => {
    
      
       if (finalTranscript !== "") {
-        const letters = []
+        const letterArray = []
+        //const removeLetters = word.map(char => (Math.random() > 0.7 ? letterArray.push(char) && " " : char))
         const word = finalTranscript.split("")
-        const removeLetters = word.map(char => (Math.random() > 0.7 ? letters.push(char) && "_" : char))
-          console.log(removeLetters)
-          console.log(letters)
-          
-        return removeLetters 
+        const removeLetters = word.map(char => (Math.random() > 0.7 ?  " " : char))
+        console.log(removeLetters)
+        console.log(letterArray)
+        return removeLetters
       }
     }
-    
+
+   //set letterArray is not a function akejhfoidnhf
     setFinalWord(finalTranscript)
     setWord(calculateSlicedWord())
-  }, [finalTranscript, setWord, setFinalWord, resetTranscript])
-
+  }, [finalTranscript, setWord, setFinalWord])
 
 
 

@@ -1,6 +1,8 @@
 #listRow {
     color: red !important;
     font-size: 3em;
+    border-bottom: 2px solid black;
+    width: .5em;
 }
 
 ul {
@@ -9,9 +11,8 @@ ul {
     
 }
 
-ul li {
+ul li {  
     list-style: none;
-  
 }
 
 .containReplay {
