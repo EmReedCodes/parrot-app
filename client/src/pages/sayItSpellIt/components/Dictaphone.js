@@ -29,17 +29,14 @@ const Dictaphone = (props) => {
    
      
       if (finalTranscript !== "") {
-        const letterArray = []
-        //const removeLetters = word.map(char => (Math.random() > 0.7 ? letterArray.push(char) && " " : char))
         const word = finalTranscript.split("")
         const removeLetters = word.map(char => (Math.random() > 0.7 ?  " " : char))
         console.log(removeLetters)
-        console.log(letterArray)
         return removeLetters
       }
     }
 
-   //set letterArray is not a function akejhfoidnhf
+
     setFinalWord(finalTranscript)
     setWord(calculateSlicedWord())
   }, [finalTranscript, setWord, setFinalWord])
