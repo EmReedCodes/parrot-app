@@ -1,7 +1,5 @@
 //import Dictaphone from "./Dictaphone";
-import { DndContext } from '@dnd-kit/core'
-import { Draggable } from './draggable'
-import { Droppable } from './droppable'
+
 import { useState, useEffect } from "react"
 
 const DragNDrop = props => {
@@ -77,31 +75,31 @@ const DragNDrop = props => {
 
 
   
-  // const listItems = word.map((char, idx) => {
-  //   if (char === " ")
-  //     return (
-  //       <li key={idx} id="listRow">
-  //         {" "}
-  //       </li>
-  //     )
-  //   else
-  //     return (
-  //       <li key={idx} id="listRow">
-  //         {char}
-  //       </li>
-  //     )
-  // })
+  const listItems = word.map((char, idx) => {
+    if (char === " ")
+      return (
+        <li key={idx} id="listRow">
+          {" "}
+        </li>
+      )
+    else
+      return (
+        <li key={idx} id="listRow">
+          {char}
+        </li>
+      )
+  })
 
 
 
 
-  // const listRandomItems = randomChars.map((character, index) => {
-  //         return (
-  //           <li key={index} id="listRandom">
-  //             {character}
-  //           </li>
-  //         )
-  // })
+  const listRandomItems = randomChars.map((character, index) => {
+          return (
+            <li key={index} id="listRandom">
+              {character}
+            </li>
+          )
+  })
 
   //      
   // <ul>{listRandomItems}</ul>
@@ -116,39 +114,17 @@ const DragNDrop = props => {
   
 // }
 
-  const [parent, setParent] = useState(null);
   
 
-// const draggable = (
-//   randomChars.map((char, idx) => {
-//     return (
-    
-//         <li key={idx} id={idx}>
-//                {char}
-//              </li>
-
-//     )
-//   })
-// );
-  
-const draggable = (
-  <Draggable id="draggable">
-    Go ahead, drag me.
-  </Draggable>
-);
 
   return (
-    <DndContext onDragEnd={handleDragEnd}>
-    {!parent ? draggable : null}
-    <Droppable id="droppable">
-      {parent === "droppable" ? draggable : 'Drop here'}
-    </Droppable>
-  </DndContext>
-);
 
-function handleDragEnd({over}) {
-  setParent(over ? over.id : null);
-}
+      <div className="dnd">
+        <ul>{listRandomItems}</ul>
+        <ul>{listItems}</ul>
+      </div>
+
+  )
 }
 
 export default DragNDrop

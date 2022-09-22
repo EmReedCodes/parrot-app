@@ -8,7 +8,8 @@ const User = require('../models/UserModel')
 const saveWord = async (req, res) => {
     try {
         const word = await DictaphoneWord.create({
-            text: req.body.finalWord,
+            //if changing input variable need to change name here too
+            text: req.body.saidWord,
             //need id
             user: req.user.id,
         })
