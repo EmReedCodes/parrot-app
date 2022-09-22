@@ -59,11 +59,7 @@ const Dictaphone = () => {
      
         
     }
-   
-    //dispatch(register(authData))
-  
-    //   setFinalWord(finalTranscript)
-    //   setWord(calculateSlicedWord())
+ 
     dispatch(update({ saidWord }))
   
   }, [finalTranscript, saidWord, setSaidWord, dispatch])
@@ -78,9 +74,10 @@ const Dictaphone = () => {
     return toast.error("Microphone must be on")
   }
   //TODO: fix reset on dispatch
-  const resetWord = () => {
+  const resetWord = (remove) => {
     resetTranscript()
     //dont think its resetting
+    //TypeError: remove is not a function
     dispatch(remove({ saidWord }))
     
 }
@@ -97,7 +94,7 @@ const Dictaphone = () => {
       <button onClick={SpeechRecognition.startListening}>Start</button>
        </>
       }
-      <button onClick={() => resetWord()}>Reset</button>
+      <button onClick={() => resetWord(remove)}>Reset</button>
     </div>
   )
 }

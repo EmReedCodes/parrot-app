@@ -12,7 +12,8 @@ export const charSlice = createSlice({
   reducers: {
     update: (state, action) => {
       state.charsArr = action.payload.charsArr
-    },
+      },
+      
     
   },
 })

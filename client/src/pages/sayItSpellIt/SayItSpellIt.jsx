@@ -11,15 +11,7 @@ import { FaRegPlayCircle } from 'react-icons/fa'
 const SayItSpellIt = () => {
 
   const { user } = useSelector(state => state.auth)
-  const { saidWord, remove } = useSelector(state => state.word)
-
-
-//word is the sliced word
-  // const [word, setWord] = useState("")
-  // //finalWord complete word 
-  // const [finalWord, setFinalWord] = useState("")
-
-  // const [randomChars, setRandomChars] = useState([])
+  const { saidWord } = useSelector(state => state.word)
 
 
 
@@ -55,7 +47,7 @@ const SayItSpellIt = () => {
      
      
       <Dictaphone />
-
+  <DragNDrop />
         <SpeechForm />
    
     </div>
