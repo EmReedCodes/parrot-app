@@ -11,6 +11,8 @@ const Navbar = () => {
     dispatch(logout())
     dispatch(reset())
     return navigate("/")
+
+    
   }
   return (
     <nav>
