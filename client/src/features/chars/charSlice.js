@@ -3,14 +3,12 @@ import { createSlice } from '@reduxjs/toolkit'
 
 
 export const charSlice = createSlice({
-  name: "chars",
+  name: "char",
   initialState: {
       charsArr: [],
-      id: '',
-      blank: false,
   },
   reducers: {
-    update: (state, action) => {
+    add: (state, action) => {
       state.charsArr = action.payload.charsArr
       },
       
@@ -18,6 +16,6 @@ export const charSlice = createSlice({
   },
 })
 
-export const { update, remove } = charSlice.actions
+export const { add } = charSlice.actions
 
 export default charSlice.reducer

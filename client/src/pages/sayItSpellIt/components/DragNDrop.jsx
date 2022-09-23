@@ -1,12 +1,16 @@
-//import Dictaphone from "./Dictaphone";
-
 import { useState, useEffect } from "react"
+import { useSelector } from "react-redux"
 import Droppables from "./Droppables"
-const DragNDrop = (props) => {
-
-  //const { word, finalWord, randomChars, setRandomChars } = props
+import Draggables from "./Draggables"
 
 
+
+const DragNDrop = () => {
+
+
+  const { saidWord } = useSelector(state => state.word)
+
+ 
   // useEffect(() => {
   //   const createArrayOfLetters = (splitWord, fullWord) => {
   //     let randomChars = [
@@ -119,9 +123,13 @@ const DragNDrop = (props) => {
 
   return (
 
-      <div className="dnd">
-      <Droppables />
-      
+    <div className="dnd">
+       
+      <div className="gameContainer">
+        <Droppables />
+        <Draggables />
+      </div>
+  
       </div>
 
   )

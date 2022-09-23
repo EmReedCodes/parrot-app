@@ -33,10 +33,9 @@ const SayItSpellIt = () => {
     <div className="contain">
       <h1>Welcome {user.name}</h1>
       
-        
-      <span>Confirm correct word</span>
       {saidWord &&
         <div className="containReplay">
+          <span>Confirm correct word</span>
           <button className='replay-btn' onClick={() => speechHandler(saidWord)}>Replay <FaRegPlayCircle />
           </button>
 
@@ -44,11 +43,18 @@ const SayItSpellIt = () => {
       }
       
       
-     
-     
-      <Dictaphone />
-  <DragNDrop />
+     {!saidWord &&
+      <>
+          <Dictaphone />
+      </>
+      }
+      {saidWord &&
+        <>
+        <DragNDrop />
         <SpeechForm />
+        </>
+      }
+       
    
     </div>
   )

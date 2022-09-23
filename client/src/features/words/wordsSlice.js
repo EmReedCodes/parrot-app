@@ -12,10 +12,10 @@ export const wordSlice = createSlice({
   },
   reducers: {
     update: (state, action) => {
-      state.saidWord = action.payload.saidWord
+      state.saidWord = action.payload.saidWord;
     },
     remove: (state) => {
-      state = ''
+      state = null;
     },
   },
 })
