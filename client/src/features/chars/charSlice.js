@@ -5,7 +5,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const charSlice = createSlice({
   name: "char",
   initialState: {
-      charsArr: [],
+    charsArr: [],
   },
   reducers: {
     add: (state, action) => {
