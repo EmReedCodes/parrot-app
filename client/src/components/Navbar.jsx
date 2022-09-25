@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux"
-import { useNavigate, Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { logout, reset } from "../features/auth/authSlice"
 import BurgerMenu from "./BurgerSlide"
 import "./styles/style.css"
@@ -11,7 +11,7 @@ const Navbar = () => {
   const { user } = useSelector(state => state.auth)
 
   const onLogout = () => {
-    dispatch(logout())
+    dispatch(logout(user))
     dispatch(reset())
     return navigate("/")
 
@@ -31,8 +31,12 @@ const Navbar = () => {
       <nav>
           <BurgerMenu />
         <ul>
+        
           <li>
             <strong>Parrot</strong>
+          </li>
+          <li>
+          <button onClick={onLogout}>Logout</button>
           </li>
         </ul>
         </nav>

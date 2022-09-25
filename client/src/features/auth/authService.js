@@ -41,26 +41,26 @@ const logout = () => {
 //   })
 // }
 
-// const resetPassword = async (authData, token) => {
-//   const config = {
-//     headers: {
-//         Authorization: `Bearer ${token}`
-//     },
-// }
-//   const response = await axios.put(API_URL, authData, config)
-//   //when using axios it puts the response in data (the word)
-//   if (response.data) {
-//     console.log('reset')
-//   }
-//   return response.data
-// }
+const resetPassword = async (authData, token) => {
+  const config = {
+    headers: {
+        Authorization: `Bearer ${token}`
+    },
+}
+  const response = await axios.put(API_URL, authData, config)
+  //when using axios it puts the response in data (the word)
+  if (response.data) {
+    console.log('reset')
+  }
+  return response.data
+}
 
 //anything we create and want to export put inside here
 const authService = {
   register,
   login,
   logout,
-  //resetPassword
+  resetPassword
 }
 
 export default authService
