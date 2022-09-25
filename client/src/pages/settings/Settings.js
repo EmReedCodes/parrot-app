@@ -64,7 +64,7 @@ const Settings = () => {
     onSubmit={handleSubmit}
 >
     <div className="row">
-        <div className="input-field col s12">
+        <div>
             <input
     
                 onChange={handleChange}
@@ -76,7 +76,7 @@ const Settings = () => {
         </div>
     </div>
     <div className="row">
-        <div className="input-field col s12">
+        <div>
             <input
        
                 onChange={handleChange}
@@ -90,7 +90,7 @@ const Settings = () => {
         </div>
     </div>
     <div className="row">
-        <div className="col s12">
+        <div>
             <button
                 className="btn green"
                 disabled={isFormInvalid()}
