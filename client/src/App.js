@@ -9,26 +9,30 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 
+
 function App() {
 
 
   return (
     <>
-      <main className="container">
-        <Router>
-         
+
+            
+          <Router>
           <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/login" element={<Login />}></Route>
-            <Route path="/register" element={<Register />}></Route>
-            <Route path="/dashboard" element={<Dashboard />}></Route>
-            <Route path="/sayitspellit" element={<SayItSpellIt />}></Route>
-          </Routes>
-          
-          <ToastContainer autoClose={2000} />
-        </Router>
-      </main>
+          <main className="container">
+            <Routes>
+              <Route path="/" element={<Home />}></Route>
+              <Route path="/login" element={<Login />}></Route>
+              <Route path="/register" element={<Register />}></Route>
+              <Route path="/dashboard" element={<Dashboard />}></Route>
+              <Route path="/sayitspellit" element={<SayItSpellIt />}></Route>
+            </Routes>
+         
+            <ToastContainer autoClose={2000} />
+            </main>
+          </Router>
+              
+
     </>
   )
 }

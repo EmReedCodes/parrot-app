@@ -1,6 +1,9 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useNavigate, Link } from "react-router-dom"
 import { logout, reset } from "../features/auth/authSlice"
+import BurgerMenu from "./BurgerSlide"
+import "./styles/style.css"
+
 
 const Navbar = () => {
   const navigate = useNavigate()
@@ -11,26 +14,30 @@ const Navbar = () => {
     dispatch(logout())
     dispatch(reset())
     return navigate("/")
+
+    //   {user ? (
+  //     <li>
+  //     <button onClick={onLogout}>Logout</button>
+  //   </li>
+  // ) : (
+  //   <li>
+  //     <Link to="/login">Login</Link>
+  //   </li>
+  // )}
   }
   return (
-    <nav>
-      <ul>
-        {user ? (
+
+    <div className="nav-contain">
+      <nav>
+          <BurgerMenu />
+        <ul>
           <li>
-            <button onClick={onLogout}>Logout</button>
+            <strong>Parrot</strong>
           </li>
-        ) : (
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-        )}
-      </ul>
-      <ul>
-        <li>
-          <strong>Parrot</strong>
-        </li>
-      </ul>
-    </nav>
+        </ul>
+        </nav>
+    </div>
+    
   )
 }
 

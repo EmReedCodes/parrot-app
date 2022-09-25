@@ -55,6 +55,21 @@
 
 //====================
 // your pico overrides here
+// :root{
+// --nav-element-spacing-vertical: 1rem;
+// --nav-element-spacing-horizontal: 0.5rem;
+// --nav-link-spacing-vertical: 0.5rem;
+// --nav-link-spacing-horizontal: 0.5rem;
+// }
+
+// nav ol:first-of-type,
+// nav ul:first-of-type {
+//   margin-left: calc(var(--nav-element-spacing-horizontal) * -1);
+// }
+
+.nav-contain nav{
+  padding-right: 2em;
+}
 
 
 
