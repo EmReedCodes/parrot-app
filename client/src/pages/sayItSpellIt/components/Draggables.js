@@ -4,9 +4,9 @@ import { v4 as uuidv4 } from 'uuid';
 
 const Draggables = () => {
 
-    const { ...charsArr } = useSelector(state => state.char)
+    // const { ...charsArr } = useSelector(state => state.char)
 
-    console.log(...charsArr.charList.letter)
+    // console.log(...charsArr.charList.letter)
 
 
 

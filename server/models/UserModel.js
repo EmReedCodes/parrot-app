@@ -15,6 +15,10 @@ const UserSchema = new Schema({
     password: {
         type: String,
         required: [true, 'Please add name']
+    },
+    resetPassword: {
+        type: String,
+        default: ''
     }
 },
     { timestamps: true },

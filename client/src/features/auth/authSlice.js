@@ -5,6 +5,7 @@ import authService from './authService'
 
 //we need to get our token back to access those routes and save it to local storage
 //Get user from localStorage
+//so is user our token??
 const user = JSON.parse(localStorage.getItem('user'))
 
 const initialState = {
@@ -50,6 +51,38 @@ export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
 export const logout = createAsyncThunk('auth/logout', async () => {
     await authService.logout()
 })
+
+// export const resetPassword = createAsyncThunk('auth/resetPassword', async (user, thunkAPI) => {
+//     try {
+//        // const token = thunkAPI.getState().auth.user.token                    //what should be passed in do we need token or user?
+//         return await authService.resetPassword()
+//     } catch (error) {
+//         const message = (error.response &&
+//             error.response.data &&
+//             error.response.data.message)
+//             || error.message ||
+//             error.toString()
+//         return thunkAPI.rejectWithValue(message)
+//     }
+// })
+
+// export const resetPassword = createAsyncThunk(
+//     'auth/resetPassword',
+//     async (authData, thunkAPI) => {
+//       try {
+//         const token = thunkAPI.getState().auth.user.token
+//         return await authService.resetPassword(authData, token)
+//       } catch (error) {
+//         const message =
+//           (error.response &&
+//             error.response.data &&
+//             error.response.data.message) ||
+//           error.message ||
+//           error.toString()
+//         return thunkAPI.rejectWithValue(message)
+//       }
+//     }
+// )
     
 
 export const authSlice = createSlice({

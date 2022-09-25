@@ -580,6 +580,10 @@ body > footer {
 /**
 * Container
 */
+
+
+
+
 .container,
 .container-fluid {
   width: 100%;
@@ -588,6 +592,9 @@ body > footer {
   padding-right: var(--spacing);
   padding-left: var(--spacing);
 }
+
+
+
 
 @media (min-width: 576px) {
   .container {
@@ -2100,6 +2107,9 @@ nav ul {
   padding: 0;
   list-style: none;
 }
+
+
+
 nav ol:first-of-type,
 nav ul:first-of-type {
   margin-left: calc(var(--nav-element-spacing-horizontal) * -1);
@@ -2108,6 +2118,8 @@ nav ol:last-of-type,
 nav ul:last-of-type {
   margin-right: calc(var(--nav-element-spacing-horizontal) * -1);
 }
+
+/* nav spacing */
 nav li {
   display: inline-block;
   margin: 0;
