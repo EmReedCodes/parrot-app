@@ -1,6 +1,5 @@
-
-import { useSelector,useDispatch } from "react-redux"
-import { createSpeechWord } from "../features/speech/speechSlice"
+import { useSelector, useDispatch } from "react-redux"
+import { createWordForBank } from "../../../features/bankWord/bankWordSlice"
 //import { wordReducer } from ''
 function SpeechForm(props) {
   //finalWord is now being sent to db as req.body.finalWord
@@ -12,14 +11,13 @@ function SpeechForm(props) {
   const onSubmit = e => {
     e.preventDefault()
 
-     dispatch(createSpeechWord({ saidWord }))
+    dispatch(createWordForBank({ saidWord }))
     // dispatch()
-   console.log(saidWord)
+    console.log(saidWord)
   }
 
   return (
     <>
-      
       <button onClick={e => onSubmit(e)}>Save</button>
     </>
   )

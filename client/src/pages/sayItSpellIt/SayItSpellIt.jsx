@@ -1,5 +1,5 @@
 import Dictaphone from "./components/Dictaphone"
-import SpeechForm from "../../components/SpeechForm"
+import SpeechForm from "./components/SpeechForm"
 import DragNDrop from "./components/DragNDrop"
 import "./styles/style.css"
 import { useState } from "react"

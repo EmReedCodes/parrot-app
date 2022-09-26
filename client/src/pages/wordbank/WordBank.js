@@ -1,9 +1,41 @@
-import { useSynthesize, SayButton } from 'react-say'
+//import { useSynthesize, SayButton } from 'react-say'
+import WordForm from './components/WordForm'
+import WordList from './components/WordList'
+import { getWordsForList } from '../../features/bankWord/bankWordSlice'
+import { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
+
+
+//text is the model input for the words
 const WordBank = () => {
+
+    
+  const dispatch = useDispatch()
+  
+  const { user } = useSelector((state) => state.auth)
+  const { wordBank } = useSelector((state) => state.wordBank)
+  console.log(wordBank)
+      
+      useEffect(() => {
+        if (user) {
+            console.log('am here')
+              dispatch(getWordsForList())
+          }
+      
+        }, [user, dispatch])
+  
     return ( 
-        <h1>Welcome To Your Bank</h1>
-     );
+    <>
+        <div className="contain">
+            <h1>Welcome To Your Bank</h1>
+        
+          <WordForm />
+          <WordList wordBank ={wordBank} />
+     
+        </div>
+    </>
+    );
 }
  
 export default WordBank;
