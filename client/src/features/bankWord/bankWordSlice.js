@@ -1,7 +1,7 @@
 //notice how there is no jsx on this file yet I can use redux
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import bankWordService from "./bankWordService"
-import { useDispatch } from "react-redux"
+
 //need to rename bankWordSlice and bankWordService
 
 const initialState = {
@@ -34,7 +34,7 @@ export const getWordsForList = createAsyncThunk("word/getWords", async (_, thunk
     //getting the token for my protected route
 
     const token = thunkAPI.getState().auth.user.token
-    console.log(token, 'also this token')
+
     return await bankWordService.getBankWords(token)
   } catch (error) {
     const message =
@@ -59,7 +59,7 @@ export const deleteWordForList = createAsyncThunk("word/delete", async (bankData
 })
 
 export const bankWordSlice = createSlice({
-  //notice I've named this differently from state 'speech'
+ 
   name: "wordBank",
   initialState,
   reducers: {

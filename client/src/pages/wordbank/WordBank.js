@@ -1,10 +1,11 @@
 //import { useSynthesize, SayButton } from 'react-say'
 import WordForm from './components/WordForm'
 import WordList from './components/WordList'
+import RepeatWord from './components/RepeatWord'
 import { getWordsForList } from '../../features/bankWord/bankWordSlice'
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-
+import './styles/style.css'
 
 
 //text is the model input for the words
@@ -29,7 +30,7 @@ const WordBank = () => {
     <>
         <div className="contain">
             <h1>Welcome To Your Bank</h1>
-        
+        <RepeatWord wordBank={wordBank}/>
           <WordForm />
           <WordList wordBank ={wordBank} />
      

@@ -77,7 +77,7 @@ const Droppables = () => {
         <div className="contain">
             <>
             {listItems &&
-            <ul>
+            <ul className="dropList">
                 {listItems}
             </ul>
                 }
