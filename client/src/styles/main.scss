@@ -24,34 +24,35 @@
 // colors
 
   // primary
-  $primary-50 : #ffe2c9;
-  $primary-100: #ffc3af;
-  $primary-200: #e5a28f;
-  $primary-300: #c8816c;
-  $primary-400: #b36752;
-  $primary-500: #9c4e38;
-  $primary-600: #904532;
-  $primary-700: #7f3829;
-  $primary-800: #6f2b23;
-  $primary-900: #5e1c1a;
+  $primary-50 : #e2f6fb;
+  $primary-100: #b5e8f5;
+  $primary-200: #86d8ef;
+  $primary-300: #5ac9e9;
+  $primary-400: #3abde7;
+  $primary-500: #1cb1e5;
+  $primary-600: #12a3d7;
+  $primary-700: #0090c4;
+  $primary-800: #017fb1;
+  $primary-900: #005f90;
 
   // secondary
-  // $secondary-50 : #ffe2c9;
-  // $secondary-100: #ffc3af;
-  // $secondary-200: #e5a28f;
-  // $secondary-300: #c8816c;
-  // $secondary-400: #b36752;
-  // $secondary-500: #9c4e38;
-  // $secondary-600: #904532;
-  // $secondary-700: #7f3829;
-  // $secondary-800: #6f2b23;
-  // $secondary-900: #5e1c1a;
+  $secondary-50 : #fcf1e0;
+  $secondary-100: #f8dcb2;
+  $secondary-200: #f3c681;
+  $secondary-300: #eeaf50;
+  $secondary-400: #eb9e2e;
+  $secondary-500: #e88e10;
+  $secondary-600: #e5830e;
+  $secondary-700: #df750b;
+  $secondary-800: #d86607;
+  $secondary-900: #cf4c02;
 
+ 
 //====================
 // microcss
 
-@import './_microcss-run';
-
+//@import './_microcss-run.scss';
+ @import './microcss/_run';
 
 //====================
 // your pico overrides here
@@ -67,11 +68,9 @@
 //   margin-left: calc(var(--nav-element-spacing-horizontal) * -1);
 // }
 
-.nav-contain nav{
-  padding-right: 2em;
-}
-
-
+// .nav-contain nav{
+//   padding-right: 6em;
+// }
 
 
 //
@@ -79,20 +78,25 @@
 //====================
 // picocss
 
-@import "../pico-master/scss/pico.scss";
+//@import "../pico-master/scss/pico.scss";
+@import "../../node_modules/@picocss/pico/scss/pico.scss";
 
 // Dark theme (Auto)
 // Automatically enabled if user has Dark mode enabled
-@import "docs/dark";
-@media only screen and (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    @include dark;
-  }
-}
 
-.replay-btn {
-  width: 50%;
-}
+
+
 //====================
 // your scss here
 
+//testing if connected
+
+.containLogo {
+margin-bottom: var(--typography-spacing-vertical);
+ // height: 50%;  
+}
+
+.parrotLogo {
+  display: block;
+  margin: auto;
+}

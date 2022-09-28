@@ -11,7 +11,7 @@ const RepeatWord = ({ wordBank }) => {
     //need new button
     //need slider
     const [ourText, setOurText] = useState("")
-    const [range, setRange] = useState("")
+    const [range, setRange] = useState("0.6")
     //const msg = new SpeechSynthesisUtterance()
    
     // useEffect(() => {
@@ -76,11 +76,11 @@ const RepeatWord = ({ wordBank }) => {
                 type="range"
                 min="0.2"
                 max="1"
-                defaultValue="0.6"
+                defaultValue="0.8"
                 step="0.2"
                 className="slider"
                 id="SpeachRateSlider"
-                    onChange={(e) => setRange(e.target.value)}
+                onChange={(e) => setRange(e.target.value)}
                   
               />
               </div>

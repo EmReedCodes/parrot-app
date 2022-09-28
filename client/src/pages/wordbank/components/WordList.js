@@ -3,7 +3,7 @@
 
 const WordList = ({ wordBank }) => {
 
-
+//maybe put list in local storage so it doesnt change on refresh
 
   return (
       <ul className="wordsList">
