@@ -60,4 +60,3 @@
 
 Emily Reed- Emilyreed89@gmail.com
 
-Project Link: [https://github.com/emreedcodes/tts-3-app](https://github.com/emreedcodes/tts-3-app)
