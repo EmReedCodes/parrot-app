@@ -38,7 +38,7 @@ const getWords = async (req, res) => {
 }
 
 //@desc Set word
-//@route POST /api/word/save
+//@route POST /api/word/
 //@access private
 const saveWord = async (req, res) => {
     try {
@@ -59,10 +59,14 @@ const saveWord = async (req, res) => {
 
 
 //@desc Set word
-//@route DELETE /api/word/delete
+//@route DELETE /api/word/:_id
 //@access private
+//id from collection
 const deleteWord = async (req, res) => {
     try {
+        console.log(req.params._id)
+        console.log(req.user._id)
+        const word = await DictaphoneWord.findOneAndDelete({ _id: req.params._id })
        
         console.log('Deleted Todo')
         res.json('Deleted It')

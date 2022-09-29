@@ -37,15 +37,16 @@ const getBankWords = async (token) => {
 }
 
 // Delete word from list
-const deleteBankWord = async (Id, token) => {
+const deleteBankWord = async (_id, token) => {
+  console.log(_id)
   const config = {
     headers: {
       Authorization: `Bearer ${token}`
     }
   }
 
-  const response = await axios.delete(API_URL + Id, config)
-
+  const response = await axios.delete(API_URL + _id, config)
+  console.log(response)
   return response.data
 }
 

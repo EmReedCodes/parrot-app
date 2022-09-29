@@ -20,7 +20,9 @@ function App() {
 
             
           <Router>
-          <Navbar />
+     
+            <Navbar />
+      
           <main className="container">
             <Routes>
               <Route path="/" element={<Home />}></Route>
@@ -33,9 +35,10 @@ function App() {
             </Routes>
          
             <ToastContainer autoClose={2000} />
-            </main>
+        </main>
+     
           </Router>
-              
+       
 
     </>
   )

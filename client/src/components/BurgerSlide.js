@@ -23,11 +23,15 @@ export default function Sidebar() {
        
        <div className="containToggle">
          <ToggleSwitch />
-       </div>
-      <a id="home" className="menu-item" href="/dashboard">
-        Dashboard
+      </div>
+      {user ? 
+        <a id="dashboard" className="menu-item" href="/dashboard">
+          Dashboard
+        </a> :
+        <a id="home" className="menu-item" href="/home">
+        Home
       </a>
-      
+      }
       <a id="settings" className="menu-item" href="/settings">
         Settings
           </a>

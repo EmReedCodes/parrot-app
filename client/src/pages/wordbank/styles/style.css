@@ -1,20 +1,44 @@
-.customSlider {
-  /* max width of your slider */
-  max-width: 300px;
-  /* Optional: Only If you want to center your slider in the page */
-  margin: auto;
+.wordsList li {
+  text-align: left;
 }
 
-.customSlider-track {
-  /* Top value to align your track to the center of your thumb */
-  top: 8px;
-  /* thickness of the track */
-  height: 4px;
-  /* default color of your track */
-  background: var(--track-color);
+.slider[type=range] {
+  -webkit-appearance: none;
+  padding: 0.5rem 0;
+  background: #1cb1e5;
+  display: block;
+}
+.slider[type=range].contrast::-webkit-slider-runnable-track {
+  background: #f29425 !important;
+}
+.slider[type=range].contrast::-webkit-slider-thumb {
+  background: #f29425 !important;
+}
+.slider[type=range]::-webkit-slider-runnable-track {
+  cursor: pointer;
+  height: 0.75rem;
+  width: 100%;
+  background: #3cbce9;
+  border-radius: 999px;
+}
+.slider[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-top: calc((-1.5rem / 2) + (0.75rem / 2));
+  border-radius: 50%;
+  background: #3cbce9;
+  cursor: pointer;
+}
+.slider[type=range]:hover::-webkit-slider-thumb {
+  height: 1.75rem;
+  width: 1.75rem;
+  margin-top: calc((-1.75rem / 2) + (0.75rem / 2));
 }
 
-.customSlider-track.customSlider-track-0 {
-  /* color of the track before the thumb */
-  background: var(--main-color);
+.range-output {
+  display: flex;
+}
+.range-output .speed {
+  color: #f29425;
 }/*# sourceMappingURL=style.css.map */

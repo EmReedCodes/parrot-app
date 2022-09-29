@@ -136,40 +136,40 @@ const loginUser = asyncHandler(async (req, res) => {
 // //@route GET /api/user/self
 // //access private
   //do i need to generate new token for this??
-  const updatePassword = asyncHandler(async (req, res) => {
-    //need body data when we request this info
-    const { token, password } = req.body
+//   const updatePassword = asyncHandler(async (req, res) => {
+//     //need body data when we request this info
+//     const { token, password } = req.body
 
-    if(!password) {
-        res.status(400)
-        throw new Error('Please add all fields')
-      }
-    //need to send over token or id to confirm its user?
+//     if(!password) {
+//         res.status(400)
+//         throw new Error('Please add all fields')
+//       }
+//     //need to send over token or id to confirm its user?
     
-    //check if user ?
+//     //check if user ?
    
-// hash the password upon update
-    //hash password
-    const salt = await bcrypt.genSalt(10)
-    //now that we have salt we cant hash pw
-    const hashedPassword = await bcrypt.hash(password, salt)
+// // hash the password upon update
+//     //hash password
+//     const salt = await bcrypt.genSalt(10)
+//     //now that we have salt we cant hash pw
+//     const hashedPassword = await bcrypt.hash(password, salt)
 
-    //create user
+//     //create user
 
-  //might need to send ID later
-  if (user) {
-        console.log(user)
-        res.status(201).json({
-            _id: user.id,
-            name: user.name,
-          token: generateToken(user._id)
-      })
-    } else {
-      res.status(400)
-      throw new Error('Invalid user data')
-    }
+//   //might need to send ID later
+//   if (user) {
+//         console.log(user)
+//         res.status(201).json({
+//             _id: user.id,
+//             name: user.name,
+//           token: generateToken(user._id)
+//       })
+//     } else {
+//       res.status(400)
+//       throw new Error('Invalid user data')
+//     }
 
-})
+// })
   
 
 //@desc register user data
@@ -193,6 +193,6 @@ module.exports = {
     registerUser,
     loginUser,
     getSelf,
-    updatePassword
+    //updatePassword
 }
 

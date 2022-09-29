@@ -120,11 +120,11 @@
 
 .toggle-switch input[type=checkbox]:checked + .switch::before {
   transform: translateX(25px);
-  background-color: #6699cc;
+  background-color: #5ac9e9;
 }
 
 .toggle-switch input[type=checkbox]:checked + .switch {
-  background-color: #336699;
+  background-color: #052738;
 }
 
 .containToggle {

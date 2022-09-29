@@ -8,7 +8,7 @@ const { protect } = require('../middleware/authMiddleware')
 //registerUser is /api/word
 router.get('/', protect, wordController.getWords)
 router.post('/', protect, wordController.saveWord)
-router.delete('/', protect, wordController.deleteWord)
+router.delete('/:_id', protect, wordController.deleteWord)
 
 
 module.exports = router

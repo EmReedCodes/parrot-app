@@ -1,9 +1,9 @@
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 // import { useTts } from 'tts-react'
 // import { TTSHookProps } from 'tts-react'
 import { FaRegPlayCircle } from 'react-icons/fa'
-import ReactSlider from 'react-slider'
+
 
 
 const RepeatWord = ({ wordBank }) => {
@@ -12,35 +12,11 @@ const RepeatWord = ({ wordBank }) => {
     //need slider
     const [ourText, setOurText] = useState("")
     const [range, setRange] = useState("0.6")
-    //const msg = new SpeechSynthesisUtterance()
-   
-    // useEffect(() => {
-    //     const randomizeList = () => {
-    //         // const listArr = wordBank.text.values()
-    //         const index = Math.floor(Math.random() * wordBank.length)
-    //         let speakWord = wordBank[index].text
-    //         console.log(speakWord)
-    //     }
-    //     setOurText(randomizeList())
-    // }, [wordBank])
-    //{wordBank.map((item, idx) => {
-        // return (
-        //     <li key={item._id}>
-        //       {item.text}
-        //       </li>
-        //   )
+  
     if(ourText) {
         localStorage.setItem('word', ourText)
     }
     
-        // const randomizeList = () => {
-        //     // const listArr = wordBank.text.values()
-        //     if (wordBank) {
-        //         const index = Math.floor(Math.random() * wordBank.length)
-        //         let speakWord = wordBank[index].text
-        //         setOurText(speakWord)
-        //     }
-        // }
     
      
         const randomizeList = () => {
@@ -78,7 +54,7 @@ const RepeatWord = ({ wordBank }) => {
                 max="1"
                 defaultValue="0.8"
                 step="0.2"
-                className="slider"
+                className="customSlider"
                 id="SpeachRateSlider"
                 onChange={(e) => setRange(e.target.value)}
                   

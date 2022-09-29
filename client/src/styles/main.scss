@@ -55,6 +55,10 @@
  @import './microcss/_run';
 
 //====================
+
+// your pico overrides here
+
+
 // your pico overrides here
 // :root{
 // --nav-element-spacing-vertical: 1rem;
@@ -78,18 +82,12 @@
 //====================
 // picocss
 
-//@import "../pico-master/scss/pico.scss";
 @import "../../node_modules/@picocss/pico/scss/pico.scss";
-
-// Dark theme (Auto)
-// Automatically enabled if user has Dark mode enabled
-
 
 
 //====================
 // your scss here
 
-//testing if connected
 
 .containLogo {
 margin-bottom: var(--typography-spacing-vertical);
@@ -99,4 +97,23 @@ margin-bottom: var(--typography-spacing-vertical);
 .parrotLogo {
   display: block;
   margin: auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+.vector-bg-top {
+  width: 100%;
+  height: 120px;
+  top: 0;
+  background-color: #12a3d7;;
+}
+
+.vector-bg-btm {
+  width: 100%;
+  height: 120px;
+  position: absolute;
+  bottom: 0;
+  background-color: #12a3d7;;
 }

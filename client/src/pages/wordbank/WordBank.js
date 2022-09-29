@@ -7,7 +7,6 @@ import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import './styles/style.css'
 
-
 //text is the model input for the words
 const WordBank = () => {
 
@@ -29,7 +28,7 @@ const WordBank = () => {
     return ( 
     <>
         <div className="contain">
-            <h1>Welcome To Your Bank</h1>
+            <h1>Word Bank</h1>
         <RepeatWord wordBank={wordBank}/>
           <WordForm />
           <WordList wordBank ={wordBank} />

@@ -45,10 +45,13 @@ export const getWordsForList = createAsyncThunk("word/getWords", async (_, thunk
   }
 })
 
-export const deleteWordForList = createAsyncThunk("word/delete", async (bankData, thunkAPI) => {
+export const deleteWordForList = createAsyncThunk("word/delete", async (_id, thunkAPI) => {
   try {
     const token = thunkAPI.getState().auth.user.token
-    return await bankWordService.deleteBankWord(bankData, token)
+    console.log(_id, '._id')
+    //console.log(id, 'id')
+    return await bankWordService.deleteBankWord(_id, token)
+  
   } catch (error) {
     const message =
       (error.response && error.response.data && error.response.data.message) ||
@@ -93,6 +96,21 @@ export const bankWordSlice = createSlice({
         state.wordBank = action.payload
       })
       .addCase(getWordsForList.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
+      .addCase(deleteWordForList.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(deleteWordForList.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.wordBank = state.wordBank.filter(
+          (goal) => goal._id !== action.payload._id
+        )
+      })
+      .addCase(deleteWordForList.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
