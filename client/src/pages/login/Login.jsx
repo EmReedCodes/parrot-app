@@ -88,9 +88,11 @@ const Login = () => {
             </button>
           </div>
         </form>
-        <Link to="/register">
-          <span>Register here</span>
-        </Link>
+        <span>Don't have an account?
+          <Link to="/register">
+            <span> Register </span>
+          </Link>
+          </span>
       </section>
     </>
   )

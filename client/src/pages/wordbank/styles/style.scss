@@ -1,0 +1,155 @@
+@import "../../../styles/microcss/_run";
+
+$bg: #1cb1e5;
+$bg-light: lighten($bg, 7%);
+$bg-dark: darken($bg, 7%);
+$contrast: #e5830e;
+$contrast-light: lighten($contrast, 7%);
+$contrast-dark: darken($contrast, 7%);
+
+
+/*  animate
+ *  ─────────────────────────────────── */
+
+
+ @mixin animate-slow {
+  transition: all 0.45s ease-in-out;
+}
+@mixin animate {
+  transition: all 0.25s ease-in-out;
+}
+@mixin animate-fast {
+  transition: all 0.15s ease-in-out;
+}
+
+
+
+/*  MDL shadows
+ *  ─────────────────────────────────── */
+
+// $shadow-none        : inset 0 0 0 rgba(0,0,0,0),          inset 0 0 0 rgba(0,0,0,0),          0 0 0 rgba(0,0,0,0),          0 0 0 rgba(0,0,0,0);
+
+// $shadow-border      : inset 0 0 0 rgba(10,10,10,.1),      0 0 0 0 rgba(10,10,10,.1),          0 2px 3px rgba(10,10,10,.1),  0 0 0 1px rgba(10,10,10,.1);
+// $shadow-1           : inset 0 0 0 rgba(0,0,0,0.12),       inset 0 0 0 rgba(0,0,0,0.24),       0 1px 3px rgba(0,0,0,0.12),   0 1px 2px rgba(0,0,0,0.24);
+// $shadow-2           : inset 0 0 0 rgba(0,0,0,0.16),       inset 0 0 0 rgba(0,0,0,0.23),       0 3px 6px rgba(0,0,0,0.16),   0 3px 6px rgba(0,0,0,0.23);
+// $shadow-3           : inset 0 0 0 rgba(0,0,0,0.19),       inset 0 0 0 rgba(0,0,0,0.23),       0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+// $shadow-4           : inset 0 0 0 rgba(0,0,0,0.25),       inset 0 0 0 rgba(0,0,0,0.22),       0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+// $shadow-5           : inset 0 0 0 rgba(0,0,0,0.30),       inset 0 0 0 rgba(0,0,0,0.22),       0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+
+// $inset-shadow-border: inset 0 2px 3px rgba(10,10,10,.1),  inset 0 0 0 1px rgba(10,10,10,.1),  0 0 0 rgba(10,10,10,.1),      0 0 0 0 rgba(10,10,10,.1);
+// $inset-shadow-1     : inset 0 1px 3px rgba(0,0,0,0.12),   inset 0 1px 2px rgba(0,0,0,0.24),   0 0 0 rgba(0,0,0,0.12),       0 0 0 rgba(0,0,0,0.24);
+// $inset-shadow-2     : inset 0 3px 6px rgba(0,0,0,0.16),   inset 0 3px 6px rgba(0,0,0,0.23),   0 0 0 rgba(0,0,0,0.16),       0 0 0 rgba(0,0,0,0.23);
+// $inset-shadow-3     : inset 0 10px 20px rgba(0,0,0,0.19), inset 0 6px 6px rgba(0,0,0,0.23),   0 0 0 rgba(0,0,0,0.19),       0 0 0 rgba(0,0,0,0.23);
+// $inset-shadow-4     : inset 0 14px 28px rgba(0,0,0,0.25), inset 0 10px 10px rgba(0,0,0,0.22), 0 0 0 rgba(0,0,0,0.25),       0 0 0 rgba(0,0,0,0.22);
+// $inset-shadow-5     : inset 0 19px 38px rgba(0,0,0,0.30), inset 0 15px 12px rgba(0,0,0,0.22), 0 0 0 rgba(0,0,0,0.30),       0 0 0 rgba(0,0,0,0.22);
+
+// :root {
+// --shadow-none: $shadow-none; 
+
+// --shadow-border: #{$shadow-border};
+// --shadow-1     : #{$shadow-1};
+// --shadow-2     : #{$shadow-2};
+// --shadow-3     : #{$shadow-3};
+// --shadow-4     : #{$shadow-4};
+// --shadow-5     : #{$shadow-5};
+
+// --inset-shadow-border: #{$inset-shadow-border};
+// --inset-shadow-1     : #{$inset-shadow-1};
+// --inset-shadow-2     : #{$inset-shadow-2};
+// --inset-shadow-3     : #{$inset-shadow-3};
+// --inset-shadow-4     : #{$inset-shadow-4};
+// --inset-shadow-5     : #{$inset-shadow-5};
+// }
+
+
+.customSlider {
+    /* max width of your slider */
+    max-width: 300px;
+    /* Optional: Only If you want to center your slider in the page */
+    margin: auto;
+  }
+
+  .customSlider-track {
+    /* Top value to align your track to the center of your thumb */
+    top: 8px;
+    /* thickness of the track */
+    height: 4px;
+   /* default color of your track */
+    background: var(--track-color);
+  }
+  
+  .customSlider-track.customSlider-track-0 {
+    /* color of the track before the thumb */
+    background: var(--main-color);
+  }
+
+  .wordsList li{
+    text-align: left;
+  }
+
+  // tts slider
+
+  // .slider[type="range"] {
+  //   -webkit-appearance: none;
+  //   $track-thickness: 0.75rem;
+  //   padding: 0.5rem 0;
+  //   background: $bg;
+  //   display: block;
+  
+  //   $track-bg: $bg-light;
+  //   $thumb-bg: $bg-light;
+  
+  //   &.contrast{
+  //     &::-webkit-slider-runnable-track {
+  //       background: $contrast-light !important;
+  //     }
+  //     &::-webkit-slider-thumb {
+  //       background: $contrast-light !important;
+  //     }
+  //   }
+  
+  //   &::-webkit-slider-runnable-track {
+  //     cursor: pointer;
+  //     height: $track-thickness;
+  //     width: 100%;
+  //     background: $track-bg;
+  //     @include animate;
+  //     border-radius: 999px;
+  //   }
+  
+  
+  //   &::-webkit-slider-thumb {
+  //     -webkit-appearance: none;
+  //     $size: 1.5rem;
+  //     height: $size;
+  //     width: $size;
+  //     margin-top: calc((-#{$size} / 2) + (#{$track-thickness} / 2));
+  //     border-radius: 50%;
+  //     background: $thumb-bg;
+  //     cursor: pointer;
+  
+  //   //  box-shadow: $shadow-border;
+  
+  //     @include animate;
+  //   }
+  
+  //   &:hover {
+  //     &::-webkit-slider-runnable-track {
+  //       box-shadow: $shadow-1;
+  //     }
+  //     &::-webkit-slider-thumb {
+  //       $size: 1.75rem;
+  //       height: $size;
+  //       width: $size;
+  //       margin-top: calc((-#{$size} / 2) + (#{$track-thickness} / 2));
+  //        background: $bg-dark;
+  //       box-shadow: $shadow-3;
+  //     }
+  //   }
+  // }
+  // .range-output {
+  //   display: flex;
+  //   .speed {
+  //     color: $contrast-light
+  //   }
+  // }

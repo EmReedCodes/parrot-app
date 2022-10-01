@@ -118,7 +118,7 @@ const Register = () => {
           </div>
         </form>
         <span>
-          Already have an account?<Link to="/login">Login here</Link>
+          Already have an account?<Link to="/login"> Login </Link>
         </span>
       </section>
     </>

@@ -1,19 +1,10 @@
-import { useSelector, useDispatch } from "react-redux"
-import { useNavigate, Link } from "react-router-dom"
-import { logout, reset } from "../features/auth/authSlice"
+
 import BurgerMenu from "./BurgerSlide"
-import "./styles/style.css"
+//import "./styles/style.css"
 
 
 const Navbar = () => {
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
-  const { user } = useSelector(state => state.auth)
 
-  const onLogout = () => {
-    dispatch(logout())
-    dispatch(reset())
-    return navigate("/")
 
     //   {user ? (
   //     <li>
@@ -24,16 +15,38 @@ const Navbar = () => {
   //     <Link to="/login">Login</Link>
   //   </li>
   // )}
-  }
+    //    <li>
+    // <button onClick={onLogout}>Logout</button>
+    // </li>
+  //}
+  // function toggleTheme(e) {
+  //     // state = this.target.value
+  //   let check = e.target.checked
+  //   console.log(check)
+
+  //   let root = document.querySelector('html')
+  //   if (check) {
+  //     root.setAttribute("data-theme", 'dark')
+  //   } else {
+  //     root.setAttribute("data-theme", 'light')
+  //   }
+  // }
+//document.querySelector('html').setAttribute('data-theme', e.target.checked ? 'dark' : 'light')
+//<input type="checkbox" id="theme" name="theme"
+//onClick={toggleTheme} />
   return (
 
     <div className="nav-contain">
       <nav>
-          <BurgerMenu />
+        
+      <BurgerMenu />
         <ul>
-          <li>
+         
+          
+          <li className="nav-logo">
             <strong>Parrot</strong>
           </li>
+      
         </ul>
         </nav>
     </div>

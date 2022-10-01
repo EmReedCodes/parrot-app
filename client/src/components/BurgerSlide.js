@@ -1,13 +1,45 @@
-import { slide as Menu } from "react-burger-menu";
+import { slide as Menu } from "react-burger-menu"
+import { useSelector, useDispatch } from "react-redux"
+import { useNavigate } from "react-router-dom"
+import { logout, reset } from "../features/auth/authSlice"
+import ToggleSwitch from "./ToggleSwitch"
 
 export default function Sidebar() {
-   return(
-      
-                    <Menu>
-                        <a id="home" className="menu-item" href="/">Home</a>
-                        <a id="about" className="menu-item" href="/about">About</a>
-                        <a id="contact" className="menu-item" href="/contact">Contact</a>
-                        <a id="settings" className="menu-item" href="/settings">Settings</a>
-                    </Menu>
-   )
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const { user } = useSelector(state => state.auth)
+
+  const onLogout = () => {
+    dispatch(logout(user))
+    dispatch(reset())
+    return navigate("/")
+  }
+
+
+       //   <li onclick="toggleLightDark()"><a href="#"><span class="theme"></span> theme</a></li>
+  //<Link id="Logout" className="menu-item" to="/login">Login here</Link>
+  return (
+    <Menu>
+       
+       <div className="containToggle">
+         <ToggleSwitch />
+      </div>
+      {user ? 
+        <a id="dashboard" className="menu-item" href="/dashboard">
+          Dashboard
+        </a> :
+        <a id="home" className="menu-item" href="/home">
+        Home
+      </a>
+      }
+      <a id="settings" className="menu-item" href="/settings">
+        Settings
+          </a>
+          <a id="contact" className="menu-item" href="/contact">
+        Contact
+      </a>
+      <button onClick={onLogout}>Logout</button>
+   
+    </Menu>
+  )
 }

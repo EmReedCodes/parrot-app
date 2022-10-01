@@ -1,4 +1,302 @@
 @charset "UTF-8";
+.prim-50 {
+  background: #e2f6fb;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.text-prim-50 {
+  color: #e2f6fb;
+}
+
+root {
+  --prim-50: #e2f6fb;
+  --prim-50-inverse: rgba(0, 0, 0, 0.7);
+}
+
+.prim-100 {
+  background: #b5e8f5;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.text-prim-100 {
+  color: #b5e8f5;
+}
+
+root {
+  --prim-100: #b5e8f5;
+  --prim-100-inverse: rgba(0, 0, 0, 0.7);
+}
+
+.prim-200 {
+  background: #86d8ef;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.text-prim-200 {
+  color: #86d8ef;
+}
+
+root {
+  --prim-200: #86d8ef;
+  --prim-200-inverse: rgba(0, 0, 0, 0.7);
+}
+
+.prim-300 {
+  background: #5ac9e9;
+  color: #fff;
+}
+
+.text-prim-300 {
+  color: #5ac9e9;
+}
+
+root {
+  --prim-300: #5ac9e9;
+  --prim-300-inverse: #fff;
+}
+
+.prim-400 {
+  background: #3abde7;
+  color: #fff;
+}
+
+.text-prim-400 {
+  color: #3abde7;
+}
+
+root {
+  --prim-400: #3abde7;
+  --prim-400-inverse: #fff;
+}
+
+.prim-500 {
+  background: #1cb1e5;
+  color: #fff;
+}
+
+.text-prim-500 {
+  color: #1cb1e5;
+}
+
+root {
+  --prim-500: #1cb1e5;
+  --prim-500-inverse: #fff;
+}
+
+.prim-600 {
+  background: #12a3d7;
+  color: #fff;
+}
+
+.text-prim-600 {
+  color: #12a3d7;
+}
+
+root {
+  --prim-600: #12a3d7;
+  --prim-600-inverse: #fff;
+}
+
+.prim-700 {
+  background: #0090c4;
+  color: #fff;
+}
+
+.text-prim-700 {
+  color: #0090c4;
+}
+
+root {
+  --prim-700: #0090c4;
+  --prim-700-inverse: #fff;
+}
+
+.prim-800 {
+  background: #017fb1;
+  color: #fff;
+}
+
+.text-prim-800 {
+  color: #017fb1;
+}
+
+root {
+  --prim-800: #017fb1;
+  --prim-800-inverse: #fff;
+}
+
+.prim-900 {
+  background: #005f90;
+  color: #fff;
+}
+
+.text-prim-900 {
+  color: #005f90;
+}
+
+root {
+  --prim-900: #005f90;
+  --prim-900-inverse: #fff;
+}
+
+.prim {
+  background: #1cb1e5;
+}
+
+root {
+  --prim: #1cb1e5;
+  --prim-inverse: #fff;
+}
+
+.comp-50 {
+  background: #fcf1e0;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.text-comp-50 {
+  color: #fcf1e0;
+}
+
+root {
+  --comp-50: #fcf1e0;
+  --comp-50-inverse: rgba(0, 0, 0, 0.7);
+}
+
+.comp-100 {
+  background: #f8dcb2;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.text-comp-100 {
+  color: #f8dcb2;
+}
+
+root {
+  --comp-100: #f8dcb2;
+  --comp-100-inverse: rgba(0, 0, 0, 0.7);
+}
+
+.comp-200 {
+  background: #f3c681;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.text-comp-200 {
+  color: #f3c681;
+}
+
+root {
+  --comp-200: #f3c681;
+  --comp-200-inverse: rgba(0, 0, 0, 0.7);
+}
+
+.comp-300 {
+  background: #eeaf50;
+  color: #fff;
+}
+
+.text-comp-300 {
+  color: #eeaf50;
+}
+
+root {
+  --comp-300: #eeaf50;
+  --comp-300-inverse: #fff;
+}
+
+.comp-400 {
+  background: #eb9e2e;
+  color: #fff;
+}
+
+.text-comp-400 {
+  color: #eb9e2e;
+}
+
+root {
+  --comp-400: #eb9e2e;
+  --comp-400-inverse: #fff;
+}
+
+.comp-500 {
+  background: #e88e10;
+  color: #fff;
+}
+
+.text-comp-500 {
+  color: #e88e10;
+}
+
+root {
+  --comp-500: #e88e10;
+  --comp-500-inverse: #fff;
+}
+
+.comp-600 {
+  background: #e5830e;
+  color: #fff;
+}
+
+.text-comp-600 {
+  color: #e5830e;
+}
+
+root {
+  --comp-600: #e5830e;
+  --comp-600-inverse: #fff;
+}
+
+.comp-700 {
+  background: #df750b;
+  color: #fff;
+}
+
+.text-comp-700 {
+  color: #df750b;
+}
+
+root {
+  --comp-700: #df750b;
+  --comp-700-inverse: #fff;
+}
+
+.comp-800 {
+  background: #d86607;
+  color: #fff;
+}
+
+.text-comp-800 {
+  color: #d86607;
+}
+
+root {
+  --comp-800: #d86607;
+  --comp-800-inverse: #fff;
+}
+
+.comp-900 {
+  background: #cf4c02;
+  color: #fff;
+}
+
+.text-comp-900 {
+  color: #cf4c02;
+}
+
+root {
+  --comp-900: #cf4c02;
+  --comp-900-inverse: #fff;
+}
+
+.comp {
+  background: #e88e10;
+}
+
+root {
+  --comp: #e88e10;
+  --comp-inverse: #fff;
+}
+
 /*!
  * Pico.css v1.5.3 (https://picocss.com)
  * Copyright 2019-2022 - Licensed under MIT
@@ -214,9 +512,9 @@ kbd {
   --h6-color: #4d606d;
   --muted-color: hsl(205deg, 10%, 50%);
   --muted-border-color: hsl(205deg, 20%, 94%);
-  --primary: #904532;
-  --primary-hover: #7f3829;
-  --primary-focus: rgba(144, 69, 50, 0.125);
+  --primary: #12a3d7;
+  --primary-hover: #0090c4;
+  --primary-focus: rgba(18, 163, 215, 0.125);
   --primary-inverse: #fff;
   --secondary: hsl(205deg, 15%, 41%);
   --secondary-hover: hsl(205deg, 20%, 32%);
@@ -320,9 +618,9 @@ kbd {
     --h6-color: #afbbc4;
     --muted-color: hsl(205deg, 10%, 50%);
     --muted-border-color: #1f2d38;
-    --primary: #904532;
-    --primary-hover: #9c4e38;
-    --primary-focus: rgba(144, 69, 50, 0.25);
+    --primary: #12a3d7;
+    --primary-hover: #1cb1e5;
+    --primary-focus: rgba(18, 163, 215, 0.25);
     --primary-inverse: #fff;
     --secondary: hsl(205deg, 15%, 41%);
     --secondary-hover: hsl(205deg, 10%, 50%);
@@ -426,9 +724,9 @@ kbd {
   --h6-color: #afbbc4;
   --muted-color: hsl(205deg, 10%, 50%);
   --muted-border-color: #1f2d38;
-  --primary: #904532;
-  --primary-hover: #9c4e38;
-  --primary-focus: rgba(144, 69, 50, 0.25);
+  --primary: #12a3d7;
+  --primary-hover: #1cb1e5;
+  --primary-focus: rgba(18, 163, 215, 0.25);
   --primary-inverse: #fff;
   --secondary: hsl(205deg, 15%, 41%);
   --secondary-hover: hsl(205deg, 10%, 50%);
@@ -580,10 +878,6 @@ body > footer {
 /**
 * Container
 */
-
-
-
-
 .container,
 .container-fluid {
   width: 100%;
@@ -592,9 +886,6 @@ body > footer {
   padding-right: var(--spacing);
   padding-left: var(--spacing);
 }
-
-
-
 
 @media (min-width: 576px) {
   .container {
@@ -2107,9 +2398,6 @@ nav ul {
   padding: 0;
   list-style: none;
 }
-
-
-
 nav ol:first-of-type,
 nav ul:first-of-type {
   margin-left: calc(var(--nav-element-spacing-horizontal) * -1);
@@ -2118,8 +2406,6 @@ nav ol:last-of-type,
 nav ul:last-of-type {
   margin-right: calc(var(--nav-element-spacing-horizontal) * -1);
 }
-
-/* nav spacing */
 nav li {
   display: inline-block;
   margin: 0;
@@ -2614,5 +2900,153 @@ textarea,
     transition-delay: 0s !important;
     transition-duration: 0s !important;
   }
-}/*# sourceMappingURL=main.css.map */
+}
+.containLogo {
+  margin-bottom: var(--typography-spacing-vertical);
+}
 
+.parrotLogo {
+  display: block;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+#page-wrap {
+  text-align: center;
+  /* Prevent sidebar from showing a scrollbar on page */
+  overflow: auto;
+}
+
+.nav-contain nav {
+  padding-right: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+  /* Our sidebar item styling */
+  text-decoration: none;
+  margin-bottom: 10px;
+  color: #d1d1d1;
+  transition: color 0.2s;
+}
+
+/* Change color on hover */
+.bm-item:hover {
+  color: white;
+}
+
+.bm-burger-button {
+  position: absolute;
+  width: 36px;
+  height: 30px;
+  top: 16px;
+  left: 16px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #373a47;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  color: #b8b7ad;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  padding-left: -10px !important;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.bm-contain {
+  display: flex;
+  flex-direction: column;
+}
+
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+.toggle-switch input[type=checkbox] {
+  display: none;
+}
+
+.toggle-switch .switch {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 25px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: background-color 0.2s ease;
+}
+
+.toggle-switch .switch::before {
+  position: absolute;
+  content: "";
+  left: 2px;
+  top: 2px;
+  width: 21px;
+  height: 21px;
+  background-color: #aaa;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.toggle-switch input[type=checkbox]:checked + .switch::before {
+  transform: translateX(25px);
+  background-color: #5ac9e9;
+}
+
+.toggle-switch input[type=checkbox]:checked + .switch {
+  background-color: #052738;
+}
+
+.containToggle {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: 0;
+}/*# sourceMappingURL=main.css.map */

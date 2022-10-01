@@ -24,36 +24,41 @@
 // colors
 
   // primary
-  $primary-50 : #ffe2c9;
-  $primary-100: #ffc3af;
-  $primary-200: #e5a28f;
-  $primary-300: #c8816c;
-  $primary-400: #b36752;
-  $primary-500: #9c4e38;
-  $primary-600: #904532;
-  $primary-700: #7f3829;
-  $primary-800: #6f2b23;
-  $primary-900: #5e1c1a;
+  $primary-50 : #e2f6fb;
+  $primary-100: #b5e8f5;
+  $primary-200: #86d8ef;
+  $primary-300: #5ac9e9;
+  $primary-400: #3abde7;
+  $primary-500: #1cb1e5;
+  $primary-600: #12a3d7;
+  $primary-700: #0090c4;
+  $primary-800: #017fb1;
+  $primary-900: #005f90;
 
   // secondary
-  // $secondary-50 : #ffe2c9;
-  // $secondary-100: #ffc3af;
-  // $secondary-200: #e5a28f;
-  // $secondary-300: #c8816c;
-  // $secondary-400: #b36752;
-  // $secondary-500: #9c4e38;
-  // $secondary-600: #904532;
-  // $secondary-700: #7f3829;
-  // $secondary-800: #6f2b23;
-  // $secondary-900: #5e1c1a;
+  $secondary-50 : #fcf1e0;
+  $secondary-100: #f8dcb2;
+  $secondary-200: #f3c681;
+  $secondary-300: #eeaf50;
+  $secondary-400: #eb9e2e;
+  $secondary-500: #e88e10;
+  $secondary-600: #e5830e;
+  $secondary-700: #df750b;
+  $secondary-800: #d86607;
+  $secondary-900: #cf4c02;
 
+ 
 //====================
 // microcss
 
-@import './_microcss-run';
-
+//@import './_microcss-run.scss';
+ @import './microcss/_run';
 
 //====================
+
+// your pico overrides here
+
+
 // your pico overrides here
 // :root{
 // --nav-element-spacing-vertical: 1rem;
@@ -67,11 +72,9 @@
 //   margin-left: calc(var(--nav-element-spacing-horizontal) * -1);
 // }
 
-.nav-contain nav{
-  padding-right: 2em;
-}
-
-
+// .nav-contain nav{
+//   padding-right: 6em;
+// }
 
 
 //
@@ -79,20 +82,187 @@
 //====================
 // picocss
 
-@import "../pico-master/scss/pico.scss";
+@import "../../node_modules/@picocss/pico/scss/pico.scss";
 
-// Dark theme (Auto)
-// Automatically enabled if user has Dark mode enabled
-@import "docs/dark";
-@media only screen and (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    @include dark;
-  }
-}
 
-.replay-btn {
-  width: 50%;
-}
 //====================
 // your scss here
+
+
+.containLogo {
+margin-bottom: var(--typography-spacing-vertical);
+ // height: 50%;  
+}
+
+.parrotLogo {
+  display: block;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+}
+//top bottom background
+
+// .vector-bg-top {
+//   width: 100%;
+//   height: 120px;
+//   top: 0;
+//   background-color: #12a3d7;;
+// }
+
+// .vector-bg-btm {
+//   width: 100%;
+//   height: 120px;
+//   position: absolute;
+//   bottom: 0;
+//   background-color: #12a3d7;;
+// }
+
+
+
+//hamburger menu 
+
+#page-wrap {
+  text-align: center;
+
+  /* Prevent sidebar from showing a scrollbar on page */
+  overflow: auto;
+}
+.nav-contain nav{
+  padding-right: .8em;
+}
+
+// TODO: invert colors on dark/light theme
+/* Individual item */
+.bm-item {
+  display: inline-block;
+
+  /* Our sidebar item styling */
+  text-decoration: none;
+  margin-bottom: 10px;
+  color: #d1d1d1;
+  transition: color 0.2s;
+}
+
+/* Change color on hover */
+.bm-item:hover {
+  color: white;
+}
+
+
+//   lines itself
+.bm-burger-button {
+position: absolute;
+  width: 36px;
+  height: 30px;
+  top:16px;
+   left: 16px;
+  // right: 16px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #373a47;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+//had to overwrite template css
+.bm-item-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  color: #b8b7ad;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  padding-left: -10px !important;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.bm-contain {
+  display: flex;
+  flex-direction: column;
+}
+
+// .bm-munu-wrap{
+//   padding-left: -16px;
+//   margin-left: -20px;
+// }
+
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+// toggle switch
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+.toggle-switch input[type="checkbox"] {
+  display: none;
+}
+.toggle-switch .switch {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 25px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: background-color 0.2s ease;
+}
+.toggle-switch .switch::before {
+  position: absolute;
+  content: "";
+  left: 2px;
+  top: 2px;
+  width: 21px;
+  height: 21px;
+  background-color: #aaa;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+.toggle-switch input[type="checkbox"]:checked + .switch::before {
+  transform: translateX(25px);
+  background-color: #5ac9e9;
+}
+.toggle-switch input[type="checkbox"]:checked + .switch {
+  background-color: #052738;;
+}
+
+.containToggle {
+width: fit-content;
+margin-left: auto; 
+margin-right: 0;
+}
 

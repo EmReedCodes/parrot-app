@@ -146,13 +146,8 @@ const loginUser = asyncHandler(async (req, res) => {
 //       }
 //     //need to send over token or id to confirm its user?
     
-//     //check if user exists
-//     const userExists = await User.findOne({email})
-//     if(userExists) {
-//         //send error
-//         res.status(400)
-//         throw new Error('User already exists')
-//     }
+//     //check if user ?
+   
 // // hash the password upon update
 //     //hash password
 //     const salt = await bcrypt.genSalt(10)
