@@ -1,6 +1,6 @@
 
 import BurgerMenu from "./BurgerSlide"
-import "./styles/style.css"
+//import "./styles/style.css"
 
 
 const Navbar = () => {

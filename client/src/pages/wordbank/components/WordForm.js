@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { createWordForBank } from '../../../features/bankWord/bankWordSlice'
-
+import { toast } from "react-toastify"
 
 //need to globally rename saidWord
 const WordForm = () => {
@@ -15,10 +15,14 @@ const WordForm = () => {
     
 
   const onSubmit = (e) => {
-    e.preventDefault()
-
-    dispatch(createWordForBank({ saidWord }))
-    setSaidWord('')
+    if (!saidWord) {
+       return toast.warn('Please enter word')
+    } else {
+      e.preventDefault()
+      dispatch(createWordForBank({ saidWord }))
+      setSaidWord('')
+    }
+   
   }
 
   return (
@@ -26,11 +30,11 @@ const WordForm = () => {
         <section className='form'>
           <form onSubmit={onSubmit}>
             <div className='form-group'>
-              <label htmlFor='text'>Word</label>
               <input
                 type='text'
                 name='text'
                 id='text'
+                placeholder='enter word'
                 value={saidWord}
                 onChange={(e) => setSaidWord(e.target.value)}
               />

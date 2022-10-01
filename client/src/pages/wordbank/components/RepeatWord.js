@@ -44,7 +44,7 @@ const RepeatWord = ({ wordBank }) => {
         <div className="contain">
             {ourText ?
                 <h2>{ourText}</h2>
-                : <h2>Next To Begin</h2>
+                : <h2>Hit Next To Begin</h2>
             }
             <div className="range range-output">
                 <input

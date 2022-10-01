@@ -3,11 +3,11 @@ import WordForm from './components/WordForm'
 import WordList from './components/WordList'
 import RepeatWord from './components/RepeatWord'
 import { getWordsForList } from '../../features/bankWord/bankWordSlice'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import './styles/style.css'
 
-//text is the model input for the words
+
 const WordBank = () => {
 
     
@@ -15,14 +15,12 @@ const WordBank = () => {
   
   const { user } = useSelector((state) => state.auth)
   const { wordBank } = useSelector((state) => state.wordBank)
-  console.log(wordBank)
-      
-      useEffect(() => {
+
+      useEffect(() => {  
         if (user) {
-            console.log('am here')
-              dispatch(getWordsForList())
-          }
-      
+          dispatch(getWordsForList())
+        }
+ 
         }, [user, dispatch])
   
     return ( 
@@ -31,7 +29,8 @@ const WordBank = () => {
             <h1>Word Bank</h1>
         <RepeatWord wordBank={wordBank}/>
           <WordForm />
-          <WordList wordBank ={wordBank} />
+
+            <WordList wordBank={wordBank}/>
      
         </div>
     </>

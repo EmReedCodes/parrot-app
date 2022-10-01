@@ -2914,17 +2914,139 @@ h1 {
   text-align: center;
 }
 
-.vector-bg-top {
-  width: 100%;
-  height: 120px;
-  top: 0;
-  background-color: #12a3d7;
+#page-wrap {
+  text-align: center;
+  /* Prevent sidebar from showing a scrollbar on page */
+  overflow: auto;
 }
 
-.vector-bg-btm {
-  width: 100%;
-  height: 120px;
+.nav-contain nav {
+  padding-right: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+  /* Our sidebar item styling */
+  text-decoration: none;
+  margin-bottom: 10px;
+  color: #d1d1d1;
+  transition: color 0.2s;
+}
+
+/* Change color on hover */
+.bm-item:hover {
+  color: white;
+}
+
+.bm-burger-button {
   position: absolute;
+  width: 36px;
+  height: 30px;
+  top: 16px;
+  left: 16px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #373a47;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  color: #b8b7ad;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  padding-left: -10px !important;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.bm-contain {
+  display: flex;
+  flex-direction: column;
+}
+
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+.toggle-switch input[type=checkbox] {
+  display: none;
+}
+
+.toggle-switch .switch {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 25px;
+  top: 0;
+  right: 0;
   bottom: 0;
-  background-color: #12a3d7;
+  left: 0;
+  transition: background-color 0.2s ease;
+}
+
+.toggle-switch .switch::before {
+  position: absolute;
+  content: "";
+  left: 2px;
+  top: 2px;
+  width: 21px;
+  height: 21px;
+  background-color: #aaa;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.toggle-switch input[type=checkbox]:checked + .switch::before {
+  transform: translateX(25px);
+  background-color: #5ac9e9;
+}
+
+.toggle-switch input[type=checkbox]:checked + .switch {
+  background-color: #052738;
+}
+
+.containToggle {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: 0;
 }/*# sourceMappingURL=main.css.map */
