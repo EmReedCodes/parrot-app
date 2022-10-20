@@ -1,20 +1,34 @@
 import Dictaphone from "./components/Dictaphone"
 import SpeechForm from "./components/SpeechForm"
-import DragNDrop from "./components/DragNDrop"
 import "./styles/style.css"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useSelector } from "react-redux"
 import { FaRegPlayCircle } from 'react-icons/fa'
-
-
+import SortMatch from "./components/SortMatch"
+import { v4 as uuidv4 } from "uuid";
+import shuffle from "lodash/shuffle";
 
 const SayItSpellIt = () => {
 
   const { user } = useSelector(state => state.auth)
   const { saidWord } = useSelector(state => state.word)
 
-
-
+ // const [items, setItems] = useState([])
+  // const copyWord = saidWord.concat()
+  // console.log(copyWord)
+  
+  // function createLetters(word) {
+  //   const words = []
+  //     for (let i = 0; i < word.length; i++) {
+  //       words.push({
+  //         id: uuidv4(),
+  //         letter: word[i],
+  //         position: i
+  //       })
+  //     }
+  //   }
+    // setItems(shuffle(words))
+  
 //can check and confirm spoken word here
   const speechHandler = (text) => {
     if (saidWord) {
@@ -24,10 +38,6 @@ const SayItSpellIt = () => {
     }
   }
 //speechForm will only need to pop up on completion of the game
-
-
-  console.log(user)
-
 
   return (
     <div className="contain">
@@ -41,6 +51,7 @@ const SayItSpellIt = () => {
 
         </div>
       }
+  
       
       
      {!saidWord &&
@@ -48,14 +59,9 @@ const SayItSpellIt = () => {
           <Dictaphone />
       </>
       }
-      {saidWord &&
-        <>
-        <DragNDrop />
-        <SpeechForm />
-        </>
+      { saidWord &&
+        <SortMatch />
       }
-       
-   
     </div>
   )
 }
