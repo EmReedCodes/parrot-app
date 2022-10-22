@@ -1,16 +1,16 @@
 import { useState, useMemo } from "react"
 //turn tiles green that are correct red incorrect until submit is correct
-export default function Button({ items, setItems, word }) {
+export default function Button({ items, setItems, word, initialItems }) {
     console.log(items)
-    //console.log(setItems)
     console.log(word)
-    
-//can iterate through and check each letter at a time and change the value/color? 
+    console.log(initialItems, "initialItems")
+  
     const checkAnswer = () => {
-        let isCorrect = true
-        let sortedWord = Object.values(items).map((item) => item.letter).join('')
-        if (sortedWord === word) {
-            console.log('yes')
+        const checkLetter = Object.values(items).map((item, idx) => item.letter === word[idx])
+        setItems(current => current.map((item, idx) => ({ ...item, color: (checkLetter[idx] === true ? "#90ee02" : "#f83b2a") })))
+        console.log(items)
+        if (checkLetter.every(item => item === true)) {
+            
         }
     }
     // let sortedWord = Object.values(items).map((item) => item.letter).join('')
@@ -18,7 +18,7 @@ export default function Button({ items, setItems, word }) {
     //         console.log('yes')
     //     }
     return (
-        <button>Submit</button>
+        <button onClick={() => checkAnswer()}>submit</button>
     )
 }
 

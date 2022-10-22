@@ -17,7 +17,7 @@
     SortableContext,
     sortableKeyboardCoordinates
   } from "@dnd-kit/sortable";
-  import React, { useState, useEffect } from "react";
+  import React, { useState, useEffect, useMemo } from "react";
   import SortableItem from "./SortableItem";
   import { v4 as uuidv4 } from "uuid";
   import shuffle from "lodash/shuffle";
@@ -30,7 +30,9 @@ import Submission from './Submission'
      const { saidWord } = useSelector(state => state.word)
 //   console.log(saidWord)
   
-  const [items, setItems] = useState([])
+      const [items, setItems] = useState([])
+    const [initialItems, setInitialItems] = useState([])
+
     // const copyWord = saidWord.concat()
     // console.log(copyWord)
     
@@ -41,13 +43,19 @@ import Submission from './Submission'
               words.push({
                   id: uuidv4(),
                   letter: saidWord[i],
-                  position: i
+                isCorrect: null,
+                  color: "#eb9e2e"
               })
           }
       }
-   setItems(shuffle(words))
+      const shuffledWord = shuffle(words)
+      setItems(shuffledWord)
+      setInitialItems(shuffledWord)
   }, [saidWord])
   
+     
+      
+      
     //is rendering with default useState. How to have my data set before this page gets rendered though?
 console.log(items)
     //const sensors = [useSensor(PointerSensor)];
@@ -73,6 +81,7 @@ console.log(items)
     //     })
     //   );
       
+      
     const pointerSensor = useSensor(PointerSensor);
       const touchSensor = useSensor(TouchSensor, {
           activationConstraint: {
@@ -86,14 +95,17 @@ console.log(items)
       pointerSensor,
       touchSensor,
       keyboardSensor,
-    );
+      );
+      
+    
   
     const handleDragEnd = ({active, over}) => {
         if (active.id !== over.id) {
-          setItems((items) => {
+            setItems((items) => {
+           
             const oldIndex = items.findIndex(item => item.id === active.id)
             const newIndex = items.findIndex(item => item.id === over.id)
-    
+            
             return arrayMove(items, oldIndex, newIndex)
           })
         }
@@ -102,7 +114,14 @@ console.log(items)
       const onDragCancel = () => {
         setActiveId(null);
       };
+
+      const resetSort = () => {
+          setItems(initialItems)
+      }
+
+      const [hasSubmitted, setHasSubmitted] = useState(false);
     
+     // const colorScheme = !hasSubmitted ? "blue" : isCorrect ? "green" : "red";
   
     //   const containerStyle = {
     //     background: "#dadada",
@@ -110,6 +129,8 @@ console.log(items)
     //       margin: 10,
           
     //   };
+      
+      
   
       return (
         <>
@@ -126,9 +147,11 @@ console.log(items)
                       onDragEnd={handleDragEnd}
                       onDragCancel={onDragCancel}
         >
-          <SortableContext strategy={horizontalListSortingStrategy} items={items.map((item) => item.id)}>
+          <SortableContext strategy={horizontalListSortingStrategy}
+          
+           items={items.map((item) => item.id)}>
             {items.map((item) => (
-                <SortableItem item={item.letter} key={item.id} id={item.id}  />
+                <SortableItem item={item.letter} key={item.id} id={item.id} isCorrect={item.isCorrect} color={item.color} />
             ))}
           </SortableContext>
   
@@ -138,6 +161,7 @@ console.log(items)
         </div>
        
               < Submission items={items} setItems={setItems} reset={onDragCancel} word={saidWord} />
+              <button onClick={() => resetSort()}>reset</button>
         </>
     );
   }

@@ -7,7 +7,8 @@ const SORTABLE_TRANSITION_DURATION = 250;
 
 
 const SortableItem = (props) => {
-  const { id, item} = props;
+    const { id, item, isCorrect, color } = props;
+    // console.log(isCorrect)
       const {
     setNodeRef,
     listeners,
@@ -28,16 +29,17 @@ const SortableItem = (props) => {
         transform: CSS.Transform.toString(transform),
         border: '2px solid black',
         opacity: isDragging ? 0.5 : 1,
-        background: "#eb9e2e",
+        background: color,
         width: "15%"
     }
-
+   
     return (
         <div
             ref={setNodeRef}
             {...attributes}
             {...listeners}
             style={style}
+            
         >
             {item}
         </div>
