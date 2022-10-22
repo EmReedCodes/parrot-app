@@ -7,6 +7,8 @@ import { FaRegPlayCircle } from 'react-icons/fa'
 import SortMatch from "./components/SortMatch"
 import { v4 as uuidv4 } from "uuid";
 import shuffle from "lodash/shuffle";
+import { IconContext } from "react-icons";
+
 
 const SayItSpellIt = () => {
 
@@ -40,15 +42,18 @@ const SayItSpellIt = () => {
 //speechForm will only need to pop up on completion of the game
 
   return (
-    <div className="contain">
+    <main>
       <h1>Welcome {user.name}</h1>
       
       {saidWord &&
         <div className="containReplay">
-          <span>Confirm correct word</span>
-          <button className='replay-btn' onClick={() => speechHandler(saidWord)}>Replay <FaRegPlayCircle />
+          
+          <button className='replay-btn' onClick={() => speechHandler(saidWord)}>
+          <IconContext.Provider value={{ className:"playIcon" }}>
+          <FaRegPlayCircle />
+            </IconContext.Provider>
+            Replay
           </button>
-
         </div>
       }
   
@@ -62,7 +67,7 @@ const SayItSpellIt = () => {
       { saidWord &&
         <SortMatch />
       }
-    </div>
+    </main>
   )
 }
 

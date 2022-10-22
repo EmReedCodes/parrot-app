@@ -1,3 +1,8 @@
+main {
+  width: 80%;
+  margin: 0 auto;
+}
+
 .listRow {
   color: red !important;
   font-size: 3em;
@@ -18,8 +23,38 @@ ul li {
 .containReplay {
   margin: 0 auto;
   width: 30%;
+  text-align: center;
+  animation: var(--animation-scale-down) reverse, var(--animation-fade-out) reverse;
+  -webkit-animation-timing-function: var(--ease-squish-5);
+          animation-timing-function: var(--ease-squish-5);
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
 }
 
-#listRandom {
-  font-size: 3em;
+.replay-btn {
+  animation: var(--animation-scale-down) reverse, var(--animation-fade-out) reverse;
+  -webkit-animation-timing-function: var(--ease-squish-5);
+          animation-timing-function: var(--ease-squish-5);
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  display: inline-block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.playIcon {
+  width: 3rem;
+  height: 3rem;
+}
+
+.sortContainer {
+  gap: 0.5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  background: #dadada;
+  display: flex;
+  justify-content: center;
 }/*# sourceMappingURL=style.css.map */

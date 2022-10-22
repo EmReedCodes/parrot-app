@@ -22,6 +22,8 @@
   import { v4 as uuidv4 } from "uuid";
   import shuffle from "lodash/shuffle";
   import { useSelector} from "react-redux"
+import Submission from './Submission'
+
 
   const SortMatch = () => {
      
@@ -49,7 +51,7 @@
     //is rendering with default useState. How to have my data set before this page gets rendered though?
 console.log(items)
     //const sensors = [useSensor(PointerSensor)];
-    const [activeId, setActiveId] = useState();
+    const [activeId, setActiveId] = useState(null);
     // const [activeId, setActiveId] = useState(null);
     // const sensors = useSensors(
     //   useSensor(PointerSensor),
@@ -72,7 +74,12 @@ console.log(items)
     //   );
       
     const pointerSensor = useSensor(PointerSensor);
-    const touchSensor = useSensor(TouchSensor);
+      const touchSensor = useSensor(TouchSensor, {
+          activationConstraint: {
+              delay: 250,
+              tolerance: 5
+        }
+    });
     const keyboardSensor = useSensor(KeyboardSensor);
     
     const sensors = useSensors(
@@ -91,17 +98,24 @@ console.log(items)
           })
         }
       }
+
+      const onDragCancel = () => {
+        setActiveId(null);
+      };
     
   
-      const containerStyle = {
-        background: "#dadada",
-        padding: 10,
-        margin: 10,
-      };
+    //   const containerStyle = {
+    //     background: "#dadada",
+    //     padding: 10,
+    //       margin: 10,
+          
+    //   };
   
-    return (
-      <div
-        style={containerStyle}
+      return (
+        <>
+              <div
+                  className="sortContainer"
+       // style={containerStyle}
       >
         <DndContext
           sensors={sensors}
@@ -109,7 +123,8 @@ console.log(items)
           //onDragEnd={handleDragEnd}
           // onDragStart={handleDragStart}
           // onDragOver={handleDragOver}
-          onDragEnd={handleDragEnd}
+                      onDragEnd={handleDragEnd}
+                      onDragCancel={onDragCancel}
         >
           <SortableContext strategy={horizontalListSortingStrategy} items={items.map((item) => item.id)}>
             {items.map((item) => (
@@ -118,8 +133,12 @@ console.log(items)
           </SortableContext>
   
           {/* <DragOverlay>{activeId ? activeId : null}</DragOverlay> */}
-        </DndContext>
-      </div>
+            </DndContext>
+            
+        </div>
+       
+              < Submission items={items} setItems={setItems} reset={onDragCancel} word={saidWord} />
+        </>
     );
   }
 

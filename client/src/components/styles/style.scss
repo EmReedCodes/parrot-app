@@ -1,0 +1,13 @@
+.button {
+    display: inline-block;
+}
+
+.button:hover,
+.button:active {
+    background: var($primary-800);
+}
+.button__text,
+.button__icon {
+    display: inline-block;
+    align-items: center;
+}

@@ -1,0 +1,14 @@
+.button {
+  display: inline-block;
+}
+
+.button:hover,
+.button:active {
+  background: var();
+}
+
+.button__text,
+.button__icon {
+  display: inline-block;
+  align-items: center;
+}/*# sourceMappingURL=style.css.map */

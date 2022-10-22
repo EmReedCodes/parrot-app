@@ -9,8 +9,6 @@ const Home = () => {
                 <ParrotLogo
                  className="parrotLogo"
                  alt="blue cartoon parrot"
-                 height="30%"
-                 width="30%"
                 />
             </div>
             <Link to="/login"><button>Login</button></Link>

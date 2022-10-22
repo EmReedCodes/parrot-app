@@ -1,26 +1,74 @@
-.listRow {
-    color: red !important;
-    font-size: 3em;
-    border-bottom: 2px solid black;
-    width: .5em;
+main{
+    width: 80%;
+    margin: 0 auto;
 }
 
-.dropList {
-    display: flex;
-    gap: 2em;
-    
-}
-
-ul li {  
-    list-style: none;
-    text-align: center;
-}
 
 .containReplay {
     margin: 0 auto;
     width: 30%;
+    text-align: center;
+    animation: 
+    var(--animation-scale-down) reverse,
+    var(--animation-fade-out) reverse;
+    animation-timing-function: var(--ease-squish-5);
+     animation-duration: 1s;
 }
 
-#listRandom {
-    font-size: 3em;
+.replay-btn {
+    animation: 
+    var(--animation-scale-down) reverse,
+    var(--animation-fade-out) reverse;
+    animation-timing-function: var(--ease-squish-5);
+     animation-duration: 1s;
+    display: inline-block;
+    width: fit-content;
+    background-color: $secondary-100;
 }
+
+.playIcon {
+    width: 3rem;
+    height: 3rem;
+}
+
+
+// button {
+//     /*  
+//       using `reverse` means we dont have to put 
+//       opacity: 0 or scale(.8) anywhere  
+//     */
+//     animation: 
+//     var(--animation-scale-down) reverse,
+//     var(--animation-fade-out) reverse;
+//     animation-timing-function: var(--ease-squish-5);
+//      animation-duration: 1s;
+//     background-color: $secondary-100;
+// }
+
+.sortContainer{
+    gap: .5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    background: #dadada;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+//   .sortItem {
+   
+//         //animation:
+//          // var(--animation-fade-in) forwards,
+//         //   var(--animation-scale-up);
+//         // animation-timing-function: var(--ease-squish-3);
+//         // animation-duration: 2s;
+//         // animation-iteration-count: 1;
+//         box-shadow: var(--shadow-border);
+   
+//     width: 15%;
+//     text-align: center;
+//     background-color: $secondary-800;
+//   }
