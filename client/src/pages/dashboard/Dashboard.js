@@ -33,8 +33,8 @@ const Dashboard = () => {
   return (
     <div className="contain">
       <h1>You made it to dashboard</h1>
-      <Link to="/sayitspellit">
-        <button>Say It Spell It</button>
+      <Link to="/sortitspellit">
+        <button>Sort It Spell It</button>
       </Link>
       <Link to="/wordbank">
         <button>Word Bank</button>

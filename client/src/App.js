@@ -4,42 +4,32 @@ import Home from "./pages/Home"
 import Login from "./pages/login/Login"
 import Register from "./pages/register/Register"
 import Dashboard from "./pages/dashboard/Dashboard"
-import SayItSpellIt from "./pages/sayItSpellIt/SayItSpellIt"
-import WordBank from './pages/wordbank/WordBank'
+import SortItSpellIt from "./pages/sortItSpellIt/SortItSpellIt"
+import WordBank from "./pages/wordbank/WordBank"
 import Navbar from "./components/Navbar"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 
-
 function App() {
-
-
   return (
     <>
+      <Router>
+        <Navbar />
 
-            
-          <Router>
-     
-            <Navbar />
-      
-          <main className="container">
-            <Routes>
-              <Route path="/" element={<Home />}></Route>
-              <Route path="/login" element={<Login />}></Route>
-              <Route path="/register" element={<Register />}></Route>
-              <Route path="/dashboard" element={<Dashboard />}></Route>
-            <Route path="/sayitspellit" element={<SayItSpellIt />}></Route>
+        <main className="container">
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/register" element={<Register />}></Route>
+            <Route path="/dashboard" element={<Dashboard />}></Route>
+            <Route path="/sortitspellit" element={<SortItSpellIt />}></Route>
             <Route path="/wordbank" element={<WordBank />}></Route>
+          </Routes>
 
-            </Routes>
-         
-            <ToastContainer autoClose={2000} />
+          <ToastContainer autoClose={2000} />
         </main>
-     
-          </Router>
-       
-
+      </Router>
     </>
   )
 }

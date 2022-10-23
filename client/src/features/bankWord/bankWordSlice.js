@@ -13,7 +13,7 @@ const initialState = {
   message: ""
 }
 
-//saving word from sayitspellit & wordbank
+//saving word from sortitspellit & wordbank
 export const createWordForBank = createAsyncThunk("word/save", async (speechData, thunkAPI) => {
   try {
     const token = thunkAPI.getState().auth.user.token
@@ -30,7 +30,6 @@ export const createWordForBank = createAsyncThunk("word/save", async (speechData
 //get 10 words at random for list
 export const getWordsForList = createAsyncThunk("word/getWords", async (_, thunkAPI) => {
   try {
-   
     //getting the token for my protected route
 
     const token = thunkAPI.getState().auth.user.token
@@ -48,9 +47,8 @@ export const getWordsForList = createAsyncThunk("word/getWords", async (_, thunk
 export const deleteWordForList = createAsyncThunk("word/delete", async (_id, thunkAPI) => {
   try {
     const token = thunkAPI.getState().auth.user.token
-    console.log(_id, 'id')
+    console.log(_id, "id")
     return await bankWordService.deleteBankWord(_id, token)
-  
   } catch (error) {
     const message =
       (error.response && error.response.data && error.response.data.message) ||
@@ -61,7 +59,6 @@ export const deleteWordForList = createAsyncThunk("word/delete", async (_id, thu
 })
 
 export const bankWordSlice = createSlice({
- 
   name: "wordBank",
   initialState,
   reducers: {
@@ -77,8 +74,7 @@ export const bankWordSlice = createSlice({
         state.isSuccess = true
         if (state.wordBank.length < 10) {
           state.wordBank.push(action.payload)
-        } 
-     
+        }
       })
       .addCase(createWordForBank.rejected, (state, action) => {
         state.isLoading = false
@@ -98,13 +94,13 @@ export const bankWordSlice = createSlice({
         state.isError = true
         state.message = action.payload
       })
-      .addCase(deleteWordForList.pending, (state) => {
+      .addCase(deleteWordForList.pending, state => {
         state.isLoading = true
       })
       .addCase(deleteWordForList.fulfilled, (state, action) => {
         state.isLoading = false
-        state.isSuccess = true  
-        state.wordBank = state.wordBank.filter((word) => word._id !== action.payload._id) 
+        state.isSuccess = true
+        state.wordBank = state.wordBank.filter(word => word._id !== action.payload._id)
       })
       .addCase(deleteWordForList.rejected, (state, action) => {
         state.isLoading = false
