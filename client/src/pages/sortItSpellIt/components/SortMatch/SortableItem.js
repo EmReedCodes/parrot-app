@@ -7,7 +7,7 @@ const SORTABLE_TRANSITION_DURATION = 250;
 
 
 const SortableItem = (props) => {
-    const { id, item, isCorrect, color } = props;
+    const { id, item, color } = props;
     // console.log(isCorrect)
       const {
     setNodeRef,
@@ -27,13 +27,14 @@ const SortableItem = (props) => {
     const style = {
         transition,
         transform: CSS.Transform.toString(transform),
-        border: '2px solid black',
+        //border: '2px solid black',
         opacity: isDragging ? 0.5 : 1,
-        background: color,
-      width: "15%",
-    //  -webkit-animation: "var(--animation-shake-y), var(--animation-fade-in), var(--animation-slide-in-left);
-    // animation: "var(--animation-scale-down) reverse, var(--animation-fade-out) reverse"
-    }
+         background: color,
+    //   width: "15%",
+    //   height: "20%"
+    // //  -webkit-animation: "var(--animation-shake-y), var(--animation-fade-in), var(--animation-slide-in-left);
+    // // animation: "var(--animation-scale-down) reverse, var(--animation-fade-out) reverse"
+     }
    
     return (
       <div

@@ -14,13 +14,13 @@ export default function Button({ items, setItems, word, initialItems }) {
     
     const [isVisible, setIsVisible] = useState(false);
     const [modalToggle, setModalToggle] = useState(false)
-    const [count, setCount] = useState(0);
+   
 
 
 
     const checkAnswer = (event) => {
         const checkLetter = Object.values(items).map((item, idx) => item.letter === word[idx])
-        setItems(current => current.map((item, idx) => ({ ...item, color: (checkLetter[idx] === true ? "#90ee02" : "#f83b2a") })))
+        setItems(current => current.map((item, idx) => ({ ...item, color: (checkLetter[idx] === true ? "#2f9e44" : "#d9480f") })))
         console.log(items)
         if (checkLetter.every(item => item === true)) {
             setIsVisible(true)
@@ -34,9 +34,9 @@ export default function Button({ items, setItems, word, initialItems }) {
         setModalToggle(true)
     }
 
-    const openModal = () => {
-        setModalToggle('modal-is-open')
-    }
+    // const openModal = () => {
+    //     setModalToggle('modal-is-open')
+    // }
    
     
     const modalText = () => {
@@ -57,7 +57,7 @@ export default function Button({ items, setItems, word, initialItems }) {
             <button onClick={(event) => checkAnswer(event)}>submit</button>
             <Modal open={modalToggle}
                 onClick={() => setModalToggle(false)}
-            // basicText={modalAnnouncement}
+          
             text={modalText()}
             />
            

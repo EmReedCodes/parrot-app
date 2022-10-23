@@ -110,7 +110,8 @@
 /* Nerd Font */
 /* nerdfont.com */
 /* nerdfont.com/cheatsheet */
-@import "https://octoshrimpy.github.io/microcss/nf.css";
+@import "https://octoshrimpy.github.io/microcss/micro.css";
+
 
 
 // iconYouWantGoesHere = class from cheatsheet
@@ -123,7 +124,9 @@
 
 // button styling
 
-
+// #root {
+//   height: 100vh;
+// }
 
 .containLogo {
 margin-bottom: var(--typography-spacing-vertical);
@@ -133,7 +136,9 @@ margin-bottom: var(--typography-spacing-vertical);
 .parrotLogo {
   display: block;
   margin: auto;
-  background: var(--grape-3);
+  // background: var(--grape-3);
+  background: var(--colar-indigo-10);
+  background-color: var(--);
   box-shadow: var(--shadow-border);
   @media (var(--lg-n-above)){
     max-height: 12rem;
@@ -309,6 +314,13 @@ margin-left: auto;
 margin-right: 0;
 }
 
-.textInModal *{
+.modalContainer{
+  animation:
+  var(--animation-slide-in-down);
+    //var(--animation-fade-down),
+    //var(--animation-slide-in-left);
+}
+
+.textInModal p{
   padding: .5em 0 .5em 0;
 }

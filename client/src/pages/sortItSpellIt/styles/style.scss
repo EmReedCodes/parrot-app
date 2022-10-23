@@ -1,41 +1,36 @@
 main {
-    width: 80%;
-    margin: 0 auto;
-    text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
 }
 
-
 .containReplay {
-    margin: 0 auto;
-    width: 30%;
-    text-align: center;
-    animation: 
-    var(--animation-scale-down) reverse,
-    var(--animation-fade-out) reverse;
-    animation-timing-function: var(--ease-squish-5);
-     animation-duration: 1s;
+  margin: 0 auto;
+  width: 30%;
+  text-align: center;
+  animation: var(--animation-scale-down) reverse, var(--animation-fade-out) reverse;
+  animation-timing-function: var(--ease-squish-5);
+  animation-duration: 1s;
 }
 
 .replay-btn {
-    animation: 
-    var(--animation-scale-down) reverse,
-    var(--animation-fade-out) reverse;
-    animation-timing-function: var(--ease-squish-5);
-     animation-duration: 1s;
-    display: inline-block;
-    width: fit-content;
+  animation: var(--animation-scale-down) reverse, var(--animation-fade-out) reverse;
+  animation-timing-function: var(--ease-squish-5);
+  animation-duration: 1s;
+  display: inline-block;
+  width: fit-content;
 }
 
 .speech {
-    display: flex;
-    flex-direction: column;
-    gap: 5em;
+  display: flex;
+  flex-direction: column;
+  gap: 5em;
 }
 
 .playIcon {
-    width: 3rem;
-    height: 3rem;
-    padding-right: 0.3rem;
+  width: 3rem;
+  height: 3rem;
+  padding-right: 0.3rem;
 }
 
 // svg {
@@ -43,67 +38,54 @@ main {
 //     height: 3em;
 // }
 .microphone {
-    width: 3rem;
-    height: 3rem;
-    display: block;
-    margin: 0 auto 1em auto;
+  width: 5rem;
+  height: 5rem;
+  display: block;
+  margin: 0 auto 1em auto;
 }
-
 .microphone-on {
-    width: 3rem;
-    height: 3rem;
-    display: block;
-    margin: 0 auto 1em auto;
+    width: 5rem;
+  height: 5rem;
+  display: block;
+  margin: 0 auto 1em auto;
     border-radius: 50%;
-    box-shadow: 0 0 0 0 rgba(52, 172, 224, 1); 
-	transform: scale(1);
-	animation: pulse 2s infinite;
+    box-shadow: 0 0 0 0 rgba(52, 172, 224, 1);
+    transform: scale(1);
+    animation: pulse 2s infinite;
 
     @keyframes pulse-blue {
-        0% {
-          transform: scale(0.95);
-          box-shadow: 0 0 0 0 rgba(52, 172, 224, 0.7);
-        }
-        
-        70% {
-          transform: scale(1);
-          box-shadow: 0 0 0 10px rgba(52, 172, 224, 0);
-        }
-        
-        100% {
-          transform: scale(0.95);
-          box-shadow: 0 0 0 0 rgba(52, 172, 224, 0);
-        }
-}
-}
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(52, 172, 224, 0.7);
+      }
 
-// button {
-//     /*  
-//       using `reverse` means we dont have to put 
-//       opacity: 0 or scale(.8) anywhere  
-//     */
-//     animation: 
-//     var(--animation-scale-down) reverse,
-//     var(--animation-fade-out) reverse;
-//     animation-timing-function: var(--ease-squish-5);
-//      animation-duration: 1s;
-//     background-color: $secondary-100;
-// }
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(52, 172, 224, 0);
+      }
 
-.sortContainer{
-    gap: .5rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    margin-top: 1rem;
-    margin-bottom: 3rem;
-    background: #dadada;
-    display: flex;
-    justify-content: center;
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(52, 172, 224, 0);
+      }
+    }
+  }
+
+
+.sortContainer {
+  gap: 0.5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  background: #dadada;
+  display: flex;
+  justify-content: center;
 }
 
 //this works
 // #sortTile{
-//     // animation: 
+//     // animation:
 //     //     var(--animation-scale-down) reverse,
 //     //     var(--animation-fade-out) reverse;
 //     //     animation-timing-function: var(--ease-squish-5);
@@ -114,9 +96,16 @@ main {
 //         //   var(--animation-shake-y),
 //         //   var(--animation-fade-in),
 //         //   var(--animation-slide-in-left);
-      
+
 // }
 
+#sortTile{
+    font-size: 2em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 900;
+    border: 2px solid black;
+    background: var(--colar-indigo-10);
+    width: 15%;
+ //   height: 25%;
 
-
-
+}

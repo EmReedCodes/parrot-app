@@ -40,15 +40,15 @@ main {
 }
 
 .microphone {
-  width: 3rem;
-  height: 3rem;
+  width: 5rem;
+  height: 5rem;
   display: block;
   margin: 0 auto 1em auto;
 }
 
 .microphone-on {
-  width: 3rem;
-  height: 3rem;
+  width: 5rem;
+  height: 5rem;
   display: block;
   margin: 0 auto 1em auto;
   border-radius: 50%;
@@ -95,4 +95,13 @@ main {
   background: #dadada;
   display: flex;
   justify-content: center;
+}
+
+#sortTile {
+  font-size: 2em;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 900;
+  border: 2px solid black;
+  background: var(--colar-indigo-10);
+  width: 15%;
 }/*# sourceMappingURL=style.css.map */

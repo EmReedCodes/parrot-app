@@ -1,7 +1,10 @@
 const Modal = (props) => {
-
+  
+    
     return (
-        <dialog open={props.open}>
+        <dialog
+            className="modalContainer"
+            open={props.open}>
                 <article>
                     <header>
                         <a href="#close"

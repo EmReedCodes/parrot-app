@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @import "https://unpkg.com/open-props";
 @import "https://unpkg.com/open-props/buttons.min.css";
-@import "https://octoshrimpy.github.io/microcss/nf.css";
+@import "https://octoshrimpy.github.io/microcss/micro.css";
 .prim-50 {
   background: #e2f6fb;
   color: rgba(0, 0, 0, 0.7);
@@ -2930,7 +2930,8 @@ textarea,
 .parrotLogo {
   display: block;
   margin: auto;
-  background: var(--grape-3);
+  background: var(--colar-indigo-10);
+  background-color: var(--);
   box-shadow: var(--shadow-border);
 }
 @media (var(--lg-n-above)) {
@@ -3080,6 +3081,11 @@ h1 {
   margin-right: 0;
 }
 
-.textInModal * {
+.modalContainer {
+  -webkit-animation: var(--animation-slide-in-down);
+          animation: var(--animation-slide-in-down);
+}
+
+.textInModal p {
   padding: 0.5em 0 0.5em 0;
 }/*# sourceMappingURL=main.css.map */

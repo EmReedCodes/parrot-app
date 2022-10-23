@@ -68,7 +68,7 @@ const Dictaphone = () => {
   return (
     <div className="speech">
       
-          <h3>Click start and speak a word</h3>
+          <h3>Click start and speak a word.</h3>
           {listening ?
             <IconContext.Provider value={{ className: "microphone-on" }}>
               <FaMicrophoneAlt />

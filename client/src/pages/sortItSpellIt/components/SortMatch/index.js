@@ -1,189 +1,159 @@
-
-  import {
-    closestCenter,
-    DndContext,
-    PointerSensor,
-    TouchSensor,
-    useSensor,
-    DragOverlay,
-    closestCorners,
-    KeyboardSensor,
-    useSensors
-  } from "@dnd-kit/core";
-  import {
-    arrayMove,
-    //rectSwappingStrategy,
-    horizontalListSortingStrategy,
-    SortableContext,
-    sortableKeyboardCoordinates
-  } from "@dnd-kit/sortable";
-  import React, { useState, useEffect, useMemo } from "react";
-  import SortableItem from "./SortableItem";
-  import { v4 as uuidv4 } from "uuid";
-  import shuffle from "lodash/shuffle";
-  import { useSelector} from "react-redux"
-import Submission from './Submission'
+import {
+  closestCenter,
+  DndContext,
+  PointerSensor,
+  TouchSensor,
+  useSensor,
+  DragOverlay,
+  closestCorners,
+  KeyboardSensor,
+  useSensors
+} from "@dnd-kit/core"
+import {
+  arrayMove,
+  //rectSwappingStrategy,
+  horizontalListSortingStrategy,
+  SortableContext,
+  sortableKeyboardCoordinates
+} from "@dnd-kit/sortable"
+import React, { useState, useEffect, useMemo } from "react"
+import SortableItem from "./SortableItem"
+import { v4 as uuidv4 } from "uuid"
+import shuffle from "lodash/shuffle"
+import { useSelector } from "react-redux"
+import Submission from "./Submission"
 import { remove } from "../../../../features/words/wordsSlice"
 import { useDispatch } from "react-redux"
 
+const SortMatch = () => {
+  const { saidWord } = useSelector(state => state.word)
+  //   console.log(saidWord)
 
-  const SortMatch = () => {
-     
-     const { saidWord } = useSelector(state => state.word)
-//   console.log(saidWord)
-    
+  const dispatch = useDispatch()
 
- const dispatch = useDispatch()
-  
-      const [items, setItems] = useState([])
-    const [initialItems, setInitialItems] = useState([])
+  const [items, setItems] = useState([])
+  const [initialItems, setInitialItems] = useState([])
 
-    // const copyWord = saidWord.concat()
-    // console.log(copyWord)
-    
+  // const copyWord = saidWord.concat()
+  // console.log(copyWord)
+
   useEffect(() => {
-      const words = []
-      if (saidWord.length > 0) {
-          for (let i = 0; i < saidWord.length; i++) {
-              words.push({
-                  id: uuidv4(),
-                  letter: saidWord[i],
-                isCorrect: null,
-                  color: "#eb9e2e"
-              })
-          }
+    const words = []
+    if (saidWord.length > 0) {
+      for (let i = 0; i < saidWord.length; i++) {
+        words.push({
+          id: uuidv4(),
+          letter: saidWord[i],
+          isCorrect: null,
+          color: null
+        })
       }
-      const shuffledWord = shuffle(words)
-      setItems(shuffledWord)
-      setInitialItems(shuffledWord)
+    }
+    const shuffledWord = shuffle(words)
+    setItems(shuffledWord)
+    setInitialItems(shuffledWord)
   }, [saidWord])
-  
-     
-      
-      
-    //is rendering with default useState. How to have my data set before this page gets rendered though?
-console.log(items)
-    //const sensors = [useSensor(PointerSensor)];
-    const [activeId, setActiveId] = useState(null);
-    // const [activeId, setActiveId] = useState(null);
-    // const sensors = useSensors(
-    //   useSensor(PointerSensor),
-    //   useSensor(KeyboardSensor, {
-    //     coordinateGetter: sortableKeyboardCoordinates
-    //   })
-    // );
-    // const sensors = useSensors(
-    //     useSensor(PointerSensor),
-    //     useSensor(TouchSensor, {
-    //         // Press delay of 250ms, with tolerance of 5px of movement
-    //         activationConstraint: {
-    //           delay: 250,
-    //           tolerance: 5,
-    //         },
-    //       }),
-    //     useSensor(KeyboardSensor, {
-    //       coordinateGetter: sortableKeyboardCoordinates
-    //     })
-    //   );
 
-      //TODO: fix reset on dispatch
+  //is rendering with default useState. How to have my data set before this page gets rendered though?
+  console.log(items)
+  //const sensors = [useSensor(PointerSensor)];
+  const [activeId, setActiveId] = useState(null)
+  // const [activeId, setActiveId] = useState(null);
+  // const sensors = useSensors(
+  //   useSensor(PointerSensor),
+  //   useSensor(KeyboardSensor, {
+  //     coordinateGetter: sortableKeyboardCoordinates
+  //   })
+  // );
+  // const sensors = useSensors(
+  //     useSensor(PointerSensor),
+  //     useSensor(TouchSensor, {
+  //         // Press delay of 250ms, with tolerance of 5px of movement
+  //         activationConstraint: {
+  //           delay: 250,
+  //           tolerance: 5,
+  //         },
+  //       }),
+  //     useSensor(KeyboardSensor, {
+  //       coordinateGetter: sortableKeyboardCoordinates
+  //     })
+  //   );
+
+
   const resetWord = () => {
-    
-    //resetTranscript()
     dispatch(remove(saidWord))
-    //dont think its resetting
-    //TypeError: remove is not a function
+  }
 
-    
-}
+  const pointerSensor = useSensor(PointerSensor)
+  const touchSensor = useSensor(TouchSensor, {
+    activationConstraint: {
+      delay: 250,
+      tolerance: 5
+    }
+  })
+  const keyboardSensor = useSensor(KeyboardSensor)
 
-      
-      
-    const pointerSensor = useSensor(PointerSensor);
-      const touchSensor = useSensor(TouchSensor, {
-          activationConstraint: {
-              delay: 250,
-              tolerance: 5
-        }
-    });
-    const keyboardSensor = useSensor(KeyboardSensor);
-    
-    const sensors = useSensors(
-      pointerSensor,
-      touchSensor,
-      keyboardSensor,
-      );
-      
-    
-  
-    const handleDragEnd = ({active, over}) => {
-        if (active.id !== over.id) {
-            setItems((items) => {
-           
-            const oldIndex = items.findIndex(item => item.id === active.id)
-            const newIndex = items.findIndex(item => item.id === over.id)
-            
-            return arrayMove(items, oldIndex, newIndex)
-          })
-        }
-      }
+  const sensors = useSensors(pointerSensor, touchSensor, keyboardSensor)
 
-      const onDragCancel = () => {
-        setActiveId(null);
-      };
+  const handleDragEnd = ({ active, over }) => {
+    if (active.id !== over.id) {
+      setItems(items => {
+        const oldIndex = items.findIndex(item => item.id === active.id)
+        const newIndex = items.findIndex(item => item.id === over.id)
 
-      const resetSort = () => {
-          setItems(initialItems)
-      }
+        return arrayMove(items, oldIndex, newIndex)
+      })
+    }
+  }
+
+  const onDragCancel = () => {
+    setActiveId(null)
+  }
+
+  const resetSort = () => {
+    setItems(initialItems)
+  }
 
 
-    
-     // const colorScheme = !hasSubmitted ? "blue" : isCorrect ? "green" : "red";
-  
-    //   const containerStyle = {
-    //     background: "#dadada",
-    //     padding: 10,
-    //       margin: 10,
-          
-    //   };
-      
-      
-  
-      return (
-        <>
-               <button onClick={() => resetWord()}>Start Over</button>
-              <div
-                  className="sortContainer"
-       // style={containerStyle}
-        >
-   
+  return (
+    <>
+      <button className="replay-btn" onClick={() => resetWord()}>Start Over</button>
+      <div
+        className="sortContainer"
+        // style={containerStyle}
+      >
         <DndContext
           sensors={sensors}
           collisionDetection={closestCenter}
           //onDragEnd={handleDragEnd}
           // onDragStart={handleDragStart}
           // onDragOver={handleDragOver}
-                      onDragEnd={handleDragEnd}
+          onDragEnd={handleDragEnd}
           onDragCancel={onDragCancel}
         >
-          <SortableContext strategy={horizontalListSortingStrategy}
-          
-           items={items.map((item) => item.id)}>
-            {items.map((item) => (
-                <SortableItem item={item.letter} key={item.id} id={item.id} isCorrect={item.isCorrect} color={item.color} />
+          <SortableContext
+            strategy={horizontalListSortingStrategy}
+            items={items.map(item => item.id)}
+          >
+            {items.map(item => (
+              <SortableItem
+                item={item.letter}
+                key={item.id}
+                id={item.id}
+                isCorrect={item.isCorrect}
+                color={item.color}
+              />
             ))}
           </SortableContext>
-  
+
           {/* <DragOverlay>{activeId ? activeId : null}</DragOverlay> */}
-            </DndContext>
-            </div>
-        
-       
-              < Submission items={items} setItems={setItems} reset={onDragCancel} word={saidWord} />
-              <button onClick={() => resetSort()}>reset</button>
-        
-        </>
-    );
-  }
+        </DndContext>
+      </div>
+
+      <Submission items={items} setItems={setItems} reset={onDragCancel} word={saidWord} />
+      <button onClick={() => resetSort()}>reset</button>
+    </>
+  )
+}
 
 export default SortMatch

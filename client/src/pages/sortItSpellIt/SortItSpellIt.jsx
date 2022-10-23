@@ -1,5 +1,4 @@
 import Dictaphone from "./components/Dictaphone"
-import SpeechForm from "./components/SpeechForm"
 import "./styles/style.css"
 import { useState, useEffect } from "react"
 import { useSelector } from "react-redux"
