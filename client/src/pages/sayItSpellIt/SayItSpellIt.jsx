@@ -5,8 +5,6 @@ import { useState, useEffect } from "react"
 import { useSelector } from "react-redux"
 import { FaRegPlayCircle } from 'react-icons/fa'
 import SortMatch from "./components/SortMatch"
-import { v4 as uuidv4 } from "uuid";
-import shuffle from "lodash/shuffle";
 import { IconContext } from "react-icons";
 
 
@@ -52,7 +50,7 @@ const SayItSpellIt = () => {
           <IconContext.Provider value={{ className:"playIcon" }}>
           <FaRegPlayCircle />
             </IconContext.Provider>
-            Replay
+             Replay
           </button>
         </div>
       }

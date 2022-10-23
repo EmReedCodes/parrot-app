@@ -6,10 +6,10 @@ import { getWordsForList } from '../../features/bankWord/bankWordSlice'
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import './styles/style.css'
-
+import Modal from '../../components/Modal'
 
 const WordBank = () => {
-
+  const [modalToggle, setModalToggle] = useState(false)
     
   const dispatch = useDispatch()
   
@@ -30,8 +30,9 @@ const WordBank = () => {
         <RepeatWord wordBank={wordBank}/>
           <WordForm />
 
-            <WordList wordBank={wordBank}/>
-     
+          <WordList wordBank={wordBank} />
+          <button onClick={() => setModalToggle(true)}>submit</button>
+        <Modal open={modalToggle} />
         </div>
     </>
     );

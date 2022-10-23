@@ -1,6 +1,7 @@
-main{
+main {
     width: 80%;
     margin: 0 auto;
+    text-align: center;
 }
 
 
@@ -23,12 +24,28 @@ main{
      animation-duration: 1s;
     display: inline-block;
     width: fit-content;
-    background-color: $secondary-100;
+}
+
+.speech {
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .playIcon {
     width: 3rem;
     height: 3rem;
+    padding-right: 0.3rem;
+}
+
+// svg {
+//     width: 3em;
+//     height: 3em;
+// }
+.microphone {
+    width: 3rem;
+    height: 3rem;
+    display: block;
+    margin: 0 auto 1em auto;
 }
 
 
@@ -56,6 +73,20 @@ main{
     justify-content: center;
 }
 
+#sortTile{
+    // animation: 
+    //     var(--animation-scale-down) reverse,
+    //     var(--animation-fade-out) reverse;
+    //     animation-timing-function: var(--ease-squish-5);
+    //      animation-duration: 1s;
+    //      animation-iteration-count: 1;
+
+        // animation:
+        //   var(--animation-shake-y),
+        //   var(--animation-fade-in),
+        //   var(--animation-slide-in-left);
+      
+}
 
 
 //   .sortItem {

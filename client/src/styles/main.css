@@ -3078,4 +3078,8 @@ h1 {
   width: fit-content;
   margin-left: auto;
   margin-right: 0;
+}
+
+.textInModal * {
+  padding: 0.5em 0 0.5em 0;
 }/*# sourceMappingURL=main.css.map */

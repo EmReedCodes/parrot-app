@@ -30,11 +30,14 @@ const SortableItem = (props) => {
         border: '2px solid black',
         opacity: isDragging ? 0.5 : 1,
         background: color,
-        width: "15%"
+      width: "15%",
+    //  -webkit-animation: "var(--animation-shake-y), var(--animation-fade-in), var(--animation-slide-in-left);
+    // animation: "var(--animation-scale-down) reverse, var(--animation-fade-out) reverse"
     }
    
     return (
-        <div
+      <div
+          id='sortTile'
             ref={setNodeRef}
             {...attributes}
             {...listeners}
@@ -48,49 +51,3 @@ const SortableItem = (props) => {
 
 export default SortableItem;
 
-
-// import { useSortable } from '@dnd-kit/sortable';
-// import { CSS } from '@dnd-kit/utilities';
-// import React from 'react';
-// const SORTABLE_TRANSITION_DURATION = 250;
-
-
-// const SortableItem = ({id, item}) => {
-//       const {
-//     setNodeRef,
-//     listeners,
-//     isDragging,
-//     transform,
-//     transition,
-//     attributes,
-//   } = useSortable({
-//     id,
-//       transition: {
-//       duration: SORTABLE_TRANSITION_DURATION,
-//       easing: "ease"
-//     }
-//   });
-
-//     const style = {
-//         transition,
-//         transform: CSS.Transform.toString(transform),
-//         border: '2px solid black',
-//         opacity: isDragging ? 0.5 : 1,
-//         background: "#eb9e2e"
-         
-//     }
-
-//     return (
-//         <div
-//             className='sortItem'
-//             ref={setNodeRef}
-//             {...attributes}
-//             {...listeners}
-//             style={style}
-//         >
-//             {item}
-//         </div>
-//     )
-// }
-
-// export default SortableItem;

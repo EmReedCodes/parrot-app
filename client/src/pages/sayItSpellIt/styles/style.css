@@ -1,22 +1,6 @@
 main {
   width: 80%;
   margin: 0 auto;
-}
-
-.listRow {
-  color: red !important;
-  font-size: 3em;
-  border-bottom: 2px solid black;
-  width: 0.5em;
-}
-
-.dropList {
-  display: flex;
-  gap: 2em;
-}
-
-ul li {
-  list-style: none;
   text-align: center;
 }
 
@@ -43,9 +27,22 @@ ul li {
   width: fit-content;
 }
 
+.speech {
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .playIcon {
   width: 3rem;
   height: 3rem;
+  padding-right: 0.3rem;
+}
+
+.microphone {
+  width: 3rem;
+  height: 3rem;
+  display: block;
+  margin: 0 auto 1em auto;
 }
 
 .sortContainer {

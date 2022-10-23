@@ -4,6 +4,10 @@ import { useDispatch } from "react-redux"
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition"
 import { toast } from "react-toastify"
 import { update, remove } from "../../../features/words/wordsSlice"
+import { FaMicrophoneAltSlash } from 'react-icons/fa'
+import { FaMicrophoneAlt } from 'react-icons/fa'
+import { IconContext } from "react-icons";
+
 const Dictaphone = () => {
 
   //welllll I finally have the value stored in an array but how to get it to other components ?
@@ -24,6 +28,7 @@ const Dictaphone = () => {
     // transcript,
     finalTranscript,
     resetTranscript,
+    abort,
     listening,
     browserSupportsSpeechRecognition,
     isMicrophoneAvailable
@@ -60,29 +65,42 @@ const Dictaphone = () => {
 
 
   //TODO: fix reset on dispatch
-  const resetWord = () => {
+//   const resetWord = () => {
     
-    resetTranscript()
-    dispatch(remove( {saidWord}))
-    //dont think its resetting
-    //TypeError: remove is not a function
+//     resetTranscript()
+//     dispatch(remove( {saidWord}))
+//     //dont think its resetting
+//     //TypeError: remove is not a function
 
     
-}
+// }
 
 //onClick={() => speechHandler(saidWord)
   return (
     <div className="speech">
       
      
-      {!finalTranscript &&
-        <>
-      <h3>Start by saying a word</h3>
-      <p>Microphone: {listening ? "on" : "off"}</p>
-      <button onClick={SpeechRecognition.startListening}>Start</button>
-       </>
+
+        
+          <h3>Click start and speak a word</h3>
+          {listening ?
+            <IconContext.Provider value={{ className: "microphone" }}>
+              <FaMicrophoneAlt />
+            </IconContext.Provider>
+            :
+            <IconContext.Provider value={{ className: "microphone" }}>
+              <FaMicrophoneAltSlash />
+            </IconContext.Provider>
+          }
+         {!listening &&
+        <button onClick={SpeechRecognition.startListening}>Start</button>
+       
+         }
+      
+    
+      {listening &&
+        <button onClick={SpeechRecognition.abortListening}>Cancel</button>
       }
-      <button onClick={() => resetWord()}>Reset</button>
     </div>
   )
 }
