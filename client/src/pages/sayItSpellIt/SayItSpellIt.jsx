@@ -7,27 +7,12 @@ import { FaRegPlayCircle } from 'react-icons/fa'
 import SortMatch from "./components/SortMatch"
 import { IconContext } from "react-icons";
 
-
 const SayItSpellIt = () => {
 
   const { user } = useSelector(state => state.auth)
   const { saidWord } = useSelector(state => state.word)
 
- // const [items, setItems] = useState([])
-  // const copyWord = saidWord.concat()
-  // console.log(copyWord)
-  
-  // function createLetters(word) {
-  //   const words = []
-  //     for (let i = 0; i < word.length; i++) {
-  //       words.push({
-  //         id: uuidv4(),
-  //         letter: word[i],
-  //         position: i
-  //       })
-  //     }
-  //   }
-    // setItems(shuffle(words))
+
   
 //can check and confirm spoken word here
   const speechHandler = (text) => {
@@ -37,14 +22,15 @@ const SayItSpellIt = () => {
       window.speechSynthesis.speak(msg)
     }
   }
-//speechForm will only need to pop up on completion of the game
+
+//speechForm will only need to pop up on completion of the game with modal
 
   return (
     <main>
       <h1>Welcome {user.name}</h1>
       
       {saidWord &&
-        <div className="containReplay">
+        <main className="containReplay">
           
           <button className='replay-btn' onClick={() => speechHandler(saidWord)}>
           <IconContext.Provider value={{ className:"playIcon" }}>
@@ -52,7 +38,7 @@ const SayItSpellIt = () => {
             </IconContext.Provider>
              Replay
           </button>
-        </div>
+        </main>
       }
   
       

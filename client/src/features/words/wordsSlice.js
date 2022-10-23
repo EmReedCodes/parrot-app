@@ -15,7 +15,7 @@ export const wordSlice = createSlice({
       state.saidWord = action.payload.saidWord;
     },
     remove: (state) => {
-      state = null;
+      state.saidWord = null;
     },
   },
 })

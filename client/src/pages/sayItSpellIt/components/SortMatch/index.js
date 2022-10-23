@@ -23,12 +23,17 @@
   import shuffle from "lodash/shuffle";
   import { useSelector} from "react-redux"
 import Submission from './Submission'
+import { remove } from "../../../../features/words/wordsSlice"
+import { useDispatch } from "react-redux"
 
 
   const SortMatch = () => {
      
      const { saidWord } = useSelector(state => state.word)
 //   console.log(saidWord)
+    
+
+ const dispatch = useDispatch()
   
       const [items, setItems] = useState([])
     const [initialItems, setInitialItems] = useState([])
@@ -80,6 +85,18 @@ console.log(items)
     //       coordinateGetter: sortableKeyboardCoordinates
     //     })
     //   );
+
+      //TODO: fix reset on dispatch
+  const resetWord = () => {
+    
+    //resetTranscript()
+    dispatch(remove(saidWord))
+    //dont think its resetting
+    //TypeError: remove is not a function
+
+    
+}
+
       
       
     const pointerSensor = useSensor(PointerSensor);
@@ -119,7 +136,7 @@ console.log(items)
           setItems(initialItems)
       }
 
-      const [hasSubmitted, setHasSubmitted] = useState(false);
+
     
      // const colorScheme = !hasSubmitted ? "blue" : isCorrect ? "green" : "red";
   
@@ -134,10 +151,12 @@ console.log(items)
   
       return (
         <>
+               <button onClick={() => resetWord()}>Start Over</button>
               <div
                   className="sortContainer"
        // style={containerStyle}
-      >
+        >
+   
         <DndContext
           sensors={sensors}
           collisionDetection={closestCenter}
@@ -145,7 +164,7 @@ console.log(items)
           // onDragStart={handleDragStart}
           // onDragOver={handleDragOver}
                       onDragEnd={handleDragEnd}
-                      onDragCancel={onDragCancel}
+          onDragCancel={onDragCancel}
         >
           <SortableContext strategy={horizontalListSortingStrategy}
           
@@ -157,11 +176,12 @@ console.log(items)
   
           {/* <DragOverlay>{activeId ? activeId : null}</DragOverlay> */}
             </DndContext>
-            
-        </div>
+            </div>
+        
        
               < Submission items={items} setItems={setItems} reset={onDragCancel} word={saidWord} />
               <button onClick={() => resetSort()}>reset</button>
+        
         </>
     );
   }

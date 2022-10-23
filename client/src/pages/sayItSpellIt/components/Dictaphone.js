@@ -3,17 +3,13 @@ import { useDispatch } from "react-redux"
 //import { useSelector } from "react-redux"
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition"
 import { toast } from "react-toastify"
-import { update, remove } from "../../../features/words/wordsSlice"
+import { update } from "../../../features/words/wordsSlice"
 import { FaMicrophoneAltSlash } from 'react-icons/fa'
 import { FaMicrophoneAlt } from 'react-icons/fa'
 import { IconContext } from "react-icons";
 
 const Dictaphone = () => {
 
-  //welllll I finally have the value stored in an array but how to get it to other components ?
-  //const [letterArray, setLetterArray] = useState([])
-
-  // const { word, setWord, finalWord, setFinalWord } = props
   //why no update? i is confused here me...
   //this remove needs to be saidWord???
   // const { remove } = useSelector(state => state.word)
@@ -27,8 +23,6 @@ const Dictaphone = () => {
   const {
     // transcript,
     finalTranscript,
-    resetTranscript,
-    abort,
     listening,
     browserSupportsSpeechRecognition,
     isMicrophoneAvailable
@@ -39,14 +33,9 @@ const Dictaphone = () => {
 
   
   useEffect(() => {
-    
-   
-   
-     
+      
     if (finalTranscript !== "") {
-      setSaidWord(finalTranscript)
-     
-        
+      setSaidWord(finalTranscript.toLowerCase())
     }
  
     dispatch(update({ saidWord }))
@@ -79,12 +68,9 @@ const Dictaphone = () => {
   return (
     <div className="speech">
       
-     
-
-        
           <h3>Click start and speak a word</h3>
           {listening ?
-            <IconContext.Provider value={{ className: "microphone" }}>
+            <IconContext.Provider value={{ className: "microphone-on" }}>
               <FaMicrophoneAlt />
             </IconContext.Provider>
             :

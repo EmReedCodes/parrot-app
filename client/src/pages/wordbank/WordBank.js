@@ -15,7 +15,7 @@ const WordBank = () => {
   
   const { user } = useSelector((state) => state.auth)
   const { wordBank } = useSelector((state) => state.wordBank)
-
+console.log(wordBank)
       useEffect(() => {  
         if (user) {
           dispatch(getWordsForList())
