@@ -6,9 +6,9 @@ import Register from "./pages/register/Register"
 import Dashboard from "./pages/dashboard/Dashboard"
 import SortItSpellIt from "./pages/sortItSpellIt/SortItSpellIt"
 import WordBank from "./pages/wordbank/WordBank"
-import Navbar from "./components/Navbar"
+import Navbar from "./components/nav/Navbar"
 import About from "./pages/about/About"
-import Footer from "./components/Footer"
+import Footer from "./components/footer/Footer"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
@@ -32,7 +32,7 @@ function App() {
 
           <ToastContainer autoClose={2000} />
         </main>
-      <Footer />
+        <Footer />
       </Router>
     </>
   )

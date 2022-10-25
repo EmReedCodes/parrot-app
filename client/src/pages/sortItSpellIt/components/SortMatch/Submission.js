@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import Confetti from '../../../../components/useConfetti'
+import Confetti from '../../../../hooks/useConfetti'
 import Modal from '../../../../components/Modal'
 import SpeechForm from "../SpeechForm";
 

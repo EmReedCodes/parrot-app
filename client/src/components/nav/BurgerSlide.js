@@ -1,7 +1,7 @@
 import { slide as Menu } from "react-burger-menu"
 import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { logout, reset } from "../features/auth/authSlice"
+import { logout, reset } from "../../features/auth/authSlice"
 import ToggleSwitch from "./ToggleSwitch"
 
 export default function Sidebar() {
