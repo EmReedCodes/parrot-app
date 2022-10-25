@@ -152,10 +152,11 @@ margin-bottom: var(--typography-spacing-vertical);
 .parrotLogo {
   display: block;
   margin: auto;
-  // background: var(--grape-3);
-  background: var(--colar-indigo-10);
+  background: var(--grape-3);
+  //background: var(--colar-indigo-10);
   background-color: var(--);
   box-shadow: var(--shadow-border);
+  max-height: 12rem;
   @media (var(--lg-n-above)){
     max-height: 12rem;
   }
@@ -193,12 +194,18 @@ h1 {
   /* Prevent sidebar from showing a scrollbar on page */
   overflow: auto;
 }
-.nav-contain nav{
-  padding-right: .8em;
-}
+// .nav-contain nav{
+//   padding-right: .8em;
+// }
 
 // TODO: invert colors on dark/light theme
 /* Individual item */
+
+
+.navWithSlide {
+  padding-left: 0;
+}
+
 .bm-item {
   display: inline-block;
 
@@ -215,6 +222,7 @@ h1 {
 }
 
 
+
 //   lines itself
 .bm-burger-button {
 position: absolute;
@@ -222,7 +230,7 @@ position: absolute;
   height: 30px;
   top:16px;
    left: 16px;
-  // right: 16px;
+  //right: 16px;
 }
 
 /* Color/shape of burger icon bars */
@@ -239,6 +247,7 @@ position: absolute;
 /* Color/shape of close button cross */
 .bm-cross {
   background: #bdc3c7;
+  //padding-left: 1em;
 }
 
 /* General sidebar styles */
