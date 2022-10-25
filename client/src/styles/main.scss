@@ -128,6 +128,40 @@
 //   height: 100vh;
 // }
 
+//=============Pico overrides attempts
+// html {
+//   background-color: pink;
+// }
+// #root {
+//   height: 100%;
+//   background-color: purple;
+// }
+
+// body {
+//   background-color: red;
+// }
+
+// body main {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   min-height: calc(100vh - 7rem);
+//   padding: 1rem 0;
+// }
+
+//remove hero image in article on small screens
+article div:nth-of-type(2) {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .grid > div:nth-of-type(2) {
+    display: block;
+  }
+}
+
+//===========
+
 .containLogo {
 margin-bottom: var(--typography-spacing-vertical);
  // height: 50%;  

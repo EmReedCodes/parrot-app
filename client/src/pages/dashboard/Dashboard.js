@@ -31,15 +31,16 @@ const Dashboard = () => {
   }, [user, navigate, isError, message, dispatch]) //ok still rendering twice but these are allowed back in
 
   return (
-    <div className="contain">
-      <h1>You made it to dashboard</h1>
-      <Link to="/sortitspellit">
-        <button>Sort It Spell It</button>
-      </Link>
-      <Link to="/wordbank">
-        <button>Word Bank</button>
-      </Link>
-    </div>
+    
+      <section>
+        <h1>You made it to dashboard</h1>
+        <Link to="/sortitspellit">
+          <button>Sort It Spell It</button>
+        </Link>
+        <Link to="/wordbank">
+          <button>Word Bank</button>
+        </Link>
+      </section>
   )
 }
 

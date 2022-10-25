@@ -2923,6 +2923,15 @@ textarea,
 /* Nerd Font */
 /* nerdfont.com */
 /* nerdfont.com/cheatsheet */
+article div:nth-of-type(2) {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .grid > div:nth-of-type(2) {
+    display: block;
+  }
+}
 .containLogo {
   margin-bottom: var(--typography-spacing-vertical);
 }

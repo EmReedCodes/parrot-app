@@ -28,14 +28,14 @@ export default function Sidebar() {
         <a id="dashboard" className="menu-item" href="/dashboard">
           Dashboard
         </a> :
-        <a id="home" className="menu-item" href="/home">
+        <a id="home" className="menu-item" href="/">
         Home
       </a>
       }
       <a id="settings" className="menu-item" href="/settings">
         Settings
           </a>
-          <a id="contact" className="menu-item" href="/contact">
+          <a id="about" className="menu-item" href="/about">
         Contact
       </a>
       <button onClick={onLogout}>Logout</button>
