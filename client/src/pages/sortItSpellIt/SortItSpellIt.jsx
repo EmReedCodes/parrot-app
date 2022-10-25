@@ -1,6 +1,5 @@
 import Dictaphone from "./components/Dictaphone"
 import "./styles/style.css"
-import { useState, useEffect } from "react"
 import { useSelector } from "react-redux"
 import { FaRegPlayCircle } from "react-icons/fa"
 import SortMatch from "./components/SortMatch"
@@ -22,18 +21,21 @@ const SortItSpellIt = () => {
   //speechForm will only need to pop up on completion of the game with modal
 
   return (
-    <main>
-      <h1>Welcome {user.name}</h1>
-
-      {saidWord && (
-        <main className="containReplay">
-          <button className="replay-btn" onClick={() => speechHandler(saidWord)}>
-            <IconContext.Provider value={{ className: "playIcon" }}>
-              <FaRegPlayCircle />
-            </IconContext.Provider>
-            Replay
-          </button>
-        </main>
+   
+      <section>
+        <h1>Welcome {user.name}</h1>
+        {saidWord && (
+          
+            <section className="contain-replay">
+              <button className="replay-btn" onClick={() => speechHandler(saidWord)}>
+                <IconContext.Provider value={{ className: "playIcon" }}>
+                  <FaRegPlayCircle />
+                </IconContext.Provider>
+                Replay
+              </button>
+            </section>
+        
+  
       )}
 
       {!saidWord && (
@@ -42,7 +44,7 @@ const SortItSpellIt = () => {
         </>
       )}
       {saidWord && <SortMatch />}
-    </main>
+      </section>
   )
 }
 

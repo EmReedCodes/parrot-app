@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
 
   
-      <nav className="container-fluid">
+      <nav className="container-fluid navWithSlide">
         
       <BurgerMenu />
         <ul>

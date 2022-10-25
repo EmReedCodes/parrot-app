@@ -1,9 +1,3 @@
-main {
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
-}
-
 .containReplay {
   margin: 0 auto;
   width: 30%;
@@ -25,12 +19,6 @@ main {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-}
-
-.speech {
-  display: flex;
-  flex-direction: column;
-  gap: 5em;
 }
 
 .playIcon {

@@ -2923,6 +2923,15 @@ textarea,
 /* Nerd Font */
 /* nerdfont.com */
 /* nerdfont.com/cheatsheet */
+article div:nth-of-type(2) {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .grid > div:nth-of-type(2) {
+    display: block;
+  }
+}
 .containLogo {
   margin-bottom: var(--typography-spacing-vertical);
 }
@@ -2930,9 +2939,10 @@ textarea,
 .parrotLogo {
   display: block;
   margin: auto;
-  background: var(--colar-indigo-10);
+  background: var(--grape-3);
   background-color: var(--);
   box-shadow: var(--shadow-border);
+  max-height: 12rem;
 }
 @media (var(--lg-n-above)) {
   .parrotLogo {
@@ -2950,11 +2960,11 @@ h1 {
   overflow: auto;
 }
 
-.nav-contain nav {
-  padding-right: 0.8em;
+/* Individual item */
+.navWithSlide {
+  padding-left: 0;
 }
 
-/* Individual item */
 .bm-item {
   display: inline-block;
   /* Our sidebar item styling */
