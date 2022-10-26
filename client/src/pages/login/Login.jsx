@@ -5,8 +5,6 @@ import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
-import kidLearning from './../../smallKidsLearning.jpg'
-
 
 const Login = () => {
   const [authData, setAuthData] = useState({
@@ -53,54 +51,45 @@ const Login = () => {
   }
 
   return (
-
-    
-        <article className="grid">
-          <div>
-            <hgroup>
-              <h1>Login</h1>
-              <p>Login to begin</p>
-            </hgroup>
-            
-            <form onSubmit={onSubmit}>
-              <div className="authGroup">
-                <input
-                  type="email"
-                  className="authInput"
-                  id="email"
-                  name="email"
-                  value={email}
-                  placeholder="Enter your email"
-                  onChange={onChange}
-                />
-              </div>
-              <div className="authGroup">
-                <input
-                  type="password"
-                  className="authInput"
-                  id="password"
-                  name="password"
-                  value={password}
-                  placeholder="Enter password"
-                  onChange={onChange}
-                />
-              </div>
-              <div className="authGroup">
-                <button type="submit" className="btn btn-block">
-                  Submit
-                </button>
-              </div>
-            </form>
-            <span>Don't have an account?
-              <Link to="/register">
-                <span> Register </span>
-              </Link>
-              </span>
-      </div>
+    <article className="grid">
       <div>
-    <img src={kidLearning} alt="" />
+        <hgroup>
+          <h1>Login</h1>
+          <p>Login to begin</p>
+        </hgroup>
+
+        <form onSubmit={onSubmit}>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={email}
+            placeholder="Enter your email"
+            onChange={onChange}
+          />
+
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={password}
+            placeholder="Enter password"
+            onChange={onChange}
+          />
+
+          <button type="submit" className="btn btn-block">
+            Submit
+          </button>
+        </form>
+        <span>
+          Don't have an account?
+          <Link to="/register">
+            <span> Register </span>
+          </Link>
+        </span>
       </div>
-        </article>
+      <div className="loginImage"></div>
+    </article>
   )
 }
 

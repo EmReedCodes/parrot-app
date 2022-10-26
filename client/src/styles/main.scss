@@ -59,30 +59,60 @@
 // your pico overrides here
 
 
-// your pico overrides here
-// :root{
-// --nav-element-spacing-vertical: 1rem;
-// --nav-element-spacing-horizontal: 0.5rem;
-// --nav-link-spacing-vertical: 0.5rem;
-// --nav-link-spacing-horizontal: 0.5rem;
+// @media (min-width: 576px) {
+//   body  header,
+// body  main,
+// body  footer,
+// section {
+//     --block-spacing-vertical: calc(var(--spacing) * 2.5);
+//   }
+// }
+// @media (min-width: 768px) {
+//   body  header,
+// body  main,
+// body  footer,
+// section {
+//     --block-spacing-vertical: calc(var(--spacing) * 3);
+//   }
+// }
+// @media (min-width: 992px) {
+//   body  header,
+// body  main,
+// body  footer,
+// section {
+//     --block-spacing-vertical: calc(var(--spacing) * 3.5);
+//   }
+// }
+// @media (min-width: 1200px) {
+//   body  header,
+// body  main,
+// body  footer,
+// section {
+//     --block-spacing-vertical: calc(var(--spacing) * 4);
+//   }
 // }
 
-// nav ol:first-of-type,
-// nav ul:first-of-type {
-//   margin-left: calc(var(--nav-element-spacing-horizontal) * -1);
+// body  header,
+// body  main,
+// body  footer {
+//   width: 100%;
+//   margin-right: auto;
+//   margin-left: auto;
+//   padding: var(--block-spacing-vertical) 0;
 // }
 
-// .nav-contain nav{
-//   padding-right: 6em;
-// }
+// // #root {
+// //   height: 100vh;
+// // }
 
 
-//
 
 //====================
 // picocss
 
 @import "../../node_modules/@picocss/pico/scss/pico.scss";
+
+@import"https://unpkg.com/@picocss/pico@latest/";
 
 @import "https://unpkg.com/open-props";
 
@@ -128,12 +158,103 @@
 //   height: 100vh;
 // }
 
+// body {
+//   height: 100%;
+// }
+
 //=============Pico overrides attempts
 
+//#root > body {
+//   min-height: calc(100vh - 30rem);
+//   background-color: blue;
+// }
 
-//remove hero image in article on small screens
+// #root body {
+//   min-height: calc(100vh - 7rem);
+// }
+
+body {
+  height: calc(100vh - 7rem);
+}
+
+#root {
+  height: 100%;
+}
+
+@media (min-width: 576px) {
+  body  header,
+body  main,
+body  footer,
+section {
+    --block-spacing-vertical: calc(var(--spacing) * 2.5);
+  }
+}
+@media (min-width: 768px) {
+  body  header,
+body  main,
+body  footer,
+section {
+    --block-spacing-vertical: calc(var(--spacing) * 3);
+  }
+}
+@media (min-width: 992px) {
+  body  header,
+body  main,
+body  footer,
+section {
+    --block-spacing-vertical: calc(var(--spacing) * 3.5);
+  }
+}
+@media (min-width: 1200px) {
+  body  header,
+body  main,
+body  footer,
+section {
+    --block-spacing-vertical: calc(var(--spacing) * 4);
+  }
+}
+
+body  header,
+body  main,
+body  footer {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: var(--block-spacing-vertical) 0;
+}
+
+footer{
+  
+  left: 0;
+  bottom: 0;
+}
+// #root {
+//   height: 100vh;
+// }
+
+
+
+
+
+//editing to login register 
+
+
 article div:nth-of-type(2) {
   display: none;
+}
+
+.registerImage{
+  //background-color: #374956;
+  background-image: url("../assets/smallKidsLearning.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.loginImage {
+  //background-color: #374956;
+  background-image: url("../assets/paul-hanaoka-BJ25B9sonUs-unsplash.jpg");
+  background-position: center;
+  background-size: cover;
 }
 
 @media (min-width: 992px) {
@@ -141,6 +262,8 @@ article div:nth-of-type(2) {
     display: block;
   }
 }
+
+
 
 //===========
 
@@ -348,4 +471,18 @@ margin-right: 0;
 
 .textInModal p{
   padding: .5em 0 .5em 0;
+}
+
+.dashboardImage{
+  padding-bottom: 2em;
+}
+
+.dashboardImage img {
+  display: block;
+  margin: 0 auto;
+  max-width: 17rem;
+}
+
+footer{
+  padding-top: 0;
 }

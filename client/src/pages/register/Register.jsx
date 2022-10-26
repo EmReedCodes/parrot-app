@@ -57,71 +57,57 @@ const Register = () => {
   }
 
   return (
-    <>
-      <section className="contain">
-        <h1>Register</h1>
-        <p>Please create an account.</p>
-      </section>
-
-      <section className="form">
+    <article className="grid">
+      <div>
+        <hgroup>
+          <h1>Register</h1>
+          <p>Please create an account.</p>
+        </hgroup>
         <form onSubmit={onSubmit}>
-          <div className="authGroup">
-            <input
-              type="text"
-              className="authInput"
-              id="name"
-              name="name"
-              value={name}
-              placeholder="Enter your name"
-              onChange={onChange}
-            />
-          </div>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={name}
+            placeholder="Enter your name"
+            onChange={onChange}
+          />
 
-          <div className="authGroup">
-            <input
-              type="text"
-              className="authInput"
-              id="email"
-              name="email"
-              value={email}
-              placeholder="Enter your email"
-              onChange={onChange}
-            />
-          </div>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            value={email}
+            placeholder="Enter your email"
+            onChange={onChange}
+          />
 
-          <div className="authGroup">
-            <input
-              type="password"
-              className="authInput"
-              id="password"
-              name="password"
-              value={password}
-              placeholder="Enter your password"
-              onChange={onChange}
-            />
-          </div>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={password}
+            placeholder="Enter your password"
+            onChange={onChange}
+          />
 
-          <div className="authGroup">
-            <input
-              type="password"
-              className="authInput"
-              id="passwordConfirm"
-              name="passwordConfirm"
-              value={passwordConfirm}
-              placeholder="Confirm your password"
-              onChange={onChange}
-            />
-          </div>
+          <input
+            type="password"
+            id="passwordConfirm"
+            name="passwordConfirm"
+            value={passwordConfirm}
+            placeholder="Confirm your password"
+            onChange={onChange}
+          />
 
-          <div className="authGroup">
-            <button type="submit">Submit</button>
-          </div>
+          <button type="submit">Submit</button>
         </form>
         <span>
           Already have an account?<Link to="/login"> Login </Link>
         </span>
-      </section>
-    </>
+      </div>
+      <div className="registerImage"></div>
+    </article>
   )
 }
 

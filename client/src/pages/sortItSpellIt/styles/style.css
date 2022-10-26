@@ -1,6 +1,9 @@
 .containReplay {
+  cursor: pointer;
+  padding: 2em;
   margin: 0 auto;
-  width: 30%;
+  text-align: center;
+  width: 40%;
   text-align: center;
   animation: var(--animation-scale-down) reverse, var(--animation-fade-out) reverse;
   -webkit-animation-timing-function: var(--ease-squish-5);
@@ -10,20 +13,21 @@
 }
 
 .replay-btn {
+  display: block;
+  margin: 0 auto;
   animation: var(--animation-scale-down) reverse, var(--animation-fade-out) reverse;
   -webkit-animation-timing-function: var(--ease-squish-5);
           animation-timing-function: var(--ease-squish-5);
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
-  display: inline-block;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
 
 .playIcon {
-  width: 3rem;
-  height: 3rem;
+  width: 5rem;
+  height: 5rem;
   padding-right: 0.3rem;
 }
 
@@ -31,7 +35,7 @@
   width: 5rem;
   height: 5rem;
   display: block;
-  margin: 0 auto 1em auto;
+  margin: 2em auto 2em auto;
 }
 
 .microphone-on {
@@ -92,4 +96,8 @@
   border: 2px solid black;
   background: var(--colar-indigo-10);
   width: 15%;
+}
+
+h2, h3 {
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */
