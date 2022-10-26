@@ -24,11 +24,22 @@
 // colors
 //#017FB1
   // primary
-  $primary-50 : #e2f6fb;
+  // $primary-50 : #e2f6fb;
+  // $primary-100: #b5e8f5;
+  // $primary-200: #86d8ef;
+  // $primary-300: #5ac9e9;
+  // $primary-400: #3abde7;
+  // $primary-500: #1cb1e5;
+  // $primary-600: #12a3d7;
+  // $primary-700: #0090c4;
+  // $primary-800: #017fb1;
+  // $primary-900: #005f90;
+
+    $primary-50 : #e2f6fb;
   $primary-100: #b5e8f5;
-  $primary-200: #86d8ef;
-  $primary-300: #5ac9e9;
-  $primary-400: #3abde7;
+  $primary-200: #c586ef;
+  $primary-300: #4f0c51;
+  $primary-400: #430c57;
   $primary-500: #1cb1e5;
   $primary-600: #12a3d7;
   $primary-700: #0090c4;
@@ -105,9 +116,9 @@
 // //   height: 100vh;
 // // }
 
-:root {
-  --primary: #7cb342;
-}
+// :root {
+//   --primary: #7cb342;
+// }
 
 //====================
 // picocss
@@ -238,7 +249,9 @@ footer{
 
 
 
-
+h4 {
+  text-align: center;
+}
 
 //editing to login register 
 
