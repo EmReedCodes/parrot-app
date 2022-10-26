@@ -22,7 +22,7 @@
 
 //====================
 // colors
-
+//#017FB1
   // primary
   $primary-50 : #e2f6fb;
   $primary-100: #b5e8f5;
@@ -105,7 +105,9 @@
 // //   height: 100vh;
 // // }
 
-
+:root {
+  --primary: #7cb342;
+}
 
 //====================
 // picocss
@@ -172,6 +174,8 @@
 // #root body {
 //   min-height: calc(100vh - 7rem);
 // }
+
+
 
 body {
   height: calc(100vh - 7rem);
