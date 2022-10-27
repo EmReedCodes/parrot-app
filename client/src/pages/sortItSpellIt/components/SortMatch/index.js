@@ -16,20 +16,20 @@ import {
   SortableContext,
   sortableKeyboardCoordinates
 } from "@dnd-kit/sortable"
-import React, { useState, useEffect, useMemo } from "react"
+import React, { useState, useEffect } from "react"
 import SortableItem from "./SortableItem"
 import { v4 as uuidv4 } from "uuid"
 import shuffle from "lodash/shuffle"
 import { useSelector } from "react-redux"
 import Submission from "./Submission"
-import { remove } from "../../../../features/words/wordsSlice"
-import { useDispatch } from "react-redux"
+// import { remove } from "../../../../features/words/wordsSlice"
+// import { useDispatch } from "react-redux"
 
 const SortMatch = () => {
   const { saidWord } = useSelector(state => state.word)
   //   console.log(saidWord)
 
-  const dispatch = useDispatch()
+  //const dispatch = useDispatch()
 
   const [items, setItems] = useState([])
   const [initialItems, setInitialItems] = useState([])
@@ -80,9 +80,9 @@ const SortMatch = () => {
   //   );
 
 
-  const resetWord = () => {
-    dispatch(remove(saidWord))
-  }
+  // const resetWord = () => {
+  //   dispatch(remove(saidWord))
+  // }
 
   const pointerSensor = useSensor(PointerSensor)
   const touchSensor = useSensor(TouchSensor, {
@@ -117,7 +117,7 @@ const SortMatch = () => {
 
   return (
     <>
-      <button className="replay-btn" onClick={() => resetWord()}>Start Over</button>
+    
       <div
         className="sortContainer"
         // style={containerStyle}

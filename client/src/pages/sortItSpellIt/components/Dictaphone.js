@@ -66,9 +66,9 @@ const Dictaphone = () => {
 
 //onClick={() => speechHandler(saidWord)
   return (
-    <div className="speech">
+    <>
       
-          <h3>Click start and speak a word.</h3>
+        
           {listening ?
             <IconContext.Provider value={{ className: "microphone-on" }}>
               <FaMicrophoneAlt />
@@ -87,7 +87,7 @@ const Dictaphone = () => {
       {listening &&
         <button onClick={SpeechRecognition.abortListening}>Cancel</button>
       }
-    </div>
+</>
   )
 }
 

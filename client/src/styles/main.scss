@@ -22,13 +22,24 @@
 
 //====================
 // colors
-
+//#017FB1
   // primary
-  $primary-50 : #e2f6fb;
+  // $primary-50 : #e2f6fb;
+  // $primary-100: #b5e8f5;
+  // $primary-200: #86d8ef;
+  // $primary-300: #5ac9e9;
+  // $primary-400: #3abde7;
+  // $primary-500: #1cb1e5;
+  // $primary-600: #12a3d7;
+  // $primary-700: #0090c4;
+  // $primary-800: #017fb1;
+  // $primary-900: #005f90;
+
+    $primary-50 : #e2f6fb;
   $primary-100: #b5e8f5;
-  $primary-200: #86d8ef;
-  $primary-300: #5ac9e9;
-  $primary-400: #3abde7;
+  $primary-200: #c586ef;
+  $primary-300: #4f0c51;
+  $primary-400: #430c57;
   $primary-500: #1cb1e5;
   $primary-600: #12a3d7;
   $primary-700: #0090c4;
@@ -52,37 +63,68 @@
 // microcss
 
 //@import './_microcss-run.scss';
-//@import './microcss/_run';
+@import './microcss/_run';
 
 //====================
 
 // your pico overrides here
 
 
-// your pico overrides here
-// :root{
-// --nav-element-spacing-vertical: 1rem;
-// --nav-element-spacing-horizontal: 0.5rem;
-// --nav-link-spacing-vertical: 0.5rem;
-// --nav-link-spacing-horizontal: 0.5rem;
+@media (min-width: 576px) {
+  body header,
+body main,
+body footer,
+section {
+    --block-spacing-vertical: calc(var(--spacing) * 2.5);
+  }
+}
+@media (min-width: 768px) {
+  body header,
+body main,
+body footer,
+section {
+    --block-spacing-vertical: calc(var(--spacing) * 3);
+  }
+}
+@media (min-width: 992px) {
+  body header,
+body main,
+body footer,
+section {
+    --block-spacing-vertical: calc(var(--spacing) * 3.5);
+  }
+}
+@media (min-width: 1200px) {
+  body header,
+body main,
+body footer,
+section {
+    --block-spacing-vertical: calc(var(--spacing) * 4);
+  }
+}
+
+body header,
+body main,
+body footer {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: var(--block-spacing-vertical) 0;
+}
+
+// // #root {
+// //   height: 100vh;
+// // }
+
+// :root {
+//   --primary: #7cb342;
 // }
-
-// nav ol:first-of-type,
-// nav ul:first-of-type {
-//   margin-left: calc(var(--nav-element-spacing-horizontal) * -1);
-// }
-
-// .nav-contain nav{
-//   padding-right: 6em;
-// }
-
-
-//
 
 //====================
 // picocss
 
 @import "../../node_modules/@picocss/pico/scss/pico.scss";
+
 
 @import "https://unpkg.com/open-props";
 
@@ -110,7 +152,7 @@
 /* Nerd Font */
 /* nerdfont.com */
 /* nerdfont.com/cheatsheet */
-@import "https://octoshrimpy.github.io/microcss/micro.css";
+//@import "https://octoshrimpy.github.io/microcss/micro.css";
 
 
 
@@ -128,12 +170,107 @@
 //   height: 100vh;
 // }
 
+// body {
+//   height: 100%;
+// }
+
 //=============Pico overrides attempts
 
+//#root > body {
+//   min-height: calc(100vh - 30rem);
+//   background-color: blue;
+// }
 
-//remove hero image in article on small screens
+// #root body {
+//   min-height: calc(100vh - 7rem);
+// }
+
+
+
+// body {
+//   height: calc(100vh - 7rem);
+// }
+
+// #root {
+//   height: 100%;
+// }
+
+// @media (min-width: 576px) {
+//   body  header,
+// body  main,
+// body  footer,
+// section {
+//     --block-spacing-vertical: calc(var(--spacing) * 2.5);
+//   }
+// }
+// @media (min-width: 768px) {
+//   body  header,
+// body  main,
+// body  footer,
+// section {
+//     --block-spacing-vertical: calc(var(--spacing) * 3);
+//   }
+// }
+// @media (min-width: 992px) {
+//   body  header,
+// body  main,
+// body  footer,
+// section {
+//     --block-spacing-vertical: calc(var(--spacing) * 3.5);
+//   }
+// }
+// @media (min-width: 1200px) {
+//   body  header,
+// body  main,
+// body  footer,
+// section {
+//     --block-spacing-vertical: calc(var(--spacing) * 4);
+//   }
+// }
+
+// body  header,
+// body  main,
+// body  footer {
+//   width: 100%;
+//   margin-right: auto;
+//   margin-left: auto;
+//   padding: var(--block-spacing-vertical) 0;
+// }
+
+// footer{
+  
+//   left: 0;
+//   bottom: 0;
+// }
+// #root {
+//   height: 100vh;
+// }
+
+
+
+h4 {
+  text-align: center;
+}
+
+//editing to login register 
+
+
 article div:nth-of-type(2) {
   display: none;
+}
+
+.registerImage{
+  //background-color: #374956;
+  background-image: url("../assets/smallKidsLearning.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.loginImage {
+  //background-color: #374956;
+  background-image: url("../assets/paul-hanaoka-BJ25B9sonUs-unsplash.jpg");
+  background-position: center;
+  background-size: cover;
 }
 
 @media (min-width: 992px) {
@@ -141,6 +278,8 @@ article div:nth-of-type(2) {
     display: block;
   }
 }
+
+
 
 //===========
 
@@ -349,3 +488,17 @@ margin-right: 0;
 .textInModal p{
   padding: .5em 0 .5em 0;
 }
+
+.dashboardImage{
+  padding-bottom: 2em;
+}
+
+.dashboardImage img {
+  display: block;
+  margin: 0 auto;
+  max-width: 17rem;
+}
+
+// footer{
+//   padding-top: 0;
+// }
