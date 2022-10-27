@@ -63,12 +63,137 @@
 // microcss
 
 //@import './_microcss-run.scss';
- //@import './microcss/_run';
+@import './microcss/_run';
 
 //====================
 
 // your pico overrides here
 
+
+@media (min-width: 576px) {
+  body header,
+body main,
+body footer,
+section {
+    --block-spacing-vertical: calc(var(--spacing) * 2.5);
+  }
+}
+@media (min-width: 768px) {
+  body header,
+body main,
+body footer,
+section {
+    --block-spacing-vertical: calc(var(--spacing) * 3);
+  }
+}
+@media (min-width: 992px) {
+  body header,
+body main,
+body footer,
+section {
+    --block-spacing-vertical: calc(var(--spacing) * 3.5);
+  }
+}
+@media (min-width: 1200px) {
+  body header,
+body main,
+body footer,
+section {
+    --block-spacing-vertical: calc(var(--spacing) * 4);
+  }
+}
+
+body header,
+body main,
+body footer {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: var(--block-spacing-vertical) 0;
+}
+
+// // #root {
+// //   height: 100vh;
+// // }
+
+// :root {
+//   --primary: #7cb342;
+// }
+
+//====================
+// picocss
+
+@import "../../node_modules/@picocss/pico/scss/pico.scss";
+
+
+@import "https://unpkg.com/open-props";
+
+@import "https://unpkg.com/open-props/buttons.min.css";
+
+:root {
+  --shadow-none        : inset 0 0 0 rgba(0,0,0,0),          inset 0 0 0 rgba(0,0,0,0),          0 0 0 rgba(0,0,0,0),          0 0 0 rgba(0,0,0,0);
+  
+  --shadow-border      : inset 0 0 0 rgba(10,10,10,.1),      0 0 0 0 rgba(10,10,10,.1),          0 2px 3px rgba(10,10,10,.1),  0 0 0 1px rgba(10,10,10,.1);
+  --shadow-1           : inset 0 0 0 rgba(0,0,0,0.12),       inset 0 0 0 rgba(0,0,0,0.24),       0 1px 3px rgba(0,0,0,0.12),   0 1px 2px rgba(0,0,0,0.24);
+  --shadow-2           : inset 0 0 0 rgba(0,0,0,0.16),       inset 0 0 0 rgba(0,0,0,0.23),       0 3px 6px rgba(0,0,0,0.16),   0 3px 6px rgba(0,0,0,0.23);
+  --shadow-3           : inset 0 0 0 rgba(0,0,0,0.19),       inset 0 0 0 rgba(0,0,0,0.23),       0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  --shadow-4           : inset 0 0 0 rgba(0,0,0,0.25),       inset 0 0 0 rgba(0,0,0,0.22),       0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  --shadow-5           : inset 0 0 0 rgba(0,0,0,0.30),       inset 0 0 0 rgba(0,0,0,0.22),       0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  
+  --inset-shadow-border: inset 0 2px 3px rgba(10,10,10,.1),  inset 0 0 0 1px rgba(10,10,10,.1),  0 0 0 rgba(10,10,10,.1),      0 0 0 0 rgba(10,10,10,.1);
+  --inset-shadow-1     : inset 0 1px 3px rgba(0,0,0,0.12),   inset 0 1px 2px rgba(0,0,0,0.24),   0 0 0 rgba(0,0,0,0.12),       0 0 0 rgba(0,0,0,0.24);
+  --inset-shadow-2     : inset 0 3px 6px rgba(0,0,0,0.16),   inset 0 3px 6px rgba(0,0,0,0.23),   0 0 0 rgba(0,0,0,0.16),       0 0 0 rgba(0,0,0,0.23);
+  --inset-shadow-3     : inset 0 10px 20px rgba(0,0,0,0.19), inset 0 6px 6px rgba(0,0,0,0.23),   0 0 0 rgba(0,0,0,0.19),       0 0 0 rgba(0,0,0,0.23);
+  --inset-shadow-4     : inset 0 14px 28px rgba(0,0,0,0.25), inset 0 10px 10px rgba(0,0,0,0.22), 0 0 0 rgba(0,0,0,0.25),       0 0 0 rgba(0,0,0,0.22);
+  --inset-shadow-5     : inset 0 19px 38px rgba(0,0,0,0.30), inset 0 15px 12px rgba(0,0,0,0.22), 0 0 0 rgba(0,0,0,0.30),       0 0 0 rgba(0,0,0,0.22);
+}
+
+
+/* Nerd Font */
+/* nerdfont.com */
+/* nerdfont.com/cheatsheet */
+//@import "https://octoshrimpy.github.io/microcss/micro.css";
+
+
+
+// iconYouWantGoesHere = class from cheatsheet
+// <span class='icon'>
+//   <i class='nf-iconYouWantGoesHere'>
+// </span>
+
+//====================
+// your scss here
+
+// button styling
+
+// #root {
+//   height: 100vh;
+// }
+
+// body {
+//   height: 100%;
+// }
+
+//=============Pico overrides attempts
+
+//#root > body {
+//   min-height: calc(100vh - 30rem);
+//   background-color: blue;
+// }
+
+// #root body {
+//   min-height: calc(100vh - 7rem);
+// }
+
+
+
+// body {
+//   height: calc(100vh - 7rem);
+// }
+
+// #root {
+//   height: 100%;
+// }
 
 // @media (min-width: 576px) {
 //   body  header,
@@ -112,137 +237,11 @@
 //   padding: var(--block-spacing-vertical) 0;
 // }
 
-// // #root {
-// //   height: 100vh;
-// // }
-
-// :root {
-//   --primary: #7cb342;
-// }
-
-//====================
-// picocss
-
-@import "../../node_modules/@picocss/pico/scss/pico.scss";
-
-//@import"https://unpkg.com/@picocss/pico@latest/";
-
-@import "https://unpkg.com/open-props";
-
-//@import "https://unpkg.com/open-props/buttons.min.css";
-
-:root {
-  --shadow-none        : inset 0 0 0 rgba(0,0,0,0),          inset 0 0 0 rgba(0,0,0,0),          0 0 0 rgba(0,0,0,0),          0 0 0 rgba(0,0,0,0);
+// footer{
   
-  --shadow-border      : inset 0 0 0 rgba(10,10,10,.1),      0 0 0 0 rgba(10,10,10,.1),          0 2px 3px rgba(10,10,10,.1),  0 0 0 1px rgba(10,10,10,.1);
-  --shadow-1           : inset 0 0 0 rgba(0,0,0,0.12),       inset 0 0 0 rgba(0,0,0,0.24),       0 1px 3px rgba(0,0,0,0.12),   0 1px 2px rgba(0,0,0,0.24);
-  --shadow-2           : inset 0 0 0 rgba(0,0,0,0.16),       inset 0 0 0 rgba(0,0,0,0.23),       0 3px 6px rgba(0,0,0,0.16),   0 3px 6px rgba(0,0,0,0.23);
-  --shadow-3           : inset 0 0 0 rgba(0,0,0,0.19),       inset 0 0 0 rgba(0,0,0,0.23),       0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  --shadow-4           : inset 0 0 0 rgba(0,0,0,0.25),       inset 0 0 0 rgba(0,0,0,0.22),       0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  --shadow-5           : inset 0 0 0 rgba(0,0,0,0.30),       inset 0 0 0 rgba(0,0,0,0.22),       0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-  
-  --inset-shadow-border: inset 0 2px 3px rgba(10,10,10,.1),  inset 0 0 0 1px rgba(10,10,10,.1),  0 0 0 rgba(10,10,10,.1),      0 0 0 0 rgba(10,10,10,.1);
-  --inset-shadow-1     : inset 0 1px 3px rgba(0,0,0,0.12),   inset 0 1px 2px rgba(0,0,0,0.24),   0 0 0 rgba(0,0,0,0.12),       0 0 0 rgba(0,0,0,0.24);
-  --inset-shadow-2     : inset 0 3px 6px rgba(0,0,0,0.16),   inset 0 3px 6px rgba(0,0,0,0.23),   0 0 0 rgba(0,0,0,0.16),       0 0 0 rgba(0,0,0,0.23);
-  --inset-shadow-3     : inset 0 10px 20px rgba(0,0,0,0.19), inset 0 6px 6px rgba(0,0,0,0.23),   0 0 0 rgba(0,0,0,0.19),       0 0 0 rgba(0,0,0,0.23);
-  --inset-shadow-4     : inset 0 14px 28px rgba(0,0,0,0.25), inset 0 10px 10px rgba(0,0,0,0.22), 0 0 0 rgba(0,0,0,0.25),       0 0 0 rgba(0,0,0,0.22);
-  --inset-shadow-5     : inset 0 19px 38px rgba(0,0,0,0.30), inset 0 15px 12px rgba(0,0,0,0.22), 0 0 0 rgba(0,0,0,0.30),       0 0 0 rgba(0,0,0,0.22);
-}
-
-
-/* Nerd Font */
-/* nerdfont.com */
-/* nerdfont.com/cheatsheet */
-@import "https://octoshrimpy.github.io/microcss/micro.css";
-
-
-
-// iconYouWantGoesHere = class from cheatsheet
-// <span class='icon'>
-//   <i class='nf-iconYouWantGoesHere'>
-// </span>
-
-//====================
-// your scss here
-
-// button styling
-
-// #root {
-//   height: 100vh;
+//   left: 0;
+//   bottom: 0;
 // }
-
-// body {
-//   height: 100%;
-// }
-
-//=============Pico overrides attempts
-
-//#root > body {
-//   min-height: calc(100vh - 30rem);
-//   background-color: blue;
-// }
-
-// #root body {
-//   min-height: calc(100vh - 7rem);
-// }
-
-
-
-body {
-  height: calc(100vh - 7rem);
-}
-
-#root {
-  height: 100%;
-}
-
-@media (min-width: 576px) {
-  body  header,
-body  main,
-body  footer,
-section {
-    --block-spacing-vertical: calc(var(--spacing) * 2.5);
-  }
-}
-@media (min-width: 768px) {
-  body  header,
-body  main,
-body  footer,
-section {
-    --block-spacing-vertical: calc(var(--spacing) * 3);
-  }
-}
-@media (min-width: 992px) {
-  body  header,
-body  main,
-body  footer,
-section {
-    --block-spacing-vertical: calc(var(--spacing) * 3.5);
-  }
-}
-@media (min-width: 1200px) {
-  body  header,
-body  main,
-body  footer,
-section {
-    --block-spacing-vertical: calc(var(--spacing) * 4);
-  }
-}
-
-body  header,
-body  main,
-body  footer {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding: var(--block-spacing-vertical) 0;
-}
-
-footer{
-  
-  left: 0;
-  bottom: 0;
-}
 // #root {
 //   height: 100vh;
 // }
@@ -500,6 +499,6 @@ margin-right: 0;
   max-width: 17rem;
 }
 
-footer{
-  padding-top: 0;
-}
+// footer{
+//   padding-top: 0;
+// }
