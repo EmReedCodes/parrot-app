@@ -16,8 +16,6 @@ export default function Sidebar() {
   }
 
 
-       //   <li onclick="toggleLightDark()"><a href="#"><span class="theme"></span> theme</a></li>
-  //<Link id="Logout" className="menu-item" to="/login">Login here</Link>
   return (
     <Menu>
        
@@ -38,7 +36,7 @@ export default function Sidebar() {
           <a id="about" className="menu-item" href="/about">
         Contact
       </a>
-      <button onClick={onLogout}>Logout</button>
+      <a id="logout" className="menu-item" href="/"><button onClick={onLogout}>Logout</button></a>
    
     </Menu>
   )
