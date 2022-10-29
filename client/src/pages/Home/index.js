@@ -10,7 +10,8 @@ const Home = () => {
        
             <h1>Welcome to Parrot!</h1>
 
-            <h4>Practice your speech with repition and spelling. Signup or login to begin.</h4>
+            <h4>Practice your speech with repition and spelling.</h4> 
+            {/* <h5>Signup or login to begin.</h5> */}
 
              <div className="containLogo">
                  <ParrotLogo

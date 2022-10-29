@@ -30,44 +30,44 @@ root {
 }
 
 .prim-200 {
-  background: #c586ef;
-  color: #fff;
+  background: #86d8ef;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .text-prim-200 {
-  color: #c586ef;
+  color: #86d8ef;
 }
 
 root {
-  --prim-200: #c586ef;
-  --prim-200-inverse: #fff;
+  --prim-200: #86d8ef;
+  --prim-200-inverse: rgba(0, 0, 0, 0.7);
 }
 
 .prim-300 {
-  background: #4f0c51;
+  background: #5ac9e9;
   color: #fff;
 }
 
 .text-prim-300 {
-  color: #4f0c51;
+  color: #5ac9e9;
 }
 
 root {
-  --prim-300: #4f0c51;
+  --prim-300: #5ac9e9;
   --prim-300-inverse: #fff;
 }
 
 .prim-400 {
-  background: #430c57;
+  background: #3abde7;
   color: #fff;
 }
 
 .text-prim-400 {
-  color: #430c57;
+  color: #3abde7;
 }
 
 root {
-  --prim-400: #430c57;
+  --prim-400: #3abde7;
   --prim-400-inverse: #fff;
 }
 
@@ -297,47 +297,6 @@ root {
 root {
   --comp: #e88e10;
   --comp-inverse: #fff;
-}
-
-@media (min-width: 576px) {
-  body header,
-body main,
-body footer,
-section {
-    --block-spacing-vertical: calc(var(--spacing) * 2.5);
-  }
-}
-@media (min-width: 768px) {
-  body header,
-body main,
-body footer,
-section {
-    --block-spacing-vertical: calc(var(--spacing) * 3);
-  }
-}
-@media (min-width: 992px) {
-  body header,
-body main,
-body footer,
-section {
-    --block-spacing-vertical: calc(var(--spacing) * 3.5);
-  }
-}
-@media (min-width: 1200px) {
-  body header,
-body main,
-body footer,
-section {
-    --block-spacing-vertical: calc(var(--spacing) * 4);
-  }
-}
-body header,
-body main,
-body footer {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding: var(--block-spacing-vertical) 0;
 }
 
 /*!
@@ -3188,9 +3147,64 @@ textarea,
   --inset-shadow-5: inset 0 19px 38px rgba(0,0,0,0.30), inset 0 15px 12px rgba(0,0,0,0.22), 0 0 0 rgba(0,0,0,0.30), 0 0 0 rgba(0,0,0,0.22);
 }
 
-/* Nerd Font */
-/* nerdfont.com */
-/* nerdfont.com/cheatsheet */
+body {
+  box-sizing: border-box;
+}
+
+main {
+  box-sizing: border-box;
+  min-height: calc(100vh - 10em);
+}
+
+button {
+  background-color: #0090c4;
+}
+
+@media (min-width: 576px) {
+  body header,
+body main,
+body footer,
+section {
+    --block-spacing-vertical: calc(var(--spacing) * 2);
+  }
+}
+@media (min-width: 768px) {
+  body header,
+body main,
+body footer,
+section {
+    --block-spacing-vertical: calc(var(--spacing) * 2.5);
+  }
+}
+@media (min-width: 992px) {
+  body header,
+body main,
+body footer,
+section {
+    --block-spacing-vertical: calc(var(--spacing) * 3);
+  }
+}
+@media (min-width: 1200px) {
+  body header,
+body main,
+body footer,
+section {
+    --block-spacing-vertical: calc(var(--spacing) * 3.5);
+  }
+}
+body header,
+body main,
+body footer {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: var(--block-spacing-vertical) 0;
+}
+
+input {
+  width: 100%;
+}
+
 h4 {
   text-align: center;
 }
@@ -3234,7 +3248,7 @@ article div:nth-of-type(2) {
   }
 }
 
-h1 {
+h1, h2, h3, h4, h5 {
   text-align: center;
 }
 

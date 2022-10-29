@@ -24,29 +24,18 @@
 // colors
 //#017FB1
   // primary
-  // $primary-50 : #e2f6fb;
-  // $primary-100: #b5e8f5;
-  // $primary-200: #86d8ef;
-  // $primary-300: #5ac9e9;
-  // $primary-400: #3abde7;
-  // $primary-500: #1cb1e5;
-  // $primary-600: #12a3d7;
-  // $primary-700: #0090c4;
-  // $primary-800: #017fb1;
-  // $primary-900: #005f90;
-
-    $primary-50 : #e2f6fb;
+  $primary-50 : #e2f6fb;
   $primary-100: #b5e8f5;
-  $primary-200: #c586ef;
-  $primary-300: #4f0c51;
-  $primary-400: #430c57;
+  $primary-200: #86d8ef;
+  $primary-300: #5ac9e9;
+  $primary-400: #3abde7;
   $primary-500: #1cb1e5;
   $primary-600: #12a3d7;
   $primary-700: #0090c4;
   $primary-800: #017fb1;
   $primary-900: #005f90;
 
-  // secondary
+  // // secondary
   $secondary-50 : #fcf1e0;
   $secondary-100: #f8dcb2;
   $secondary-200: #f3c681;
@@ -62,7 +51,7 @@
 //====================
 // microcss
 
-//@import './_microcss-run.scss';
+
 @import './microcss/_run';
 
 //====================
@@ -70,65 +59,75 @@
 // your pico overrides here
 
 
-@media (min-width: 576px) {
-  body header,
-body main,
-body footer,
-section {
-    --block-spacing-vertical: calc(var(--spacing) * 2.5);
-  }
-}
-@media (min-width: 768px) {
-  body header,
-body main,
-body footer,
-section {
-    --block-spacing-vertical: calc(var(--spacing) * 3);
-  }
-}
-@media (min-width: 992px) {
-  body header,
-body main,
-body footer,
-section {
-    --block-spacing-vertical: calc(var(--spacing) * 3.5);
-  }
-}
-@media (min-width: 1200px) {
-  body header,
-body main,
-body footer,
-section {
-    --block-spacing-vertical: calc(var(--spacing) * 4);
-  }
-}
+// @media (min-width: 576px) {
+//   body header,
+// body main,
+// body footer,
+// section {
+//     --block-spacing-vertical: calc(var(--spacing) * 2.5);
+//   }
+// }
+// @media (min-width: 768px) {
+//   body header,
+// body main,
+// body footer,
+// section {
+//     --block-spacing-vertical: calc(var(--spacing) * 3);
+//   }
+// }
+// @media (min-width: 992px) {
+//   body header,
+// body main,
+// body footer,
+// section {
+//     --block-spacing-vertical: calc(var(--spacing) * 3.5);
+//   }
+// }
+// @media (min-width: 1200px) {
+//   body header,
+// body main,
+// body footer,
+// section {
+//     --block-spacing-vertical: calc(var(--spacing) * 4);
+//   }
+// }
 
-body header,
-body main,
-body footer {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding: var(--block-spacing-vertical) 0;
-}
+// body header,
+// body main,
+// body footer {
+//   width: 100%;
+//   margin-right: auto;
+//   margin-left: auto;
+//   padding: var(--block-spacing-vertical) 0;
+// }
+
+//edited spacing
+
 
 // // #root {
 // //   height: 100vh;
 // // }
 
-// :root {
-//   --primary: #7cb342;
-// }
+
 
 //====================
 // picocss
+//@import 'https://octoshrimpy.github.io/microcss/micro.css';
 
 @import "../../node_modules/@picocss/pico/scss/pico.scss";
+
+
 
 
 @import "https://unpkg.com/open-props";
 
 @import "https://unpkg.com/open-props/buttons.min.css";
+
+//@import "https://unpkg.com/open-props/colors-hsl.css";
+
+// @import "https://unpkg.com/open-props/colors-hsl";
+
+
 
 :root {
   --shadow-none        : inset 0 0 0 rgba(0,0,0,0),          inset 0 0 0 rgba(0,0,0,0),          0 0 0 rgba(0,0,0,0),          0 0 0 rgba(0,0,0,0);
@@ -149,102 +148,91 @@ body footer {
 }
 
 
-/* Nerd Font */
-/* nerdfont.com */
-/* nerdfont.com/cheatsheet */
-//@import "https://octoshrimpy.github.io/microcss/micro.css";
 
+body{
+  //height: 100vh;
+  box-sizing: border-box;
+}
 
+// #root{
+//   min-height: 100%;
+//  // display: relative;
+// }
 
-// iconYouWantGoesHere = class from cheatsheet
-// <span class='icon'>
-//   <i class='nf-iconYouWantGoesHere'>
-// </span>
+main{
+  box-sizing: border-box;
+  min-height: calc(100vh - 10em);
+  //min-height: 80vh;
+}
+
+button {
+  background-color: $primary-700;
+}
+
+@media (min-width: 576px) {
+  body header,
+body main,
+body footer,
+section {
+    --block-spacing-vertical: calc(var(--spacing) * 2);
+  }
+}
+@media (min-width: 768px) {
+  body header,
+body main,
+body footer,
+section {
+    --block-spacing-vertical: calc(var(--spacing) * 2.5);
+  }
+}
+@media (min-width: 992px) {
+  body header,
+body main,
+body footer,
+section {
+    --block-spacing-vertical: calc(var(--spacing) * 3);
+  }
+}
+@media (min-width: 1200px) {
+  body header,
+body main,
+body footer,
+section {
+    --block-spacing-vertical: calc(var(--spacing) * 3.5);
+  }
+}
+
+body header,
+body main,
+body footer {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: var(--block-spacing-vertical) 0;
+}
+
+// form{
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// form > input {
+//   width: 100%;
+// }
 
 //====================
 // your scss here
 
-// button styling
+input {
+  width: 100%;
+  //margin-bottom: var(--spacing);
 
-// #root {
-//   height: 100vh;
-// }
+  //padding: var(--form-element-spacing-vertical) var(--form-element-spacing-horizontal);
+}
 
-// body {
-//   height: 100%;
-// }
+
 
 //=============Pico overrides attempts
-
-//#root > body {
-//   min-height: calc(100vh - 30rem);
-//   background-color: blue;
-// }
-
-// #root body {
-//   min-height: calc(100vh - 7rem);
-// }
-
-
-
-// body {
-//   height: calc(100vh - 7rem);
-// }
-
-// #root {
-//   height: 100%;
-// }
-
-// @media (min-width: 576px) {
-//   body  header,
-// body  main,
-// body  footer,
-// section {
-//     --block-spacing-vertical: calc(var(--spacing) * 2.5);
-//   }
-// }
-// @media (min-width: 768px) {
-//   body  header,
-// body  main,
-// body  footer,
-// section {
-//     --block-spacing-vertical: calc(var(--spacing) * 3);
-//   }
-// }
-// @media (min-width: 992px) {
-//   body  header,
-// body  main,
-// body  footer,
-// section {
-//     --block-spacing-vertical: calc(var(--spacing) * 3.5);
-//   }
-// }
-// @media (min-width: 1200px) {
-//   body  header,
-// body  main,
-// body  footer,
-// section {
-//     --block-spacing-vertical: calc(var(--spacing) * 4);
-//   }
-// }
-
-// body  header,
-// body  main,
-// body  footer {
-//   width: 100%;
-//   margin-right: auto;
-//   margin-left: auto;
-//   padding: var(--block-spacing-vertical) 0;
-// }
-
-// footer{
-  
-//   left: 0;
-//   bottom: 0;
-// }
-// #root {
-//   height: 100vh;
-// }
 
 
 
@@ -282,6 +270,14 @@ article div:nth-of-type(2) {
 
 
 //===========
+//nothing is working
+// body {
+//  height: 100vh;
+// }
+
+// #root {
+//   min-height: 100%;
+// }
 
 .containLogo {
 margin-bottom: var(--typography-spacing-vertical);
@@ -303,7 +299,7 @@ margin-bottom: var(--typography-spacing-vertical);
 
 //hello
 
-h1 {
+h1, h2, h3, h4, h5 {
   text-align: center;
 }
 //top bottom background
@@ -343,7 +339,12 @@ h1 {
 
 .navWithSlide {
   padding-left: 0;
+ // background-color: $primary-900;
 }
+
+// footer{
+//   background-color: $primary-900;
+// }
 
 .bm-item {
   display: inline-block;
@@ -500,5 +501,6 @@ margin-right: 0;
 }
 
 // footer{
-//   padding-top: 0;
+//   position: absolute;
+//   bottom: 0;
 // }

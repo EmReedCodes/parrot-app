@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux"
 
 
 const SortItSpellIt = () => {
-  const { user } = useSelector(state => state.auth)
+  //const { user } = useSelector(state => state.auth)
   const { saidWord } = useSelector(state => state.word)
   const dispatch = useDispatch()
   //can check and confirm spoken word here
@@ -30,18 +30,11 @@ const SortItSpellIt = () => {
    
     <section className="sortItHome">
         <h2>Say a word and sort a word.</h2>
-         <h3>Click start to begin.</h3>
+         <p>Click start and speak a word to begin.</p>
       {saidWord && (
         <>
-                <button className="replay-btn" onClick={() => resetWord()}>Start Over</button>
+                <button className="reset-btn" onClick={() => resetWord()}>Start Over</button>
         <div className="containReplay">
-      
-              {/* <button className="replay-btn" onClick={() => speechHandler(saidWord)}>
-                <IconContext.Provider value={{ className: "playIcon" }}>
-                  <FaRegPlayCircle />
-                </IconContext.Provider>
-                Replay
-          </button> */}
 
                 <IconContext.Provider value={{ className: "playIcon" }}>
                   <FaRegPlayCircle aria-label="play" onClick={() => speechHandler(saidWord)}/>

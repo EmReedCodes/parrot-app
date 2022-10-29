@@ -1,14 +1,9 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Confetti from '../../../../hooks/useConfetti'
 import Modal from '../../../../components/Modal'
 import SpeechForm from "../SpeechForm";
 
 //turn tiles green that are correct red incorrect until submit is correct
-// const isOpenclassName = 'modal-is-open';
-// const openingclassName = 'modal-is-opening';
-// const closingclassName = 'modal-is-closing';
-// const animationDuration = 400; // ms
-// let visibleModal = null;
 
 export default function Button({ items, setItems, word, initialItems }) {
     
@@ -34,10 +29,9 @@ export default function Button({ items, setItems, word, initialItems }) {
         setModalToggle(true)
     }
 
-    // const openModal = () => {
-    //     setModalToggle('modal-is-open')
-    // }
-   
+    const resetSort = () => {
+        setItems(initialItems)
+      }
     
     const modalText = () => {
         return (
@@ -54,7 +48,11 @@ export default function Button({ items, setItems, word, initialItems }) {
     //     }
     return (
         <>
-            <button onClick={(event) => checkAnswer(event)}>submit</button>
+            <div className="submitReset">
+                <button onClick={(event) => checkAnswer(event)}>submit</button>
+                <button onClick={() => resetSort()}>reset</button>
+            </div>
+            
             <Modal open={modalToggle}
                 onClick={() => setModalToggle(false)}
           

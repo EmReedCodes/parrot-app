@@ -110,16 +110,16 @@ const SortMatch = () => {
     setActiveId(null)
   }
 
-  const resetSort = () => {
-    setItems(initialItems)
-  }
+  // const resetSort = () => {
+  //   setItems(initialItems)
+  // }
 
 
   return (
     <>
     
       <div
-        className="sortContainer"
+        className="sortContainer lined thick"
         // style={containerStyle}
       >
         <DndContext
@@ -150,8 +150,10 @@ const SortMatch = () => {
         </DndContext>
       </div>
 
-      <Submission items={items} setItems={setItems} reset={onDragCancel} word={saidWord} />
-      <button onClick={() => resetSort()}>reset</button>
+      
+        <Submission items={items} setItems={setItems} reset={onDragCancel} word={saidWord} initialItems={initialItems} />
+        
+     
     </>
   )
 }
