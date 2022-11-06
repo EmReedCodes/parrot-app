@@ -15,6 +15,7 @@ const WordBank = () => {
   
   const { user } = useSelector((state) => state.auth)
   const { wordBank } = useSelector((state) => state.wordBank)
+
 console.log(wordBank)
       useEffect(() => {  
         if (user) {
@@ -24,17 +25,24 @@ console.log(wordBank)
         }, [user, dispatch])
   
     return ( 
-    <>
-        <div className="contain">
-            <h1>Word Bank</h1>
-        <RepeatWord wordBank={wordBank}/>
-          <WordForm />
-
-          <WordList wordBank={wordBank} />
-          <button onClick={() => setModalToggle(true)}>submit</button>
-        <Modal open={modalToggle} />
-        </div>
-    </>
+   
+        
+            <section className="containSplit wordGame">
+        <h1>Word Bank</h1>
+        
+                      <section className="repeatSide">
+                        <RepeatWord wordBank={wordBank}/>
+                        </section>
+        
+                        <section className="bankSide">
+                          <WordForm />
+                          <WordList wordBank={wordBank} />
+                        </section>
+                        <button onClick={() => setModalToggle(true)}>submit</button>
+                      <Modal open={modalToggle} />
+            </section>
+      
+   
     );
 }
  

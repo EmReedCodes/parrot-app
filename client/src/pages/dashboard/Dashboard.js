@@ -31,7 +31,7 @@ const Dashboard = () => {
   }, [user, navigate, isError, message, dispatch]) //ok still rendering twice but these are allowed back in
 
   return (
-    <section>
+    <section className="wordGame">
       <h1>Welcome back {user.name}!</h1>
       <div className="dashboardImage">
         <img src={parrotImage} alt="" />

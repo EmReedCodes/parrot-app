@@ -9,6 +9,8 @@ import { useDispatch } from "react-redux"
 
 
 const SortItSpellIt = () => {
+
+
   //const { user } = useSelector(state => state.auth)
   const { saidWord } = useSelector(state => state.word)
   const dispatch = useDispatch()
@@ -24,24 +26,27 @@ const SortItSpellIt = () => {
   const resetWord = () => {
     dispatch(remove(saidWord))
   }
-  //speechForm will only need to pop up on completion of the game with modal
+ 
 
   return (
    
-    <section className="sortItHome">
-        <h2>Say a word and sort a word.</h2>
-         <p>Click start and speak a word to begin.</p>
+    <section className="sortItHome wordGame">
+      {!saidWord &&
+        <>
+          <h2>Let's get to sorting!</h2>
+          <p>Click start and speak a word to begin.</p>
+        </>
+      }
       {saidWord && (
         <>
-                <button className="reset-btn" onClick={() => resetWord()}>Start Over</button>
-        <div className="containReplay">
+        <button className="reset-btn" onClick={() => resetWord()}>Start Over</button>
+       
 
-                <IconContext.Provider value={{ className: "playIcon" }}>
-                  <FaRegPlayCircle aria-label="play" onClick={() => speechHandler(saidWord)}/>
-                </IconContext.Provider>
-     
-        
-                </div>
+        <button className='containIcon'>
+                   <IconContext.Provider value={{className: "replay-btn repeatWord"}}>
+                        <FaRegPlayCircle />
+                        </IconContext.Provider>
+               </button>
             </>
   
       )}

@@ -3,7 +3,7 @@ import { useState } from 'react'
 // import { useTts } from 'tts-react'
 // import { TTSHookProps } from 'tts-react'
 import { FaRegPlayCircle } from 'react-icons/fa'
-
+import { IconContext } from 'react-icons/lib'
 
 
 const RepeatWord = ({ wordBank }) => {
@@ -16,14 +16,9 @@ const RepeatWord = ({ wordBank }) => {
     if(ourText) {
         localStorage.setItem('word', ourText)
     }
-    
-    
      
         const randomizeList = () => {
-            // const listArr = wordBank.text.values()
             const index = Math.floor(Math.random() * wordBank.length)
-            // let speakWord = wordBank[index].text
-            // console.log(speakWord)
             setOurText(wordBank[index].text)
         }
 
@@ -41,7 +36,7 @@ const RepeatWord = ({ wordBank }) => {
     
     return ( 
         
-        <div className="contain">
+        <>
             {ourText ?
                 <h2>{ourText}</h2>
                 : <h2>Hit Next To Begin</h2>
@@ -62,11 +57,16 @@ const RepeatWord = ({ wordBank }) => {
               </div>
            
           
-            <contain-btns>
-                <button className='replay-btn' onClick={() => speechHandler(ourText)}>Play<FaRegPlayCircle /></button>
+            <div className="contain-btns">
+               <button className='containIcon' onClick={() => speechHandler(ourText)}>
+                   <IconContext.Provider value={{className: "replay-btn repeatWord"}}>
+                        <FaRegPlayCircle />
+                        </IconContext.Provider>
+               </button>
                 <button className='next-btn' onClick={() => randomizeList()}>Next <FaRegPlayCircle /> </button>
-            </contain-btns>
-        </div>
+               
+            </div>
+        </>
          );
 
 }

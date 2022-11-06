@@ -110,9 +110,6 @@ const SortMatch = () => {
     setActiveId(null)
   }
 
-  // const resetSort = () => {
-  //   setItems(initialItems)
-  // }
 
 
   return (

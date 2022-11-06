@@ -4,7 +4,7 @@ const Footer = () => {
     
     return (
         <footer className="container-fluid">
-            hey there
+            footer under construction
         </footer>
         
       );

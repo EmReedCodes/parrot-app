@@ -26,7 +26,7 @@ const WordForm = () => {
   }
 
   return (
-      <div className="contain">
+      
         <section className='form'>
           <form onSubmit={onSubmit}>
             <div className='form-group'>
@@ -46,7 +46,7 @@ const WordForm = () => {
             </div>
           </form>
           </section>
-          </div>        
+   
       
   )
 }

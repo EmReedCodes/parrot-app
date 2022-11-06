@@ -12,20 +12,12 @@ import Footer from "./components/footer/Footer"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-import useLocalStorage from "./hooks/useLocalStorage"
+
 
 
 function App() {
-  // let currentTheme = localStorage.getItem("theme");
-
-  // const [theme, setTheme] = useLocalStorage(currentTheme)
   
   
-  // let root = document.querySelector("html")
-  // //root.setAttribute("data-theme", currentTheme)
-
-  // currentTheme ? root.setAttribute("data-theme", currentTheme) : 
-  //
   return (
     <>
       <Router>
