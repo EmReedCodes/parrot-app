@@ -4,6 +4,7 @@ const asyncHandler = require('express-async-handler')
 const User = require('../models/UserModel')
 const { json } = require('express')
 const nodemailer = require('nodemailer');
+
     
 
 //@desc register new user
@@ -77,60 +78,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
 })
 
-//@desc register user data
-//@route GET /api/user/self
-//access private
-//need to reassign new token??? 
-// function forgotPassword(req, res) {
-//     if(process.env.GOOGLE_APP_EMAIL && process.env.GOOGLE_APP_PW) {
-//       const email = req.body.email
-//       User.findOne({email}, (err, user) => {
-//         if (err || !user) {
-//           return res.status(400).json({error: 'User with this email does not exist'})
-//         }
-        
-//         const token = jwt.sign({_id: user._id}, process.env.RESET_PASSWORD_KEY, {expiresIn: '15m'})
-    
-//         let transporter = nodemailer.createTransport({
-//             service: 'gmail',
-//             auth: {
-//               type: 'OAuth2',
-//               user: process.env.MAIL_USERNAME,
-//               pass: process.env.MAIL_PASSWORD,
-//               clientId: process.env.OAUTH_CLIENTID,
-//               clientSecret: process.env.OAUTH_CLIENT_SECRET,
-//               refreshToken: process.env.OAUTH_REFRESH_TOKEN
-//             }
-//           });
-          
 
-        
-//         const data = {
-//           to: email,
-//           subject: 'Reset Account Password Link',
-//           html: `
-//           <h3>Please click the link below to reset your password</h3>
-//           <p>${process.env.CLIENT_URL}/resetpassword/${token}</p>
-//           `,
-//         }
-        
-//         return user.updateOne({resetPassword: token}, (err, user) => {
-//           if (err) {
-//             return res.status(400).json({error: 'Reset password link error'})
-//           } else {
-//             transporter.sendMail(data, function(error, body) {
-//               if (error) {
-//                 return res.status(400).json({error: error.message})
-//               }
-//               return res.status(200).json({message: 'Email has been sent, please follow the instructions'})
-//             })
-//           }
-//         })
-//       })
-//     } else{
-//       return res.status(400).json({error: 'You have not set up an account to send an email or a reset password key for jwt'})
-//     }
-// }
 
 // //@desc register user data
 // //@route GET /api/user/self
@@ -179,6 +127,58 @@ const getSelf = asyncHandler(async (req, res) => {
     res.status(200).json(req.user)
 })
 
+// const user = await User.findOne({email})
+    //pw in db is hashed while login pw is not so we need dcrypt
+    // if(user && (await bcrypt.compare(password, user.password))){
+//  const {email, password} = req.body
+
+// if (goal.user.toString() !== req.user.id) {
+//     res.status(401)
+//     throw new Error('User not authorized')
+//   }
+
+//@desc delete user data
+//@route DELETE /api/user/delete
+//access private
+const deleteUser = asyncHandler(async (req, res) => {
+
+    try {
+        const user = await User.findOne({ email: req.user.email })
+        console.log(user)
+        //const { pwAttempt } = req.body
+            console.log(req.body, 'req.body server')
+    console.log(req.user, 'user server?')
+   // const user = await User.findOne({ email })
+    //console.log(user, 'finding the email')
+        if (await bcrypt.compare(req.body.pwAttempt, user.password)) {
+            console.log('experiment worked')
+            const byeUser = User.findByIdAndDelete(req.user._id)
+        } else {
+            res.status(403).json({msg: 'not correct pw'})
+        }
+        res.status(201).json({msg: "deleted user"})
+      } catch (err) {
+        console.log(err)
+      }
+
+//     //const user = req.user._id
+//     console.log(req.body, 'req.body server')
+//     console.log(req.user, 'user server?')
+//     const user = await User.findOne({ email })
+//     console.log(user, 'finding the email')
+//     const { pwAttempt } = req.body
+//     console.log(pwAttempt)
+//    // const pwTry = req.body.pwAttempt
+//     console.log(pwTry)
+//     if (req.user && await bcrypt.compare(pwAttempt, req.user.password)) {
+//         User.findByIdAndDelete(req.user._id)
+//         res.status(201).json({msg: "User Deleted"})
+//     } else {
+//         res.status(400)
+//         throw new Error('Invalid Credentials')
+//     }
+})
+
 
 //generate JWT (token)
 const generateToken = (id) => {
@@ -193,6 +193,7 @@ module.exports = {
     registerUser,
     loginUser,
     getSelf,
+    deleteUser
     //updatePassword
 }
 

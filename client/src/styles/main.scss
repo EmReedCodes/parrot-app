@@ -295,8 +295,8 @@ h1, h2, h3, h4, h5 {
 }
 
 .repeatWord {
-  width: 4rem;
-  height: 4rem;
+  width: 3rem;
+  height: 3rem;
   color: #415462;
 }
 
@@ -335,7 +335,7 @@ h1, h2, h3, h4, h5 {
 [data-theme= dark]
 .navWithSlide {
   padding-left: 0;
-  background-color: $primary-900;
+  background-color: #0090c4;
   position: sticky;
   position: -webkit-sticky;
   top: 0;

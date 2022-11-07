@@ -6,6 +6,8 @@ import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 
+//TODO: what is this reset doing?
+
 const Login = () => {
   const [authData, setAuthData] = useState({
     email: "",

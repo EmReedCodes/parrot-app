@@ -65,7 +65,7 @@ const saveWord = async (req, res) => {
 const deleteWord = async (req, res) => {
     try {
         console.log(req.params._id)
-        console.log(req.user._id)
+    
         const word = await DictaphoneWord.findOneAndDelete({ _id: req.params._id })
         console.log('Deleted Todo')
         res.status(200).json({_id: req.params._id})

@@ -1,112 +1,57 @@
-import { useState } from "react"
-import { useSelector, useDispatch } from "react-redux"
+
+
+import { useState, useRef } from "react"
+import { useDispatch } from "react-redux"
+import { deleteSelf } from '../../features/auth/authSlice'
 //import { resetPassword } from "../../features/auth/authSlice"
 import { toast } from "react-toastify"
+// import authSlice from "../../features/auth/authSlice"
 
 const Settings = () => {
-        const dispatch = useDispatch()
-    
-        const [authData, setAuthData] = useState({
-            password: "",
-            passwordConfirm: "",
-        })
 
-        //const { user, isError, isSuccess, message } = useSelector(state => state.auth)
-    
-      const { password, passwordConfirm } = authData
+ // const [pwAttempt, setPwAttempt] = useState()
+  const pwAttempt = useRef(null)
   
-      //  const { token } = useParams()
-    //  const onChange = e => {
-        // setAuthData(prevState => ({
-        //     ...prevState,
-        //     //get key value
-        //     [e.target.name]: e.target.value
-        //   }))
-        // }
+  //const { pwInput } = authData
 
-        //not sure about this prevState
-        const handleChange = e => {
-            setAuthData(prevState => ({
-              ...prevState,
-              //get key value
-              [e.target.name]: e.target.value
-            }))
-          }
-
-          const handleSubmit = e => {
-            e.preventDefault()
+  //const { deleteSelf } = useSelector(authSlice)
     
-            if (password !== passwordConfirm) {
-              toast.error("Passwords do not match")
-            } else {
-              const authData = {
-                  password,
-                  passwordConfirm
-              }
-              //dispatch(resetPassword(authData))
-            }
-          }
 
-    const isFormInvalid = () => {
-        return !(
-            authData.password &&
-            authData.password === authData.passwordConfirm
-        )
-    }
 
+      const dispatch = useDispatch()
+    
+    //const { user, isError, isSuccess, message } = useSelector(state => state.auth)
+ 
+
+    const onSubmit = e => {
+      e.preventDefault()
+   
+    console.log(pwAttempt.current.value)
+        dispatch(deleteSelf({pwAttempt: pwAttempt.current.value}))
+        e.target.reset()
+      }
+     
     return ( 
-        <div className="ResetPasswordPage">
-        <h2>Not right now</h2>
-        <div>
-<h3>Reset Password</h3>
-<form
+        <section>
+          
+        <form onSubmit={onSubmit}>
 
-    onSubmit={handleSubmit}
->
-    <div className="row">
-        <div>
-            <input
-    
-                onChange={handleChange}
-                className="active"
-                name="password"
-                value={authData.password}
-            />
-            <label htmlFor="password">New Password</label>
-        </div>
-    </div>
-    <div className="row">
-        <div>
-            <input
-       
-                onChange={handleChange}
-                className="active"
-                name="passwordConfirm"
-                value={authData.passwordConfirm}
-            />
-            <label htmlFor="passwordConfirm">
-                Confirm Password
-            </label>
-        </div>
-    </div>
-    <div className="row">
-        <div>
-            <button
-                className="btn green"
-                disabled={isFormInvalid()}
-            >
-                Submit
-            </button>
-        </div>
-    </div>
-</form>
-</div>
-</div>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            ref={pwAttempt}
+            placeholder="Confirm password"
+           
+          />
+
+          <button type="submit" className="btn btn-block">
+            Submit
+          </button>
+        </form>
+</section>
 );
     
 }
  
 export default Settings;
-
-
-

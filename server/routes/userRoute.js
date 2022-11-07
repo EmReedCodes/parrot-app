@@ -10,7 +10,8 @@ router.post('/', authController.registerUser)
 router.post('/login', authController.loginUser)
 // router.put('/forgotPassword', authController.forgotPassword)
 // router.put('/resetPassword', authController.updatePassword)
-router.get('/self', protect,  authController.getSelf)
+router.get('/self', protect, authController.getSelf)
+router.post('/delete', protect, authController.deleteUser)
 
 
 

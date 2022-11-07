@@ -52,25 +52,41 @@ export const logout = createAsyncThunk('auth/logout', async () => {
     await authService.logout()
 })
 
-
-
-export const resetPassword = createAsyncThunk(
-    'auth/resetPassword',
-    async (authData, thunkAPI) => {
-      try {
+//protected?
+export const deleteSelf = createAsyncThunk('auth/deleteSelf', async (pwInput, thunkAPI) => {
+    try {
+        console.log(pwInput, 'pwinput')
+        //console.log(user, 'delete user info client side')
         const token = thunkAPI.getState().auth.user.token
-        return await authService.resetPassword(authData, token)
+        console.log(token, 'token for delete client side')
+        return await authService.deleteUser(pwInput, token)
       } catch (error) {
         const message =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
+          (error.response && error.response.data && error.response.data.message) ||
           error.message ||
           error.toString()
         return thunkAPI.rejectWithValue(message)
       }
-    }
-)
+})
+
+
+// export const resetPassword = createAsyncThunk(
+//     'auth/resetPassword',
+//     async (authData, thunkAPI) => {
+//       try {
+//         const token = thunkAPI.getState().auth.user.token
+//         return await authService.resetPassword(authData, token)
+//       } catch (error) {
+//         const message =
+//           (error.response &&
+//             error.response.data &&
+//             error.response.data.message) ||
+//           error.message ||
+//           error.toString()
+//         return thunkAPI.rejectWithValue(message)
+//       }
+//     }
+// )
     
 
 export const authSlice = createSlice({
@@ -121,6 +137,9 @@ export const authSlice = createSlice({
                 state.user = null
             })
             .addCase(logout.fulfilled, (state) => {
+                state.user = null
+            })
+            .addCase(deleteSelf.fulfilled, (state) => {
                 state.user = null
             })
     },  

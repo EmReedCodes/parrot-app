@@ -3,6 +3,7 @@ import { useState } from 'react'
 // import { useTts } from 'tts-react'
 // import { TTSHookProps } from 'tts-react'
 import { FaRegPlayCircle } from 'react-icons/fa'
+import { MdNavigateNext } from 'react-icons/md'
 import { IconContext } from 'react-icons/lib'
 
 
@@ -63,7 +64,7 @@ const RepeatWord = ({ wordBank }) => {
                         <FaRegPlayCircle />
                         </IconContext.Provider>
                </button>
-                <button className='next-btn' onClick={() => randomizeList()}>Next <FaRegPlayCircle /> </button>
+                <button className='next-btn' onClick={() => randomizeList()}>Next<MdNavigateNext /> </button>
                
             </div>
         </>

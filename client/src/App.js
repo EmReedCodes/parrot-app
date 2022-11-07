@@ -1,9 +1,9 @@
 import "./styles/main.css"
 import Home from "./pages/Home"
-//import Settings from "./pages/settings/Settings"
 import Login from "./pages/login/Login"
 import Register from "./pages/register/Register"
 import Dashboard from "./pages/dashboard/Dashboard"
+import Settings from "./pages/settings/Settings"
 import SortItSpellIt from "./pages/sortItSpellIt/SortItSpellIt"
 import WordBank from "./pages/wordbank/WordBank"
 import Navbar from "./components/nav/Navbar"
@@ -29,6 +29,7 @@ function App() {
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/dashboard" element={<Dashboard />}></Route>
+            <Route path="/settings" element={<Settings />}></Route>
             <Route path="/sortitspellit" element={<SortItSpellIt />}></Route>
             <Route path="/wordbank" element={<WordBank />}></Route>
             <Route path="/about" element={<About />}></Route>
