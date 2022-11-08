@@ -22,6 +22,24 @@ const login = async (authData) => {
   return response.data
 }
 
+const confirmPW = async (pwInput, token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  }
+  const response = await axios.post(API_URL + "delete", pwInput, config)
+ // console.log(response)
+  if (response.status === 200) {
+    console.log('pw correct')
+  }
+  if (response.status === 400) {
+    console.log('incorrect')
+  }
+  return response.data
+ 
+}
+
 const deleteUser = async (pwInput, token) => {
   const config = {
     headers: {
@@ -67,6 +85,7 @@ const authService = {
   register,
   login,
   logout,
+  confirmPW,
   deleteUser
   
 }

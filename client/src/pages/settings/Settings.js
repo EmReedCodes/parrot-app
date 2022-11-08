@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react"
 import { useDispatch } from "react-redux"
-import { deleteSelf } from '../../features/auth/authSlice'
+import { deleteSelf, confirmPWInput } from '../../features/auth/authSlice'
 //import { resetPassword } from "../../features/auth/authSlice"
 import { toast } from "react-toastify"
 // import authSlice from "../../features/auth/authSlice"
@@ -11,10 +11,6 @@ const Settings = () => {
 
  // const [pwAttempt, setPwAttempt] = useState()
   const pwAttempt = useRef(null)
-  
-  //const { pwInput } = authData
-
-  //const { deleteSelf } = useSelector(authSlice)
     
 
 
@@ -27,8 +23,10 @@ const Settings = () => {
       e.preventDefault()
    
     console.log(pwAttempt.current.value)
-        dispatch(deleteSelf({pwAttempt: pwAttempt.current.value}))
-        e.target.reset()
+       // dispatch(deleteSelf({pwAttempt: pwAttempt.current.value}))
+      dispatch(deleteSelf({pwAttempt: pwAttempt.current.value}))
+      e.target.reset()
+      
       }
      
     return ( 
