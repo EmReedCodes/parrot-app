@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const asyncHandler = require('express-async-handler')
 const User = require('../models/UserModel')
+const Dictaphone = require('../models/DictaphoneModel')
 const { json } = require('express')
 const nodemailer = require('nodemailer');
 
@@ -140,43 +141,30 @@ const getSelf = asyncHandler(async (req, res) => {
 //@desc delete user data
 //@route DELETE /api/user/delete
 //access private
-const deleteUser = asyncHandler(async (req, res) => {
-
-    try {
-        const user = await User.findOne({ email: req.user.email })
-        console.log(user)
-        //const { pwAttempt } = req.body
-            console.log(req.body, 'req.body server')
-    console.log(req.user, 'user server?')
-   // const user = await User.findOne({ email })
-    //console.log(user, 'finding the email')
-        if (await bcrypt.compare(req.body.pwAttempt, user.password)) {
-            console.log('experiment worked')
-            const byeUser = User.findByIdAndDelete(req.user._id)
-        } else {
-            res.status(403).json({msg: 'not correct pw'})
-        }
-        res.status(201).json({msg: "deleted user"})
-      } catch (err) {
-        console.log(err)
-      }
-
-//     //const user = req.user._id
-//     console.log(req.body, 'req.body server')
-//     console.log(req.user, 'user server?')
-//     const user = await User.findOne({ email })
-//     console.log(user, 'finding the email')
-//     const { pwAttempt } = req.body
-//     console.log(pwAttempt)
-//    // const pwTry = req.body.pwAttempt
-//     console.log(pwTry)
-//     if (req.user && await bcrypt.compare(pwAttempt, req.user.password)) {
-//         User.findByIdAndDelete(req.user._id)
-//         res.status(201).json({msg: "User Deleted"})
+//this one works with errors not deleting documents
+// const deleteUser = asyncHandler(async (req, res) => {
+//     const user = await User.findById({ _id: req.user._id })
+//     console.log(user, "should find email?")
+//     if(await bcrypt.compare(req.body.pwAttempt, user.password)) {
+//         const byeUser = await User.findByIdAndRemove({_id: req.user._id})
+//         res.status(201).json({msg: "deleted user"})
 //     } else {
-//         res.status(400)
-//         throw new Error('Invalid Credentials')
+//        res.status(400)
+//        throw new Error('Invalid Credentials')
 //     }
+// })
+
+const deleteUser = asyncHandler(async (req, res) => {
+    const user = await User.findById({ _id: req.user._id })
+    
+    if(await bcrypt.compare(req.body.pwAttempt, user.password)) {
+        const byeUser = await User.findByIdAndRemove({ _id: req.user._id })
+        const byeData = await Dictaphone.deleteMany({ user: req.user._id })
+        res.status(201).json({msg: "deleted user"})
+    } else {
+       res.status(400)
+       throw new Error('Invalid Credentials')
+    }
 })
 
 
