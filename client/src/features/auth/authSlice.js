@@ -142,6 +142,11 @@ export const authSlice = createSlice({
             .addCase(deleteSelf.fulfilled, (state) => {
                 state.user = null
             })
+            .addCase(deleteSelf.rejected, (state, action) => {
+                state.isLoading = false
+                state.isError = true
+                state.message = action.payload
+            })
     },  
 })
 
