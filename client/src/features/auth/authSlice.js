@@ -47,16 +47,11 @@ export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
     }
 })
 
-//logout user
-export const logout = createAsyncThunk('auth/logout', async () => {
-    await authService.logout()
-})
 
 //confirm password
 export const confirmPWInput = createAsyncThunk('auth/confirmPWInput', async (pwInput, thunkAPI) => {
     try {
-        console.log(pwInput, 'pwinput')
-        //console.log(user, 'delete user info client side')
+       
         const token = thunkAPI.getState().auth.user.token
       
         return await authService.confirmPW(pwInput, token)
@@ -75,7 +70,7 @@ export const deleteSelf = createAsyncThunk('auth/deleteSelf', async (pwInput, th
         console.log(pwInput, 'pwinput')
         //console.log(user, 'delete user info client side')
         const token = thunkAPI.getState().auth.user.token
-        console.log(token, 'token for delete client side')
+       
         return await authService.deleteUser(pwInput, token)
       } catch (error) {
         const message =
@@ -84,6 +79,11 @@ export const deleteSelf = createAsyncThunk('auth/deleteSelf', async (pwInput, th
           error.toString()
         return thunkAPI.rejectWithValue(message)
       }
+})
+
+//logout user
+export const logout = createAsyncThunk('auth/logout', async () => {
+    return await authService.logout()
 })
 
 
@@ -153,16 +153,40 @@ export const authSlice = createSlice({
                 state.message = action.payload
                 state.user = null
             })
-            .addCase(logout.fulfilled, (state) => {
-                state.user = null
+            .addCase(confirmPWInput.pending, (state, action) => {
+                state.isLoading = true
             })
-            .addCase(deleteSelf.fulfilled, (state) => {
+            .addCase(confirmPWInput.fulfilled, (state, action) => {
+                state.isLoading = false
+                state.isSuccess = true
+                state.isError = false
+                state.message = action.payload
+            
+            })
+            .addCase(confirmPWInput.rejected, (state, action) => {
+                state.isLoading = false
+                state.isSuccess = false
+                state.isError = true
+                state.message = action.payload
+            })
+            .addCase(deleteSelf.pending, (state, action) => {
+                state.isLoading = true
+            })
+            .addCase(deleteSelf.fulfilled, (state, action) => {
+                state.isLoading = false
+                state.isSuccess = true
+                state.isError = false
+                state.message = action.payload
                 state.user = null
             })
             .addCase(deleteSelf.rejected, (state, action) => {
                 state.isLoading = false
                 state.isError = true
                 state.message = action.payload
+            })
+         
+            .addCase(logout.fulfilled, (state) => {
+                state.user = null
             })
     },  
 })

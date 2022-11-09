@@ -64,6 +64,7 @@ const loginUser = asyncHandler(async (req, res) => {
     //check for user email
     const user = await User.findOne({email})
     //pw in db is hashed while login pw is not so we need dcrypt
+    //is this id correct or is it _id: user._id
     if(user && (await bcrypt.compare(password, user.password))){
         res.json({
             _id: user.id,
@@ -84,13 +85,12 @@ const loginUser = asyncHandler(async (req, res) => {
 //access Private
 const confirmPW = asyncHandler(async (req, res) => {
 
-    const user = await User.findById({ _id: req.user._id })
-    
-    if(await bcrypt.compare(password, user.password)){
+     const user = await User.findById({ _id: req.user._id })
+    // console.log(user, 'pwattempt serv')
+    if(await bcrypt.compare(req.body.pwAttempt, user.password)){
        res.status(200).json({msg: 'Confirmed password'})
     }else {
-        res.status(400)
-        throw new Error('Incorrect Password')
+        res.status(400).json({msg: 'incorrect pw'})
     }
 
 })
@@ -124,7 +124,7 @@ const deleteUser = asyncHandler(async (req, res) => {
         const byeData = await Dictaphone.deleteMany({ user: req.user._id })
         res.status(201).json({msg: "deleted user"})
     } else {
-       res.status(400)
+       res.status(403)
        throw new Error('Invalid Credentials')
     }
 })

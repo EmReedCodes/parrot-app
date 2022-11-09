@@ -28,7 +28,8 @@ const confirmPW = async (pwInput, token) => {
       Authorization: `Bearer ${token}`
     }
   }
-  const response = await axios.post(API_URL + "delete", pwInput, config)
+  console.log(config)
+  const response = await axios.post(API_URL + "confirm", pwInput, config)
  // console.log(response)
   if (response.status === 200) {
     console.log('pw correct')
@@ -49,7 +50,8 @@ const deleteUser = async (pwInput, token) => {
   const response = await axios.post(API_URL + "delete", pwInput, config)
  // console.log(response)
   if (response.status === 201) {
-    localStorage.removeItem('user')
+    //localStorage.removeItem('user')
+    console.log('success')
   }
   if (response.status === 403) {
     console.log('incorrect')
