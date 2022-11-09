@@ -22,20 +22,12 @@ import { v4 as uuidv4 } from "uuid"
 import shuffle from "lodash/shuffle"
 import { useSelector } from "react-redux"
 import Submission from "./Submission"
-// import { remove } from "../../../../features/words/wordsSlice"
-// import { useDispatch } from "react-redux"
 
 const SortMatch = () => {
   const { saidWord } = useSelector(state => state.word)
-  //   console.log(saidWord)
-
-  //const dispatch = useDispatch()
 
   const [items, setItems] = useState([])
   const [initialItems, setInitialItems] = useState([])
-
-  // const copyWord = saidWord.concat()
-  // console.log(copyWord)
 
   useEffect(() => {
     const words = []
@@ -54,10 +46,10 @@ const SortMatch = () => {
     setInitialItems(shuffledWord)
   }, [saidWord])
 
-  //is rendering with default useState. How to have my data set before this page gets rendered though?
-  console.log(items)
   //const sensors = [useSensor(PointerSensor)];
+
   const [activeId, setActiveId] = useState(null)
+
   // const [activeId, setActiveId] = useState(null);
   // const sensors = useSensors(
   //   useSensor(PointerSensor),
@@ -78,11 +70,6 @@ const SortMatch = () => {
   //       coordinateGetter: sortableKeyboardCoordinates
   //     })
   //   );
-
-
-  // const resetWord = () => {
-  //   dispatch(remove(saidWord))
-  // }
 
   const pointerSensor = useSensor(PointerSensor)
   const touchSensor = useSensor(TouchSensor, {
@@ -110,11 +97,8 @@ const SortMatch = () => {
     setActiveId(null)
   }
 
-
-
   return (
     <>
-    
       <div
         className="sortContainer lined thick"
         // style={containerStyle}
@@ -147,10 +131,13 @@ const SortMatch = () => {
         </DndContext>
       </div>
 
-      
-        <Submission items={items} setItems={setItems} reset={onDragCancel} word={saidWord} initialItems={initialItems} />
-        
-     
+      <Submission
+        items={items}
+        setItems={setItems}
+        reset={onDragCancel}
+        word={saidWord}
+        initialItems={initialItems}
+      />
     </>
   )
 }
