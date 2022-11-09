@@ -10,7 +10,7 @@ router.post('/', authController.registerUser)
 router.post('/login', authController.loginUser)
 router.get('/self', protect, authController.getSelf)
 router.post('/confirm', protect, authController.confirmPW)
-router.post('/delete', protect, authController.deleteUser)
+router.delete('/delete', protect, authController.deleteUser)
 
 
 

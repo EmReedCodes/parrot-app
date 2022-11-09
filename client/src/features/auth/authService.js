@@ -47,7 +47,7 @@ const deleteUser = async (pwInput, token) => {
       Authorization: `Bearer ${token}`
     }
   }
-  const response = await axios.post(API_URL + "delete", pwInput, config)
+  const response = await axios.delete(API_URL + "delete", config)
  // console.log(response)
   if (response.status === 201) {
     //localStorage.removeItem('user')

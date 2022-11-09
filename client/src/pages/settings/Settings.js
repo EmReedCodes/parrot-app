@@ -1,5 +1,5 @@
 
-
+import { useNavigate } from "react-router-dom"
 import { useState, useRef, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { deleteSelf, confirmPWInput } from '../../features/auth/authSlice'
@@ -13,15 +13,25 @@ const Settings = () => {
   const pwAttempt = useRef(null)
   const dispatch = useDispatch()
   const { user, isSuccess, isError } = useSelector(state => state.auth)
+  const navigate = useNavigate()
+  //const {isCorrect, setIsCorrect} = useState()
 
+  //ok we know password check route works
   useEffect(() => {
-    if (isSuccess === true) {
-      console.log('yes')
-    }
-    if (isError === true) {
-      console.log('error')
-    }
-  }, [user, isError, isSuccess, dispatch])
+
+
+      if (isSuccess === true) {
+        toast.success('Account deleted')
+        navigate('/')
+        //should be localstorage.clear()
+        localStorage.removeItem('user')
+      }
+      if (isError === true) {
+        toast.warn('password incorrect')
+      }
+    
+   
+  }, [user, isError, isSuccess, dispatch, navigate])
 
     
 
@@ -33,9 +43,7 @@ const Settings = () => {
     console.log(pwAttempt.current.value)
        // dispatch(deleteSelf({pwAttempt: pwAttempt.current.value}))
       dispatch(confirmPWInput({ pwAttempt: pwAttempt.current.value }))
-      if (isSuccess === true) {
-        console.log('yes')
-      } 
+      
       e.target.reset()
       
       }

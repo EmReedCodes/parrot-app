@@ -65,13 +65,13 @@ export const confirmPWInput = createAsyncThunk('auth/confirmPWInput', async (pwI
 })
 
 
-export const deleteSelf = createAsyncThunk('auth/deleteSelf', async (pwInput, thunkAPI) => {
+export const deleteSelf = createAsyncThunk('auth/deleteSelf', async (_, thunkAPI) => {
     try {
-        console.log(pwInput, 'pwinput')
+        
         //console.log(user, 'delete user info client side')
         const token = thunkAPI.getState().auth.user.token
        
-        return await authService.deleteUser(pwInput, token)
+        return await authService.deleteUser(token)
       } catch (error) {
         const message =
           (error.response && error.response.data && error.response.data.message) ||
