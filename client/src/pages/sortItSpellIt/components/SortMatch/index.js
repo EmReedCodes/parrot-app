@@ -46,6 +46,7 @@ const SortMatch = () => {
     setInitialItems(shuffledWord)
   }, [saidWord])
 
+
   //const sensors = [useSensor(PointerSensor)];
 
   const [activeId, setActiveId] = useState(null)

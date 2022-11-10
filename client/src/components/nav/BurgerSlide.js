@@ -36,8 +36,9 @@ export default function Sidebar() {
           <a id="about" className="menu-item" href="/about">
         Contact
       </a>
-      <a id="logout" className="menu-item" href="/"><button onClick={onLogout}>Logout</button></a>
-   
+      { user &&
+        <a id="logout" className="menu-item" href="/"><button onClick={onLogout}>Logout</button></a>
+      }
     </Menu>
   )
 }

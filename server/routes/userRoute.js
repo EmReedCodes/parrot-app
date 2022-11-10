@@ -9,7 +9,8 @@ const { protect } = require('../middleware/authMiddleware')
 router.post('/', authController.registerUser)
 router.post('/login', authController.loginUser)
 router.get('/self', protect, authController.getSelf)
-router.post('/delete', protect, authController.deleteUser)
+router.post('/confirm', protect, authController.confirmPW)
+router.delete('/delete', protect, authController.deleteUser)
 
 
 

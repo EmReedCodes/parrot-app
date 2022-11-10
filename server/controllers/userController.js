@@ -41,7 +41,6 @@ const registerUser = asyncHandler(async (req, res) => {
 
     //might need to send ID later
     if (user) {
-          console.log(user)
           res.status(201).json({
               _id: user.id,
               name: user.name,
@@ -65,6 +64,7 @@ const loginUser = asyncHandler(async (req, res) => {
     //check for user email
     const user = await User.findOne({email})
     //pw in db is hashed while login pw is not so we need dcrypt
+    //is this id correct or is it _id: user._id
     if(user && (await bcrypt.compare(password, user.password))){
         res.json({
             _id: user.id,
@@ -80,46 +80,20 @@ const loginUser = asyncHandler(async (req, res) => {
 })
 
 
+//@desc confirm password
+//@route POST /api/user/login 
+//access Private
+const confirmPW = asyncHandler(async (req, res) => {
 
-// //@desc register user data
-// //@route GET /api/user/self
-// //access private
-  //do i need to generate new token for this??
-//   const updatePassword = asyncHandler(async (req, res) => {
-//     //need body data when we request this info
-//     const { token, password } = req.body
+     const user = await User.findById({ _id: req.user._id })
+    // console.log(user, 'pwattempt serv')
+    if(await bcrypt.compare(req.body.pwAttempt, user.password)){
+       res.status(200).json({msg: 'Confirmed password'})
+    }else {
+        res.status(400).json({msg: 'incorrect pw'})
+    }
 
-//     if(!password) {
-//         res.status(400)
-//         throw new Error('Please add all fields')
-//       }
-//     //need to send over token or id to confirm its user?
-    
-//     //check if user ?
-   
-// // hash the password upon update
-//     //hash password
-//     const salt = await bcrypt.genSalt(10)
-//     //now that we have salt we cant hash pw
-//     const hashedPassword = await bcrypt.hash(password, salt)
-
-//     //create user
-
-//   //might need to send ID later
-//   if (user) {
-//         console.log(user)
-//         res.status(201).json({
-//             _id: user.id,
-//             name: user.name,
-//           token: generateToken(user._id)
-//       })
-//     } else {
-//       res.status(400)
-//       throw new Error('Invalid user data')
-//     }
-
-// })
-  
+})
 
 //@desc register user data
 //@route GET /api/user/self
@@ -141,28 +115,15 @@ const getSelf = asyncHandler(async (req, res) => {
 //@desc delete user data
 //@route DELETE /api/user/delete
 //access private
-//this one works with errors not deleting documents
-// const deleteUser = asyncHandler(async (req, res) => {
-//     const user = await User.findById({ _id: req.user._id })
-//     console.log(user, "should find email?")
-//     if(await bcrypt.compare(req.body.pwAttempt, user.password)) {
-//         const byeUser = await User.findByIdAndRemove({_id: req.user._id})
-//         res.status(201).json({msg: "deleted user"})
-//     } else {
-//        res.status(400)
-//        throw new Error('Invalid Credentials')
-//     }
-// })
-
 const deleteUser = asyncHandler(async (req, res) => {
     const user = await User.findById({ _id: req.user._id })
     
-    if(await bcrypt.compare(req.body.pwAttempt, user.password)) {
+    if(user) {
         const byeUser = await User.findByIdAndRemove({ _id: req.user._id })
         const byeData = await Dictaphone.deleteMany({ user: req.user._id })
         res.status(201).json({msg: "deleted user"})
     } else {
-       res.status(400)
+       res.status(403)
        throw new Error('Invalid Credentials')
     }
 })
@@ -181,6 +142,7 @@ module.exports = {
     registerUser,
     loginUser,
     getSelf,
+    confirmPW,
     deleteUser
     //updatePassword
 }
