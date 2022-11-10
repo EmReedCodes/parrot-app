@@ -70,7 +70,7 @@ export const deleteSelf = createAsyncThunk('auth/deleteSelf', async (_, thunkAPI
         
         //console.log(user, 'delete user info client side')
         const token = thunkAPI.getState().auth.user.token
-       
+       console.log(token)
         return await authService.deleteUser(token)
       } catch (error) {
         const message =

@@ -54,8 +54,7 @@ const SortMatch = () => {
     setInitialItems(shuffledWord)
   }, [saidWord])
 
-  //is rendering with default useState. How to have my data set before this page gets rendered though?
-  console.log(items)
+
   //const sensors = [useSensor(PointerSensor)];
   const [activeId, setActiveId] = useState(null)
   // const [activeId, setActiveId] = useState(null);

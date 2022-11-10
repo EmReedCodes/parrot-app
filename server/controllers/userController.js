@@ -115,11 +115,10 @@ const getSelf = asyncHandler(async (req, res) => {
 //@desc delete user data
 //@route DELETE /api/user/delete
 //access private
-
 const deleteUser = asyncHandler(async (req, res) => {
     const user = await User.findById({ _id: req.user._id })
     
-    if(await bcrypt.compare(req.body.pwAttempt, user.password)) {
+    if(user) {
         const byeUser = await User.findByIdAndRemove({ _id: req.user._id })
         const byeData = await Dictaphone.deleteMany({ user: req.user._id })
         res.status(201).json({msg: "deleted user"})

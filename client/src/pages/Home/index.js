@@ -6,7 +6,7 @@ const Home = () => {
     
     return ( 
        
-   <section>
+   <section className="wordGame">
        
             <h1>Welcome to Parrot!</h1>
 
