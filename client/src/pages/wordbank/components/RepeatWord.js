@@ -8,9 +8,7 @@ import { IconContext } from 'react-icons/lib'
 
 
 const RepeatWord = ({ wordBank }) => {
-    //need repeat button
-    //need new button
-    //need slider
+
     const [ourText, setOurText] = useState("")
     const [range, setRange] = useState("0.6")
   

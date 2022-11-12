@@ -58,6 +58,22 @@ export const deleteWordForList = createAsyncThunk("word/delete", async (_id, thu
   }
 })
 
+export const getAllWords = createAsyncThunk("word/allWords", async (_, thunkAPI) => {
+  try {
+    //getting the token for my protected route
+
+    const token = thunkAPI.getState().auth.user.token
+
+    return await bankWordService.allWords(token)
+  } catch (error) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) ||
+      error.message ||
+      error.toString()
+    return thunkAPI.rejectWithValue(message)
+  }
+})
+
 export const bankWordSlice = createSlice({
   name: "wordBank",
   initialState,
@@ -103,6 +119,19 @@ export const bankWordSlice = createSlice({
         state.wordBank = state.wordBank.filter(word => word._id !== action.payload._id)
       })
       .addCase(deleteWordForList.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
+      .addCase(getAllWords.pending, state => {
+        state.isLoading = true
+      })
+      .addCase(getAllWords.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.wordBank = action.payload
+      })
+      .addCase(getAllWords.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload

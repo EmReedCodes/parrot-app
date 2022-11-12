@@ -1,23 +1,28 @@
-
+import './styles/style.css'
 import { useNavigate } from "react-router-dom"
 import { useState, useRef, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { deleteSelf, confirmPWInput, reset } from '../../features/auth/authSlice'
+import { getAllWords } from "../../features/bankWord/bankWordSlice"
 import { toast } from "react-toastify"
+import { AiFillEdit, AiFillDelete } from 'react-icons/ai'
+import { IconContext } from 'react-icons'
 import Modal from "../../components/Modal"
-
+import List from './List'
 
 const Settings = () => {
 
   const pwAttempt = useRef(null)
   const dispatch = useDispatch()
-  const { user, isSuccess, isError } = useSelector(state => state.auth)
+  const { isSuccess, isError } = useSelector(state => state.auth)
   const navigate = useNavigate()
   const [modalToggle, setModalToggle] = useState(false)
   const [userDelete, setUserDelete] = useState(false)
   const [passwordConfirmed, setPassWordConfirmed] = useState(false)
+  const [getList, setGetList] = useState(false)
   //ok we know password check route works
-
+  const { wordBank } = useSelector((state) => state.wordBank)
+  console.log(wordBank)
   //need to reset state
   useEffect(() => {
 
@@ -58,7 +63,7 @@ const Settings = () => {
       e.target.reset()
       
   }
-
+//TODO: create counter give users 3 chances
   const beginDelete = () => {
     setUserDelete(true)
     setModalToggle(false)
@@ -69,19 +74,36 @@ const Settings = () => {
       <>
 
           <>
-        <h3>Deleting your account will destroy all data associated with your username. Are you sure?</h3>
+          <h3>Deleting your account will destroy all data associated with your username.</h3>
+          <h4>Are you sure?</h4>
         <button onClick={() => beginDelete()}>Yes</button>
         <button onClick={() => setModalToggle(false)}>Cancel</button> 
             </>
         
         </>
     )
-}
+  }
+  
+  const displayList = () => {
+    dispatch(getAllWords())
+    setGetList(true)
+  }
+//   <IconContext.Provider value={{className: "replay-btn repeatWord"}}>
+
+
+
   
 
      
     return ( 
-        <section>
+      <section>
+        <span onClick={() => displayList()}>Full Word Bank</span>
+        {getList &&
+          <List wordBank={wordBank} />
+
+        }
+
+    
         <span onClick={() => setModalToggle(true)}>Delete account</span>  
        <Modal open={modalToggle}
                 onClick={() => setModalToggle(false)}

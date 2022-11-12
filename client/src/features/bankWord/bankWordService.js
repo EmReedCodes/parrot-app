@@ -22,16 +22,14 @@ const saveWord = async (speechData, token) => {
 }
 
 //get words for list
-
-// Get user goals
-const getBankWords = async (token) => {
+const allWords = async (token) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`
     }
   }
 
-  const response = await axios.get(API_URL, config)
+  const response = await axios.get(API_URL + "all", config)
 
   return response.data
 }
@@ -50,10 +48,23 @@ const deleteBankWord = async (_id, token) => {
  
 }
 
+const getBankWords = async (token) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  }
+
+  const response = await axios.get(API_URL, config)
+
+  return response.data
+}
+
 const bankWordService = {
   saveWord,
   getBankWords,
-  deleteBankWord
+  deleteBankWord,
+  allWords
 }
 
 export default bankWordService

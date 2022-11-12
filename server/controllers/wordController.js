@@ -2,13 +2,6 @@ const DictaphoneWord = require('../models/DictaphoneModel')
 const User = require('../models/UserModel')
 
 
-
-//will need to get words
-//will need to post words
-//will need to delete words
-//will need to add priority
-
-
 //@desc get Words
 //@route get /api/word
 //@access private
@@ -58,7 +51,7 @@ const saveWord = async (req, res) => {
 }
 
 
-//@desc Set word
+//@desc delete word
 //@route DELETE /api/word/:_id
 //@access private
 //id from collection
@@ -74,10 +67,25 @@ const deleteWord = async (req, res) => {
       }
 }
 
+//@desc get all words
+//@route get /api/word/
+//@access private
+const allWords = async (req, res) => {
+    try {
+        //is there a  way to only get the text from user id without map?
+        const words = await DictaphoneWord.find({ user: req.user._id })
+        const justWords = words.map(item => item.text).sort()
+        res.status(200).json(justWords)
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 
 
 module.exports = {
     getWords,
+    allWords,
     saveWord,
     deleteWord
 }

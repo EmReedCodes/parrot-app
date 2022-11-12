@@ -1,1 +1,43 @@
-/*# sourceMappingURL=style.css.map */
+span {
+  display: block;
+}
+
+.containList {
+  margin: 0 auto;
+  max-width: 70%;
+  height: 40vh;
+}
+
+.holdAllWords {
+  display: flex;
+  width: 100%;
+  align-content: center;
+  background-color: rgb(224, 220, 220);
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.holdAllWords ul {
+  width: 100%;
+}
+
+.itemWord {
+  width: 80%;
+}
+
+.word {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 1em;
+}
+.word .save {
+  display: none;
+}
+.word.editing .save {
+  display: initial;
+}
+.word.editing .edit {
+  display: none;
+}/*# sourceMappingURL=style.css.map */
