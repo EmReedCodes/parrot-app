@@ -8,30 +8,7 @@ span {
     height: 40vh
 }
 
-// .holdAllWords {
-//     display: flex;
-//     align-content: center;
-//     background-color: rgb(224, 220, 220);
-//     max-height: 30vh;
-//     overflow-y: auto;
-//     overflow-x: hidden;
 
-//     .holdAllWords ul {
-//         width: 100%;
-//     }
-
-//      .save {
-//         display: none;
-//      }
-
-//       .word {
-//         display: flex;
-//         justify-content: space-between;
-//         align-items: center;
-//         padding-right: 1em;
-//       }
-      
-// }
 
 .holdAllWords {
     display: flex;
@@ -60,6 +37,11 @@ span {
             display: none;
         }
         &.editing {
+            .itemWord {
+                padding: .5em 0 .5em 0;
+                transition: all 0.15s ease-in-out;
+                background: rgba(138, 137, 137, 0.3);
+            }
             .save {
                 display: initial;
             }
@@ -68,76 +50,6 @@ span {
             }
         }
     }
-    // .word {
-    //     display: flex;
-    //     justify-content: space-between;
-        
-    //     padding-right: 1em;
-    // }
-
-    // .save {
-    //     display: none;
-    // }
-    // &.editing {
-    //     .save {
-    //         display: initial;
-    //     }
-    //     .edit {
-    //         display: none;
-    //     }
-    // }
 
     
-    
-    
-
-
-
-
-
-
-
-
-
-// .editSaveDelete {
-// margin-left: 1em;
-// }
-// .listModal{
-//     max-height: 50vh;
-//     min-width: 50%;
-// }
-//word is holding both
-//holdallwords >ul >> li.word >.<itemword> .editsavedel > <btn.edit> * 3 >> 
-// .holdAllWords {
-//     margin: 0 auto;
-//     background-color: rgb(224, 220, 220);
-//     max-height: 30vh;
-//     max-width: 70%;
-//     overflow-y: auto;
-//     overflow-x: hidden;
-    
-//     ul {
-//         display: flex;
-//         flex-direction: row;
-//         width: 100%;
-//     }
-//      .btns {
-//         display: flex;
-//         flex-direction: column;
-
-//        .save {
-//         display: none;
-//        }
-//      }
-
-//      .itemWord {
-//         flex-grow: 1;
-//      }
-// }
-
-
-
-// .edit-btn {
-//     color: green;
-//     background-color: orange;
-// }
+   

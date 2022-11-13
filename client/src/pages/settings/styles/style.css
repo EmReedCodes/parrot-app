@@ -35,6 +35,11 @@ span {
 .word .save {
   display: none;
 }
+.word.editing .itemWord {
+  padding: 0.5em 0 0.5em 0;
+  transition: all 0.15s ease-in-out;
+  background: rgba(138, 137, 137, 0.3);
+}
 .word.editing .save {
   display: initial;
 }

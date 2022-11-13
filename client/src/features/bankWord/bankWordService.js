@@ -21,6 +21,23 @@ const saveWord = async (speechData, token) => {
   return response.data
 }
 
+// replace speech word
+const updateWord = async (textData, token) => {
+
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  }
+
+  const response = await axios.patch(API_URL + "update", textData, config)
+  if (response.status === 200) {
+    toast.success("Updated word")
+  }
+  // console.log(response.data)
+  return response.data
+}
+
 //get words for list
 const allWords = async (token) => {
   const config = {
@@ -62,6 +79,7 @@ const getBankWords = async (token) => {
 
 const bankWordService = {
   saveWord,
+  updateWord,
   getBankWords,
   deleteBankWord,
   allWords

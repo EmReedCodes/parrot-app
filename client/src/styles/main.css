@@ -3441,7 +3441,7 @@ nav strong {
 .toggle-switch .switch {
   position: absolute;
   cursor: pointer;
-  background-color: #46566e;
+  background-color: #80d4ff;
   border-radius: 25px;
   top: 0;
   right: 0;
@@ -3457,14 +3457,14 @@ nav strong {
   top: 2px;
   width: 21px;
   height: 21px;
-  background-color: #293647;
+  background-color: #0088cc;
   border-radius: 50%;
   transition: transform 0.3s ease;
 }
 
 .toggle-switch input[type=checkbox]:checked + .switch::before {
   transform: translateX(25px);
-  background-color: #5ac9e9;
+  background-color: #80d4ff;
 }
 
 .toggle-switch input[type=checkbox]:checked + .switch {

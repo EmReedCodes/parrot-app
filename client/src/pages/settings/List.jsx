@@ -1,29 +1,17 @@
 import { useRef, useState, useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { deleteWordForList, updateAndReplaceWord } from "../../features/bankWord/bankWordSlice"
 import { AiFillEdit, AiFillDelete, AiFillSave } from "react-icons/ai"
 import { IconContext } from "react-icons"
 
 const List = ({ wordBank }) => {
   const [isActive, setIsActive] = useState(null)
-  //const [focusedElementIndex, setFocusedElementIndex] = useState(0)
+  
   const ref = useRef(null)
-  const parentRef = useRef(null)
 
+  const dispatch = useDispatch()
+  const { isSuccess, isError } = useSelector(state => state.wordBank)
 
-  // useEffect(() => {
-  //   setFocusedElementIndex(0);
-  // }, [items])
-
-
-  //  <div className={isActive ? "app" : null}>
-
-  // function clientsideEditTodo(event) {
-  //     event.target.setAttribute('aria-busy', 'false')
-
-  //     let elm = event.target.closest('.task')
-
-  //     elm.querySelector('[contenteditable]').setAttribute('contenteditable', false)
-  //     elm.classList.toggle('todo-editing')
-  //   }
   const changeToEdit = (e,i) => {
     if (isActive === i) {
       setIsActive(null)
@@ -33,19 +21,16 @@ const List = ({ wordBank }) => {
       setIsActive(i)
       
     }
-  //  // setIsActive(true)
-  //   console.log("click")
-  //   //let elm = e.target.closest('li')
-    
-  //   // console.log(elm)
-  //   //console.log(content)
-  //   //elm.querySelector
-  //   ref.current.setAttribute("contenteditable", true)
-  //   if (ref !== null) {
-  //    setIsActive(true)
-   }
-  const saveEdit = () => {
-    
+  
+  }
+
+  const saveEdit = (id) => {
+    console.log(id)
+    let elm = document.querySelector('.itemWord').innerText
+    console.log(elm)
+  
+    dispatch(updateAndReplaceWord({ id: id, text: elm }))
+    setIsActive(false)
   }
 
   return (
@@ -55,11 +40,16 @@ const List = ({ wordBank }) => {
           <ul>
             {wordBank.map((item, idx) => {
               return (
-                <li key={item} className={isActive === idx ? "word editing" : "word edit"}>
+                <li key={item._id} id={item._id} className={isActive === idx ? "word editing" : "word edit"}>
                   <div className="itemWord"
-                    contentEditable={isActive === idx ? true : false} 
-                    ref={ref}>
-                    {item}
+                    contentEditable={isActive === idx ? true : false}
+                    suppressContentEditableWarning={true}
+                    type="text"
+                    value={item.text}
+                    ref={ref}
+                    >
+                    
+                    {item.text}
                   </div>
                   <div className="editSaveDelete">
                     <div className="btn edit"
@@ -69,7 +59,9 @@ const List = ({ wordBank }) => {
                       </IconContext.Provider>
                     </div>
                     <div className="btn save"
-                    onClick={() => saveEdit()}>
+                      type="submit"
+                      value="submit"
+                    onClick={() => saveEdit(item._id)}>
                       <IconContext.Provider value={{ className: "listIcon" }}>
                         <AiFillSave />
                       </IconContext.Provider>

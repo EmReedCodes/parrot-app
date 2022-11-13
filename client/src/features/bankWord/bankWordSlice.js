@@ -7,6 +7,7 @@ import bankWordService from "./bankWordService"
 const initialState = {
   //state labeled speech
   wordBank: [],
+  text: '',
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -14,6 +15,7 @@ const initialState = {
 }
 
 //saving word from sortitspellit & wordbank
+//TODO: try and use this, been using saidWord 
 export const createWordForBank = createAsyncThunk("word/save", async (speechData, thunkAPI) => {
   try {
     const token = thunkAPI.getState().auth.user.token
@@ -35,6 +37,22 @@ export const getWordsForList = createAsyncThunk("word/getWords", async (_, thunk
     const token = thunkAPI.getState().auth.user.token
 
     return await bankWordService.getBankWords(token)
+  } catch (error) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) ||
+      error.message ||
+      error.toString()
+    return thunkAPI.rejectWithValue(message)
+  }
+})
+
+export const updateAndReplaceWord = createAsyncThunk("word/replace", async (textData, thunkAPI) => {
+  try {
+   //i have to send new word over 
+    console.log(textData, 'slice')
+    const token = thunkAPI.getState().auth.user.token
+    
+    return await bankWordService.updateWord(textData, token)
   } catch (error) {
     const message =
       (error.response && error.response.data && error.response.data.message) ||
@@ -92,11 +110,27 @@ export const bankWordSlice = createSlice({
           state.wordBank.push(action.payload)
         }
       })
+      .addCase(updateAndReplaceWord.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
+
+      .addCase(updateAndReplaceWord.pending, state => {
+        state.isLoading = true
+      })
+      .addCase(updateAndReplaceWord.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.text = action.payload
+      })
       .addCase(createWordForBank.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload
       })
+
+
       .addCase(getWordsForList.pending, state => {
         state.isLoading = true
       })

@@ -50,6 +50,23 @@ const saveWord = async (req, res) => {
     }
 }
 
+//@desc replace word
+//@route PUT /api/word/:_id
+//@access private
+//id from collection
+const replaceWord = async (req, res) => {
+    try {
+        
+        const replace = await DictaphoneWord.findOneAndUpdate(
+        { _id: req.body.id },
+        { text: req.body.text }
+        )
+        res.status(200).json(replace)
+    } catch (err) {
+        res.status(400).send(err)
+    }
+}
+
 
 //@desc delete word
 //@route DELETE /api/word/:_id
@@ -61,7 +78,7 @@ const deleteWord = async (req, res) => {
     
         const word = await DictaphoneWord.findOneAndDelete({ _id: req.params._id })
         console.log('Deleted Todo')
-        res.status(200).json({_id: req.params._id})
+        res.status(200).json({msg: 'item deleted'})
       } catch (err) {
         console.log(err)
       }
@@ -72,10 +89,11 @@ const deleteWord = async (req, res) => {
 //@access private
 const allWords = async (req, res) => {
     try {
+        
         //is there a  way to only get the text from user id without map?
         const words = await DictaphoneWord.find({ user: req.user._id })
-        const justWords = words.map(item => item.text).sort()
-        res.status(200).json(justWords)
+        //const justWords = words.map(item => item.text).sort()
+        res.status(200).json(words)
     } catch (err) {
         console.log(err)
     }
@@ -87,5 +105,6 @@ module.exports = {
     getWords,
     allWords,
     saveWord,
+    replaceWord,
     deleteWord
 }

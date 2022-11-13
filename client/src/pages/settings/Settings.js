@@ -2,11 +2,9 @@ import './styles/style.css'
 import { useNavigate } from "react-router-dom"
 import { useState, useRef, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { deleteSelf, confirmPWInput, reset } from '../../features/auth/authSlice'
+import { deleteSelf, confirmPWInput } from '../../features/auth/authSlice'
 import { getAllWords } from "../../features/bankWord/bankWordSlice"
 import { toast } from "react-toastify"
-import { AiFillEdit, AiFillDelete } from 'react-icons/ai'
-import { IconContext } from 'react-icons'
 import Modal from "../../components/Modal"
 import List from './List'
 
