@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { deleteWordForList, updateAndReplaceWord } from "../../features/bankWord/bankWordSlice"
 import { AiFillEdit, AiFillDelete, AiFillSave } from "react-icons/ai"
 import { IconContext } from "react-icons"
+import { current } from "@reduxjs/toolkit"
 
 const List = ({ wordBank }) => {
   const [isActive, setIsActive] = useState(null)
@@ -10,7 +11,7 @@ const List = ({ wordBank }) => {
   const ref = useRef(null)
 
   const dispatch = useDispatch()
-  const { isSuccess, isError } = useSelector(state => state.wordBank)
+  //const { isSuccess, isError } = useSelector(state => state.wordBank)
 
   const changeToEdit = (e,i) => {
     if (isActive === i) {
@@ -23,14 +24,23 @@ const List = ({ wordBank }) => {
     }
   
   }
-
-  const saveEdit = (id) => {
-    console.log(id)
+//TODO: need to check if word changed during edit
+  
+  // useEffect(() => {
+  //   if (isActive) {
+      
+  //   }
+  // }, [])
+  const saveEdit = (word, id) => {
     let elm = document.querySelector('.itemWord').innerText
     console.log(elm)
-  
-    dispatch(updateAndReplaceWord({ id: id, text: elm }))
-    setIsActive(false)
+    if (word !== elm) {
+      dispatch(updateAndReplaceWord({ id: id, text: elm }))
+      setIsActive(false)
+    } else {
+      setIsActive(null)
+    }
+    
   }
 
   return (
@@ -61,12 +71,15 @@ const List = ({ wordBank }) => {
                     <div className="btn save"
                       type="submit"
                       value="submit"
-                    onClick={() => saveEdit(item._id)}>
+                    onClick={() => saveEdit(item.text, item._id)}>
                       <IconContext.Provider value={{ className: "listIcon" }}>
                         <AiFillSave />
                       </IconContext.Provider>
                     </div>
-                    <div className="btn delete">
+                    <div className="btn delete"
+                      type="submit"
+                      value="submit"
+                    onClick={() => dispatch(deleteWordForList(item._id))}>
                       <IconContext.Provider value={{ className: "listIcon" }}>
                         <AiFillDelete />
                       </IconContext.Provider>

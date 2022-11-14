@@ -67,13 +67,13 @@
 
 //====================
 // picocss
-//import 'https://octoshrimpy.github.io/microcss/micro.css';
+@import 'https://octoshrimpy.github.io/microcss/micro.css';
 
-@import "../../node_modules/@picocss/pico/scss/pico.scss";
+//@import "../../node_modules/@picocss/pico/scss/pico.scss";
 
    
-@import "https://unpkg.com/open-props@1.4.19/open-props.min.css";
-@import "https://unpkg.com/open-props/buttons.min.css";
+//@import "https://unpkg.com/open-props@1.4.19/open-props.min.css";
+//@import "https://unpkg.com/open-props/buttons.min.css";
 
 
 //@import "https://unpkg.com/open-props/colors-hsl.min.css";
@@ -97,7 +97,10 @@
   --inset-shadow-5     : inset 0 19px 38px rgba(0,0,0,0.30), inset 0 15px 12px rgba(0,0,0,0.22), 0 0 0 rgba(0,0,0,0.30),       0 0 0 rgba(0,0,0,0.22);
 }
 
-
+//fix to microcss input is now full width
+input {
+  min-width: 100%;
+}
 
 body{
   //height: 100vh;
@@ -130,39 +133,40 @@ main{
   //min-height: 80vh;
 }
 
+//id like to create less vertical space between elements how can I overwrite the css from the import?
 
-@media (min-width: 576px) {
-  body header,
-body main,
-body footer,
-section {
-    --block-spacing-vertical: calc(var(--spacing) * 2);
-  }
-}
-@media (min-width: 768px) {
-  body header,
-body main,
-body footer,
-section {
-    --block-spacing-vertical: calc(var(--spacing) * 2.5);
-  }
-}
-@media (min-width: 992px) {
-  body header,
-body main,
-body footer,
-section {
-    --block-spacing-vertical: calc(var(--spacing) * 2.5);
-  }
-}
-@media (min-width: 1200px) {
-  body header,
-body main,
-body footer,
-section {
-    --block-spacing-vertical: calc(var(--spacing) * 2.5);
-  }
-}
+// @media (min-width: 576px) {
+//   body header,
+// body main,
+// body footer,
+// section {
+//     --block-spacing-vertical: calc(var(--spacing) * 2);
+//   }
+// }
+// @media (min-width: 768px) {
+//   body header,
+// body main,
+// body footer,
+// section {
+//     --block-spacing-vertical: calc(var(--spacing) * 2.5);
+//   }
+// }
+// @media (min-width: 992px) {
+//   body header,
+// body main,
+// body footer,
+// section {
+//     --block-spacing-vertical: calc(var(--spacing) * 2.5);
+//   }
+// }
+// @media (min-width: 1200px) {
+//   body header,
+// body main,
+// body footer,
+// section {
+//     --block-spacing-vertical: calc(var(--spacing) * 2.5);
+//   }
+// }
 
 body header,
 body main,
@@ -172,34 +176,6 @@ body footer {
   margin-left: auto;
   padding: var(--block-spacing-vertical) 0;
 }
-
-//move this to specific page css?
-// @media (min-width: 1200px){
-//   button, input:not([type=checkbox], [type=radio]) {
-//     display: block;
-//     margin-left: auto;
-//     margin-right: auto;
-//     width: 80%;
-//   }
-// }
-
-// @media (min-width: 992px){
-//   button, input:not([type=checkbox], [type=radio]) {
-//     display: block;
-//     margin-left: auto;
-//     margin-right: auto;
-//     width: 80%;
-//   }
-// }
-// @media (min-width: 768px){
-//   button, input:not([type=checkbox], [type=radio]) {
-//     display: block;
-//     margin-left: auto;
-//     margin-right: auto;
-//     width: 80%;
-//   }
-// }
-
 
 
 //====================

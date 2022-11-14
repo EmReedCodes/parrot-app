@@ -9,7 +9,7 @@ import Modal from "../../components/Modal"
 import List from './List'
 
 const Settings = () => {
-
+//TODO: useReducer here instead?
   const pwAttempt = useRef(null)
   const dispatch = useDispatch()
   const { isSuccess, isError } = useSelector(state => state.auth)
@@ -83,8 +83,13 @@ const Settings = () => {
   }
   
   const displayList = () => {
-    dispatch(getAllWords())
-    setGetList(true)
+    if (getList === false) {
+      dispatch(getAllWords())
+      setGetList(true)
+    } else {
+      setGetList(false)
+    }
+  
   }
 //   <IconContext.Provider value={{className: "replay-btn repeatWord"}}>
 

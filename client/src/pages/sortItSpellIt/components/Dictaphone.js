@@ -10,9 +10,7 @@ import { IconContext } from "react-icons";
 
 const Dictaphone = () => {
 
-  //why no update? i is confused here me...
-  //this remove needs to be saidWord???
-  // const { remove } = useSelector(state => state.word)
+ //TODO: could useContext work over saving saidWord to Redux - try it useContext removes prop drilling which was my issue
 
   //const word = useSelector((state) => state.word)
   const [saidWord, setSaidWord] = useState("")
