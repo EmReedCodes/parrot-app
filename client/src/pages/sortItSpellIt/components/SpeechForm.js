@@ -1,19 +1,19 @@
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 import { createWordForBank } from "../../../features/bankWord/bankWordSlice"
 import { remove } from "../../../features/words/wordsSlice"
 
 
-function SpeechForm(props) {
-  //finalWord is now being sent to db as req.body.finalWord
+function SpeechForm({ word }) {
+  console.log(word)
+
   //TODO: check if saidWord is already in wordBank if not use Modal if so disable
-  const { saidWord } = useSelector(state => state.word)
+ 
   const dispatch = useDispatch()
-  console.log(saidWord)
 
 
   const onSubmit = (e) => {
-    dispatch(createWordForBank({saidWord}))
-    dispatch(remove(saidWord))
+    dispatch(createWordForBank({word}))
+    dispatch(remove(word))
   }
 
   return (

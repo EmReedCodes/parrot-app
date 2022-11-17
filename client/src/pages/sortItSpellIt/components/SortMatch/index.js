@@ -20,12 +20,14 @@ import React, { useState, useEffect } from "react"
 import SortableItem from "./SortableItem"
 import { v4 as uuidv4 } from "uuid"
 import shuffle from "lodash/shuffle"
-import { useSelector } from "react-redux"
 import Submission from "./Submission"
+import { useContext } from "react"
+import { WordContext } from "../../SortItSpellIt"
+
 
 const SortMatch = () => {
-  const { saidWord } = useSelector(state => state.word)
-
+  //const { saidWord } = useSelector(state => state.word)
+  const saidWord = useContext(WordContext)
   const [items, setItems] = useState([])
   const [initialItems, setInitialItems] = useState([])
 

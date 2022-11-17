@@ -38,7 +38,7 @@ const saveWord = async (req, res) => {
         console.log(req.user)
         const word = await DictaphoneWord.create({
             //if changing input variable need to change name here too
-            text: req.body.saidWord,
+            text: req.body.word,
             //need id
             user: req.user._id,
         })

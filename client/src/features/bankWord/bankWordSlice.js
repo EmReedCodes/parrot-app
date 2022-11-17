@@ -19,6 +19,7 @@ const initialState = {
 export const createWordForBank = createAsyncThunk("word/save", async (speechData, thunkAPI) => {
   try {
     const token = thunkAPI.getState().auth.user.token
+    console.log(speechData, 'slice create')
     return await bankWordService.saveWord(speechData, token)
   } catch (error) {
     const message =
@@ -100,6 +101,11 @@ export const bankWordSlice = createSlice({
   },
   extraReducers: builder => {
     builder
+    .addCase(createWordForBank.rejected, (state, action) => {
+      state.isLoading = false
+      state.isError = true
+      state.message = action.payload
+    })
       .addCase(createWordForBank.pending, state => {
         state.isLoading = true
       })
@@ -124,11 +130,7 @@ export const bankWordSlice = createSlice({
         state.isSuccess = true
         state.text = action.payload
       })
-      .addCase(createWordForBank.rejected, (state, action) => {
-        state.isLoading = false
-        state.isError = true
-        state.message = action.payload
-      })
+     
 
 
       .addCase(getWordsForList.pending, state => {
