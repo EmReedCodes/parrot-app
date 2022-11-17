@@ -1,4 +1,3 @@
-//import { useDispatch } from 'react-redux'
 import { AiFillDelete } from 'react-icons/ai'
 import { deleteWordForList } from '../../../features/bankWord/bankWordSlice'
 import { useDispatch } from 'react-redux'

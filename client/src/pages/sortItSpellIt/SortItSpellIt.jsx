@@ -8,28 +8,19 @@ import { toast } from "react-toastify"
 import { FaMicrophoneAltSlash } from "react-icons/fa"
 import { FaMicrophoneAlt } from "react-icons/fa"
 
-
 export const WordContext = createContext()
 
 const SortItSpellIt = () => {
-  
   const [saidWord, setSaidWord] = useState("")
 
-
-  const {
-    finalTranscript,
-    listening,
-    browserSupportsSpeechRecognition,
-    isMicrophoneAvailable
-  } = useSpeechRecognition()
-  
+  const { finalTranscript, listening, browserSupportsSpeechRecognition, isMicrophoneAvailable } =
+    useSpeechRecognition()
 
   useEffect(() => {
     if (finalTranscript !== "") {
       setSaidWord(finalTranscript.toLowerCase())
     }
   }, [finalTranscript, setSaidWord])
-
 
   if (!browserSupportsSpeechRecognition) {
     console.log("Try chrome")
@@ -40,24 +31,20 @@ const SortItSpellIt = () => {
     return toast.error("Microphone must be on")
   }
 
-
   const resetWord = () => {
     setSaidWord("")
   }
 
-  
-    const speechHandler = text => {
-      if (saidWord) {
-        const msg = new SpeechSynthesisUtterance()
-        msg.text = text
-        window.speechSynthesis.speak(msg)
-      }
+  const speechHandler = text => {
+    if (saidWord) {
+      const msg = new SpeechSynthesisUtterance()
+      msg.text = text
+      window.speechSynthesis.speak(msg)
     }
+  }
 
-console.log(saidWord)
   return (
     <section className="sortItHome wordGame">
-
       {!saidWord && (
         <>
           <h2>Let's get to sorting!</h2>
@@ -79,33 +66,26 @@ console.log(saidWord)
         </>
       )}
 
-
-      {!saidWord && listening ? 
+      {!saidWord && listening && (
         <IconContext.Provider value={{ className: "microphone-on" }}>
           <FaMicrophoneAlt />
         </IconContext.Provider>
-       : 
+      )}
+      {!saidWord && !listening && (
         <IconContext.Provider value={{ className: "microphone" }}>
           <FaMicrophoneAltSlash />
         </IconContext.Provider>
-      }
-     {/* if no said word and no listening display first elm or second if yes to either oh.. */}
-      {/* {!saidWord && !listening ?
-     
-        <button onClick={SpeechRecognition.startListening}>Start</button>
-        :
-          <button onClick={SpeechRecognition.abortListening}>Cancel</button>
-       
-      } */}
+      )}
+      {/* if no said word and no listening display first elm or second if yes to either oh.. */}
 
-      
+      {!saidWord && !listening && <button onClick={SpeechRecognition.startListening}>Start</button>}
+      {!saidWord && listening && <button onClick={SpeechRecognition.abortListening}>Cancel</button>}
 
-      {saidWord &&
-         <WordContext.Provider value={saidWord}>
+      {saidWord && (
+        <WordContext.Provider value={saidWord}>
           <SortMatch />
-          </WordContext.Provider>
-        }
-        
+        </WordContext.Provider>
+      )}
     </section>
   )
 }
