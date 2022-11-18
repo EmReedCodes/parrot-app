@@ -8,9 +8,10 @@ import { toast } from "react-toastify"
 import { FaMicrophoneAltSlash } from "react-icons/fa"
 import { FaMicrophoneAlt } from "react-icons/fa"
 
-export const WordContext = createContext()
+export const WordContext = createContext("")
 
 const SortItSpellIt = () => {
+
   const [saidWord, setSaidWord] = useState("")
 
   const { finalTranscript, listening, browserSupportsSpeechRecognition, isMicrophoneAvailable } =
@@ -76,13 +77,12 @@ const SortItSpellIt = () => {
           <FaMicrophoneAltSlash />
         </IconContext.Provider>
       )}
-      {/* if no said word and no listening display first elm or second if yes to either oh.. */}
 
       {!saidWord && !listening && <button onClick={SpeechRecognition.startListening}>Start</button>}
       {!saidWord && listening && <button onClick={SpeechRecognition.abortListening}>Cancel</button>}
 
       {saidWord && (
-        <WordContext.Provider value={saidWord}>
+        <WordContext.Provider value={[saidWord, setSaidWord]}>
           <SortMatch />
         </WordContext.Provider>
       )}

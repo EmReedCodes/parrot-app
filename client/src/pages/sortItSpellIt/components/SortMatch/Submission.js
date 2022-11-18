@@ -1,15 +1,16 @@
 import { useState } from "react"
 import Confetti from "../../../../hooks/useConfetti"
 import Modal from "../../../../components/Modal"
-import SpeechForm from "../SpeechForm"
-
+import { useDispatch } from "react-redux"
+import { createWordForBank } from "../../../../features/bankWord/bankWordSlice"
 //turn tiles green that are correct red incorrect until submit is correct
 
 export default function Submission({ items, setItems, word, initialItems }) {
   const [isVisible, setIsVisible] = useState(false)
   const [modalToggle, setModalToggle] = useState(false)
+  const dispatch = useDispatch()
 
-  const checkAnswer = event => {
+  const checkAnswer = () => {
     const checkLetter = Object.values(items).map((item, idx) => item.letter === word[idx])
     setItems(current =>
       current.map((item, idx) => ({
@@ -34,7 +35,12 @@ export default function Submission({ items, setItems, word, initialItems }) {
     setItems(initialItems)
   }
 
-  //TODO: is there a way to close modal after they send to db?
+  const onSubmit = e => {
+    dispatch(createWordForBank({ word }))
+    setModalToggle(false)
+  }
+
+  
   const modalText = () => {
     return (
       <>
@@ -42,7 +48,7 @@ export default function Submission({ items, setItems, word, initialItems }) {
         <p>
           Would you like to add <strong>{word}</strong> to your wordBank?
         </p>
-        <SpeechForm word={word} />
+        <button onClick={e => onSubmit(e)}>Save</button>
       </>
     )
   }

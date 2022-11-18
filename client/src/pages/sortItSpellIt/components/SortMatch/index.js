@@ -27,7 +27,7 @@ import { WordContext } from "../../SortItSpellIt"
 
 const SortMatch = () => {
 
-  const saidWord = useContext(WordContext)
+  const [saidWord, setSaidWord] = useContext(WordContext)
   const [items, setItems] = useState([])
   const [initialItems, setInitialItems] = useState([])
 
