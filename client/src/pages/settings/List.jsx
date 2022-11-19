@@ -6,9 +6,10 @@ import { IconContext } from "react-icons"
 
 
 const List = () => {
-  
+
   const [isActive, setIsActive] = useState(null)
   const { wordBank } = useSelector(state => state.wordBank)
+  console.log(wordBank)
   const ref = useRef(null)
 
   const dispatch = useDispatch()

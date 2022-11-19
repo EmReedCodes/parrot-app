@@ -66,7 +66,7 @@ export const updateAndReplaceWord = createAsyncThunk("word/replace", async (text
 export const deleteWordForList = createAsyncThunk("word/delete", async (_id, thunkAPI) => {
   try {
     const token = thunkAPI.getState().auth.user.token
-    console.log(_id, "id")
+    console.log(_id, " word _id slice delte")
     return await bankWordService.deleteBankWord(_id, token)
   } catch (error) {
     const message =
@@ -152,8 +152,9 @@ export const bankWordSlice = createSlice({
       .addCase(deleteWordForList.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        //this isn't updating my lists 
+        //I needed to send back the _id for the action.payload
         state.wordBank = state.wordBank.filter(word => word._id !== action.payload._id)
+        
       })
       .addCase(deleteWordForList.rejected, (state, action) => {
         state.isLoading = false

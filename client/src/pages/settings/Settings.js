@@ -52,7 +52,14 @@ const Settings = () => {
     }
   }, [isSuccess, navigate, passwordConfirmed, dispatch])
 
-    
+  const toggleModal = () => {
+    if (!modalToggle && !userDelete) {
+      setModalToggle(true)
+    } else {
+      setModalToggle(false)
+      setUserDelete(false)
+    }
+    }
     const onSubmit = (e) => {
       e.preventDefault()
    
@@ -109,7 +116,7 @@ const Settings = () => {
         }
 
     
-        <span onClick={() => setModalToggle(true)}>Delete account</span>  
+        <span onClick={() => toggleModal()}>Delete account</span>  
        <Modal open={modalToggle}
                 onClick={() => setModalToggle(false)}
           
