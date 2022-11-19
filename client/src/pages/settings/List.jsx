@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from "react-redux"
 import { deleteWordForList, updateAndReplaceWord } from "../../features/bankWord/bankWordSlice"
 import { AiFillEdit, AiFillDelete, AiFillSave } from "react-icons/ai"
 import { IconContext } from "react-icons"
-import { current } from "@reduxjs/toolkit"
 
-const List = ({ wordBank }) => {
-  const [isActive, setIsActive] = useState(null)
+
+const List = () => {
   
+  const [isActive, setIsActive] = useState(null)
+  const { wordBank } = useSelector(state => state.wordBank)
   const ref = useRef(null)
 
   const dispatch = useDispatch()
@@ -26,11 +27,9 @@ const List = ({ wordBank }) => {
   }
 //TODO: need to check if word changed during edit
   
-  // useEffect(() => {
-  //   if (isActive) {
-      
-  //   }
-  // }, [])
+  useEffect(() => {
+    
+  }, [])
   const saveEdit = (word, id) => {
     let elm = document.querySelector('.itemWord').innerText
     console.log(elm)

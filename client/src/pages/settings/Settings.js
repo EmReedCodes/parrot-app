@@ -21,8 +21,8 @@ const Settings = () => {
   const [passwordConfirmed, setPassWordConfirmed] = useState(false)
   const [getList, setGetList] = useState(false)
   //ok we know password check route works
-  const { wordBank } = useSelector((state) => state.wordBank)
-  console.log(wordBank)
+  //const { wordBank } = useSelector((state) => state.wordBank)
+  //console.log(wordBank)
   //need to reset state
   useEffect(() => {
 
@@ -104,7 +104,7 @@ const Settings = () => {
       <section>
         <span onClick={() => displayList()}>Full Word Bank</span>
         {getList &&
-          <List wordBank={wordBank} />
+          <List />
 
         }
 

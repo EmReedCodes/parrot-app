@@ -152,6 +152,7 @@ export const bankWordSlice = createSlice({
       .addCase(deleteWordForList.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
+        //this isn't updating my lists 
         state.wordBank = state.wordBank.filter(word => word._id !== action.payload._id)
       })
       .addCase(deleteWordForList.rejected, (state, action) => {
@@ -175,5 +176,5 @@ export const bankWordSlice = createSlice({
   }
 })
 
-export const { reset } = bankWordSlice.actions
+export const { wordBank, reset } = bankWordSlice.actions
 export default bankWordSlice.reducer

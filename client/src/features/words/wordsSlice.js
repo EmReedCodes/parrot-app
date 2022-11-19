@@ -1,9 +1,8 @@
-//can i make a switch for sliced word, finalword, and random chars?
-//provide initialStatae as default
 
 
+//got rid of using this instead utilized wordBank and useContext, keeping it here for now as this is how I learned
 import { createSlice } from '@reduxjs/toolkit'
-//import { v4 as uuidv4 } from 'uuid';
+
 
 export const wordSlice = createSlice({
   name: "word",
