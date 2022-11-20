@@ -45,7 +45,7 @@ const SortItSpellIt = () => {
   }
 
   return (
-    <section className="sortItHome wordGame">
+    <section className="sortItHome">
       {!saidWord && (
         <>
           <h2>Let's get to sorting!</h2>
