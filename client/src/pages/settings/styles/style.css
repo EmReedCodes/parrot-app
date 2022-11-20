@@ -1,5 +1,14 @@
-span {
+.settings > span {
   display: block;
+  padding: 2em 0;
+}
+.settings > span .inline-btn {
+  all: unset;
+  font-weight: 700;
+}
+
+.settings ul {
+  all: unset;
 }
 
 .containList {
@@ -30,7 +39,7 @@ span {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right: 1em;
+  padding: 0.5em 1em;
 }
 .word .save {
   display: none;

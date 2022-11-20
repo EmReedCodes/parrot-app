@@ -1,8 +1,8 @@
 import {
   closestCenter,
   DndContext,
-  PointerSensor,
   TouchSensor,
+  MouseSensor,
   useSensor,
   DragOverlay,
   closestCorners,
@@ -73,17 +73,13 @@ const SortMatch = () => {
   //       coordinateGetter: sortableKeyboardCoordinates
   //     })
   //   );
+  const mouseSensor = useSensor(MouseSensor)
+  //had to take out pointersensor touch works now? https://github.com/clauderic/dnd-kit/issues/435
 
-  const pointerSensor = useSensor(PointerSensor)
-  const touchSensor = useSensor(TouchSensor, {
-    activationConstraint: {
-      delay: 250,
-      tolerance: 5
-    }
-  })
+  const touchSensor = useSensor(TouchSensor)
   const keyboardSensor = useSensor(KeyboardSensor)
 
-  const sensors = useSensors(pointerSensor, touchSensor, keyboardSensor)
+  const sensors = useSensors( touchSensor, keyboardSensor, mouseSensor)
 
   const handleDragEnd = ({ active, over }) => {
     if (active.id !== over.id) {

@@ -152,6 +152,7 @@ export const bankWordSlice = createSlice({
       .addCase(deleteWordForList.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
+        //TODO: blog about this mistake I made and how I fixed it
         //I needed to send back the _id for the action.payload
         state.wordBank = state.wordBank.filter(word => word._id !== action.payload._id)
         

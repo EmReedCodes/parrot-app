@@ -1,6 +1,24 @@
-span {
+.settings > span {
     display: block;
+    padding: 2em 0;
+
+
+    .inline-btn {
+        all: unset;
+        font-weight: 700;
+    }
+
 }
+
+.settings ul {
+    all: unset;
+}
+
+
+
+
+//list 
+
 
 .containList {
     margin: 0 auto;
@@ -31,7 +49,7 @@ span {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-right: 1em;
+        padding: .5em 1em;
 
         .save {
             display: none;
@@ -52,4 +70,3 @@ span {
     }
 
     
-   
