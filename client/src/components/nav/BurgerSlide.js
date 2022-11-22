@@ -1,6 +1,6 @@
 import { slide as Menu } from "react-burger-menu"
 import { useSelector, useDispatch } from "react-redux"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import { logout, reset } from "../../features/auth/authSlice"
 import ToggleSwitch from "./ToggleSwitch"
 
@@ -18,26 +18,18 @@ export default function Sidebar() {
 
   return (
     <Menu>
-       
        <div className="containToggle">
          <ToggleSwitch />
       </div>
       {user ? 
-        <a id="dashboard" className="menu-item" href="/dashboard">
-          Dashboard
-        </a> :
-        <a id="home" className="menu-item" href="/">
-        Home
-      </a>
+        <Link to="/dashboard" className="menu-item">Dashboard</Link>
+        :
+        <Link to="/" className="menu-item">Home</Link>
       }
-      <a id="settings" className="menu-item" href="/settings">
-        Settings
-          </a>
-          <a id="about" className="menu-item" href="/about">
-        Contact
-      </a>
+      <Link to="/settings" className="menu-item">Settings</Link>
+      <Link to="/about" className="menu-item">About</Link>
       { user &&
-        <a id="logout" className="menu-item" href="/"><button onClick={onLogout}>Logout</button></a>
+        <Link to="/" onClick={() => onLogout()} className="menu-item">Logout</Link>
       }
     </Menu>
   )

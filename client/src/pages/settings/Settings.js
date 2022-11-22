@@ -85,7 +85,7 @@ const Settings = () => {
   }
 
   return (
-    <section className="settings">
+    <section className="settings wordGame">
       <span>
         Click{" "}
         <button onClick={() => displayList()} className="inline-btn">

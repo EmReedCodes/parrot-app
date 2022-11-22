@@ -35,7 +35,7 @@ const SortItSpellIt = () => {
   const resetWord = () => {
     setSaidWord("")
   }
-
+  //TODO: slow speed down
   const speechHandler = text => {
     if (saidWord) {
       const msg = new SpeechSynthesisUtterance()

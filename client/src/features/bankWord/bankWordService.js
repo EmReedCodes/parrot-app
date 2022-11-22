@@ -34,7 +34,6 @@ const updateWord = async (textData, token) => {
   if (response.status === 200) {
     toast.success("Updated word")
   }
-  // console.log(response.data)
   return response.data
 }
 

@@ -5,6 +5,7 @@ import { AiFillEdit, AiFillDelete, AiFillSave } from "react-icons/ai"
 import { IconContext } from "react-icons"
 
 
+
 const List = () => {
 
   const [isActive, setIsActive] = useState(null)
@@ -28,9 +29,10 @@ const List = () => {
   }
 //TODO: need to check if word changed during edit
   
-  useEffect(() => {
-    
-  }, [])
+  // useEffect(() => {
+  //   if(ref.current === wordBank)
+  // }, [])
+
   const saveEdit = (word, id) => {
     let elm = document.querySelector('.itemWord').innerText
     console.log(elm)

@@ -1,22 +1,14 @@
-@media (min-width: 768px) {
-  .sortItHome button {
-    margin: 0 auto;
-    max-width: 70%;
-  }
-}
 
-p {
+.sortItHome {
+  // margin: 0 auto;
   text-align: center;
-  font-weight: 700;
 }
 
 .containReplay {
   cursor: pointer;
   padding: 2em;
   margin: 0 auto;
-  text-align: center;
   width: 40%;
-  text-align: center;
   animation: var(--animation-scale-down) reverse, var(--animation-fade-out) reverse;
   animation-timing-function: var(--ease-squish-5);
   animation-duration: 1s;
@@ -78,7 +70,13 @@ p {
   }
 }
 
+
+
 @media (min-width: 768px) {
+  .sortContainer, .sortItHome button {
+    max-width: 70%;
+    margin: 0 auto;
+  }
   .submitReset {
     display: flex;
     justify-content: space-between;
@@ -95,39 +93,40 @@ p {
   margin-top: 1rem;
   margin-bottom: 2rem;
   display: flex;
-  //flex-direction: column;
-  //flex-wrap: wrap;
   text-align: center;
-  width: 100%;
   justify-content: center;
 
   #sortTile {
-    font-size: 2em;
+    font-size: 5vw;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-weight: 900;
     border: 2px solid hs(var(--gray-7-hsl) / 10%);
     background: var(--cyan-4);
+    //i want the height and width to stay square
     width: 20%;
   }
 }
 
-@media (min-width: 768px) {
-  .sortContainer {
-    width: min-content;
-    background: #e0e0e0;
-    box-shadow: 20px 38px 34px -26px hsla(0, 0%, 0%, 0.2);
-    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-    //border:solid 7px #41403E;
-    &:hover {
-      box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
-    }
-    //   &.lined.thick{
-    //     border:solid #41403E;
-    //  }
-  }
-}
+//decided to take off visible container for now... ? 
 
-//this works
+// @media (min-width: 768px) {
+//   .sortContainer {
+//     width: min-content;
+//     background: #e0e0e0;
+//     box-shadow: 20px 38px 34px -26px hsla(0, 0%, 0%, 0.2);
+//     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+//     //border:solid 7px #41403E;
+//     &:hover {
+//       box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
+//     }
+//     //   &.lined.thick{
+//     //     border:solid #41403E;
+//     //  }
+//   }
+// }
+
+//this works but animates every time its touched
+//TODO: have animation only run once regardless of render
 // #sortTile{
 //     // animation:
 //     //     var(--animation-scale-down) reverse,

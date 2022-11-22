@@ -1,21 +1,12 @@
-@media (min-width: 768px) {
-  .sortItHome button {
-    margin: 0 auto;
-    max-width: 70%;
-  }
-}
-p {
+.sortItHome {
   text-align: center;
-  font-weight: 700;
 }
 
 .containReplay {
   cursor: pointer;
   padding: 2em;
   margin: 0 auto;
-  text-align: center;
   width: 40%;
-  text-align: center;
   animation: var(--animation-scale-down) reverse, var(--animation-fade-out) reverse;
   -webkit-animation-timing-function: var(--ease-squish-5);
           animation-timing-function: var(--ease-squish-5);
@@ -94,6 +85,10 @@ p {
 }
 
 @media (min-width: 768px) {
+  .sortContainer, .sortItHome button {
+    max-width: 70%;
+    margin: 0 auto;
+  }
   .submitReset {
     display: flex;
     justify-content: space-between;
@@ -109,28 +104,13 @@ p {
   margin-bottom: 2rem;
   display: flex;
   text-align: center;
-  width: 100%;
   justify-content: center;
 }
 .sortContainer #sortTile {
-  font-size: 2em;
+  font-size: 5vw;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-weight: 900;
   border: 2px solid hs(var(--gray-7-hsl)/10%);
   background: var(--cyan-4);
   width: 20%;
-}
-
-@media (min-width: 768px) {
-  .sortContainer {
-    width: -webkit-min-content;
-    width: -moz-min-content;
-    width: min-content;
-    background: #e0e0e0;
-    box-shadow: 20px 38px 34px -26px hsla(0deg, 0%, 0%, 0.2);
-    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-  }
-  .sortContainer:hover {
-    box-shadow: 2px 8px 4px -6px hsla(0deg, 0%, 0%, 0.3);
-  }
 }/*# sourceMappingURL=style.css.map */

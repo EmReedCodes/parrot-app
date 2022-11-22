@@ -43,6 +43,7 @@
 
 
   .wordsList li{
-    text-align: left;
+    display: flex;
+    justify-content: space-between;
   }
 
