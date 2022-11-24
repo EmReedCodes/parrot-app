@@ -338,6 +338,10 @@ body {
   box-shadow: 0 0 0 0.2rem #fff, 0 0 0 0.35rem #069;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 main {
   box-sizing: border-box;
   min-height: calc(100vh - 10em);
@@ -449,8 +453,6 @@ h1, h2, h3, h4, h5 {
 .navWithSlide {
   padding-left: 0;
   background-color: #005f90;
-  position: sticky;
-  position: -webkit-sticky;
   top: 0;
   z-index: 99;
   color: #e6ebed;

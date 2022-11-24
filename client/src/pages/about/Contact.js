@@ -10,8 +10,10 @@ const ContactForm = () => {
     
 
     return ( 
-        <article className="grid">
-          <section id="contact">
+      <article id="contact" className="grid">
+        <section className='wordGame'>
+          <h2>Contact</h2>
+          <p>Parrot is a continued work in process. Please feel free to contact me with any suggestions or ideas you may have. Feedback is also appreciated. Every user of Parrot is important and some of the best changes were from users like you. </p>
             <form onSubmit={handleSubmit}>
             <label htmlFor="email">
               Email Address
@@ -26,9 +28,11 @@ const ContactForm = () => {
               field="email"
               errors={state.errors}
             />
+            <label htmlFor="text">Message</label>
             <textarea className='textBox'
               id="message"
               name="message"
+              rows="6"
             />
             <ValidationError
               prefix="Message"
