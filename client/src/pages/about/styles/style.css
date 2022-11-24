@@ -1,1 +1,10 @@
-/*# sourceMappingURL=style.css.map */
+.origin-bck {
+  background-color: #374956;
+  background-image: url("../../../assets/idea.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.textBox {
+  width: 100%;
+}/*# sourceMappingURL=style.css.map */
