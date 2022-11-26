@@ -84,33 +84,28 @@
   }
 }
 
+.sortContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  padding: 1em 0 3em 0;
+  width: 100%;
+}
+
+#sortTile {
+  width: 20%;
+  height: 30%;
+  font-size: 1.5em;
+  font-weight: 700;
+  line-height: 1.5em;
+}
+
 @media (min-width: 768px) {
-  .sortContainer, .sortItHome button {
+  .sortItHome button {
     max-width: 70%;
     margin: 0 auto;
   }
-  .submitReset {
-    display: flex;
-    justify-content: space-between;
+  #sortTile {
+    font-size: 3.5em;
   }
-  .submitReset button {
-    width: 20%;
-  }
-}
-.sortContainer {
-  gap: 0.5rem;
-  padding: 2em;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-}
-.sortContainer #sortTile {
-  font-size: 5vw;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-weight: 900;
-  border: 2px solid hs(var(--gray-7-hsl)/10%);
-  background: var(--cyan-4);
-  width: 20%;
 }/*# sourceMappingURL=style.css.map */

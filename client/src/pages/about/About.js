@@ -1,6 +1,6 @@
 import ContactForm from "./Contact";
 import "./styles/style.css"
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 const About = () => {
     return (
      <section>
@@ -15,7 +15,12 @@ const About = () => {
                 </section>
                 <section className="origin-bck"></section>
                 </article>
-            
+            <article id="resources" className="grid">
+                <section>
+                    <h2>Resources</h2>
+                 
+                </section>
+                </article>
             
             <ContactForm />
             </section>
