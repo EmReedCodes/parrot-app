@@ -18,7 +18,28 @@ const About = () => {
             <article id="resources" className="grid">
                 <section>
                     <h2>Resources</h2>
-                 
+                    <ul>
+                        <li>
+                            <span>ASHA ProFind to find a speech-language pathologist or audiologists near you.</span>
+                            <a href="https://www.asha.org/profind/" target="_blank" rel="noopener noreferrer">https://www.asha.org/profind/</a>
+                        </li>
+                        <li>
+                            <span>Activities to encourage speech and language development from birth to 6 years.</span>
+                            <a href="https://www.asha.org/public/speech/development/activities-to-encourage-speech-and-language-development/" target="_blank" rel="noopener noreferrer">https://www.asha.org/public/speech/development/activities-to-encourage-speech-and-language-development/</a>
+                        </li>
+                        <li>
+                            <span>Resources for parents and children with word lists, activities, and apps.</span>
+                            <a href="https://www.home-speech-home.com/" target="_blank" rel="noopener noreferrer">https://www.home-speech-home.com/</a>
+                        </li>
+                        <li>
+                            <span>Great site for printables, blog posts, and various topics on speech therapy.</span>
+                            <a href="https://speechandlanguageathome.com/" target="_blank" rel="noopener noreferrer">https://speechandlanguageathome.com/</a>
+                        </li>
+                        <li>
+                            <span>Free therapy material including a vocabulary page, speech sound, expressive language, and receptive language resources.</span>
+                            <a href="https://www.speechandlanguagekids.com/free-speech-language-resources/" target="_blank" rel="noopener noreferrer">https://www.speechandlanguagekids.com/free-speech-language-resources/</a>
+                        </li>
+                 </ul>
                 </section>
                 </article>
             

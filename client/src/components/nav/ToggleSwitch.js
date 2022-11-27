@@ -19,22 +19,13 @@ function ToggleSwitch() {
 
    const onToggle = e => {
     if (e.target.checked) {
-      //let root = document.querySelector("html")
-      //setIsToggled(true)
       setToggled(true)
       setTheme("dark")
-     // root.setAttribute("data-theme", theme)
     } else {
-      //let root = document.querySelector("html")
       setToggled(false)
       setTheme("light")
-    //  root.setAttribute("data-theme", theme)
     }
   }
-
-
-
-
 
   return (
     <label className="toggle-switch">

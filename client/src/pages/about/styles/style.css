@@ -8,4 +8,8 @@
 .textBox {
   min-width: 100%;
   height: 100%;
+}
+
+span {
+  display: block;
 }/*# sourceMappingURL=style.css.map */
