@@ -3,15 +3,15 @@ import "./styles/style.css"
 //import { Link } from "react-router-dom";
 const About = () => {
     return (
-     <section>
+     <section className="about">
         
             <span>Jump to </span>
+            <a href="#resources">Resources</a>
             <a href="#contact">Contact</a>
-             
                 <article className="grid">
                     <section>
                         <h1>Parrot's Origin Story</h1>
-                        <p>My name is Emily. I started Parrot for my son but quickly realized the issues he faced with speech and spelling were something many kids also struggled with. After watching him use Siri to talk to his friends and navigate the web I thought to myself what if he had a place to practice both his speech and his spelling. That was the day the idea of Parrot began to take shape.</p>
+                        <p>Parrot originally began for my son but quickly realized the issues he faced with speech and spelling were something many kids also struggled with. After watching him use Siri to talk to his friends and navigate the web I thought to myself what if he had a place to practice both his speech and his spelling. That was the day the idea of Parrot began to take shape.</p>
                 </section>
                 <section className="origin-bck"></section>
                 </article>
@@ -42,7 +42,14 @@ const About = () => {
                  </ul>
                 </section>
                 </article>
-            
+            <article id="aboutme" className="grid">
+            <section className="aboutme-bck"></section>
+            <section>
+                        <h2>About Me</h2>
+                        <p>Hey, I'm Emily the creator of Parrot. Since the moment I wrote my very first line of code, the ideas began. Parrot was my biggest one yet and I hope you enjoy it! In my free time I enjoy just hanging out with my cat and son watching youtube. I also volunteer with Akron Women In Tech and try to stay active in my local community as well as my online community. I have done freelancing in the past but am currently looking for my next full time position on a team.</p>
+                </section>
+                
+             </article>
             <ContactForm />
             </section>
          )
