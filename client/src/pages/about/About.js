@@ -5,9 +5,12 @@ const About = () => {
     return (
      <section className="about">
         
-            <span>Jump to </span>
-            <a href="#resources">Resources</a>
-            <a href="#contact">Contact</a>
+                <div className="resource-links">
+                    <span>Jump to:</span>
+                    <a href="#resources">Resources</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#aboutme">About Me</a>
+                </div>
                 <article className="grid">
                     <section>
                         <h1>Parrot's Origin Story</h1>

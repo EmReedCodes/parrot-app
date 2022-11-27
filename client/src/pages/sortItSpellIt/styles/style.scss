@@ -1,6 +1,4 @@
-
 .sortItHome {
-  // margin: 0 auto;
   text-align: center;
 }
 
@@ -69,82 +67,48 @@
     }
   }
 }
-
 .sortContainer {
-display: flex;
-flex-direction: row;
-gap: .5em;
-padding: 1em 0 3em 0;
-width: 100%;
-//aspect-ratio: auto 1/1;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 0em 0.5em;
+  height: 100%;
+  margin: 3em 0 3em 0;
 }
 
 #sortTile {
-   width: 20%;
-   height: 30%;
-   font-size: 1.5em;
-   //line-height: 3em;
-   font-weight: 700;
-   //align-items: center;
-   line-height: 1.5em;
-  // height: 20%;
-  //aspect-ratio: auto 1/1;
+  //font-size: 2em;
+  //line-height: 1.5em;
+  font-weight: 700;
 }
 
-// @media (min-width: 576px){
-//   #sortTile {
-//     font-size: 2em;
-//   }
-// }
+@media (min-width: 576px) {
+  #sortTile {
+    font-size: 2em;
+  }
+}
 
-@media (min-width: 768px){
-    .sortItHome button {
-     max-width: 70%;
-   margin: 0 auto;
-   }
-   #sortTile {
+@media (min-width: 768px) {
+  .sortItHome button {
+    max-width: 70%;
+    margin: 0 auto;
+  }
+
+  .submitReset {
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      width: 20%;
+    }
+  }
+  #sortTile {
     font-size: 3.5em;
-   }
+  }
 }
 
-
-
-// @media (min-width: 768px) {
-//   .sortContainer, .sortItHome button {
-//     max-width: 70%;
-//     margin: 0 auto;
-//   }
-//   .submitReset {
-//     display: flex;
-//     justify-content: space-between;
-
-//     button {
-//       width: 20%;
-//     }
-//   }
-// }
-
-// .sortContainer {
-//   gap: 0.5rem;
-//   padding: 2em;
-//   margin-top: 1rem;
-//   margin-bottom: 2rem;
-//   display: flex;
-//   text-align: center;
-//   justify-content: center;
-
-//   #sortTile {
-//     font-size: 5vw;
-//     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-//     font-weight: 900;
-//     border: 2px solid hs(var(--gray-7-hsl) / 10%);
-//     background: var(--cyan-4);
-//     //i want the height and width to stay square
-//     width: 20%;
-//   }
-// }
-
-//decided to take off visible container for now... ? 
+//decided to take off visible container for now... ?
 
 // @media (min-width: 768px) {
 //   .sortContainer {

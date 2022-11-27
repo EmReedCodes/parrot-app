@@ -9,6 +9,11 @@
   background-size: cover;
 }
 
+.resource-links {
+  display: flex;
+  gap: 0.5em;
+}
+
 @media (min-width: 992px) {
   .aboutme-bck {
     margin: 0 auto;
