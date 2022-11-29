@@ -79,23 +79,7 @@
 //@import "https://unpkg.com/open-props/colors-hsl.min.css";
 
 
-:root {
-  --shadow-none        : inset 0 0 0 rgba(0,0,0,0),          inset 0 0 0 rgba(0,0,0,0),          0 0 0 rgba(0,0,0,0),          0 0 0 rgba(0,0,0,0);
-  
-  --shadow-border      : inset 0 0 0 rgba(10,10,10,.1),      0 0 0 0 rgba(10,10,10,.1),          0 2px 3px rgba(10,10,10,.1),  0 0 0 1px rgba(10,10,10,.1);
-  --shadow-1           : inset 0 0 0 rgba(0,0,0,0.12),       inset 0 0 0 rgba(0,0,0,0.24),       0 1px 3px rgba(0,0,0,0.12),   0 1px 2px rgba(0,0,0,0.24);
-  --shadow-2           : inset 0 0 0 rgba(0,0,0,0.16),       inset 0 0 0 rgba(0,0,0,0.23),       0 3px 6px rgba(0,0,0,0.16),   0 3px 6px rgba(0,0,0,0.23);
-  --shadow-3           : inset 0 0 0 rgba(0,0,0,0.19),       inset 0 0 0 rgba(0,0,0,0.23),       0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  --shadow-4           : inset 0 0 0 rgba(0,0,0,0.25),       inset 0 0 0 rgba(0,0,0,0.22),       0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  --shadow-5           : inset 0 0 0 rgba(0,0,0,0.30),       inset 0 0 0 rgba(0,0,0,0.22),       0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-  
-  --inset-shadow-border: inset 0 2px 3px rgba(10,10,10,.1),  inset 0 0 0 1px rgba(10,10,10,.1),  0 0 0 rgba(10,10,10,.1),      0 0 0 0 rgba(10,10,10,.1);
-  --inset-shadow-1     : inset 0 1px 3px rgba(0,0,0,0.12),   inset 0 1px 2px rgba(0,0,0,0.24),   0 0 0 rgba(0,0,0,0.12),       0 0 0 rgba(0,0,0,0.24);
-  --inset-shadow-2     : inset 0 3px 6px rgba(0,0,0,0.16),   inset 0 3px 6px rgba(0,0,0,0.23),   0 0 0 rgba(0,0,0,0.16),       0 0 0 rgba(0,0,0,0.23);
-  --inset-shadow-3     : inset 0 10px 20px rgba(0,0,0,0.19), inset 0 6px 6px rgba(0,0,0,0.23),   0 0 0 rgba(0,0,0,0.19),       0 0 0 rgba(0,0,0,0.23);
-  --inset-shadow-4     : inset 0 14px 28px rgba(0,0,0,0.25), inset 0 10px 10px rgba(0,0,0,0.22), 0 0 0 rgba(0,0,0,0.25),       0 0 0 rgba(0,0,0,0.22);
-  --inset-shadow-5     : inset 0 19px 38px rgba(0,0,0,0.30), inset 0 15px 12px rgba(0,0,0,0.22), 0 0 0 rgba(0,0,0,0.30),       0 0 0 rgba(0,0,0,0.22);
-}
+
 
 //fix to microcss input is now full width
 input {
@@ -185,14 +169,14 @@ body footer {
 // your scss here
 [data-theme= light]
 button, a, [role=link] {
-  --primary: #005f90;
-  --primary-hover:  #0090c4;
+  --primary: var(--colar-cyan-7);
+  --primary-hover: var(--colar-cyan-6);
 }
 
 [data-theme= dark]
 button, a, [role=link]{
-  --primary: #0090c4;
-  --primary-hover:#1cb1e5;
+  --primary: var(--colar-cyan-5);
+  --primary-hover: var(--colar-cyan-4);
 }
 
 
@@ -242,7 +226,7 @@ margin-bottom: var(--typography-spacing-vertical);
   }
 }
 
-//setting width for game pages
+//setting width for game pages and other pages 
 
 @media (min-width: 768px){
   .wordGame {
@@ -251,7 +235,6 @@ margin-bottom: var(--typography-spacing-vertical);
   }
 
 }
-
 
 h1, h2, h3, h4, h5, p {
   text-align: center;
@@ -274,21 +257,23 @@ h1, h2, h3, h4, h5, p {
   border: none;
 }
 
-.repeatWord {
-  width: 3rem;
-  height: 3rem;
-  color: #415462;
-}
+//what are these doing anyways?
 
-[data-theme= dark]
-.repeatWord {
-  color: #BBC6CE;
-}
+// .repeatWord {
+//   width: 3rem;
+//   height: 3rem;
+//   color: #415462;
+// }
+
+// [data-theme= dark]
+// .repeatWord {
+//   color: #BBC6CE;
+// }
 
 
 
 
-//hamburger menu 
+//hamburger menu & nav
 
 #page-wrap {
   text-align: center;
@@ -305,22 +290,17 @@ h1, h2, h3, h4, h5, p {
 
 .navWithSlide {
   padding-left: 0;
-  background-color: $primary-900;
+  background-color: var(--colar-cyan-9);
   // position: sticky;
   // position: -webkit-sticky;
   top: 0;
   z-index: 99;
   color: #e6ebed;
 }
+
 [data-theme= dark]
 .navWithSlide {
-  padding-left: 0;
-  background-color: #0090c4;
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0;
-  z-index: 99;
-  color: #e6ebed;
+  background-color: var(--colar-cyan-7);
 }
 
 nav strong {
@@ -329,11 +309,10 @@ nav strong {
 
 .bm-item {
   display: inline-block;
-
   /* Our sidebar item styling */
   text-decoration: none;
   margin-bottom: 10px;
-  color: #111827;
+  color: var(--colar-gray-10);
   transition: color 0.2s;
 }
 
@@ -344,7 +323,7 @@ nav strong {
 
 /* Change color on hover */
 .bm-item:hover {
-  color: #4d5969;
+  color: var(--colar-gray-8);
 }
 
 [data-theme= dark]
@@ -367,7 +346,7 @@ position: absolute;
 /* Color/shape of burger icon bars */
 [data-theme = dark]
 .bm-burger-bars {
-  background: #e6ebed;
+  background: white;
 }
 
 
@@ -383,24 +362,24 @@ position: absolute;
 
 
 .bm-cross {
-  background: #293647;
+  background: var(--colar-gray-12);
 }
 
 [data-theme= dark]
 .bm-cross {
-  background: #e6ebed;
+  background: var(--colar-gray-2);
 }
 
 /* General sidebar styles */
 [data-theme= dark]
 .bm-menu {
-  background: #373a47;
+  background: #3B444B;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
 
 .bm-menu {
-  background: #caccce;
+  background: var(--colar-gray-4);
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
@@ -428,7 +407,7 @@ position: absolute;
 [data-theme= dark]
 .bm-overlay {
     padding-left: -10px !important;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .bm-contain {
@@ -457,7 +436,7 @@ position: absolute;
 .toggle-switch .switch {
   position: absolute;
   cursor: pointer;
-  background-color: #80d4ff;
+  background-color: var(--colar-cyan-8);
   border-radius: 25px;
   top: 0;
   right: 0;
@@ -472,16 +451,16 @@ position: absolute;
   top: 2px;
   width: 21px;
   height: 21px;
-  background-color:  #0088cc;
+  background-color: var(--colar-cyan-4);
   border-radius: 50%;
   transition: transform 0.3s ease;
 }
 .toggle-switch input[type="checkbox"]:checked + .switch::before {
   transform: translateX(25px);
-  background-color: #80d4ff;
+  background-color: var(colar-cyan-7);
 }
 .toggle-switch input[type="checkbox"]:checked + .switch {
-  background-color: #052738;;
+  background-color: var(colar-cyan-2);
 }
 
 .containToggle {
@@ -513,5 +492,24 @@ margin-right: 0;
   display: block;
   margin: 0 auto;
   max-width: 17rem;
+}
+
+footer {
+  background-color: var(--colar-cyan-9);
+}
+[data-theme=dark]
+footer {
+  background-color: var(--colar-cyan-8);
+}
+
+.holdSocialIcon{
+  display: flex;
+  justify-content: space-between;
+}
+
+.socialIcon {
+  list-style: none;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 

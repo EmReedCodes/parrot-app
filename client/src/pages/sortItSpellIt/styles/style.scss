@@ -27,21 +27,21 @@
   width: fit-content;
 }
 
+.containIcon {
+  padding-top: 3em;
+}
+
 .playIcon {
   width: 5rem;
   height: 5rem;
   padding-right: 0.3rem;
 }
 
-// svg {
-//     width: 3em;
-//     height: 3em;
-// }
 .microphone {
   width: 5rem;
   height: 5rem;
   display: block;
-  margin: 2em auto 2em auto;
+  margin: 4em auto 4em auto;
 }
 .microphone-on {
   @extend .microphone;
@@ -78,9 +78,9 @@
 }
 
 #sortTile {
-  //font-size: 2em;
-  //line-height: 1.5em;
+  display: grid;
   font-weight: 700;
+  //max-width: fit-content;
 }
 
 @media (min-width: 576px) {
