@@ -43,7 +43,7 @@ const RepeatWord = ({ wordBank }) => {
 
       <div className="contain-btns">
         <button className="containIcon" onClick={() => speechHandler(ourText)}>
-          <IconContext.Provider value={{ className: "replay-btn repeatWord" }}>
+          <IconContext.Provider value={{ className: "replay-btn icon" }}>
             <FaRegPlayCircle />
           </IconContext.Provider>
         </button>

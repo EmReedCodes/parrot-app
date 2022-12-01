@@ -1,63 +1,7 @@
-//====================
-// settings
 
-  //class prefixes
-  $prefix-primary  : "prim";
-  $prefix-secondary: "comp";
-
-
-  // generators
-  $autogen-900s     : false;
-  $autogen-secondary: false;
-  $autogen-contrast : false;
-
-  // replacements
-  $info-uses-old-primary: false;
-  $override-secondary   : true;
-
-// check @picocss _variables for extra settings
-// you can change. add them below:
-
-
-
-//====================
-// colors
-//#017FB1
-  // primary
-  //#017FB1
-  //#005F90
-  $primary-50 : #e2f6fb;
-  $primary-100: #b5e8f5;
-  $primary-200: #86d8ef;
-  $primary-300: #5ac9e9;
-  $primary-400: #3abde7;
-  $primary-500: #1cb1e5;
-  $primary-600: #12a3d7;
-  $primary-700: #0090c4;
-  $primary-800: #017fb1;
-  $primary-900: #005f90;
-  $primary-1000: #005180;
-
-  // // secondary
-  $secondary-50 : #fcf1e0;
-  $secondary-100: #f8dcb2;
-  $secondary-200: #f3c681;
-  $secondary-300: #eeaf50;
-  $secondary-400: #eb9e2e;
-  $secondary-500: #e88e10;
-  $secondary-600: #e5830e;
-  $secondary-700: #df750b;
-  $secondary-800: #d86607;
-  $secondary-900: #cf4c02;
-
-
-
- 
 //====================
 // microcss
 
-
-@import './microcss/_run';
 
 //====================
 
@@ -69,27 +13,14 @@
 // picocss
 @import 'https://octoshrimpy.github.io/microcss/micro.css';
 
-//@import "../../node_modules/@picocss/pico/scss/pico.scss";
-
-   
-//@import "https://unpkg.com/open-props@1.4.19/open-props.min.css";
-//@import "https://unpkg.com/open-props/buttons.min.css";
-
-
-//@import "https://unpkg.com/open-props/colors-hsl.min.css";
-
-
-
 
 //fix to microcss input is now full width
 input {
   min-width: 100%;
 }
 
-body{
-  //height: 100vh;
-  box-sizing: border-box;
-  background-color: var(--color-);
+body {
+  --font-family: 'Lexend', sans-serif;
 }
 
 :focus:not(:focus-visible) {
@@ -97,63 +28,13 @@ body{
   box-shadow: none;
 }
 
-/**
- * Cross-browser styles for explicit focus via 
- * keyboard-based (eg Tab) navigation or the
- * .focus-visible utility class.
- */
-:focus,
-.focus-visible:focus:not(:focus-visible) {
-  outline: 0;
-  box-shadow:
-    0 0 0 .2rem #fff,
-    0 0 0 .35rem #069;
-}
+
 
 html {
   scroll-behavior: smooth;
+  
 }
 
-main{
-  box-sizing: border-box;
-  min-height: calc(100vh - 10em);
-  //min-height: 80vh;
-}
-
-//id like to create less vertical space between elements how can I overwrite the css from the import?
-
-// @media (min-width: 576px) {
-//   body header,
-// body main,
-// body footer,
-// section {
-//     --block-spacing-vertical: calc(var(--spacing) * 2);
-//   }
-// }
-// @media (min-width: 768px) {
-//   body header,
-// body main,
-// body footer,
-// section {
-//     --block-spacing-vertical: calc(var(--spacing) * 2.5);
-//   }
-// }
-// @media (min-width: 992px) {
-//   body header,
-// body main,
-// body footer,
-// section {
-//     --block-spacing-vertical: calc(var(--spacing) * 2.5);
-//   }
-// }
-// @media (min-width: 1200px) {
-//   body header,
-// body main,
-// body footer,
-// section {
-//     --block-spacing-vertical: calc(var(--spacing) * 2.5);
-//   }
-// }
 
 body header,
 body main,
@@ -167,17 +48,106 @@ body footer {
 
 //====================
 // your scss here
-[data-theme= light]
-button, a, [role=link] {
-  --primary: var(--colar-cyan-7);
-  --primary-hover: var(--colar-cyan-6);
+
+button {
+  --primary: var(--colar-cyan-8);
+  --primary-hover: var(--colar-cyan-7);
 }
 
 [data-theme= dark]
-button, a, [role=link]{
-  --primary: var(--colar-cyan-5);
-  --primary-hover: var(--colar-cyan-4);
+button {
+  --primary: var(--colar-cyan-6);
+  --primary-hover: var(--colar-cyan-5);
 }
+
+//icons
+
+ //icons stay light as links, text and repeat word need to change colors
+
+//  [data-theme= dark]
+//  a, [role=link] {
+//     --primary: var(--colar-gray-4);
+//     --primary-hover: var(--colar-gray-2);
+   
+//  }
+
+//  a, [role=link] {
+//   --primary: var(--colar-gray-10);
+//   --primary-hover: var(--colar-gray-2);
+// }
+
+// ICONS 
+
+.icon {
+ // color: var(--colar-gray-5);
+  --primary: var(--colar-gray-5);
+}
+
+
+// [data-theme= dark]
+//  .icon {
+//   color: var(--colar-gray-3);
+// }
+
+.social {
+  color: var(--colar-gray-5);
+  width: 2.5em;
+  height: 2.5em;
+
+    &.twitter {
+      &:hover {
+        color: var(--colar-blue-3);
+        animation: var(--animation-spin);
+        animation-timing-function: var(--ease-1);  
+      }
+    }
+
+    &.linkedin {
+      &:hover {
+        color: var(--colar-blue-5);
+        animation: var(--animation-scale-up) forwards;
+      }
+    }
+
+    &.github {
+      &:hover {
+        color: var(--colar-teal-6);
+        animation: var(--animation-float);
+      }
+    }
+
+    &.portfolio {
+      &:hover {
+        color: var(--colar-indigo-7);
+        animation: var(--animation-pulse) forwards;
+      }
+    }
+    
+    &.blog {
+      &:hover {
+        color: var(--colar-orange-6);
+        animation: var(--animation-shake-x) forwards;
+      }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //=============Pico overrides attempts
@@ -238,38 +208,17 @@ margin-bottom: var(--typography-spacing-vertical);
 
 h1, h2, h3, h4, h5, p {
   text-align: center;
+  margin: 1em;
 }
 
 //global icons styles
-
+//icon in button 
 .containIcon {
   margin: 0 auto;
   width: fit-content;
   background: transparent;
   border: none;
 }
-
-//not sure why button is overriding regular containIcon
-[data-theme= dark]
-.containIcon {
-  width: fit-content;
-  background: transparent;
-  border: none;
-}
-
-//what are these doing anyways?
-
-// .repeatWord {
-//   width: 3rem;
-//   height: 3rem;
-//   color: #415462;
-// }
-
-// [data-theme= dark]
-// .repeatWord {
-//   color: #BBC6CE;
-// }
-
 
 
 
@@ -284,8 +233,6 @@ h1, h2, h3, h4, h5, p {
 //   padding-right: .8em;
 // }
 
-// TODO: invert colors on dark/light theme
-/* Individual item */
 
 
 .navWithSlide {
@@ -295,7 +242,7 @@ h1, h2, h3, h4, h5, p {
   // position: -webkit-sticky;
   top: 0;
   z-index: 99;
-  color: #e6ebed;
+  color: var(--colar-gray-1);
 }
 
 [data-theme= dark]
@@ -304,7 +251,7 @@ h1, h2, h3, h4, h5, p {
 }
 
 nav strong {
-  color: #d1d1d1;
+  color: var(--colar-gray-1);
 }
 
 .bm-item {
@@ -318,12 +265,12 @@ nav strong {
 
 [data-theme= dark]
 .bm-item{
-  color: #D1D1D1;
+  color: var(--colar-gray-3);
 }
 
 /* Change color on hover */
 .bm-item:hover {
-  color: var(--colar-gray-8);
+  color: white;
 }
 
 [data-theme= dark]
@@ -346,12 +293,12 @@ position: absolute;
 /* Color/shape of burger icon bars */
 [data-theme = dark]
 .bm-burger-bars {
-  background: white;
+  background: var(--colar-gray-2);
 }
 
 
 .bm-burger-bars{
-  background: #e6ebed;
+  background: var(--colar-gray-1);
 }
 
 /* Position and sizing of clickable cross button */
@@ -494,17 +441,22 @@ margin-right: 0;
   max-width: 17rem;
 }
 
+main {
+  margin-bottom: 3em;
+}
+
 footer {
   background-color: var(--colar-cyan-9);
 }
 [data-theme=dark]
 footer {
-  background-color: var(--colar-cyan-8);
+  background-color: var(--colar-cyan-7);
 }
 
 .holdSocialIcon{
   display: flex;
   justify-content: space-between;
+  margin-bottom: 1em;
 }
 
 .socialIcon {

@@ -49,30 +49,11 @@ const SortMatch = () => {
   }, [saidWord])
 
 
-  //const sensors = [useSensor(PointerSensor)];
+
 
   const [activeId, setActiveId] = useState(null)
 
-  // const [activeId, setActiveId] = useState(null);
-  // const sensors = useSensors(
-  //   useSensor(PointerSensor),
-  //   useSensor(KeyboardSensor, {
-  //     coordinateGetter: sortableKeyboardCoordinates
-  //   })
-  // );
-  // const sensors = useSensors(
-  //     useSensor(PointerSensor),
-  //     useSensor(TouchSensor, {
-  //         // Press delay of 250ms, with tolerance of 5px of movement
-  //         activationConstraint: {
-  //           delay: 250,
-  //           tolerance: 5,
-  //         },
-  //       }),
-  //     useSensor(KeyboardSensor, {
-  //       coordinateGetter: sortableKeyboardCoordinates
-  //     })
-  //   );
+ 
   const mouseSensor = useSensor(MouseSensor)
   //had to take out pointersensor touch works now? https://github.com/clauderic/dnd-kit/issues/435
 

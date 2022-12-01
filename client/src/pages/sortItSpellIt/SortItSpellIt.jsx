@@ -60,7 +60,7 @@ const SortItSpellIt = () => {
           </button>
 
           <button className="containIcon" onClick={() => speechHandler(saidWord)}>
-            <IconContext.Provider value={{ className: "replay-btn repeatWord" }}>
+            <IconContext.Provider value={{ className: "replay-btn icon" }}>
               <FaRegPlayCircle />
             </IconContext.Provider>
           </button>
@@ -68,12 +68,12 @@ const SortItSpellIt = () => {
       )}
 
       {!saidWord && listening && (
-        <IconContext.Provider value={{ className: "microphone-on" }}>
+        <IconContext.Provider value={{ className: "microphone-on icon" }}>
           <FaMicrophoneAlt />
         </IconContext.Provider>
       )}
       {!saidWord && !listening && (
-        <IconContext.Provider value={{ className: "microphone" }}>
+        <IconContext.Provider value={{ className: "microphone icon" }}>
           <FaMicrophoneAltSlash />
         </IconContext.Provider>
       )}

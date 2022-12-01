@@ -1,5 +1,6 @@
 import About from "../../pages/about/About"
 import { AiFillLinkedin, AiFillTwitterCircle, AiFillGithub, AiFillContacts } from "react-icons/ai"
+import {FaBlogger } from "react-icons/fa"
 import { IconContext } from "react-icons"
 
 const Footer = () => {
@@ -7,23 +8,28 @@ const Footer = () => {
     return (
         <footer className="container-fluid">
             
-         <section  className="holdSocialIcon">
+         <div  className="holdSocialIcon">
                 
-                    <a href="#" aria-label="Twitter"><IconContext.Provider value={{ className: "socialIcon" }}>
+                    <a href="https://twitter.com/EmReedCodes" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><IconContext.Provider value={{ className: "icon social twitter" }}>
                         <AiFillTwitterCircle />
-                      </IconContext.Provider></a>
-                    <a href="#" aria-label="LinkedIn"><IconContext.Provider value={{ className: "socialIcon" }}>
-                        <AiFillLinkedin />
-                      </IconContext.Provider></a>
-                    <a href="#" aria-label="Github"><IconContext.Provider value={{ className: "socialIcon" }}>
+          </IconContext.Provider></a>
+          <a href="https://github.com/EmReedCodes" target="_blank" rel="noopener noreferrer" aria-label="Github"><IconContext.Provider value={{ className: "icon social github" }}>
                         <AiFillGithub />
                       </IconContext.Provider></a>
-                    <a href="#" aria-label="Portfolio/Contact"><IconContext.Provider value={{ className: "socialIcon" }}>
-                        <AiFillContacts />
+                    <a href="https://www.linkedin.com/in/emilyjreed/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><IconContext.Provider value={{ className: "icon social linkedin" }}>
+                        <AiFillLinkedin />
                       </IconContext.Provider></a>
+                   
+                    <a href="https://www.emreedcodes.com/" target="_blank" rel="noopener noreferrer" aria-label="Portfolio"><IconContext.Provider value={{ className: "icon social portfolio" }}>
+                        <AiFillContacts />
+          </IconContext.Provider></a>
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Blog"><IconContext.Provider value={{ className: "icon social blog" }}>
+                        <FaBlogger />
+          </IconContext.Provider></a>
+          
              
-         </section>
-            <h5>©Parrot 2022</h5>
+         </div>
+            <span>©Parrot 2022</span>
         </footer>
         
       );

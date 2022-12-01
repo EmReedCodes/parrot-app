@@ -15,7 +15,7 @@ export default function Submission({ items, setItems, word, initialItems }) {
     setItems(current =>
       current.map((item, idx) => ({
         ...item,
-        color: checkLetter[idx] === true ? "#2f9e44" : "#d9480f"
+        color: checkLetter[idx] === true ? "#55bf15" : "#bf2a15"
       }))
     )
     console.log(items)
