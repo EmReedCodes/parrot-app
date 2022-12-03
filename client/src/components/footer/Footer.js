@@ -23,7 +23,7 @@ const Footer = () => {
                     <a href="https://www.emreedcodes.com/" target="_blank" rel="noopener noreferrer" aria-label="Portfolio"><IconContext.Provider value={{ className: "icon social portfolio" }}>
                         <AiFillContacts />
           </IconContext.Provider></a>
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Blog"><IconContext.Provider value={{ className: "icon social blog" }}>
+          <a href="https://hashnode.com/@EmReedCodes" target="_blank" rel="noopener noreferrer" aria-label="Blog"><IconContext.Provider value={{ className: "icon social blog" }}>
                         <FaBlogger />
           </IconContext.Provider></a>
           

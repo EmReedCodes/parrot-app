@@ -10,10 +10,20 @@ import { FaMicrophoneAlt } from "react-icons/fa"
 
 export const WordContext = createContext("")
 
+
+
 const SortItSpellIt = () => {
+
+  const colors = [ 'aqua', 'azure', 'beige', 'bisque', 'black', 'blue', 'brown', 'chocolate', 'coral' ];
+
+  
 
   const [saidWord, setSaidWord] = useState("")
 
+  const [color, setColor] = useState("")
+
+  
+  
   const { finalTranscript, listening, browserSupportsSpeechRecognition, isMicrophoneAvailable } =
     useSpeechRecognition()
 
@@ -44,6 +54,9 @@ const SortItSpellIt = () => {
     }
   }
 
+  // const style = {
+  //   background: color
+  // }
   return (
     <section className="sortItHome">
       {!saidWord && (

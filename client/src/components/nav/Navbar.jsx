@@ -2,13 +2,15 @@ import BurgerMenu from "./BurgerSlide"
 
 const Navbar = () => {
   return (
-    <nav className="container-fluid navWithSlide sticky">
+    <nav className="container-fluid navWithSlide">
       <BurgerMenu />
-      <ul>
-        <li className="nav-logo">
-          <strong>Parrot</strong>
-        </li>
-      </ul>
+      <div className="fillNav">
+        <ul>
+          <li className="nav-logo">
+            <strong>Parrot</strong>
+          </li>
+        </ul>
+      </div>
     </nav>
   )
 }

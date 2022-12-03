@@ -1,12 +1,4 @@
 
-//====================
-// microcss
-
-
-//====================
-
-// your pico overrides here
-
 
 
 //====================
@@ -14,13 +6,21 @@
 @import 'https://octoshrimpy.github.io/microcss/micro.css';
 
 
-//fix to microcss input is now full width
-input {
-  min-width: 100%;
+
+html {
+  scroll-behavior: smooth;
 }
+
 
 body {
   --font-family: 'Lexend', sans-serif;
+  overflow-x: hidden;
+  color: var(--colar-gray-10);
+}
+
+[data-theme=dark]
+body {
+  color: var(--colar-gray-3);
 }
 
 :focus:not(:focus-visible) {
@@ -28,13 +28,15 @@ body {
   box-shadow: none;
 }
 
+//fix to microcss / overrides
 
-
-html {
-  scroll-behavior: smooth;
-  
+main {
+  min-height: calc(100vh - 30vh);
 }
 
+input {
+  min-width: 100%;
+}
 
 body header,
 body main,
@@ -43,6 +45,10 @@ body footer {
   margin-right: auto;
   margin-left: auto;
   padding: var(--block-spacing-vertical) 0;
+}
+
+ .container-fluid {
+  z-index: 99;
 }
 
 
@@ -56,47 +62,45 @@ button {
 
 [data-theme= dark]
 button {
-  --primary: var(--colar-cyan-6);
-  --primary-hover: var(--colar-cyan-5);
+  --primary: var(--colar-cyan-7);
+  --primary-hover: var(--colar-cyan-6);
 }
 
-//icons
-
- //icons stay light as links, text and repeat word need to change colors
-
-//  [data-theme= dark]
-//  a, [role=link] {
-//     --primary: var(--colar-gray-4);
-//     --primary-hover: var(--colar-gray-2);
-   
-//  }
-
-//  a, [role=link] {
-//   --primary: var(--colar-gray-10);
-//   --primary-hover: var(--colar-gray-2);
-// }
 
 // ICONS 
 
+//global icons styles
+//icon in button 
+.containIcon {
+  margin: 0 auto;
+  width: fit-content;
+  background: transparent;
+  border: none;
+}
+
 .icon {
- // color: var(--colar-gray-5);
-  --primary: var(--colar-gray-5);
+  color: var(--colar-gray-10);
+}
+
+[data-theme=dark]
+.icon {
+  color: var(--colar-gray-6);
 }
 
 
-// [data-theme= dark]
-//  .icon {
-//   color: var(--colar-gray-3);
-// }
+[data-theme=dark]
+.social {
+  color: var(--colar-gray-3);
+}
 
 .social {
-  color: var(--colar-gray-5);
+  color: var(--colar-gray-10);
   width: 2.5em;
   height: 2.5em;
 
     &.twitter {
       &:hover {
-        color: var(--colar-blue-3);
+        color: var(--colar-cyan-7);
         animation: var(--animation-spin);
         animation-timing-function: var(--ease-1);  
       }
@@ -104,14 +108,14 @@ button {
 
     &.linkedin {
       &:hover {
-        color: var(--colar-blue-5);
+        color: var(--colar-blue-6);
         animation: var(--animation-scale-up) forwards;
       }
     }
 
     &.github {
       &:hover {
-        color: var(--colar-teal-6);
+        color: var(--colar-teal-8);
         animation: var(--animation-float);
       }
     }
@@ -135,32 +139,13 @@ button {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//=============Pico overrides attempts
-
-
-
-//editing to login register 
+//LOGIN & REGISTER
 
 
 article div:nth-of-type(2) {
   display: none;
 }
-
+//TODO combine these
 .registerImage{
   background-color: #374956;
   background-image: url("../assets/smallKidsLearning.jpg");
@@ -196,6 +181,44 @@ margin-bottom: var(--typography-spacing-vertical);
   }
 }
 
+//~~~~~~~Dashboard
+.dashLinks *{
+  font-weight: 700;
+  outline: transparent;
+}
+
+[data-theme=dark]
+.dashLinks a:hover {
+  color: var(--colar-gray-10);
+}
+.dashLinks a:hover {
+  color: var(--colar-gray-2);
+}
+
+[data-theme=dark]
+.sortGame button {
+  background-color: #AEB1F4;
+  color: #2b2e6e;
+}
+
+[data-theme=dark]
+.bankGame button {
+  background-color: #e9c4a5;
+  color: #4b2e0c;
+}
+
+.sortGame button {
+  background-color: #474DD1;
+  color: #E8E9FC;
+  //outline: transparent;
+}
+
+.bankGame button {
+  background-color: #d18647;
+  color: #f8ede4;
+  //outline: transparent;
+}
+
 //setting width for game pages and other pages 
 
 @media (min-width: 768px){
@@ -211,14 +234,7 @@ h1, h2, h3, h4, h5, p {
   margin: 1em;
 }
 
-//global icons styles
-//icon in button 
-.containIcon {
-  margin: 0 auto;
-  width: fit-content;
-  background: transparent;
-  border: none;
-}
+
 
 
 
@@ -229,54 +245,69 @@ h1, h2, h3, h4, h5, p {
   /* Prevent sidebar from showing a scrollbar on page */
   overflow: auto;
 }
-// .nav-contain nav{
-//   padding-right: .8em;
-// }
-
-
 
 .navWithSlide {
-  padding-left: 0;
-  background-color: var(--colar-cyan-9);
-  // position: sticky;
-  // position: -webkit-sticky;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   top: 0;
-  z-index: 99;
+  position: sticky;
+  position: -webkit-sticky;
   color: var(--colar-gray-1);
+}
+
+.fillNav {
+  background-color: rgba(11,114,133, .6);
+  z-index: 99;
+  width: 100%;
+  backdrop-filter: saturate(180%) blur(10px);
 }
 
 [data-theme= dark]
 .navWithSlide {
-  background-color: var(--colar-cyan-7);
+  background-color: rgba(16,152,173, .5);
+  //background-color: var(--colar-cyan-7);
+
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
 }
 
 nav strong {
-  color: var(--colar-gray-1);
+  padding-right: 1em;
 }
 
 .bm-item {
   display: inline-block;
-  /* Our sidebar item styling */
   text-decoration: none;
   margin-bottom: 10px;
-  color: var(--colar-gray-10);
+  color: var(--colar-gray-11);
   transition: color 0.2s;
-}
-
-[data-theme= dark]
-.bm-item{
-  color: var(--colar-gray-3);
 }
 
 /* Change color on hover */
 .bm-item:hover {
-  color: white;
+  color: var(--colar-gray-8);
 }
 
 [data-theme= dark]
-.bm-item:hover {
-  color: white;
+.bm-item{
+  color: var(--colar-gray-4);
 }
+
+[data-theme=dark]
+.bm-item:hover {
+  color: var(--colar-gray-2);
+}
+
+
+
+// [data-theme= dark]
+// .bm-item:hover {
+//   color: white;
+// }
 
 
 
@@ -298,7 +329,7 @@ position: absolute;
 
 
 .bm-burger-bars{
-  background: var(--colar-gray-1);
+  background: var(--colar-gray-9);
 }
 
 /* Position and sizing of clickable cross button */
@@ -309,7 +340,7 @@ position: absolute;
 
 
 .bm-cross {
-  background: var(--colar-gray-12);
+  background: var(--colar-gray-11);
 }
 
 [data-theme= dark]
@@ -326,6 +357,7 @@ position: absolute;
 }
 
 .bm-menu {
+  z-index: 100;
   background: var(--colar-gray-4);
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
@@ -342,7 +374,6 @@ position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: left;
-  // color: #b8b7ad;
 }
 
 /* Styling of overlay */
@@ -367,9 +398,18 @@ position: absolute;
 .bm-menu-wrap {
   position: fixed;
   min-height: 100%;
+  //z-index: 100;
 }
 
 // toggle switch
+
+.toggleLabel {
+  font-size: .75em;
+  //vertical-align: middle;
+  vertical-align: top;
+  padding-right: .5em;
+ // text-align: right;
+}
 
 .toggle-switch {
   position: relative;
@@ -410,11 +450,6 @@ position: absolute;
   background-color: var(colar-cyan-2);
 }
 
-.containToggle {
-width: fit-content;
-margin-left: auto; 
-margin-right: 0;
-}
 
 .modalContainer{
   animation:
@@ -445,12 +480,16 @@ main {
   margin-bottom: 3em;
 }
 
+//footer section
+
 footer {
-  background-color: var(--colar-cyan-9);
+  max-height: 20vh;
+  background-color:rgba(11,114,133, .6);
+  backdrop-filter: saturate(180%) blur(10px);
 }
 [data-theme=dark]
 footer {
-  background-color: var(--colar-cyan-7);
+  background-color: rgba(16,152,173, .5);
 }
 
 .holdSocialIcon{
@@ -459,9 +498,7 @@ footer {
   margin-bottom: 1em;
 }
 
-.socialIcon {
-  list-style: none;
-  width: 2.5rem;
-  height: 2.5rem;
-}
+
+
+
 

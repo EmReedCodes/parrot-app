@@ -1,10 +1,16 @@
 @import 'https://octoshrimpy.github.io/microcss/micro.css';
-input {
-  min-width: 100%;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   --font-family: "Lexend", sans-serif;
+  overflow-x: hidden;
+  color: var(--colar-gray-10);
+}
+
+[data-theme=dark] body {
+  color: var(--colar-gray-3);
 }
 
 :focus:not(:focus-visible) {
@@ -12,8 +18,12 @@ body {
   box-shadow: none;
 }
 
-html {
-  scroll-behavior: smooth;
+main {
+  min-height: 70vh;
+}
+
+input {
+  min-width: 100%;
 }
 
 body header,
@@ -25,39 +35,60 @@ body footer {
   padding: var(--block-spacing-vertical) 0;
 }
 
+.container-fluid {
+  z-index: 99;
+}
+
 button {
   --primary: var(--colar-cyan-8);
   --primary-hover: var(--colar-cyan-7);
 }
 
 [data-theme=dark] button {
-  --primary: var(--colar-cyan-6);
-  --primary-hover: var(--colar-cyan-5);
+  --primary: var(--colar-cyan-7);
+  --primary-hover: var(--colar-cyan-6);
+}
+
+.containIcon {
+  margin: 0 auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background: transparent;
+  border: none;
 }
 
 .icon {
-  --primary: var(--colar-gray-5);
+  color: var(--colar-gray-10);
+}
+
+[data-theme=dark] .icon {
+  color: var(--colar-gray-6);
+}
+
+[data-theme=dark] .social {
+  color: var(--colar-gray-3);
 }
 
 .social {
-  color: var(--colar-gray-5);
+  color: var(--colar-gray-10);
   width: 2.5em;
   height: 2.5em;
 }
 .social.twitter:hover {
-  color: var(--colar-blue-3);
+  color: var(--colar-cyan-7);
   -webkit-animation: var(--animation-spin);
           animation: var(--animation-spin);
   -webkit-animation-timing-function: var(--ease-1);
           animation-timing-function: var(--ease-1);
 }
 .social.linkedin:hover {
-  color: var(--colar-blue-5);
+  color: var(--colar-blue-6);
   -webkit-animation: var(--animation-scale-up) forwards;
           animation: var(--animation-scale-up) forwards;
 }
 .social.github:hover {
-  color: var(--colar-teal-6);
+  color: var(--colar-teal-8);
   -webkit-animation: var(--animation-float);
           animation: var(--animation-float);
 }
@@ -110,6 +141,39 @@ article div:nth-of-type(2) {
   }
 }
 
+.dashLinks * {
+  font-weight: 700;
+  outline: transparent;
+}
+
+[data-theme=dark] .dashLinks a:hover {
+  color: var(--colar-gray-10);
+}
+
+.dashLinks a:hover {
+  color: var(--colar-gray-2);
+}
+
+[data-theme=dark] .sortGame button {
+  background-color: #AEB1F4;
+  color: #2b2e6e;
+}
+
+[data-theme=dark] .bankGame button {
+  background-color: #e9c4a5;
+  color: #4b2e0c;
+}
+
+.sortGame button {
+  background-color: #474DD1;
+  color: #E8E9FC;
+}
+
+.bankGame button {
+  background-color: #d18647;
+  color: #f8ede4;
+}
+
 @media (min-width: 768px) {
   .wordGame {
     margin: 0 auto;
@@ -121,15 +185,6 @@ h1, h2, h3, h4, h5, p {
   margin: 1em;
 }
 
-.containIcon {
-  margin: 0 auto;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  background: transparent;
-  border: none;
-}
-
 #page-wrap {
   text-align: center;
   /* Prevent sidebar from showing a scrollbar on page */
@@ -137,41 +192,55 @@ h1, h2, h3, h4, h5, p {
 }
 
 .navWithSlide {
-  padding-left: 0;
-  background-color: var(--colar-cyan-9);
+  width: 100%;
+  margin: 0;
+  padding: 0;
   top: 0;
-  z-index: 99;
+  position: sticky;
+  position: -webkit-sticky;
   color: var(--colar-gray-1);
+}
+
+.fillNav {
+  background-color: rgba(11, 114, 133, 0.6);
+  z-index: 99;
+  width: 100%;
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+          backdrop-filter: saturate(180%) blur(10px);
 }
 
 [data-theme=dark] .navWithSlide {
-  background-color: var(--colar-cyan-7);
+  background-color: rgba(16, 152, 173, 0.5);
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
 }
 
 nav strong {
-  color: var(--colar-gray-1);
+  padding-right: 1em;
 }
 
 .bm-item {
   display: inline-block;
-  /* Our sidebar item styling */
   text-decoration: none;
   margin-bottom: 10px;
-  color: var(--colar-gray-10);
+  color: var(--colar-gray-11);
   transition: color 0.2s;
-}
-
-[data-theme=dark] .bm-item {
-  color: var(--colar-gray-3);
 }
 
 /* Change color on hover */
 .bm-item:hover {
-  color: white;
+  color: var(--colar-gray-8);
+}
+
+[data-theme=dark] .bm-item {
+  color: var(--colar-gray-4);
 }
 
 [data-theme=dark] .bm-item:hover {
-  color: white;
+  color: var(--colar-gray-2);
 }
 
 .bm-burger-button {
@@ -188,7 +257,7 @@ nav strong {
 }
 
 .bm-burger-bars {
-  background: var(--colar-gray-1);
+  background: var(--colar-gray-9);
 }
 
 /* Position and sizing of clickable cross button */
@@ -198,7 +267,7 @@ nav strong {
 }
 
 .bm-cross {
-  background: var(--colar-gray-12);
+  background: var(--colar-gray-11);
 }
 
 [data-theme=dark] .bm-cross {
@@ -213,6 +282,7 @@ nav strong {
 }
 
 .bm-menu {
+  z-index: 100;
   background: var(--colar-gray-4);
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
@@ -245,6 +315,12 @@ nav strong {
 .bm-menu-wrap {
   position: fixed;
   min-height: 100%;
+}
+
+.toggleLabel {
+  font-size: 0.75em;
+  vertical-align: top;
+  padding-right: 0.5em;
 }
 
 .toggle-switch {
@@ -291,14 +367,6 @@ nav strong {
   background-color: var(colar-cyan-2);
 }
 
-.containToggle {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: 0;
-}
-
 .modalContainer {
   -webkit-animation: var(--animation-slide-in-down);
           animation: var(--animation-slide-in-down);
@@ -327,21 +395,18 @@ main {
 }
 
 footer {
-  background-color: var(--colar-cyan-9);
+  max-height: 20vh;
+  background-color: rgba(11, 114, 133, 0.6);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+          backdrop-filter: saturate(180%) blur(10px);
 }
 
 [data-theme=dark] footer {
-  background-color: var(--colar-cyan-7);
+  background-color: rgba(16, 152, 173, 0.5);
 }
 
 .holdSocialIcon {
   display: flex;
   justify-content: space-between;
   margin-bottom: 1em;
-}
-
-.socialIcon {
-  list-style: none;
-  width: 2.5rem;
-  height: 2.5rem;
 }/*# sourceMappingURL=main.css.map */

@@ -18,7 +18,9 @@ export default function Sidebar() {
 
   return (
     <Menu>
-       <div className="containToggle">
+         
+      <div className="containToggle">
+      <span className="toggleLabel">Toggle Theme</span>
          <ToggleSwitch />
       </div>
       {user ? 
@@ -26,8 +28,8 @@ export default function Sidebar() {
         :
         <Link to="/" className="menu-item">Home</Link>
       }
-      <Link to="/settings" className="menu-item">Settings</Link>
       <Link to="/about" className="menu-item">About</Link>
+      <Link to="/settings" className="menu-item">Settings</Link>
       { user &&
         <Link to="/" onClick={() => onLogout()} className="menu-item">Logout</Link>
       }

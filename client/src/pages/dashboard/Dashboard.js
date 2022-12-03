@@ -31,17 +31,19 @@ const Dashboard = () => {
   }, [user, navigate, isError, message, dispatch]) //ok still rendering twice but these are allowed back in
 
   return (
-    <section className="wordGame">
+    <section className="wordGame dash">
       <h1>Welcome back {user.name}!</h1>
       <div className="dashboardImage">
         <img src={parrotImage} alt="" />
       </div>
-      <Link to="/sortitspellit">
-        <button>Sort It Spell It</button>
-      </Link>
-      <Link to="/wordbank">
-        <button>Word Bank</button>
-      </Link>
+      <div className="dashLinks">
+        <Link className="sortGame" to="/sortitspellit">
+          <button>Sort It Spell It</button>
+        </Link>
+        <Link className="bankGame" to="/wordbank">
+          <button>Word Bank</button>
+        </Link>
+      </div>
     </section>
   )
 }
