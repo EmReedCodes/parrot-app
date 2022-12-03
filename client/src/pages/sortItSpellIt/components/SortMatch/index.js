@@ -4,17 +4,13 @@ import {
   TouchSensor,
   MouseSensor,
   useSensor,
-  DragOverlay,
-  closestCorners,
   KeyboardSensor,
   useSensors
 } from "@dnd-kit/core"
 import {
   arrayMove,
-  //rectSwappingStrategy,
   horizontalListSortingStrategy,
   SortableContext,
-  sortableKeyboardCoordinates
 } from "@dnd-kit/sortable"
 import React, { useState, useEffect } from "react"
 import SortableItem from "./SortableItem"
@@ -25,12 +21,16 @@ import { useContext } from "react"
 import { WordContext } from "../../SortItSpellIt"
 
 
+
 const SortMatch = () => {
 
   const [saidWord, setSaidWord] = useContext(WordContext)
   const [items, setItems] = useState([])
+ 
   const [initialItems, setInitialItems] = useState([])
-
+  
+  //TODO: color is always null, using color but not setting it
+  
   useEffect(() => {
     const words = []
     if (saidWord.length > 0) {
@@ -38,17 +38,18 @@ const SortMatch = () => {
         words.push({
           id: uuidv4(),
           letter: saidWord[i],
-          isCorrect: null,
           color: null
         })
       }
     }
+    
     const shuffledWord = shuffle(words)
     setItems(shuffledWord)
     setInitialItems(shuffledWord)
   }, [saidWord])
 
 
+  
 
 
   const [activeId, setActiveId] = useState(null)
@@ -101,7 +102,6 @@ const SortMatch = () => {
                 item={item.letter}
                 key={item.id}
                 id={item.id}
-                isCorrect={item.isCorrect}
                 color={item.color}
               />
             ))}

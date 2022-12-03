@@ -106,7 +106,7 @@ const Register = () => {
           Already have an account?<Link to="/login"> Login </Link>
         </span>
       </div>
-      <div className="registerImage"></div>
+      <div className="login-register register"></div>
     </article>
   )
 }

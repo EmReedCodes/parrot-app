@@ -107,18 +107,16 @@ article div:nth-of-type(2) {
   display: none;
 }
 
-.registerImage {
+.login-register {
   background-color: #374956;
-  background-image: url("../assets/smallKidsLearning.jpg");
   background-position: center;
   background-size: cover;
 }
-
-.loginImage {
-  background-color: #374956;
+.login-register.register {
+  background-image: url("../assets/smallKidsLearning.jpg");
+}
+.login-register.login {
   background-image: url("../assets/paul-hanaoka-BJ25B9sonUs-unsplash.jpg");
-  background-position: center;
-  background-size: cover;
 }
 
 @media (min-width: 992px) {
@@ -126,10 +124,6 @@ article div:nth-of-type(2) {
     display: block;
   }
 }
-.containLogo {
-  margin-bottom: var(--typography-spacing-vertical);
-}
-
 .parrotLogo {
   display: block;
   margin: auto;

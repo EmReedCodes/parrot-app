@@ -10,28 +10,35 @@ import { FaMicrophoneAlt } from "react-icons/fa"
 
 export const WordContext = createContext("")
 
-
+const saidColor = {
+  red: "#ffb1b1",
+  blue: "#c8d9ff"
+}
 
 const SortItSpellIt = () => {
-
-  const colors = [ 'aqua', 'azure', 'beige', 'bisque', 'black', 'blue', 'brown', 'chocolate', 'coral' ];
-
-  
-
   const [saidWord, setSaidWord] = useState("")
 
-  const [color, setColor] = useState("")
+  const [background, setBackground] = useState("")
 
-  
-  
-  const { finalTranscript, listening, browserSupportsSpeechRecognition, isMicrophoneAvailable } =
-    useSpeechRecognition()
+  const {
+    finalTranscript,
+    listening,
+    browserSupportsSpeechRecognition,
+    isMicrophoneAvailable,
+    resetTranscript
+  } = useSpeechRecognition()
 
+//TODO: dont need this useEffect can set ternary on style itself for background
+  
   useEffect(() => {
     if (finalTranscript !== "") {
       setSaidWord(finalTranscript.toLowerCase())
     }
-  }, [finalTranscript, setSaidWord])
+
+    if (saidColor.hasOwnProperty(saidWord)) {
+      setBackground(saidColor[saidWord])
+    }
+  }, [finalTranscript, setSaidWord, saidWord])
 
   if (!browserSupportsSpeechRecognition) {
     console.log("Try chrome")
@@ -42,8 +49,13 @@ const SortItSpellIt = () => {
     return toast.error("Microphone must be on")
   }
 
+  const style = {
+    background: background
+  }
+
   const resetWord = () => {
     setSaidWord("")
+    resetTranscript()
   }
   //TODO: slow speed down
   const speechHandler = text => {
@@ -54,11 +66,8 @@ const SortItSpellIt = () => {
     }
   }
 
-  // const style = {
-  //   background: color
-  // }
   return (
-    <section className="sortItHome">
+    <section className="sortItHome" style={style}>
       {!saidWord && (
         <>
           <h2>Let's get to sorting!</h2>
