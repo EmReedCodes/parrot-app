@@ -8,6 +8,7 @@ import { toast } from "react-toastify"
 import { FaMicrophoneAltSlash } from "react-icons/fa"
 import { FaMicrophoneAlt } from "react-icons/fa"
 
+
 export const WordContext = createContext("")
 
 const saidColor = {
@@ -57,7 +58,7 @@ const SortItSpellIt = () => {
     setSaidWord("")
     resetTranscript()
   }
-  //TODO: slow speed down
+  //TODO: slow speed down on repeated word
   const speechHandler = text => {
     if (saidWord) {
       const msg = new SpeechSynthesisUtterance()

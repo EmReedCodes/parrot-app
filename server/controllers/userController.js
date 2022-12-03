@@ -102,15 +102,7 @@ const getSelf = asyncHandler(async (req, res) => {
     res.status(200).json(req.user)
 })
 
-// const user = await User.findOne({email})
-    //pw in db is hashed while login pw is not so we need dcrypt
-    // if(user && (await bcrypt.compare(password, user.password))){
-//  const {email, password} = req.body
 
-// if (goal.user.toString() !== req.user.id) {
-//     res.status(401)
-//     throw new Error('User not authorized')
-//   }
 
 //@desc delete user data
 //@route DELETE /api/user/delete
@@ -118,7 +110,8 @@ const getSelf = asyncHandler(async (req, res) => {
 const deleteUser = asyncHandler(async (req, res) => {
     const user = await User.findById({ _id: req.user._id })
     
-    if(user) {
+    if (user) {
+        //TODO: promise.all ? 
         const byeUser = await User.findByIdAndRemove({ _id: req.user._id })
         const byeData = await Dictaphone.deleteMany({ user: req.user._id })
         res.status(201).json({msg: "deleted user"})
@@ -144,6 +137,5 @@ module.exports = {
     getSelf,
     confirmPW,
     deleteUser
-    //updatePassword
 }
 

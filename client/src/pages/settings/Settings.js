@@ -34,9 +34,8 @@ const Settings = () => {
       dispatch(deleteSelf())
 
       if (isSuccess === true) {
-        // toast.success('Account deleted')
+        toast.success('Account deleted')
         navigate("/")
-        window.location.reload()
         localStorage.clear()
       } else {
         toast.warn("Something went wrong. Try again later.")
@@ -100,7 +99,7 @@ const Settings = () => {
           Delete Account
         </button>
       </span>
-      <Modal open={modalToggle} onClick={() => setModalToggle(false)} text={modalText()} />
+      <Modal className="modalAnimate" open={modalToggle} onClick={() => setModalToggle(false)} text={modalText()} />
 
       {userDelete && (
         <form onSubmit={onSubmit}>

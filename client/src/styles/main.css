@@ -361,7 +361,7 @@ nav strong {
   background-color: var(colar-cyan-2);
 }
 
-.modalContainer {
+.modalAnimate {
   -webkit-animation: var(--animation-slide-in-down);
           animation: var(--animation-slide-in-down);
 }

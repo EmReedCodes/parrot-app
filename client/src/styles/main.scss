@@ -445,12 +445,11 @@ position: absolute;
   background-color: var(colar-cyan-2);
 }
 
+//~~~~~~~Modal component
 
-.modalContainer{
+.modalAnimate{
   animation:
   var(--animation-slide-in-down);
-    //var(--animation-fade-down),
-    //var(--animation-slide-in-left);
 }
 
 .modalContainer header{
