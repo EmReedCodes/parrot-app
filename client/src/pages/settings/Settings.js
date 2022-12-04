@@ -2,7 +2,7 @@ import "./styles/style.css"
 import { useNavigate } from "react-router-dom"
 import { useState, useRef, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { deleteSelf, confirmPWInput } from "../../features/auth/authSlice"
+import { deleteSelf, confirmPWInput, reset } from "../../features/auth/authSlice"
 import { getAllWords } from "../../features/bankWord/bankWordSlice"
 import { toast } from "react-toastify"
 import Modal from "../../components/Modal"
@@ -20,6 +20,8 @@ const Settings = () => {
   const [passwordConfirmed, setPassWordConfirmed] = useState(false)
   const [getList, setGetList] = useState(false)
 
+  //ran into issue needing reponse back with inSuccess and isError from two seperate dispatches thus the extra useStates... Need to solve this
+
   useEffect(() => {
     if (isSuccess === true && !passwordConfirmed) {
       setPassWordConfirmed(true)
@@ -29,16 +31,22 @@ const Settings = () => {
     }
   }, [isError, isSuccess, dispatch, navigate, passwordConfirmed])
 
+  //window.location.reload() causes glitch on logout, if I dont have it when trying to hit login sends you to dash, is confused
+
   useEffect(() => {
     if (passwordConfirmed) {
       dispatch(deleteSelf())
 
       if (isSuccess === true) {
         toast.success('Account deleted')
-        navigate("/")
+        dispatch(reset())
         localStorage.clear()
-      } else {
-        toast.warn("Something went wrong. Try again later.")
+        navigate("/")
+        window.location.reload()
+        return
+      } 
+      if (isError === true) {
+        toast.warn("Something went wrong.")
       }
     }
   }, [isSuccess, navigate, passwordConfirmed, dispatch])

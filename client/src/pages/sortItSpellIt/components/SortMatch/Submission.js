@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Confetti from "../../../../hooks/useConfetti"
 import Modal from "../../../../components/Modal"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { createWordForBank } from "../../../../features/bankWord/bankWordSlice"
 //turn tiles green that are correct red incorrect until submit is correct
 
@@ -9,7 +9,7 @@ export default function Submission({ items, setItems, word, initialItems }) {
   const [isVisible, setIsVisible] = useState(false)
   const [modalToggle, setModalToggle] = useState(false)
   const dispatch = useDispatch()
-
+  const { user } = useSelector(state => state.auth)
   const checkAnswer = () => {
     const checkLetter = Object.values(items).map((item, idx) => item.letter === word[idx])
     setItems(current =>
@@ -60,7 +60,9 @@ export default function Submission({ items, setItems, word, initialItems }) {
         <button onClick={() => resetSort()}>reset</button>
       </div>
 
-      <Modal open={modalToggle} onClick={() => setModalToggle(false)} text={modalText()} />
+      {user &&
+        <Modal open={modalToggle} onClick={() => setModalToggle(false)} text={modalText()} />
+      }
 
       {isVisible && <Confetti />}
     </>

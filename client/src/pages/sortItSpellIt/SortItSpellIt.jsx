@@ -7,6 +7,7 @@ import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognitio
 import { toast } from "react-toastify"
 import { FaMicrophoneAltSlash } from "react-icons/fa"
 import { FaMicrophoneAlt } from "react-icons/fa"
+//import { useSelector } from "react-redux"
 
 
 export const WordContext = createContext("")
@@ -20,6 +21,8 @@ const SortItSpellIt = () => {
   const [saidWord, setSaidWord] = useState("")
 
   const [background, setBackground] = useState("")
+
+  //const { user } = useSelector(state => state.auth)
 
   const {
     finalTranscript,

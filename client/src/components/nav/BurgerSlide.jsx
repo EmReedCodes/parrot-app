@@ -28,9 +28,13 @@ export default function Sidebar() {
         :
         <Link to="/" className="menu-item">Home</Link>
       }
+      <Link to="/sortitspellit" className="menu-item">Sort It Spell It</Link>
+      <Link to="/wordbank" className="menu-item">Word Bank</Link>
       <Link to="/about" className="menu-item">About</Link>
-      <Link to="/settings" className="menu-item">Settings</Link>
-      { user &&
+      {user &&
+       <Link to="/settings" className="menu-item">Settings</Link>
+      }
+      {user &&
         <Link to="/" onClick={() => onLogout()} className="menu-item">Logout</Link>
       }
     </Menu>
