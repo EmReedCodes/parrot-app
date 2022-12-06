@@ -1,14 +1,10 @@
-import useLocalStorage from "../../hooks/useLocalStorage"
+import useLocalStorage from "../../hooks/localStorage"
 
 function ToggleSwitch() {
-  //TODO: would useReducer me better? useEffect to change ? https://kentcdodds.com/blog/should-i-usestate-or-usereducer
-  let currentTheme = localStorage.getItem("theme")
-  let currentToggle = localStorage.getItem("toggled")
-  if (!currentToggle) currentToggle = false
-  if (!currentTheme) currentTheme = "light"
 
-  const [theme, setTheme] = useLocalStorage("theme", currentTheme)
-  const [toggled, setToggled] = useLocalStorage("toggle", currentToggle)
+
+  const [theme, setTheme] = useLocalStorage("theme", "light")
+  const [toggled, setToggled] = useLocalStorage("toggle", false)
 
   let root = document.querySelector("html")
   root.setAttribute("data-theme", theme)

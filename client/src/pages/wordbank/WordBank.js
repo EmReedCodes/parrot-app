@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux"
 import "./styles/style.css"
 import Modal from "../../components/Modal"
 
+
 const WordBank = () => {
   const [modalToggle, setModalToggle] = useState(false)
 
