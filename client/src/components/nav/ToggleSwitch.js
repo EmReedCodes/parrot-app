@@ -1,4 +1,4 @@
-import useLocalStorage from "../../hooks/localStorage"
+import useLocalStorage from "../../hooks/useLocalStorage"
 
 function ToggleSwitch() {
 

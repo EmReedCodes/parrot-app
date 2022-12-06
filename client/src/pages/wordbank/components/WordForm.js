@@ -1,25 +1,19 @@
-import { useEffect, useState, useContext } from "react"
+import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { createWordForBank } from "../../../features/bankWord/bankWordSlice"
 import { toast } from "react-toastify"
-import useLocalStorage from "../../../hooks/localStorage"
-//import useLocalStorage from "../../../hooks/useLocalStorage"
-
-
+import useLocalStorage from "../../../hooks/useLocalStorage"
 
 const WordForm = () => {
   const getLocalBank = localStorage.getItem("list")
+
   const [list, addList] = useLocalStorage("list", getLocalBank || [])
-  
-  // const parsedList = currentList ? JSON.parse(parsedList) : [];
-  
+
   const [word, setWord] = useState("")
+  
   const { user } = useSelector(state => state.auth)
-  
+
   const dispatch = useDispatch()
-
-  
-
 
   const onSubmit = e => {
     if (!word) {
@@ -31,7 +25,7 @@ const WordForm = () => {
       console.log(list)
       setWord("")
     }
-    if(user){
+    if (user) {
       e.preventDefault()
       dispatch(createWordForBank({ word }))
       setWord("")
