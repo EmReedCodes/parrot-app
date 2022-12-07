@@ -5,10 +5,13 @@
 import { useState, useEffect } from "react"
 
 function useLocalStorage(key, initialValue) {
+
   const [state, setState] = useState(initialValue)
-  const localStorageValue = localStorage.getItem(key)
+  const localStorageValue = localStorage.getItem("list")
 
   useEffect(() => {
+    //parsing data out here immediately and setting it in state 
+    //const getLocalBank = JSON.parse(localStorage.getItem("list"))
     if (localStorageValue) {
       setState(JSON.parse(localStorageValue))
     } else {
@@ -21,12 +24,19 @@ function useLocalStorage(key, initialValue) {
     localStorage.setItem(key, JSON.stringify(value))
   }
 
+  const deleteItem = item => {
+    const getLocalBank = JSON.parse(localStorage.getItem("list"))
+    const updateList = getLocalBank.filter(elem => elem !== item)
+    setState(updateList)
+    //localStorage.setItem(key, JSON.stringify(updateList))
+  }
+
   const remove = () => {
     setState(null)
     localStorage.removeItem(key)
   }
 
-  return [state, update, remove]
+  return [state, update, deleteItem, remove]
 }
 
 export default useLocalStorage
