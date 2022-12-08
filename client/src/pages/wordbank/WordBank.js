@@ -5,11 +5,10 @@ import { getWordsForList } from "../../features/bankWord/bankWordSlice"
 import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import "./styles/style.css"
-import Modal from "../../components/Modal"
 import useLocalStorage from "../../hooks/useLocalStorage"
 
 const WordBank = () => {
-  const [modalToggle, setModalToggle] = useState(false)
+
 
   const dispatch = useDispatch()
   const [localData, setLocalData] = useState([])
@@ -37,15 +36,14 @@ const WordBank = () => {
       <h1>Word Bank</h1>
 
       <section className="repeatSide">
-        <RepeatWord wordBank={wordBank} />
+        <RepeatWord wordBank={wordBank} list={list} />
       </section>
 
 
         <WordForm list={list} setList={setList} />
       <WordList wordBank={wordBank} list={list} deleteListItem={deleteListItem} />
 
-      <button onClick={() => setModalToggle(true)}>submit</button>
-      <Modal open={modalToggle} />
+    
     </section>
   )
 }
