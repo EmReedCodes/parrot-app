@@ -28,7 +28,7 @@ function useLocalStorage(key, initialValue) {
     const getLocalBank = JSON.parse(localStorage.getItem("list"))
     const updateList = getLocalBank.filter(elem => elem !== item)
     setState(updateList)
-    //localStorage.setItem(key, JSON.stringify(updateList))
+    localStorage.setItem(key, JSON.stringify(updateList))
   }
 
   const remove = () => {

@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { useState, useEffect } from "react"
 import { toast } from "react-toastify"
 import { register, reset } from "../../features/auth/authSlice"
+import useLocalStorage from "../../hooks/useLocalStorage"
 
 const Register = () => {
   const [authData, setAuthData] = useState({
@@ -14,7 +15,7 @@ const Register = () => {
   })
 
   const { name, email, password, passwordConfirm } = authData
-
+  const [list, addList, deleteListItem, removeList] = useLocalStorage("list")
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -26,6 +27,7 @@ const Register = () => {
     }
     //need to go to dashboard
     if (isSuccess || user) {
+
       navigate("/dashboard")
     }
     //will set everything back to false

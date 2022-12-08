@@ -5,19 +5,24 @@ import { useState } from "react"
 import useLocalStorage from "../../../hooks/useLocalStorage"
 
 const WordList = ({ wordBank }) => {
-  const getLocalBank = JSON.parse(localStorage.getItem("list"))
+  
+  const [getList, setGetList] = useState(
+    localStorage.getItem("list") || []
+  )
 
-  const [getList, setGetList] = useState(getLocalBank)
-  const [list, addList, deleteListItem, removeList] = useLocalStorage("list")
-  console.log(list, "using local storage")
+  //const [getList, setGetList] = useState(getLocalBank || [])
+  const [list, addList, deleteListItem, removeList] = useLocalStorage("list" || [])
+
 
   const dispatch = useDispatch()
   const { user } = useSelector(state => state.auth)
 
+
+
   const deleteLocalItem = item => {
     console.log(item, "yes")
     deleteListItem(item)
-    setGetList(getList.filter(el => el !== item))
+    addList(list.filter(el => el !== item))
   }
   return (
     <ul className="wordsList">
@@ -33,7 +38,7 @@ const WordList = ({ wordBank }) => {
               </li>
             )
           })
-        : getList.map((item, idx) => {
+        : list.map((item, idx) => {
             return (
               <li key={idx.toString()} id={item}>
                 {item}

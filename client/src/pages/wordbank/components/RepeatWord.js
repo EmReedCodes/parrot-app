@@ -2,18 +2,27 @@ import { useState } from "react"
 import { FaRegPlayCircle } from "react-icons/fa"
 import { MdNavigateNext } from "react-icons/md"
 import { IconContext } from "react-icons/lib"
+import sample from "lodash/sample"
+import useLocalStorage from "../../../hooks/useLocalStorage"
 
 const RepeatWord = ({ wordBank }) => {
   const [ourText, setOurText] = useState("")
   const [range, setRange] = useState("0.6")
+  const [list] = useLocalStorage("list")
 
-  if (ourText) {
-    localStorage.setItem("word", ourText)
-  }
+  // if (ourText) {
+  //   localStorage.setItem("word", ourText)
+  // }
 
   const randomizeList = () => {
-    const index = Math.floor(Math.random() * wordBank.length)
-    setOurText(wordBank[index].text)
+    if (wordBank) {
+      const randomWord = sample(wordBank)
+      setOurText(randomWord)
+    }
+    if (list) {
+      const randomWord = sample(list)
+      setOurText(randomWord)
+    }
   }
 
   const speechHandler = text => {
@@ -27,6 +36,11 @@ const RepeatWord = ({ wordBank }) => {
 
   return (
     <>
+      <button className="containIcon" onClick={() => speechHandler(ourText)}>
+        <IconContext.Provider value={{ className: "replay-btn icon" }}>
+          <FaRegPlayCircle />
+        </IconContext.Provider>
+      </button>
       {ourText ? <h2>{ourText}</h2> : <h2>Hit Next To Begin</h2>}
       <div className="range range-output">
         <input
@@ -42,11 +56,6 @@ const RepeatWord = ({ wordBank }) => {
       </div>
 
       <div className="contain-btns">
-        <button className="containIcon" onClick={() => speechHandler(ourText)}>
-          <IconContext.Provider value={{ className: "replay-btn icon" }}>
-            <FaRegPlayCircle />
-          </IconContext.Provider>
-        </button>
         <button className="next-btn" onClick={() => randomizeList()}>
           Next
           <MdNavigateNext />{" "}
