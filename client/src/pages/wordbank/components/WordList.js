@@ -64,12 +64,6 @@ import useLocalStorage from "../../../hooks/useLocalStorage"
 const WordList = (props) => {
   const { wordBank, list, setList, deleteListItem } = props
   console.log(list, 'wordlist')
-  // const [getList, setGetList] = useState(
-  //   localStorage.getItem("list") || []
-  // )
- // const localData = JSON.parse(localStorage.getItem("list")) ? JSON.parse(localStorage.getItem("list")) : []
-
-//  const [list, addList,  removeList] = useLocalStorage("list")
 
 
   const dispatch = useDispatch()
@@ -77,11 +71,11 @@ const WordList = (props) => {
 
 
 
-  const deleteLocalItem = item => {
-    console.log(item, "yes")
-    // deleteListItem(item)
-    // addList(list.filter(el => el !== item))
-  }
+  // const deleteLocalItem = item => {
+  //   //the correct item is being passed in
+  //   console.log(item)
+  //   deleteListItem(item)
+  // }
 
     return (
     <ul className="wordsList">
@@ -100,7 +94,7 @@ const WordList = (props) => {
  
           <li key={idx.toString()} id={idx.toString()}>
             {item}
-            <span className="dlt-btn" onClick={() => deleteLocalItem()}>
+            <span className="dlt-btn" onClick={() => deleteListItem(item)}>
               <AiFillDelete />
             </span>
           </li>

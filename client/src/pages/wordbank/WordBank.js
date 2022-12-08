@@ -30,7 +30,7 @@ const WordBank = () => {
     }
   }, [])
 
-  console.log(localData)
+
 
   return (
     <section className="wordGame">

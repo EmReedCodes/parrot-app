@@ -1,19 +1,11 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { createWordForBank } from "../../../features/bankWord/bankWordSlice"
 import { toast } from "react-toastify"
-import useLocalStorage from "../../../hooks/useLocalStorage"
-//TODO: useReducer could work better here when I have time
-//https://stackoverflow.com/questions/68189273/referenceerror-localstorage-is-not-defined-using-local-storage-in-nextjs
+
+
+
 const WordForm = ({list, setList}) => {
-  console.log(list, 'word')
-  //const localData = JSON.parse(localStorage.getItem("list")) ? JSON.parse(localStorage.getItem("list")) : []
-  //getting undefined without parsing initially
-  //only want to retrieve it if something is there if not set it empty
-  //but how to differentiate between initializing and adding?
-  // const [localBank, setLocalBank] = useState()
-  // const[initaldata, setintialdata] = (["hello"])
-  // const [list, addList, deleteItem, removeItem] = useLocalStorage("list", initaldata)
 
   const [word, setWord] = useState("")
 
@@ -56,7 +48,6 @@ const WordForm = ({list, setList}) => {
           <button className="btn btn-block" type="submit">
             Add Word
           </button>
-          {/* <button onClick={() => setList(word)}></button> */}
         </div>
       </form>
     </section>

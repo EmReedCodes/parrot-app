@@ -15,7 +15,6 @@ function useLocalStorage(key, initialValue) {
     //const getLocalBank = JSON.parse(localStorage.getItem("list"))
     if (localStorageValue) {
       setState(JSON.parse(localStorageValue))
-      //so if nothing there set whatever was inputted but im getting undefined is here the issue?
     } else {
       localStorage.setItem(key, JSON.stringify(initialValue))
     }
@@ -26,8 +25,24 @@ function useLocalStorage(key, initialValue) {
     localStorage.setItem(key, JSON.stringify(value))
   }
 
+//   const getElementsfromLocalStorage = () => {
+//     let elements = [];
+//     if (localStorage.getItem('reptiles')) {
+//         elements = JSON.parse(localStorage.getItem('reptiles'));
+//     }
+//     return elements;
+// };
+
+// const removeElementLocalStorage = (name) => {
+//     let elements = getElementsfromLocalStorage();
+//     elements = elements.filter(element => element.name !== name);
+//     localStorage.setItem('reptiles', JSON.stringify(elements));
+//   };
+  
+
   const deleteItem = item => {
     const getLocalBank = JSON.parse(localStorage.getItem(key))
+    console.log(getLocalBank, "hook")
     const updateList = getLocalBank.filter(elem => elem !== item)
     setState(updateList)
     localStorage.setItem(key, JSON.stringify(updateList))
