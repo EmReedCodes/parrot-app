@@ -6,9 +6,10 @@ import sample from "lodash/sample"
 import useLocalStorage from "../../../hooks/useLocalStorage"
 
 const RepeatWord = ({ wordBank }) => {
+  //const localData = JSON.parse(localStorage.getItem("list")) ? JSON.parse(localStorage.getItem("list")) : []
   const [ourText, setOurText] = useState("")
   const [range, setRange] = useState("0.6")
-  const [list] = useLocalStorage("list")
+  //const [list] = useLocalStorage("list")
 
   // if (ourText) {
   //   localStorage.setItem("word", ourText)
@@ -19,10 +20,10 @@ const RepeatWord = ({ wordBank }) => {
       const randomWord = sample(wordBank)
       setOurText(randomWord)
     }
-    if (list) {
-      const randomWord = sample(list)
-      setOurText(randomWord)
-    }
+    // if (list) {
+    //   const randomWord = sample(list)
+    //   setOurText(randomWord)
+    // }
   }
 
   const speechHandler = text => {

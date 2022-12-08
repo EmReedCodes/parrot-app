@@ -7,13 +7,15 @@ import { useState, useEffect } from "react"
 function useLocalStorage(key, initialValue) {
 
   const [state, setState] = useState(initialValue)
-  const localStorageValue = localStorage.getItem("list")
+  //at some point i hardcoded this to list reverted back to key being passed in
+  const localStorageValue = localStorage.getItem(key)
 
   useEffect(() => {
     //parsing data out here immediately and setting it in state 
     //const getLocalBank = JSON.parse(localStorage.getItem("list"))
     if (localStorageValue) {
       setState(JSON.parse(localStorageValue))
+      //so if nothing there set whatever was inputted but im getting undefined is here the issue?
     } else {
       localStorage.setItem(key, JSON.stringify(initialValue))
     }
@@ -25,7 +27,7 @@ function useLocalStorage(key, initialValue) {
   }
 
   const deleteItem = item => {
-    const getLocalBank = JSON.parse(localStorage.getItem("list"))
+    const getLocalBank = JSON.parse(localStorage.getItem(key))
     const updateList = getLocalBank.filter(elem => elem !== item)
     setState(updateList)
     localStorage.setItem(key, JSON.stringify(updateList))
