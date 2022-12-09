@@ -9,16 +9,21 @@ import useLocalStorage from "../../hooks/useLocalStorage"
 
 const WordBank = () => {
 
+//TODO: instead of removing local storage send it into DB once logged in or registered?
+//TODO: create state hook and check if user is logged in and pass that as props to rest of components instead of calling useSelector 
 
   const dispatch = useDispatch()
-  const [localData, setLocalData] = useState([])
+
   const { user } = useSelector(state => state.auth)
   const { wordBank } = useSelector(state => state.wordBank)
+  const [localData, setLocalData] = useState([])
+  const [userLoggedIn, setUserLoggedIn] = useState(false)
   const [list, setList, deleteListItem] = useLocalStorage("list", localData)
   
   useEffect(() => {
     if (user) {
       dispatch(getWordsForList())
+      setUserLoggedIn(true)
     }
   }, [user, dispatch])
 
@@ -36,12 +41,12 @@ const WordBank = () => {
       <h1>Word Bank</h1>
 
       <section className="repeatSide">
-        <RepeatWord wordBank={wordBank} list={list} />
+        <RepeatWord wordBank={wordBank} list={list} userLoggedIn={userLoggedIn} />
       </section>
 
 
         <WordForm list={list} setList={setList} />
-      <WordList wordBank={wordBank} list={list} deleteListItem={deleteListItem} />
+      <WordList wordBank={wordBank} list={list} deleteListItem={deleteListItem} userLoggedIn={userLoggedIn} />
 
     
     </section>

@@ -4,16 +4,16 @@ import { MdNavigateNext } from "react-icons/md"
 import { IconContext } from "react-icons/lib"
 import sample from "lodash/sample"
 
-const RepeatWord = ({ wordBank, list }) => {
+const RepeatWord = ({ wordBank, list, userLoggedIn }) => {
   const [ourText, setOurText] = useState("")
   const [range, setRange] = useState("0.6")
-
+  
   const randomizeList = () => {
-    if (wordBank) {
-      const randomWord = sample(wordBank)
+    if (userLoggedIn) {
+      const wbArray = wordBank.map(item => item.text)
+      const randomWord = sample(wbArray)
       setOurText(randomWord)
-    }
-    if (list) {
+    } else {
       const randomWord = sample(list)
       setOurText(randomWord)
     }

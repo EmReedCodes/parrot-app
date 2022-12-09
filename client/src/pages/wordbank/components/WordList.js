@@ -3,18 +3,18 @@ import { deleteWordForList } from "../../../features/bankWord/bankWordSlice"
 import { useDispatch, useSelector } from "react-redux"
 
 const WordList = props => {
-  const { wordBank, list, deleteListItem } = props
+  const { wordBank, list, deleteListItem, userLoggedIn } = props
   console.log(list, "wordlist")
-
+  console.log(wordBank, 'wb')
   const dispatch = useDispatch()
   const { user } = useSelector(state => state.auth)
 
   return (
     <ul className="wordsList">
-      {user
+      {userLoggedIn
         ? wordBank.map(item => (
             <li key={item._id} id={item._id}>
-              {item}
+              {item.text}
 
               <span className="dlt-btn" onClick={() => dispatch(deleteWordForList(item._id))}>
                 <AiFillDelete />

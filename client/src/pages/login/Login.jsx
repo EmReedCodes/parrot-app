@@ -4,8 +4,8 @@ import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
+import useLocalStorage from "../../hooks/useLocalStorage"
 
-//TODO: what is this reset doing?
 
 const Login = () => {
   const [authData, setAuthData] = useState({
@@ -17,7 +17,7 @@ const Login = () => {
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
-
+  const [_, __, ___, removeList] = useLocalStorage("list")
   const { user, isError, isSuccess, message } = useSelector(state => state.auth)
 
   useEffect(() => {
@@ -27,10 +27,11 @@ const Login = () => {
 
     if (isSuccess || user) {
       navigate("/dashboard")
+      removeList()
     }
 
     dispatch(reset())
-  }, [user, isError, isSuccess, message, navigate, dispatch])
+  }, [user, isError, isSuccess, message, navigate, dispatch, removeList])
 
   const onChange = e => {
     setAuthData(prevState => ({

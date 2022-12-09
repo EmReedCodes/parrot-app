@@ -15,7 +15,7 @@ const Register = () => {
   })
 
   const { name, email, password, passwordConfirm } = authData
-  const [list, addList, deleteListItem, removeList] = useLocalStorage("list")
+  const [_, __, ___, removeList] = useLocalStorage("list")
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -29,10 +29,11 @@ const Register = () => {
     if (isSuccess || user) {
 
       navigate("/dashboard")
+      removeList()
     }
     //will set everything back to false
     dispatch(reset)
-  }, [user, isError, isSuccess, message, navigate, dispatch])
+  }, [user, isError, isSuccess, message, navigate, dispatch, removeList])
 
   const onChange = e => {
     setAuthData(prevState => ({
