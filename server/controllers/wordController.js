@@ -1,3 +1,4 @@
+const { text } = require('express');
 const DictaphoneWord = require('../models/DictaphoneModel')
 const User = require('../models/UserModel')
 
@@ -35,15 +36,28 @@ const getWords = async (req, res) => {
 //@access private
 const saveWord = async (req, res) => {
     try {
-        console.log(req.user)
-        const word = await DictaphoneWord.create({
-            //if changing input variable need to change name here too
-            text: req.body.word,
-            //need id
-            user: req.user._id,
-        })
-        console.log(word)
-       res.status(200).json(word)
+
+        if (req.body.list) {
+            const words = req.body.list 
+            const sendWords = await DictaphoneWord.insertMany(words.map(item => {
+                
+                    text: item,
+                    user: req.user._id
+              
+            }))
+            res.status(200).json(sendWords)
+        }
+        if (req.body.word) {
+            const word = await DictaphoneWord.create({
+                        //if changing input variable need to change name here too
+                        text: req.body.word,
+                        //need id
+                        user: req.user._id,
+            })
+            res.status(200).json(word)
+        }
+
+        
     } catch(err) {
         console.warn(err)
         res.status(400).send(err)

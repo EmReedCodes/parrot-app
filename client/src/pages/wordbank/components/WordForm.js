@@ -3,14 +3,10 @@ import { useDispatch, useSelector } from "react-redux"
 import { createWordForBank } from "../../../features/bankWord/bankWordSlice"
 import { toast } from "react-toastify"
 
-
-
-const WordForm = ({list, setList}) => {
-
+const WordForm = ({ list, setList }) => {
   const [word, setWord] = useState("")
 
   const { user } = useSelector(state => state.auth)
-
 
   const dispatch = useDispatch()
 
@@ -50,6 +46,7 @@ const WordForm = ({list, setList}) => {
           </button>
         </div>
       </form>
+      <button onClick={() => dispatch(createWordForBank({list}))}>local storage</button>
     </section>
   )
 }

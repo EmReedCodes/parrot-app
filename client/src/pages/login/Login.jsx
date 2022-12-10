@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import useLocalStorage from "../../hooks/useLocalStorage"
 
-
 const Login = () => {
   const [authData, setAuthData] = useState({
     email: "",
@@ -17,21 +16,22 @@ const Login = () => {
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const [_, __, ___, removeList] = useLocalStorage("list")
+  const [list, __, ___, removeList] = useLocalStorage("list")
   const { user, isError, isSuccess, message } = useSelector(state => state.auth)
-
+  console.log(typeof list, list, "loging list")
   useEffect(() => {
     if (isError) {
       toast.error(message)
     }
 
     if (isSuccess || user) {
+      
       navigate("/dashboard")
-      removeList()
+      //removeList()
     }
 
     dispatch(reset())
-  }, [user, isError, isSuccess, message, navigate, dispatch, removeList])
+  }, [user, isError, isSuccess, message, navigate, dispatch])
 
   const onChange = e => {
     setAuthData(prevState => ({

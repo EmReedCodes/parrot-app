@@ -1,13 +1,12 @@
 import { AiFillDelete } from "react-icons/ai"
 import { deleteWordForList } from "../../../features/bankWord/bankWordSlice"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 
 const WordList = props => {
   const { wordBank, list, deleteListItem, userLoggedIn } = props
-  console.log(list, "wordlist")
-  console.log(wordBank, 'wb')
+
   const dispatch = useDispatch()
-  const { user } = useSelector(state => state.auth)
+
 
   return (
     <ul className="wordsList">

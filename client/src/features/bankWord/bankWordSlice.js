@@ -130,9 +130,6 @@ export const bankWordSlice = createSlice({
         state.isSuccess = true
         state.text = action.payload
       })
-     
-
-
       .addCase(getWordsForList.pending, state => {
         state.isLoading = true
       })
