@@ -112,6 +112,7 @@ export const bankWordSlice = createSlice({
       .addCase(createWordForBank.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
+        //since were creating the list it has to be less than 10? hmmmmm 
         if (state.wordBank.length < 10) {
           state.wordBank.push(action.payload)
         }

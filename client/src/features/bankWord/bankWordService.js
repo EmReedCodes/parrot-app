@@ -14,9 +14,10 @@ const saveWord = async (speechData, token) => {
   }
 
   const response = await axios.post(API_URL, speechData, config)
-  if (response.status === 200) {
-    toast.success("Saved!")
-  }
+  //I should just check for isSuccess once where the dispatch happened not here
+  // if (response.status === 200) {
+  //   toast.success("Saved!")
+  // }
   // console.log(response.data)
   return response.data
 }

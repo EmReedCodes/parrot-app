@@ -46,7 +46,6 @@ const WordForm = ({ list, setList }) => {
           </button>
         </div>
       </form>
-      <button onClick={() => dispatch(createWordForBank({list}))}>local storage</button>
     </section>
   )
 }

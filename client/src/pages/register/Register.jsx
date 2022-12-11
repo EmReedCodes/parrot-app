@@ -3,9 +3,8 @@ import { Link, useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { useState, useEffect } from "react"
 import { toast } from "react-toastify"
-import { createWordForBank } from "../../features/bankWord/bankWordSlice"
+
 import { register, reset } from "../../features/auth/authSlice"
-import useLocalStorage from "../../hooks/useLocalStorage"
 
 const Register = () => {
   const [authData, setAuthData] = useState({
@@ -16,10 +15,10 @@ const Register = () => {
   })
 
   const { name, email, password, passwordConfirm } = authData
-  const [list, __, ___, removeList] = useLocalStorage("list")
+
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  console.log(typeof list, list, "loging list")
+
   const { user, isError, isSuccess, message } = useSelector(state => state.auth)
 
   useEffect(() => {
@@ -27,14 +26,12 @@ const Register = () => {
       toast.error(message)
     }
     //need to go to dashboard
-    if (isSuccess || user) {
-      dispatch(createWordForBank(list))
+    if (user && isSuccess) {
       navigate("/dashboard")
-     
     }
     //will set everything back to false
     dispatch(reset)
-  }, [user, isError, isSuccess, message, navigate, dispatch, removeList, list])
+  }, [user, isError, isSuccess, message, navigate, dispatch])
 
   const onChange = e => {
     setAuthData(prevState => ({

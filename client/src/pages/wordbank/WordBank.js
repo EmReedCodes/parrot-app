@@ -8,7 +8,7 @@ import "./styles/style.css"
 import useLocalStorage from "../../hooks/useLocalStorage"
 
 const WordBank = () => {
-  //TODO: instead of removing local storage send it into DB once logged in or registered?
+ 
 
   const dispatch = useDispatch()
 
