@@ -71,7 +71,7 @@ const SortItSpellIt = () => {
   }
 
   return (
-    <section className="sortItHome" style={style}>
+    <section className="sortItHome verticalCenter" style={style}>
       {!saidWord && (
         <>
           <h2>Let's get to sorting!</h2>

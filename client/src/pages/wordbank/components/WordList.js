@@ -7,14 +7,12 @@ const WordList = props => {
 
   const dispatch = useDispatch()
 
-
   return (
     <ul className="wordsList">
       {userLoggedIn
         ? wordBank.map(item => (
             <li key={item._id} id={item._id}>
               {item.text}
-
               <span className="dlt-btn" onClick={() => dispatch(deleteWordForList(item._id))}>
                 <AiFillDelete />
               </span>

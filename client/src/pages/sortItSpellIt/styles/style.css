@@ -96,20 +96,4 @@
   #sortTile {
     font-size: 2em;
   }
-}
-@media (min-width: 768px) {
-  .sortItHome button {
-    max-width: 70%;
-    margin: 0 auto;
-  }
-  .submitReset {
-    display: flex;
-    justify-content: space-between;
-  }
-  .submitReset button {
-    width: 20%;
-  }
-  #sortTile {
-    font-size: 3.5em;
-  }
 }/*# sourceMappingURL=style.css.map */

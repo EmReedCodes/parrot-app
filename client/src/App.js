@@ -23,7 +23,7 @@ function App() {
       <Router>
         <Navbar />
 
-        <main className="container">
+        <main className="container fightMe">
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/login" element={<Login />}></Route>

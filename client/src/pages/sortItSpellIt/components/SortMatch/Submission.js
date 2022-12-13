@@ -1,6 +1,6 @@
 import { useState } from "react"
 import Confetti from "../../../../hooks/useConfetti"
-import Modal from "../../../../components/Modal"
+import Modal from "../../../../components/modal/Modal"
 import { useDispatch, useSelector } from "react-redux"
 import { createWordForBank } from "../../../../features/bankWord/bankWordSlice"
 //turn tiles green that are correct red incorrect until submit is correct

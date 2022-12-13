@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { deleteSelf, confirmPWInput, reset } from "../../features/auth/authSlice"
 import { getAllWords } from "../../features/bankWord/bankWordSlice"
 import { toast } from "react-toastify"
-import Modal from "../../components/Modal"
+import Modal from "../../components/modal/Modal"
 import List from "./List"
 
 const Settings = () => {
@@ -49,7 +49,7 @@ const Settings = () => {
         toast.warn("Something went wrong.")
       }
     }
-  }, [isSuccess, navigate, passwordConfirmed, dispatch])
+  }, [isSuccess, navigate, passwordConfirmed, isError, dispatch])
 
   const toggleModal = () => {
     if (!modalToggle && !userDelete) {
