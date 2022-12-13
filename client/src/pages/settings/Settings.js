@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { deleteSelf, confirmPWInput, reset } from "../../features/auth/authSlice"
 import { getAllWords } from "../../features/bankWord/bankWordSlice"
 import { toast } from "react-toastify"
-import Modal from "../../components/Modal"
+import Modal from "../../components/modal/Modal"
 import List from "./List"
 
 const Settings = () => {

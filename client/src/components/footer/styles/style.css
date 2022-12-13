@@ -1,0 +1,53 @@
+footer {
+  max-height: 20vh;
+  background-color: rgba(11, 114, 133, 0.6);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+          backdrop-filter: saturate(180%) blur(10px);
+}
+
+[data-theme=dark] footer {
+  background-color: rgba(16, 152, 173, 0.5);
+}
+
+.holdSocialIcon {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+[data-theme=dark] .social {
+  color: var(--colar-gray-3);
+}
+
+.social {
+  color: var(--colar-gray-10);
+  width: 2.5em;
+  height: 2.5em;
+}
+.social.twitter:hover {
+  color: var(--colar-cyan-7);
+  -webkit-animation: var(--animation-spin);
+          animation: var(--animation-spin);
+  -webkit-animation-timing-function: var(--ease-1);
+          animation-timing-function: var(--ease-1);
+}
+.social.linkedin:hover {
+  color: var(--colar-blue-6);
+  -webkit-animation: var(--animation-scale-up) forwards;
+          animation: var(--animation-scale-up) forwards;
+}
+.social.github:hover {
+  color: var(--colar-teal-8);
+  -webkit-animation: var(--animation-float);
+          animation: var(--animation-float);
+}
+.social.portfolio:hover {
+  color: var(--colar-indigo-7);
+  -webkit-animation: var(--animation-pulse) forwards;
+          animation: var(--animation-pulse) forwards;
+}
+.social.blog:hover {
+  color: var(--colar-orange-6);
+  -webkit-animation: var(--animation-shake-x) forwards;
+          animation: var(--animation-shake-x) forwards;
+}/*# sourceMappingURL=style.css.map */

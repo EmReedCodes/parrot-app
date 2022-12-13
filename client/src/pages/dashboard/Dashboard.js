@@ -6,7 +6,7 @@ import { reset } from "../../features/auth/authSlice"
 import { createWordForBank } from "../../features/bankWord/bankWordSlice"
 import parrotImage from "../../assets/parrotsmaller.png"
 import useLocalStorage from "../../hooks/useLocalStorage"
-
+import './styles/style.css'
 const Dashboard = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()

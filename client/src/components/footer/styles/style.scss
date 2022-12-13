@@ -1,0 +1,66 @@
+//footer section
+
+footer {
+  max-height: 20vh;
+  background-color:rgba(11,114,133, .6);
+  backdrop-filter: saturate(180%) blur(10px);
+}
+[data-theme=dark]
+footer {
+  background-color: rgba(16,152,173, .5);
+}
+
+.holdSocialIcon{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+
+[data-theme=dark]
+.social {
+  color: var(--colar-gray-3);
+}
+
+.social {
+  color: var(--colar-gray-10);
+  width: 2.5em;
+  height: 2.5em;
+
+    &.twitter {
+      &:hover {
+        color: var(--colar-cyan-7);
+        animation: var(--animation-spin);
+        animation-timing-function: var(--ease-1);  
+      }
+    }
+
+    &.linkedin {
+      &:hover {
+        color: var(--colar-blue-6);
+        animation: var(--animation-scale-up) forwards;
+      }
+    }
+
+    &.github {
+      &:hover {
+        color: var(--colar-teal-8);
+        animation: var(--animation-float);
+      }
+    }
+
+    &.portfolio {
+      &:hover {
+        color: var(--colar-indigo-7);
+        animation: var(--animation-pulse) forwards;
+      }
+    }
+    
+    &.blog {
+      &:hover {
+        color: var(--colar-orange-6);
+        animation: var(--animation-shake-x) forwards;
+      }
+    }
+
+}

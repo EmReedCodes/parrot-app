@@ -1,0 +1,53 @@
+.dashboardImage {
+  padding-bottom: 2em;
+}
+
+.dashboardImage img {
+  display: block;
+  margin: 0 auto;
+  max-width: 17rem;
+}
+
+.parrotLogo {
+  display: block;
+  margin: auto;
+  max-height: 12rem;
+}
+@media (var(--lg-n-above)) {
+  .parrotLogo {
+    max-height: 12rem;
+  }
+}
+
+.dashLinks * {
+  font-weight: 700;
+  outline: transparent;
+}
+
+[data-theme=dark] .dashLinks a:hover {
+  color: var(--colar-gray-10);
+}
+
+.dashLinks a:hover {
+  color: var(--colar-gray-2);
+}
+
+[data-theme=dark] .sortGame button {
+  background-color: #AEB1F4;
+  color: #2b2e6e;
+}
+
+[data-theme=dark] .bankGame button {
+  background-color: #e9c4a5;
+  color: #4b2e0c;
+}
+
+.sortGame button {
+  background-color: #474DD1;
+  color: #E8E9FC;
+}
+
+.bankGame button {
+  background-color: #d18647;
+  color: #f8ede4;
+}/*# sourceMappingURL=style.css.map */

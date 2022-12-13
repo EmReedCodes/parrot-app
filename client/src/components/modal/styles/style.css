@@ -1,0 +1,12 @@
+.modalAnimate {
+  -webkit-animation: var(--animation-slide-in-down);
+          animation: var(--animation-slide-in-down);
+}
+
+.modalContainer header {
+  background: rgb(246, 246, 246);
+}
+
+.textInModal p {
+  padding: 0.5em 0 0.5em 0;
+}/*# sourceMappingURL=style.css.map */
