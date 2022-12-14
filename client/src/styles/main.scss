@@ -14,8 +14,9 @@ html {
 
 body {
   --font-family: 'Lexend', sans-serif;
-  overflow-x: hidden;
+  //overflow-x: hidden;
   color: var(--colar-gray-10);
+
 }
 
 [data-theme=dark]
@@ -30,22 +31,32 @@ body {
 
 //fix to microcss / overrides
 
-main {
-  min-height: calc(100vh - 30vh);
+// main {
+//   min-height: calc(100vh - 216px);
+// }
+header {
+  min-height: 10vh;
+}
+
+main{
+  min-height: 75vh;
+}
+
+footer {
+  min-height: 15vh;
 }
 
 input {
   min-width: 100%;
 }
 
-body header,
-body main,
-body footer {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding: var(--block-spacing-vertical) 0;
-}
+
+// body main {
+//   width: 100%;
+//   margin-right: auto;
+//   margin-left: auto;
+//   padding: var(--block-spacing-vertical) 0;
+// }
 
  .container-fluid {
   z-index: 99;

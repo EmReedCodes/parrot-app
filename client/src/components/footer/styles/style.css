@@ -1,5 +1,5 @@
 footer {
-  max-height: 20vh;
+  bottom: 0;
   background-color: rgba(11, 114, 133, 0.6);
   -webkit-backdrop-filter: saturate(180%) blur(10px);
           backdrop-filter: saturate(180%) blur(10px);

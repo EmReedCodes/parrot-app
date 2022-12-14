@@ -5,7 +5,6 @@ html {
 
 body {
   --font-family: "Lexend", sans-serif;
-  overflow-x: hidden;
   color: var(--colar-gray-10);
 }
 
@@ -18,21 +17,20 @@ body {
   box-shadow: none;
 }
 
+header {
+  min-height: 10vh;
+}
+
 main {
-  min-height: 70vh;
+  min-height: 75vh;
+}
+
+footer {
+  min-height: 15vh;
 }
 
 input {
   min-width: 100%;
-}
-
-body header,
-body main,
-body footer {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding: var(--block-spacing-vertical) 0;
 }
 
 .container-fluid {
