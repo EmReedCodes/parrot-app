@@ -7,8 +7,8 @@ const About = () => {
             <nav aria-label="breadcrumb"> 
                 <ul>
                     <li><a href="#resources">Resources</a></li>
-                    <li><a href="#contact">Contact</a></li>
                     <li><a href="#aboutme">About Me</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
                 <article className="grid">

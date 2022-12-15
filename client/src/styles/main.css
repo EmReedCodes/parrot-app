@@ -29,14 +29,11 @@ nav ol:last-of-type, nav ul:last-of-type {
 
 main {
   flex: 1;
+  padding: 1em 0;
 }
 
 input {
   min-width: 100%;
-}
-
-.container-fluid {
-  z-index: 99;
 }
 
 button {

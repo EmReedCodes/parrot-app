@@ -12,6 +12,7 @@
     padding: 0;
     top: 0;
     position: sticky;
+    z-index: 100;
     position: -webkit-sticky;
     color: var(--colar-gray-1);
   }
@@ -117,7 +118,6 @@
   }
   
   .bm-menu {
-    z-index: 100;
     background: var(--colar-gray-4);
     padding: 2.5em 1.5em 0;
     font-size: 1.15em;
