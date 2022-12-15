@@ -14,7 +14,6 @@ html {
 
 body {
   --font-family: 'Lexend', sans-serif;
-  //overflow-x: hidden;
   color: var(--colar-gray-10);
 
 }
@@ -31,20 +30,23 @@ body {
 
 //fix to microcss / overrides
 
-// main {
-//   min-height: calc(100vh - 216px);
-// }
-header {
-  min-height: 10vh;
+//causing overflow x
+nav ol:last-of-type, nav ul:last-of-type {
+  margin-right: 0;
 }
 
-main{
-  min-height: 75vh;
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-footer {
-  min-height: 15vh;
+
+main {
+  flex: 1;
 }
+
 
 input {
   min-width: 100%;
@@ -99,11 +101,6 @@ button {
 }
 
 
-
-
-
-
-
 //LOGIN & REGISTER
 
 article div:nth-of-type(2) {
@@ -144,7 +141,7 @@ article div:nth-of-type(2) {
 
 h1, h2, h3, h4, h5, p {
   text-align: center;
-  margin: 1em;
+  //margin: 1em;
 }
 
 
@@ -152,14 +149,6 @@ h1, h2, h3, h4, h5, p {
 
 
 
-
-
-
-
-
-// main {
-//   margin-bottom: 3em;
-// }
 
 
 

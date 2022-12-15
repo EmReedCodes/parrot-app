@@ -17,16 +17,18 @@ body {
   box-shadow: none;
 }
 
-header {
-  min-height: 10vh;
+nav ol:last-of-type, nav ul:last-of-type {
+  margin-right: 0;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 main {
-  min-height: 75vh;
-}
-
-footer {
-  min-height: 15vh;
+  flex: 1;
 }
 
 input {
@@ -93,5 +95,4 @@ article div:nth-of-type(2) {
 }
 h1, h2, h3, h4, h5, p {
   text-align: center;
-  margin: 1em;
 }/*# sourceMappingURL=main.css.map */
