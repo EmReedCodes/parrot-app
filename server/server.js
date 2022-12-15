@@ -1,3 +1,4 @@
+const path = require('path')
 const dotenv = require('dotenv').config()
 const express = require('express')
 const colors = require('colors');
@@ -15,15 +16,20 @@ const app = express()
 //middleware
 app.use(express.json())
 //in order to use body data (req.body) set to false maybe
-app.use(express.urlencoded({ extended: false })) //try both 
+app.use(express.urlencoded({ extended: false })) //try both
 
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/build')))
+
+    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, '../', 'client', 'build', 'index.html')))
+}
 
 
 //@desc sending to my routes
 app.use('/api/word', wordRoutes)
 app.use('/api/user', userRoutes)
-//future tts portion
-//app.use('/api/text')
+
+
 
 //this will overwrite the default errors
 app.use(errorHandler)
