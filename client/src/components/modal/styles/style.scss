@@ -1,0 +1,14 @@
+//~~~~~~~Modal component
+
+.modalAnimate{
+    animation:
+    var(--animation-slide-in-down);
+  }
+  
+  .modalContainer header{
+    background: rgb(246, 246, 246);
+  }
+  
+  .textInModal p{
+    padding: .5em 0 .5em 0;
+  }

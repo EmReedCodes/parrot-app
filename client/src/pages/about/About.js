@@ -4,13 +4,13 @@ import "./styles/style.css"
 const About = () => {
     return (
      <section className="about">
-        
-                <div className="resource-links">
-                    <span>Jump to:</span>
-                    <a href="#resources">Resources</a>
-                    <a href="#contact">Contact</a>
-                    <a href="#aboutme">About Me</a>
-                </div>
+            <nav aria-label="breadcrumb"> 
+                <ul>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#aboutme">About Me</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
                 <article className="grid">
                     <section>
                         <h1>Parrot's Origin Story</h1>

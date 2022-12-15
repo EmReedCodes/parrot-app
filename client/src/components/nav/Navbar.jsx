@@ -1,4 +1,5 @@
 import BurgerMenu from "./BurgerSlide"
+import './styles/style.css'
 
 const Navbar = () => {
   return (

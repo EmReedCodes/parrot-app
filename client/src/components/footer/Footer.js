@@ -2,7 +2,7 @@ import About from "../../pages/about/About"
 import { AiFillLinkedin, AiFillTwitterCircle, AiFillGithub, AiFillContacts } from "react-icons/ai"
 import {FaBlogger } from "react-icons/fa"
 import { IconContext } from "react-icons"
-
+import './styles/style.css'
 const Footer = () => {
     
     return (
