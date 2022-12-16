@@ -7,8 +7,11 @@ import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognitio
 import { toast } from "react-toastify"
 import { FaMicrophoneAltSlash } from "react-icons/fa"
 import { FaMicrophoneAlt } from "react-icons/fa"
+import { createSpeechlySpeechRecognition } from "@speechly/speech-recognition-polyfill/dist/createSpeechRecognition"
 
-
+ const appId = process.env.REACT_APP_SPEECHLY_ID
+ const SpeechlySpeechRecognition = createSpeechlySpeechRecognition(appId);
+SpeechRecognition.applyPolyfill(SpeechlySpeechRecognition);
 
 export const WordContext = createContext("")
 
