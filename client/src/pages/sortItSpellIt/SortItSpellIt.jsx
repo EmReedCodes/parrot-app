@@ -39,6 +39,7 @@ const SortItSpellIt = () => {
   
   useEffect(() => {
     if (finalTranscript !== "") {
+      SpeechRecognition.stopListening()
       setSaidWord(finalTranscript.toLowerCase())
     }
 
@@ -81,7 +82,7 @@ const SortItSpellIt = () => {
           <p>Click start and speak a word to begin.</p>
         </>
       )}
-
+<p>Microphone: {listening ? 'on' : 'off'}</p>
       {saidWord && (
         <>
           <button className="reset-btn" onClick={() => resetWord()}>
