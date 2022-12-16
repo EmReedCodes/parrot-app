@@ -23,7 +23,7 @@ app.use('/api/word', wordRoutes)
 app.use('/api/user', userRoutes)
 
 // Serve frontend
-
+if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/build')));
   
     app.get('*', (req, res) =>
@@ -31,9 +31,9 @@ app.use('/api/user', userRoutes)
         path.resolve(__dirname, '../', 'client', 'build', 'index.html')
       )
     );
-
+  } else {
     app.get('/', (req, res) => res.send('Please set to production'));
-
+  }
   
 
 
