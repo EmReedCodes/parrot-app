@@ -6,7 +6,7 @@ const Navbar = () => {
   const size = useWindowSize()
   return (
   <>
-    {size.width > 760 && <div>Hello</div>}
+   
         <nav className="container-fluid navWithSlide">
           <BurgerMenu />
           <div className="fillNav">
