@@ -18,7 +18,6 @@ export default function Submission({ items, setItems, word, initialItems }) {
         color: checkLetter[idx] === true ? "#55bf15" : "#bf2a15"
       }))
     )
-    console.log(items)
     if (checkLetter.every(item => item === true)) {
       setIsVisible(true)
 

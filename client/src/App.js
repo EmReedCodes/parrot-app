@@ -32,7 +32,8 @@ function App() {
             <Route path="/settings" element={<Settings />}></Route>
             <Route path="/sortitspellit" element={<SortItSpellIt />}></Route>
             <Route path="/wordbank" element={<WordBank />}></Route>
-            <Route path="/about" element={<About />}></Route>
+              <Route path="/about" element={<About />}></Route>
+          
           </Routes>
 
           <ToastContainer autoClose={2000} />

@@ -63,6 +63,10 @@ button {
   color: var(--colar-gray-6);
 }
 
+.containLogo {
+  padding-bottom: 1em;
+}
+
 article div:nth-of-type(2) {
   display: none;
 }
