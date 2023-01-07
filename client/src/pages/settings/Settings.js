@@ -49,7 +49,7 @@ const Settings = () => {
         toast.warn("Something went wrong.")
       }
     }
-  }, [isSuccess, navigate, passwordConfirmed, dispatch])
+  }, [isSuccess, navigate, passwordConfirmed, dispatch, isError])
 
   const toggleModal = () => {
     if (!modalToggle && !userDelete) {
@@ -82,6 +82,8 @@ const Settings = () => {
     )
   }
 
+  //TODO: need to check if there is any list 
+
   const displayList = () => {
     if (getList === false) {
       dispatch(getAllWords())
@@ -93,6 +95,7 @@ const Settings = () => {
 
   return (
     <section className="settings wordGame">
+
       <span>
         Click{" "}
         <button onClick={() => displayList()} className="inline-btn">

@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react"
+import { useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { deleteWordForList, updateAndReplaceWord } from "../../features/bankWord/bankWordSlice"
 import { AiFillEdit, AiFillDelete, AiFillSave } from "react-icons/ai"
@@ -10,7 +10,6 @@ const List = () => {
 
   const [isActive, setIsActive] = useState(null)
   const { wordBank } = useSelector(state => state.wordBank)
-  console.log(wordBank)
   const ref = useRef(null)
 
   const dispatch = useDispatch()
