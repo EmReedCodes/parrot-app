@@ -1,25 +1,17 @@
-
-
-
 //====================
 // picocss
-@import 'https://octoshrimpy.github.io/microcss/micro.css';
-
-
+@import "https://octoshrimpy.github.io/microcss/micro.css";
 
 html {
   scroll-behavior: smooth;
 }
 
-
 body {
-  --font-family: 'Lexend', sans-serif;
+  --font-family: "Lexend", sans-serif;
   color: var(--colar-gray-10);
-
 }
 
-[data-theme=dark]
-body {
+[data-theme="dark"] body {
   color: var(--colar-gray-3);
 }
 
@@ -31,10 +23,10 @@ body {
 //fix to microcss / overrides
 
 //causing overflow x
-nav ol:last-of-type, nav ul:last-of-type {
+nav ol:last-of-type,
+nav ul:last-of-type {
   margin-right: 0;
 }
-
 
 #root {
   min-height: 100vh;
@@ -42,18 +34,14 @@ nav ol:last-of-type, nav ul:last-of-type {
   flex-direction: column;
 }
 
-
 main {
   flex: 1;
   padding: 1em 0;
 }
 
-
-
 input {
   min-width: 100%;
 }
-
 
 // body main {
 //   width: 100%;
@@ -61,7 +49,6 @@ input {
 //   margin-left: auto;
 //   padding: var(--block-spacing-vertical) 0;
 // }
-
 
 //====================
 // your scss here
@@ -71,17 +58,15 @@ button {
   --primary-hover: var(--colar-cyan-7);
 }
 
-[data-theme= dark]
-button {
+[data-theme="dark"] button {
   --primary: var(--colar-cyan-7);
   --primary-hover: var(--colar-cyan-6);
 }
 
-
-// ICONS 
+// ICONS
 
 //global icons styles
-//icon in button 
+//icon in button
 .containIcon {
   margin: 0 auto;
   width: fit-content;
@@ -93,15 +78,13 @@ button {
   color: var(--colar-gray-10);
 }
 
-[data-theme=dark]
-.icon {
+[data-theme="dark"] .icon {
   color: var(--colar-gray-6);
 }
 
 .containLogo {
   padding-bottom: 1em;
 }
-
 
 //LOGIN & REGISTER
 
@@ -114,15 +97,14 @@ article div:nth-of-type(2) {
   background-position: center;
   background-size: cover;
 
-    &.register {
-      background-image: url("../assets/smallKidsLearning.jpg");
-    }
+  &.register {
+    background-image: url("../assets/smallKidsLearning.jpg");
+  }
 
-    &.login {
-      background-image: url("../assets/paul-hanaoka-BJ25B9sonUs-unsplash.jpg");
-    }
+  &.login {
+    background-image: url("../assets/paul-hanaoka-BJ25B9sonUs-unsplash.jpg");
+  }
 }
-
 
 @media (min-width: 992px) {
   .grid > div:nth-of-type(2) {
@@ -130,30 +112,20 @@ article div:nth-of-type(2) {
   }
 }
 
+//setting width for game pages and other pages
 
-//setting width for game pages and other pages 
-
-@media (min-width: 768px){
+@media (min-width: 768px) {
   .wordGame {
     margin: 0 auto;
     max-width: 70%;
   }
-
 }
 
-h1, h2, h3, h4, h5, p {
-  text-align: center;
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  text-align: right;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
