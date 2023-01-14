@@ -7,8 +7,13 @@ const Navbar = () => {
   return (
   <>
    
-        <nav className="container-fluid navWithSlide">
+      <nav className="container-fluid navWithSlide">
+        {
+          size.width < 768 ?
           <BurgerMenu />
+          :
+          <h1>hello</h1>
+        }
           <div className="fillNav">
             <ul>
               <li className="nav-logo">
