@@ -1,8 +1,6 @@
-import useLocalStorage from "../../hooks/useLocalStorage"
+import useLocalStorage from "../../../hooks/useLocalStorage"
 
 function ToggleSwitch() {
-
-
   const [theme, setTheme] = useLocalStorage("theme", "light")
   const [toggled, setToggled] = useLocalStorage("toggle", false)
 
