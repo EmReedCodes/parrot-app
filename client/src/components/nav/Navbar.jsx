@@ -15,7 +15,8 @@ const Navbar = () => {
         {size.width < 768 && <BurgerMenu /> }
         <div className="fillNav">
           {size.width > 768 && <HorizontalNav />}
-          <ul>
+          
+          <ul className="right-nav">
             {size.width > 768 &&
               <li><ToggleSwitch /></li>
             }

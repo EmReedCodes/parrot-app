@@ -27,11 +27,20 @@
   background-color: rgba(16, 152, 173, 0.5);
 }
 
-nav ul {
+.right-nav {
   display: flex;
   justify-content: flex-end;
 }
 
+@media (min-width: 768px) {
+  .fillNav {
+    display: flex;
+    justify-content: space-between;
+  }
+  .left-nav {
+    display: flex;
+  }
+}
 nav strong {
   padding-right: 1em;
 }

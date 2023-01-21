@@ -13,7 +13,7 @@ const HorizontalNav = () => {
     return navigate("/")
   }
   return (
-    <ul>
+    <ul className="left-nav">
       
       <li>
         {user ? (
