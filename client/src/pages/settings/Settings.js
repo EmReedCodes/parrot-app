@@ -10,7 +10,7 @@ import List from "./List"
 
 const Settings = () => {
   //TODO: useReducer here instead?
-  //yes check this out https://nazrhan-mohcine.medium.com/react-hooks-work-with-usestate-and-usereducer-effectively-471646cdf925
+  //check this out https://nazrhan-mohcine.medium.com/react-hooks-work-with-usestate-and-usereducer-effectively-471646cdf925
   const pwAttempt = useRef(null)
   const dispatch = useDispatch()
   const { isSuccess, isError } = useSelector(state => state.auth)

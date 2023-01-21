@@ -7,11 +7,11 @@ const HorizontalNav = () => {
   const dispatch = useDispatch()
   const { user } = useSelector(state => state.auth)
 
-  const onLogout = () => {
-    dispatch(logout(user))
-    dispatch(reset())
-    return navigate("/")
-  }
+  // const onLogout = () => {
+  //   dispatch(logout(user))
+  //   dispatch(reset())
+  //   return navigate("/")
+  // }
   return (
     <ul className="left-nav">
       
@@ -44,15 +44,7 @@ const HorizontalNav = () => {
       <li>   <Link to="/about" className="menu-item">
         About
       </Link></li>
-      <li>
-        {user ? 
-          <Link to="/login">Login</Link> 
-          :
-          <Link to="/" onClick={() => onLogout()} className="menu-item">
-          Logout
-        </Link>    
-      }
-      </li>
+    
     </ul>
   )
 }
