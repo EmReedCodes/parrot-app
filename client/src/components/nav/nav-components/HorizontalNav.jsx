@@ -13,18 +13,15 @@ const HorizontalNav = () => {
   //   return navigate("/")
   // }
   return (
-    <ul className="left-nav">
+    <ul>
       
       <li>
-        {user ? (
+        {user && (
           <Link to="/dashboard" className="menu-item">
             Dashboard
           </Link>
-        ) : (
-          <Link to="/" className="menu-item">
-            Home
-          </Link>
-        )}
+        )
+        }
       </li>
       {!user && 
         <>
@@ -41,9 +38,7 @@ const HorizontalNav = () => {
         </li>
         </>
         }
-      <li>   <Link to="/about" className="menu-item">
-        About
-      </Link></li>
+   
     
     </ul>
   )

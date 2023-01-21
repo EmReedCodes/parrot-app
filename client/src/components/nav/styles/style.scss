@@ -14,20 +14,24 @@
     position: sticky;
     z-index: 100;
     position: -webkit-sticky;
-    color: var(--colar-gray-1);
+    color: var(--colar-gray-1);    
+
+
   }
   
   .fillNav {
     background-color: rgba(11,114,133, .6);
+    backdrop-filter: saturate(180%) blur(10px);
     z-index: 99;
     width: 100%;
-    backdrop-filter: saturate(180%) blur(10px);
+
   }
   
   [data-theme= dark]
   .navWithSlide {
     background-color: rgba(16,152,173, .5);
   }
+  
 
  
   
@@ -81,7 +85,9 @@
   //   color: white;
   // }
   
-  
+  // .bm-menu {
+  //   z-index: 100;
+  // }
   
   //   lines itself
   .bm-burger-button {
@@ -169,7 +175,6 @@
   .bm-menu-wrap {
     position: fixed;
     min-height: 100%;
-    //z-index: 100;
   }
   
   // toggle switch

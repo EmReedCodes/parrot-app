@@ -17,10 +17,10 @@
 
 .fillNav {
   background-color: rgba(11, 114, 133, 0.6);
-  z-index: 99;
-  width: 100%;
   -webkit-backdrop-filter: saturate(180%) blur(10px);
           backdrop-filter: saturate(180%) blur(10px);
+  z-index: 99;
+  width: 100%;
 }
 
 [data-theme=dark] .navWithSlide {
