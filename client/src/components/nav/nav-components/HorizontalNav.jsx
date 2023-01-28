@@ -12,6 +12,7 @@ const HorizontalNav = () => {
   
 
   const onLogout = () => {
+
     dispatch(logout(user))
     dispatch(reset())
     return navigate("/")
@@ -22,16 +23,13 @@ const HorizontalNav = () => {
   {
     link: '/login',
     title: 'login',
-    action: '',
   },
   {
     link: '/',
     title: 'home',
-    action: '',
     }, {
     link: '',
     title: 'logout',
-    action: () => onLogout()
 }
     ]
   
