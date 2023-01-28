@@ -4,7 +4,7 @@ import useWindowSize from "../../hooks/useWindowSize"
 import HorizontalNav from "./nav-components/HorizontalNav"
 import { Link } from "react-router-dom"
 
-import Dropdown from "./nav-components/Dropdown"
+//import Dropdown from "./nav-components/Dropdown"
 
 
 const Navbar = () => {
@@ -22,9 +22,9 @@ const Navbar = () => {
 
           <div className="right-nav">
             <ul>
-              <li>
+              {/* <li>
              <Dropdown />
-              </li>
+              </li> */}
               <li className="nav-logo">
                 <Link to="/">
                   <strong>Parrot</strong>
