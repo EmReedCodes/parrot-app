@@ -18,10 +18,16 @@ function ToggleSwitch() {
   }
 
   return (
-    <label className="toggle-switch">
-      <input type="checkbox" checked={toggled} onChange={onToggle} />
-      <span className="switch" />
-    </label>
+<>
+  
+      <div className="containToggle">
+        <label className="toggle-switch">
+      
+          <input type="checkbox" checked={toggled} onChange={onToggle} />
+          <span className="switch" />
+        </label>
+      </div>
+      </>
   )
 }
 export default ToggleSwitch
