@@ -48,7 +48,7 @@ const Navbar = () => {
   return (
 
       <nav className="container-fluid nav-contain-background">
-        {size.width < 768 && <BurgerMenu />}
+  
 
      
         <div className="left-nav">

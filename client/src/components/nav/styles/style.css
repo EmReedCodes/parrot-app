@@ -8,6 +8,11 @@
   align-items: center;
 }
 
+ul details {
+  margin: 0;
+  padding: 0;
+}
+
 .containToggle {
   display: flex;
   flex-direction: column;

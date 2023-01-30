@@ -186,6 +186,13 @@
 //     position: fixed;
 //     min-height: 100%;
 //   }
+
+//this fixes the negative margin in dropdown
+ul details {
+  margin: 0;
+  padding: 0;
+}
+
   
 //   // toggle switch
 
