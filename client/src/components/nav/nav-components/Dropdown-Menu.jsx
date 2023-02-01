@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 
 const DropdownMenu = ({ list, action = null, label }) => {
-  console.log(list)
+
   return (
     <details role="list" dir="rtl">
       <summary aria-expanded="true" role="link" className="secondary">

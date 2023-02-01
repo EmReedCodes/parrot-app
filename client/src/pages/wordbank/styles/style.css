@@ -1,4 +1,30 @@
 .wordsList li {
   display: flex;
   justify-content: space-between;
+}
+
+.repeatText {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  text-decoration: underline;
+  text-underline-offset: 0.5em;
+}
+
+.replay-btn {
+  width: 3em;
+  height: 3em;
+}
+
+@media (min-width: 768px) {
+  .practiceRepeatWord {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+  .containIcon {
+    margin: unset;
+  }
+  .wordBank-play {
+    display: inline-block;
+  }
 }/*# sourceMappingURL=style.css.map */

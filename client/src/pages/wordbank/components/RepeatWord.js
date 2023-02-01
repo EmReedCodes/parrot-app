@@ -7,17 +7,7 @@ import sample from "lodash/sample"
 const RepeatWord = ({ wordBank, list, userLoggedIn }) => {
   const [ourText, setOurText] = useState("")
   const [range, setRange] = useState("0.6")
-  
-  const randomizeList = () => {
-    if (userLoggedIn) {
-      const wbArray = wordBank.map(item => item.text)
-      const randomWord = sample(wbArray)
-      setOurText(randomWord)
-    } else {
-      const randomWord = sample(list)
-      setOurText(randomWord)
-    }
-  }
+
 
   const speechHandler = text => {
     if (text) {
@@ -27,15 +17,34 @@ const RepeatWord = ({ wordBank, list, userLoggedIn }) => {
       window.speechSynthesis.speak(msg)
     }
   }
+
+  const randomizeList = () => {
+    if (userLoggedIn) {
+      const wbArray = wordBank.map(item => item.text)
+      const randomWord = sample(wbArray)
+      setOurText(randomWord)
+      
+    } else {
+      const randomWord = sample(list)
+      setOurText(randomWord)
+    }
+  }
 //TODO: Why did I put button here smh smh smh smh 
   return (
     <>
-      <button className="containIcon" onClick={() => speechHandler(ourText)}>
-        <IconContext.Provider value={{ className: "replay-btn icon" }}>
-          <FaRegPlayCircle />
-        </IconContext.Provider>
-      </button>
-      {ourText ? <h2>{ourText}</h2> : <h2>Hit Next To Begin</h2>}
+      <section className="practiceRepeatWord">
+        {ourText ?
+          <h2 className="repeatText">{ourText}</h2>
+          :
+          <h2 className="repeatText">Hit Next To Start</h2>
+        }
+        <button className="containIcon wordbank-play" onClick={() => speechHandler(ourText)}>
+          <IconContext.Provider value={{ className: "replay-btn icon" }}>
+            <FaRegPlayCircle />
+          </IconContext.Provider>
+        </button>
+      </section>
+      
       <div className="range range-output">
         <input
           type="range"
