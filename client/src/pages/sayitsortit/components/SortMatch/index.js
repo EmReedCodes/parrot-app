@@ -18,7 +18,7 @@ import { v4 as uuidv4 } from "uuid"
 import shuffle from "lodash/shuffle"
 import Submission from "./Submission"
 import { useContext } from "react"
-import { WordContext } from "../../SortItSpellIt"
+import { WordContext } from "../../SayItSortIt"
 
 
 

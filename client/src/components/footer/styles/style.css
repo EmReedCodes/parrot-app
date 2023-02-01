@@ -15,11 +15,11 @@ footer {
 }
 
 [data-theme=dark] .social {
-  color: var(--colar-gray-3);
+  color: var(--colar-gray-4);
 }
 
 .social {
-  color: var(--colar-gray-10);
+  color: var(--colar-gray-9);
   width: 2em;
   height: 2em;
 }

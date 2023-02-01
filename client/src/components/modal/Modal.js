@@ -1,5 +1,5 @@
 const Modal = props => {
-  //TODO: add props.classname instead
+//TODO: destructure this object instead
   return (
     <dialog className={props.className} open={props.open}>
       <article className="listModal">

@@ -4,7 +4,7 @@ import Login from "./pages/login/Login"
 import Register from "./pages/register/Register"
 import Dashboard from "./pages/dashboard/Dashboard"
 import Settings from "./pages/settings/Settings"
-import SortItSpellIt from "./pages/sortItSpellIt/SortItSpellIt"
+import SayItSortIt from './pages/sayitsortit/SayItSortIt'
 import WordBank from "./pages/wordbank/WordBank"
 import Navbar from "./components/nav/Navbar"
 import About from "./pages/about/About"
@@ -30,7 +30,7 @@ function App() {
             <Route path="/register" element={<Register />}></Route>
             <Route path="/dashboard" element={<Dashboard />}></Route>
             <Route path="/settings" element={<Settings />}></Route>
-            <Route path="/sortitspellit" element={<SortItSpellIt />}></Route>
+            <Route path="/sayitsortit" element={<SayItSortIt />}></Route>
             <Route path="/wordbank" element={<WordBank />}></Route>
               <Route path="/about" element={<About />}></Route>
           

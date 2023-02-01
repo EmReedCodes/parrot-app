@@ -1,222 +1,109 @@
-//hamburger menu & nav
+.nav-contain-background {
+  background-color: rgba(11, 114, 133, 0.6);
+  backdrop-filter: saturate(180%) blur(10px);
+  top: 0;
+  position: sticky;
+  position: -webkit-sticky;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
 
-#page-wrap {
-    text-align: center;
-    /* Prevent sidebar from showing a scrollbar on page */
-    overflow: auto;
-  }
-  
-  .navWithSlide {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    top: 0;
-    position: sticky;
-    z-index: 100;
-    position: -webkit-sticky;
-    color: var(--colar-gray-1);
-  }
-  
-  .fillNav {
-    background-color: rgba(11,114,133, .6);
-    z-index: 99;
-    width: 100%;
-    backdrop-filter: saturate(180%) blur(10px);
-  }
-  
-  [data-theme= dark]
-  .navWithSlide {
-    background-color: rgba(16,152,173, .5);
-  }
+[data-theme="dark"] nav a {
+  color: var(--colar-gray-4);
 
- 
-  
-  .right-nav {
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  @media (min-width: 768px) {
-    .fillNav {
-      display: flex;
-      justify-content: space-between;
-    }
-    .left-nav {
-      display: flex;
-
-    }
-  }
-  
-  nav strong {
-    padding-right: 1em;
-  }
-  
-  .bm-item {
-    display: inline-block;
-    text-decoration: none;
-    margin-bottom: 10px;
-    color: var(--colar-gray-11);
-    transition: color 0.2s;
-  }
-  
-  /* Change color on hover */
-  .bm-item:hover {
-    color: var(--colar-gray-8);
-  }
-  
-  [data-theme= dark]
-  .bm-item{
-    color: var(--colar-gray-4);
-  }
-  
-  [data-theme=dark]
-  .bm-item:hover {
+  &:hover {
     color: var(--colar-gray-2);
   }
-  
-  
-  
-  // [data-theme= dark]
-  // .bm-item:hover {
-  //   color: white;
-  // }
-  
-  
-  
-  //   lines itself
-  .bm-burger-button {
+}
+
+nav a {
+  color: var(--colar-gray-9);
+
+  &:hover {
+    color: var(--colar-gray-11);
+  }
+}
+
+[data-theme="dark"] summary[role="link"].secondary,
+a.secondary {
+  color: var(--colar-gray-4);
+  &:is([aria-current], :hover, :active, :focus) {
+    background-color: transparent;
+    color: var(--colar-gray-3);
+  }
+}
+
+summary[role="link"].secondary,
+a.secondary {
+  color: var(--colar-gray-9);
+  &:is([aria-current], :hover, :active, :focus) {
+    background-color: transparent;
+    color: var(--colar-gray-11);
+  }
+}
+
+details {
+  margin-bottom: 0;
+}
+
+details[role="list"] {
+  border-bottom: none;
+  padding: var(--nav-element-spacing-vertical) var(--nav-element-spacing-horizontal);
+}
+
+.dropdown-container {
+  display: flex;
+}
+
+//   // toggle switch
+
+.containToggle {
+  display: flex;
+  flex-direction: column;
+}
+
+.toggleLabel {
+  font-size: 0.75em;
+  display: block;
+  text-align: right;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+.toggle-switch input[type="checkbox"] {
+  display: none;
+}
+.toggle-switch .switch {
   position: absolute;
-    width: 36px;
-    height: 30px;
-    top:16px;
-     left: 16px;
-    //right: 16px;
-  }
-  
-  /* Color/shape of burger icon bars */
-  [data-theme = dark]
-  .bm-burger-bars {
-    background: var(--colar-gray-2);
-  }
-  
-  
-  .bm-burger-bars{
-    background: var(--colar-gray-9);
-  }
-  
-  /* Position and sizing of clickable cross button */
-  .bm-cross-button {
-    height: 24px;
-    width: 24px;
-  }
-  
-  
-  .bm-cross {
-    background: var(--colar-gray-11);
-  }
-  
-  [data-theme= dark]
-  .bm-cross {
-    background: var(--colar-gray-2);
-  }
-  
-  /* General sidebar styles */
-  [data-theme= dark]
-  .bm-menu {
-    background: #3B444B;
-    padding: 2.5em 1.5em 0;
-    font-size: 1.15em;
-  }
-  
-  .bm-menu {
-    background: var(--colar-gray-4);
-    padding: 2.5em 1.5em 0;
-    font-size: 1.15em;
-  }
-  
-  /* Morph shape necessary with bubble or elastic */
-  // .bm-morph-shape {
-  //   fill: #373a47;
-  // }
-  
-  /* Wrapper for item list */
-  //had to overwrite template css
-  .bm-item-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-  }
-  
-  /* Styling of overlay */
-  .bm-overlay {
-    padding-left: -10px !important;
-    background: rgba(0, 0, 0, 0.3);
-  }
-  
-  [data-theme= dark]
-  .bm-overlay {
-      padding-left: -10px !important;
-      background: rgba(0, 0, 0, 0.5);
-  }
-  
-  .bm-contain {
-    display: flex;
-    flex-direction: column;
-  
-  }
-  
-  
-  .bm-menu-wrap {
-    position: fixed;
-    min-height: 100%;
-    //z-index: 100;
-  }
-  
-  // toggle switch
-  
-  .toggleLabel {
-    font-size: .75em;
-    //vertical-align: middle;
-    vertical-align: top;
-    padding-right: .5em;
-   // text-align: right;
-  }
-  
-  .toggle-switch {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 25px;
-  }
-  .toggle-switch input[type="checkbox"] {
-    display: none;
-  }
-  .toggle-switch .switch {
-    position: absolute;
-    cursor: pointer;
-    background-color: var(--colar-cyan-8);
-    border-radius: 25px;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    transition: background-color 0.2s ease;
-  }
-  .toggle-switch .switch::before {
-    position: absolute;
-    content: "";
-    left: 2px;
-    top: 2px;
-    width: 21px;
-    height: 21px;
-    background-color: var(--colar-cyan-4);
-    border-radius: 50%;
-    transition: transform 0.3s ease;
-  }
-  .toggle-switch input[type="checkbox"]:checked + .switch::before {
-    transform: translateX(25px);
-    background-color: var(colar-cyan-7);
-  }
-  .toggle-switch input[type="checkbox"]:checked + .switch {
-    background-color: var(colar-cyan-2);
-  }
+  cursor: pointer;
+  background-color: var(--colar-cyan-8);
+  border-radius: 25px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: background-color 0.2s ease;
+}
+.toggle-switch .switch::before {
+  position: absolute;
+  content: "";
+  left: 2px;
+  top: 2px;
+  width: 21px;
+  height: 21px;
+  background-color: var(--colar-cyan-4);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+.toggle-switch input[type="checkbox"]:checked + .switch::before {
+  transform: translateX(25px);
+  background-color: var(colar-cyan-7);
+}
+.toggle-switch input[type="checkbox"]:checked + .switch {
+  background-color: var(colar-cyan-2);
+}

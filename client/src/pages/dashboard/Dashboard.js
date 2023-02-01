@@ -133,7 +133,7 @@ const Dashboard = () => {
         <img src={parrotImage} className="parrot-logo" alt="cartoon parrot" />
       </div>
       <div className="dashLinks">
-        <Link className="sortGame" to="/sortitspellit">
+        <Link className="sortGame" to="/sayitsortit">
           <button>Sort It Spell It</button>
         </Link>
         <Link className="bankGame" to="/wordbank">
