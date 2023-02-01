@@ -22,12 +22,6 @@ body {
 
 //fix to microcss / overrides
 
-//causing overflow x
-// nav ol:last-of-type,
-// nav ul:last-of-type {
-//   margin-right: 0;
-// }
-
 #root {
   min-height: 100vh;
   display: flex;
@@ -43,12 +37,6 @@ input {
   min-width: 100%;
 }
 
-// body main {
-//   width: 100%;
-//   margin-right: auto;
-//   margin-left: auto;
-//   padding: var(--block-spacing-vertical) 0;
-// }
 
 //====================
 // your scss here

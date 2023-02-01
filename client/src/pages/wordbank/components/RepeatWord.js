@@ -27,7 +27,7 @@ const RepeatWord = ({ wordBank, list, userLoggedIn }) => {
       window.speechSynthesis.speak(msg)
     }
   }
-
+//TODO: Why did I put button here smh smh smh smh 
   return (
     <>
       <button className="containIcon" onClick={() => speechHandler(ourText)}>

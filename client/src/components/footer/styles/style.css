@@ -1,13 +1,13 @@
-footer {
-  background-color: rgba(11, 114, 133, 0.6);
-  -webkit-backdrop-filter: saturate(180%) blur(10px);
-          backdrop-filter: saturate(180%) blur(10px);
+@media (min-width: 768px) {
+  [data-theme=dark] footer {
+    background-color: rgba(16, 152, 173, 0.5);
+  }
+  footer {
+    background-color: rgba(11, 114, 133, 0.6);
+    -webkit-backdrop-filter: saturate(180%) blur(10px);
+            backdrop-filter: saturate(180%) blur(10px);
+  }
 }
-
-[data-theme=dark] footer {
-  background-color: rgba(16, 152, 173, 0.5);
-}
-
 .holdSocialIcon {
   display: flex;
   justify-content: space-between;

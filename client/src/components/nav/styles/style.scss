@@ -1,12 +1,19 @@
+
+
 .nav-contain-background {
-  background-color: rgba(11, 114, 133, 0.6);
-  backdrop-filter: saturate(180%) blur(10px);
-  top: 0;
-  position: sticky;
-  position: -webkit-sticky;
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .nav-contain-background {
+    background-color: rgba(11, 114, 133, 0.6);
+    backdrop-filter: saturate(180%) blur(10px);
+    top: 0;
+    position: sticky;
+    position: -webkit-sticky;
+  }
 }
 
 [data-theme="dark"] nav a {
@@ -40,7 +47,12 @@ a.secondary {
   &:is([aria-current], :hover, :active, :focus) {
     background-color: transparent;
     color: var(--colar-gray-11);
+
   }
+}
+
+details[role=list] summary+ul, li[role=list]>ul {
+  right: unset;
 }
 
 details {

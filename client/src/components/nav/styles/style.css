@@ -1,15 +1,19 @@
 .nav-contain-background {
-  background-color: rgba(11, 114, 133, 0.6);
-  -webkit-backdrop-filter: saturate(180%) blur(10px);
-          backdrop-filter: saturate(180%) blur(10px);
-  top: 0;
-  position: sticky;
-  position: -webkit-sticky;
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
+@media (min-width: 768px) {
+  .nav-contain-background {
+    background-color: rgba(11, 114, 133, 0.6);
+    -webkit-backdrop-filter: saturate(180%) blur(10px);
+            backdrop-filter: saturate(180%) blur(10px);
+    top: 0;
+    position: sticky;
+    position: -webkit-sticky;
+  }
+}
 [data-theme=dark] nav a {
   color: var(--colar-gray-4);
 }
@@ -42,6 +46,10 @@ summary[role=link].secondary:is([aria-current], :hover, :active, :focus),
 a.secondary:is([aria-current], :hover, :active, :focus) {
   background-color: transparent;
   color: var(--colar-gray-11);
+}
+
+details[role=list] summary + ul, li[role=list] > ul {
+  right: unset;
 }
 
 details {

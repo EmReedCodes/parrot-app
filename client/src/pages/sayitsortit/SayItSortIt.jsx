@@ -76,17 +76,20 @@ const SortItSpellIt = () => {
 
   return (
     <section className="sortItHome" style={style}>
-      {!saidWord && (
+      {!saidWord ? 
         <>
           <h2>Let's get to sorting!</h2>
-          <p>Click start and speak a word to begin.</p>
+          <h5>Click start and speak a word to begin.</h5>
+            <p>Say It Spell It works best with 8 letters or less currently.</p>
         </>
-      )}
+        :
+        <h5>Click or tap to hold and drag the tile.</h5>
+      }
 <p>Microphone: {listening ? 'on' : 'off'}</p>
       {saidWord && (
         <>
           <button className="reset-btn" onClick={() => resetWord()}>
-            Start Over
+            Restart
           </button>
 
           <button className="containIcon" onClick={() => speechHandler(saidWord)}>

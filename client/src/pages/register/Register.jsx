@@ -101,7 +101,7 @@ const Register = () => {
             onChange={onChange}
           />
 
-          <button type="submit">Submit</button>
+          <button type="submit">Create Account</button>
         </form>
         <span>
           Already have an account?<Link to="/login"> Login </Link>

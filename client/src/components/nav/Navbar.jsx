@@ -33,7 +33,7 @@ const accountListNotUser = [
   }, 
   {
     link: '/register',
-    title: 'Create Account'
+    title: 'Register'
   }
 ]
 

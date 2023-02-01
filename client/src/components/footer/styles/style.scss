@@ -1,15 +1,21 @@
 //footer section
 
-footer {
-  background-color:rgba(11,114,133, .6);
-  backdrop-filter: saturate(180%) blur(10px);
-}
 
 
-[data-theme=dark]
+@media (min-width:768px) {
+  [data-theme=dark]
 footer {
   background-color: rgba(16,152,173, .5);
 }
+
+  footer {
+    background-color:rgba(11,114,133, .6);
+    backdrop-filter: saturate(180%) blur(10px);
+  }
+}
+
+
+
 
 .holdSocialIcon{
   display: flex;
@@ -65,3 +71,9 @@ footer {
     }
 
 }
+
+// @media (max-width: 768px){
+//   .blog, .portfolio {
+//     display: none;
+//   }
+// }
