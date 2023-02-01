@@ -1,7 +1,7 @@
 import BurgerMenu from "./nav-components/BurgerSlide"
 import "./styles/style.css"
 import useWindowSize from "../../hooks/useWindowSize"
-import HorizontalNav from "./nav-components/HorizontalNav"
+//import HorizontalNav from "./nav-components/HorizontalNav"
 import { Link, useNavigate } from "react-router-dom"
 import DropdownMenu from "./nav-components/Dropdown-Menu"
 import { useSelector, useDispatch } from "react-redux"
@@ -11,7 +11,7 @@ import ToggleSwitch from "./nav-components/ToggleSwitch"
 
 const accountListForUser = [
 
-  {
+  { title: 'toggle',
     toggle: <ToggleSwitch />,
   },
   {
@@ -23,6 +23,33 @@ const accountListForUser = [
     title: 'logout',
   },
 
+]
+
+const accountListNotUser = [
+  {
+    title: 'toggle',
+    toggle: <ToggleSwitch />,
+  },
+  {
+    link: '/login',
+    title: 'Login',
+  }, 
+  {
+    link: '/signup',
+    title: 'Create Account'
+  }
+]
+
+const featuredForUsers = [
+  {
+    link: '/sayitsortit',
+    title: 'Say It Sort It',
+
+  },
+  {
+    link: '/wordbank',
+    title: 'Word Bank',
+  }
 ]
 
 
@@ -51,20 +78,28 @@ const Navbar = () => {
   
 
      
-        <div className="left-nav">
-          <span>hello</span>
-</div>
-          <div className="right-nav">
-            <ul>
-            <DropdownMenu list={accountListForUser} action={onLogout} label={'Account'} />
+        <div className="left-nav dropdown-container">
+        <DropdownMenu list={featuredForUsers} label="Featured" />
+      </div>
+      
+          <div className="right-nav dropdown-container">
+     
+        
+          {user ?
+            <DropdownMenu list={accountListForUser} action={onLogout} label="Account"/>
+            :
+            <DropdownMenu list={accountListNotUser} label="Account"/>
+          }
+         
               <li className="nav-logo">
                 <Link to="/">
                   <strong>Parrot</strong>
                   </Link>
             </li>
-          </ul>
+            </div>
+         
             
-          </div>
+          
      
       </nav>
 

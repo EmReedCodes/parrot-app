@@ -2,15 +2,59 @@
   background-color: rgba(11, 114, 133, 0.6);
   -webkit-backdrop-filter: saturate(180%) blur(10px);
           backdrop-filter: saturate(180%) blur(10px);
+  top: 0;
+  position: sticky;
+  position: -webkit-sticky;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
-ul details {
-  margin: 0;
-  padding: 0;
+[data-theme=dark] .nav-logo a {
+  color: var(--colar-gray-4);
+}
+[data-theme=dark] .nav-logo a:hover {
+  color: var(--colar-gray-2);
+}
+
+.nav-logo a {
+  color: var(--colar-gray-9);
+}
+.nav-logo a:hover {
+  color: var(--colar-gray-11);
+}
+
+[data-theme=dark] summary[role=link].secondary,
+a.secondary {
+  color: var(--colar-gray-4);
+}
+[data-theme=dark] summary[role=link].secondary:is([aria-current], :hover, :active, :focus),
+a.secondary:is([aria-current], :hover, :active, :focus) {
+  background-color: transparent;
+  color: var(--colar-gray-3);
+}
+
+summary[role=link].secondary,
+a.secondary {
+  color: var(--colar-gray-9);
+}
+summary[role=link].secondary:is([aria-current], :hover, :active, :focus),
+a.secondary:is([aria-current], :hover, :active, :focus) {
+  background-color: transparent;
+  color: var(--colar-gray-11);
+}
+
+details {
+  margin-bottom: 0;
+}
+
+details[role=list] {
+  border-bottom: none;
+  padding: var(--nav-element-spacing-vertical) var(--nav-element-spacing-horizontal);
+}
+
+.dropdown-container {
+  display: flex;
 }
 
 .containToggle {
@@ -20,8 +64,8 @@ ul details {
 
 .toggleLabel {
   font-size: 0.75em;
-  padding-right: 0.5em;
   display: block;
+  text-align: right;
 }
 
 .toggle-switch {

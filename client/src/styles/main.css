@@ -17,11 +17,6 @@ body {
   box-shadow: none;
 }
 
-nav ol:last-of-type,
-nav ul:last-of-type {
-  margin-right: 0;
-}
-
 #root {
   min-height: 100vh;
   display: flex;
