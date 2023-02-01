@@ -14,7 +14,7 @@ const About = () => {
                 <article className="grid">
                     <section>
                         <h1>Parrot's Origin Story</h1>
-                        <p>Parrot originally began for my son but quickly realized the issues he faced with speech and spelling were something many kids also struggled with. After watching him use Siri to talk to his friends and navigate the web I thought to myself what if he had a place to practice both his speech and his spelling. That was the day the idea of Parrot began to take shape.</p>
+                        <p>The idea for Parrot arose from my desire to help my son with his speech and spelling difficulties. I soon realized that many children face similar challenges, and was inspired by my son's use of Siri to communicate and browse the internet. I envisioned a platform where children could practice both speech and spelling, and Parrot was born.</p>
                 </section>
                 <section className="origin-bck"></section>
                 </article>
@@ -49,7 +49,7 @@ const About = () => {
             <section className="aboutme-bck"></section>
             <section>
                         <h2>About Me</h2>
-                        <p>Hey, I'm Emily the creator of Parrot. Since the moment I wrote my very first line of code, the ideas began. Parrot was my biggest one yet and I hope you enjoy it! In my free time I enjoy just hanging out with my cat and son watching youtube. I also volunteer with Akron Women In Tech and try to stay active in my local community as well as my online community. I have done freelancing in the past but am currently looking for my next full time position on a team.</p>
+                        <p>Hello, I'm Emily, the creator of Parrot. From the moment I started coding, my mind was filled with ideas, and Parrot was my biggest project to date. I hope you enjoy it! In my leisure time, I love spending time with my cat and son, watching YouTube. I also volunteer with Akron Women in Tech and actively engage in both my local and online communities. While I have a background in freelance work, I am currently seeking my next full-time role as part of a team.</p>
                 </section>
                 
              </article>

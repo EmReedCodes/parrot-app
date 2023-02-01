@@ -1,13 +1,10 @@
-import BurgerMenu from "./nav-components/BurgerSlide"
 import "./styles/style.css"
 import useWindowSize from "../../hooks/useWindowSize"
-//import HorizontalNav from "./nav-components/HorizontalNav"
 import { Link, useNavigate } from "react-router-dom"
 import DropdownMenu from "./nav-components/Dropdown-Menu"
 import { useSelector, useDispatch } from "react-redux"
 import { logout, reset } from "../../features/auth/authSlice"
 import ToggleSwitch from "./nav-components/ToggleSwitch"
-//import Dropdown from "./nav-components/Dropdown"
 
 const accountListForUser = [
 
@@ -35,7 +32,7 @@ const accountListNotUser = [
     title: 'Login',
   }, 
   {
-    link: '/signup',
+    link: '/register',
     title: 'Create Account'
   }
 ]
@@ -49,6 +46,10 @@ const featuredForUsers = [
   {
     link: '/wordbank',
     title: 'Word Bank',
+  },
+  {
+    link: '/about',
+    title: 'About',
   }
 ]
 
@@ -68,8 +69,6 @@ const Navbar = () => {
     return navigate("/")
   }
 
-  // {size.width < 768 && <BurgerMenu />}
-     //{/* <div className="left-nav">{size.width > 768 && <HorizontalNav />}</div> */}
 
 
   return (
@@ -78,24 +77,42 @@ const Navbar = () => {
   
 
      
-        <div className="left-nav dropdown-container">
-        <DropdownMenu list={featuredForUsers} label="Featured" />
+      <div className="left-nav dropdown-container">
+        {size.width < 768 ?
+          <DropdownMenu list={featuredForUsers} label="Menu" />
+          :
+          <ul>
+            <li><Link to="/sayitsortit">Say It Sort It</Link></li>
+            <li><Link to="/wordbank">Word Bank</Link></li>
+            <li><Link to="/about">About</Link></li>
+          </ul>
+      }
+ 
       </div>
       
-          <div className="right-nav dropdown-container">
-     
+      <div className="right-nav dropdown-container">
         
-          {user ?
-            <DropdownMenu list={accountListForUser} action={onLogout} label="Account"/>
-            :
-            <DropdownMenu list={accountListNotUser} label="Account"/>
-          }
-         
-              <li className="nav-logo">
+        {user ?
+          <>
+            <DropdownMenu list={accountListForUser} action={onLogout} label="Account" />
+            <li className="nav-logo">
+                <Link to="/dashboard">
+                  <strong>Parrot</strong>
+                  </Link>
+            </li>
+            </>
+          :
+          <>
+            <DropdownMenu list={accountListNotUser} label="Account" />
+            <li className="nav-logo">
                 <Link to="/">
                   <strong>Parrot</strong>
                   </Link>
             </li>
+            </>
+          }
+         
+      
             </div>
          
             

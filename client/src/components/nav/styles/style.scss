@@ -1,27 +1,6 @@
-// //hamburger menu & nav
-
-// #page-wrap {
-//     text-align: center;
-//     /* Prevent sidebar from showing a scrollbar on page */
-//     overflow: auto;
-//   }
-
-//   .navWithSlide {
-//     width: 100%;
-//     margin: 0;
-//     padding: 0;
-//     top: 0;
-//     position: sticky;
-//     z-index: 100;
-//     position: -webkit-sticky;
-//     color: var(--colar-gray-1);
-
-//   }
-
 .nav-contain-background {
   background-color: rgba(11, 114, 133, 0.6);
   backdrop-filter: saturate(180%) blur(10px);
-  //z-index: 99;
   top: 0;
   position: sticky;
   position: -webkit-sticky;
@@ -30,8 +9,7 @@
   justify-content: space-between;
 }
 
-[data-theme=dark]
-.nav-logo a {
+[data-theme="dark"] nav a {
   color: var(--colar-gray-4);
 
   &:hover {
@@ -39,7 +17,7 @@
   }
 }
 
-.nav-logo a {
+nav a {
   color: var(--colar-gray-9);
 
   &:hover {
@@ -47,11 +25,10 @@
   }
 }
 
-[data-theme=dark]
-summary[role="link"].secondary,
+[data-theme="dark"] summary[role="link"].secondary,
 a.secondary {
-   color: var(--colar-gray-4);
-   &:is([aria-current], :hover, :active, :focus) {
+  color: var(--colar-gray-4);
+  &:is([aria-current], :hover, :active, :focus) {
     background-color: transparent;
     color: var(--colar-gray-3);
   }
@@ -59,8 +36,8 @@ a.secondary {
 
 summary[role="link"].secondary,
 a.secondary {
-   color: var(--colar-gray-9);
-   &:is([aria-current], :hover, :active, :focus) {
+  color: var(--colar-gray-9);
+  &:is([aria-current], :hover, :active, :focus) {
     background-color: transparent;
     color: var(--colar-gray-11);
   }
@@ -78,176 +55,6 @@ details[role="list"] {
 .dropdown-container {
   display: flex;
 }
-
-// nav div details summary {
-//   padding: var(--nav-element-spacing-vertical) var(--nav-element-spacing-horizontal);
-// }
-
-// .fillNav {
-//   background-color: rgba(11,114,133, .6);
-//   backdrop-filter: saturate(180%) blur(10px);
-//   //z-index: 99;
-//   width: 100%;
-
-// }
-
-//   [data-theme= dark]
-//   .navWithSlide {
-//     background-color: rgba(16,152,173, .5);
-//   }
-
-//   .right-nav {
-//     display: flex;
-//     justify-content: flex-end;
-//   }
-
-//   @media (min-width: 768px) {
-//     .fillNav {
-//       display: flex;
-//       justify-content: space-between;
-//     }
-//     .left-nav {
-//       display: flex;
-
-//     }
-//   }
-
-//   nav strong {
-//     padding-right: 1em;
-//   }
-
-//   .bm-item {
-//     display: inline-block;
-//     text-decoration: none;
-//     margin-bottom: 10px;
-//     color: var(--colar-gray-11);
-//     transition: color 0.2s;
-//   }
-
-//   /* Change color on hover */
-//   .bm-item:hover {
-//     color: var(--colar-gray-8);
-//   }
-
-//   [data-theme= dark]
-//   .bm-item{
-//     color: var(--colar-gray-4);
-//   }
-
-//   [data-theme=dark]
-//   .bm-item:hover {
-//     color: var(--colar-gray-2);
-//   }
-
-//   // [data-theme= dark]
-//   // .bm-item:hover {
-//   //   color: white;
-//   // }
-
-//   // .bm-menu {
-//   //   z-index: 100;
-//   // }
-
-//   //   lines itself
-//   .bm-burger-button {
-//   position: absolute;
-//     width: 36px;
-//     height: 30px;
-//     top:16px;
-//      left: 16px;
-//     //right: 16px;
-//   }
-
-//   /* Color/shape of burger icon bars */
-//   [data-theme = dark]
-//   .bm-burger-bars {
-//     background: var(--colar-gray-2);
-//   }
-
-//   .bm-burger-bars{
-//     background: var(--colar-gray-9);
-//   }
-
-//   /* Position and sizing of clickable cross button */
-//   .bm-cross-button {
-//     height: 24px;
-//     width: 24px;
-//   }
-
-//   .bm-cross {
-//     background: var(--colar-gray-11);
-//   }
-
-//   [data-theme= dark]
-//   .bm-cross {
-//     background: var(--colar-gray-2);
-//   }
-
-//   /* General sidebar styles */
-//   [data-theme= dark]
-//   .bm-menu {
-//     background: #3B444B;
-//     padding: 2.5em 1.5em 0;
-//     font-size: 1.15em;
-//   }
-
-//   .bm-menu {
-//     background: var(--colar-gray-4);
-//     padding: 2.5em 1.5em 0;
-//     font-size: 1.15em;
-//   }
-
-//   /* Morph shape necessary with bubble or elastic */
-//   // .bm-morph-shape {
-//   //   fill: #373a47;
-//   // }
-
-//   /* Wrapper for item list */
-//   //had to overwrite template css
-//   .bm-item-list {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: left;
-//   }
-
-//   /* Styling of overlay */
-//   .bm-overlay {
-//     padding-left: -10px !important;
-//     background: rgba(0, 0, 0, 0.3);
-//   }
-
-//   [data-theme= dark]
-//   .bm-overlay {
-//       padding-left: -10px !important;
-//       background: rgba(0, 0, 0, 0.5);
-//   }
-
-//   .bm-contain {
-//     display: flex;
-//     flex-direction: column;
-
-//   }
-
-//   .bm-menu-wrap {
-//     position: fixed;
-//     min-height: 100%;
-//   }
-
-//this fixes the negative margin in dropdown
-// ul details summary {
-//   margin: 0;
-//   padding: 0;
-// }
-
-// .dropdownContainer {
-//   margin: 0;
-//   padding: 0;
-// }
-
-// .secondary {
-//   margin: 0;
-//   padding: 0;
-// }
 
 //   // toggle switch
 

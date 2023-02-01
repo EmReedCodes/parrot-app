@@ -10,17 +10,17 @@
   justify-content: space-between;
 }
 
-[data-theme=dark] .nav-logo a {
+[data-theme=dark] nav a {
   color: var(--colar-gray-4);
 }
-[data-theme=dark] .nav-logo a:hover {
+[data-theme=dark] nav a:hover {
   color: var(--colar-gray-2);
 }
 
-.nav-logo a {
+nav a {
   color: var(--colar-gray-9);
 }
-.nav-logo a:hover {
+nav a:hover {
   color: var(--colar-gray-11);
 }
 

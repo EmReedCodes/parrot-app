@@ -13,7 +13,7 @@ const ContactForm = () => {
       <article id="contact" className="grid">
         <section className='wordGame'>
           <h2>Contact</h2>
-          <p>Parrot is a continued work in process. Please feel free to contact me with any suggestions or ideas you may have. Feedback is also appreciated. Every user of Parrot is important and some of the best changes were from users like you. </p>
+          <p>I'm constantly striving for improvement and value the contributions of my users. If you have any suggestions, ideas, or feedback, please don't hesitate to reach out. Your input is essential to the ongoing success and growth. Thank you for using Parrot, and I look forward to hearing from you!</p>
             <form onSubmit={handleSubmit}>
             <label htmlFor="email">
               Email Address
