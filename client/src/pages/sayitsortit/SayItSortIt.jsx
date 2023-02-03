@@ -9,23 +9,41 @@ import { FaMicrophoneAltSlash } from "react-icons/fa"
 import { FaMicrophoneAlt } from "react-icons/fa"
 import { createSpeechlySpeechRecognition } from "@speechly/speech-recognition-polyfill/dist/createSpeechRecognition"
 
- const appId = process.env.REACT_APP_SPEECHLY_ID
- const SpeechlySpeechRecognition = createSpeechlySpeechRecognition(appId);
-SpeechRecognition.applyPolyfill(SpeechlySpeechRecognition);
+const appId = process.env.REACT_APP_SPEECHLY_ID
+const SpeechlySpeechRecognition = createSpeechlySpeechRecognition(appId)
+SpeechRecognition.applyPolyfill(SpeechlySpeechRecognition)
 
 export const WordContext = createContext("")
 
-const saidColor = {
-  red: "#ffb1b1",
-  blue: "#c8d9ff"
-}
+//TODO how to get action only on first instance of the word appearing. previously adding animations made it happen every time the array would rearrange itself. Only want it to happen one single time.
 
 const SortItSpellIt = () => {
   const [saidWord, setSaidWord] = useState("")
 
-  const [background, setBackground] = useState("")
+  const [backgroundClass, setBackgroundClass] = useState("")
 
-
+  const commands = [
+    {
+      command: "red",
+      callback: () => setBackgroundClass("red")
+    },
+    {
+      command: "green",
+      callback: () => setBackgroundClass("green")
+    },
+    {
+      command: "blue",
+      callback: () => setBackgroundClass("blue")
+    },
+    {
+      command: "purple",
+      callback: () => setBackgroundClass("purple")
+    },
+    {
+      command: "yellow",
+      callback: () => setBackgroundClass("yellow")
+    }
+  ]
 
   const {
     finalTranscript,
@@ -33,18 +51,14 @@ const SortItSpellIt = () => {
     browserSupportsSpeechRecognition,
     isMicrophoneAvailable,
     resetTranscript
-  } = useSpeechRecognition()
+  } = useSpeechRecognition({ commands })
 
-//TODO: dont need this useEffect can set ternary on style itself for background
-  
+  //TODO: rework all these if's
+
   useEffect(() => {
     if (finalTranscript !== "") {
       SpeechRecognition.stopListening()
       setSaidWord(finalTranscript.toLowerCase())
-    }
-
-    if (saidColor.hasOwnProperty(saidWord)) {
-      setBackground(saidColor[saidWord])
     }
   }, [finalTranscript, setSaidWord, saidWord])
 
@@ -57,12 +71,9 @@ const SortItSpellIt = () => {
     return toast.error("Microphone must be on")
   }
 
-  const style = {
-    background: background
-  }
-
   const resetWord = () => {
     setSaidWord("")
+    setBackgroundClass("")
     resetTranscript()
   }
   //TODO: slow speed down on repeated word
@@ -75,17 +86,17 @@ const SortItSpellIt = () => {
   }
 
   return (
-    <section className="sortItHome" style={style}>
-      {!saidWord ? 
+    <section className={`${backgroundClass} sortItHome`}>
+      {!saidWord ? (
         <>
           <h2>Let's get to sorting!</h2>
           <h5>Click start and speak a word to begin.</h5>
-            <p>Say It Spell It works best with 8 letters or less currently.</p>
+          <p>Say It Spell It works best with 8 letters or less currently.</p>
         </>
-        :
+      ) : (
         <h5>Click or tap to hold and drag the tile.</h5>
-      }
-<p>Microphone: {listening ? 'on' : 'off'}</p>
+      )}
+      <p>Microphone: {listening ? "on" : "off"}</p>
       {saidWord && (
         <>
           <button className="reset-btn" onClick={() => resetWord()}>

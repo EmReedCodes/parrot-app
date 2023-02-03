@@ -81,8 +81,7 @@ const SortMatch = () => {
   return (
     <>
       <div
-        className="sortContainer lined thick"
-        // style={containerStyle}
+        className="sortContainer"
       >
         <DndContext
           sensors={sensors}

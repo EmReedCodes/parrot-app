@@ -1,5 +1,3 @@
-
-
 // .containReplay {
 //   cursor: pointer;
 //   padding: 2em;
@@ -9,6 +7,27 @@
 //   animation-timing-function: var(--ease-squish-5);
 //   animation-duration: 1s;
 // }
+
+.sortItHome {
+  &.red {
+    background-color: hsla(0, 100%, 50%, 0.2);
+  }
+  &.green {
+    background-color: hsla(120, 100%, 25%, 0.2);
+  }
+  &.blue {
+    background-color: hsla(180, 100%, 50%, 0.2);
+  }
+  &.green {
+    background-color: hsla(120, 100%, 25%, 0.2);
+  }
+  &.purple {
+    background-color: hsla(300, 100%, 25%, 0.2);
+  }
+  &.yellow {
+    background-color: hsla(60, 100%, 50%, 0.2);
+  }
+}
 
 .replay-btn {
   display: block;
@@ -63,6 +82,12 @@
     }
   }
 }
+.surprise-background {
+  &.red {
+    background-color: #ffa38c;
+  }
+}
+
 .sortContainer {
   display: grid;
   grid-auto-flow: column;
@@ -73,14 +98,14 @@
   margin: 3em 0 3em 0;
   width: 100%;
 }
-
+[data-theme="dark"] #sortTile {
+  background-color: #320064;
+}
 #sortTile {
   display: grid;
   font-weight: 700;
-  background-color: #7f15bf;
+  background-color: #8a3adb;
   border-color: transparent;
- 
-  //max-width: fit-content;
 }
 
 @media (min-width: 576px) {
@@ -91,7 +116,7 @@
 
 @media (min-width: 768px) {
   .sortItHome button {
-    max-width: 70%;
+    max-width: 50%;
     margin: 0 auto;
   }
 
@@ -107,24 +132,6 @@
     font-size: 3.5em;
   }
 }
-
-//decided to take off visible container for now... ?
-
-// @media (min-width: 768px) {
-//   .sortContainer {
-//     width: min-content;
-//     background: #e0e0e0;
-//     box-shadow: 20px 38px 34px -26px hsla(0, 0%, 0%, 0.2);
-//     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-//     //border:solid 7px #41403E;
-//     &:hover {
-//       box-shadow: 2px 8px 4px -6px hsla(0, 0%, 0%, 0.3);
-//     }
-//     //   &.lined.thick{
-//     //     border:solid #41403E;
-//     //  }
-//   }
-// }
 
 //this works but animates every time its touched
 //TODO: have animation only run once regardless of render
