@@ -12,14 +12,24 @@ import Footer from "./components/footer/Footer"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-import useLocalStorage from "./hooks/useLocalStorage"
-
+import { useState, useEffect, useRef } from "react"
 
 function App() {
-  //this isnt perfect, doesnt update until a new refresh 
-  const [theme] = useLocalStorage("theme")
-  console.log(theme)
+
+  //this isnt perfect, doesnt update until a new render
+
   
+  const [currentTheme, setCurrentTheme] = useState('');
+
+  useEffect(() => {
+    window.addEventListener('storage', () => {
+      const theme = localStorage.getItem('currentTheme')
+      console.log(theme);
+      setCurrentTheme(theme);
+    })
+  }, []);
+  
+console.log(currentTheme)
   return (
     <>
       <Router>
@@ -48,7 +58,7 @@ rtl={false}
 pauseOnFocusLoss
 draggable
 pauseOnHover
-theme={theme}
+theme={currentTheme}
 />
         </main>
         <Footer />
