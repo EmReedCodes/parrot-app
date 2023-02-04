@@ -21,6 +21,7 @@ function useLocalStorage(key, initialValue) {
   const update = value => {
     setState(value)
     localStorage.setItem(key, JSON.stringify(value))
+
   }
 
   const deleteItem = item => {

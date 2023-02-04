@@ -16,7 +16,16 @@ const saveWord = async (speechData, token) => {
   const response = await axios.post(API_URL, speechData, config)
   //I should just check for isSuccess once where the dispatch happened not here
   if (response.status === 200) {
-    toast.success('Successfully added to bank.')
+    toast.success('Successfully added to bank.', {
+      position: "top-right",
+autoClose: 2500,
+hideProgressBar: false,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "light",
+    });
   }
   console.log(response.data)
   return response.data

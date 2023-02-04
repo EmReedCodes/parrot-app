@@ -97,4 +97,13 @@ h4,
 h5,
 p {
   text-align: center;
+}
+
+[data-theme=dark] .Toastify__toast {
+  background-color: #1B2832;
+  color: var(--colar-gray-1);
+}
+
+[data-theme=dark] .Toastify__close-button {
+  color: var(--colar-gray-1);
 }/*# sourceMappingURL=main.css.map */

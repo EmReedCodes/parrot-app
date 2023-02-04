@@ -117,3 +117,18 @@ h5,
 p {
   text-align: center;
 }
+
+//toast - Should have been able to set theme directly. 
+//State wasnt updating without a render. Complications. :(
+
+[data-theme=dark]
+.Toastify__toast {
+  background-color: #1B2832;
+  color: var(--colar-gray-1)
+
+}
+
+[data-theme=dark]
+.Toastify__close-button {
+  color: var(--colar-gray-1);
+}
