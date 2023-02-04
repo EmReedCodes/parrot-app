@@ -113,13 +113,9 @@
   font-weight: 700;
   background-color: #8a3adb;
   border-color: transparent;
+  font-size: 2em;
 }
 
-@media (min-width: 576px) {
-  #sortTile {
-    font-size: 2em;
-  }
-}
 @media (min-width: 768px) {
   .sortItHome button {
     max-width: 50%;
@@ -133,6 +129,6 @@
     width: 20%;
   }
   #sortTile {
-    font-size: 3.5em;
+    font-size: 3em;
   }
 }/*# sourceMappingURL=style.css.map */

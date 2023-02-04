@@ -15,10 +15,10 @@ const saveWord = async (speechData, token) => {
 
   const response = await axios.post(API_URL, speechData, config)
   //I should just check for isSuccess once where the dispatch happened not here
-  // if (response.status === 200) {
-  //   toast.success("Saved!")
-  // }
-  // console.log(response.data)
+  if (response.status === 200) {
+    toast.success('Successfully added to bank.')
+  }
+  console.log(response.data)
   return response.data
 }
 
@@ -33,7 +33,16 @@ const updateWord = async (textData, token) => {
 
   const response = await axios.patch(API_URL + "update", textData, config)
   if (response.status === 200) {
-    toast.success("Updated word")
+    toast('🦄 Wow so easy!', {
+      position: "top-right",
+      autoClose: 2500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
   }
   return response.data
 }

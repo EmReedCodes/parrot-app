@@ -12,11 +12,13 @@ import Footer from "./components/footer/Footer"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-
+import useLocalStorage from "./hooks/useLocalStorage"
 
 
 function App() {
-  
+  //this isnt perfect, doesnt update until a new refresh 
+  const [theme] = useLocalStorage("theme")
+  console.log(theme)
   
   return (
     <>
@@ -36,7 +38,18 @@ function App() {
           
           </Routes>
 
-          <ToastContainer autoClose={2000} />
+          <ToastContainer
+position="top-right"
+autoClose={2500}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme={theme}
+/>
         </main>
         <Footer />
       </Router>

@@ -9,7 +9,7 @@ import useLocalStorage from "../../hooks/useLocalStorage"
 
 const WordBank = () => {
  
-
+//https://www.learnbestcoding.com/post/54/react-usestate-set-does-not-reflect-immediately
   const dispatch = useDispatch()
 
   const { user } = useSelector(state => state.auth)

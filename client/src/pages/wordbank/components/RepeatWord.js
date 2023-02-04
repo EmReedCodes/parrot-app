@@ -7,7 +7,7 @@ import sample from "lodash/sample"
 const RepeatWord = ({ wordBank, list, userLoggedIn }) => {
   const [ourText, setOurText] = useState("")
   const [range, setRange] = useState("0.6")
-
+  
 
   const speechHandler = text => {
     if (text) {
