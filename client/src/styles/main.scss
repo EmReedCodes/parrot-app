@@ -132,3 +132,8 @@ p {
 .Toastify__close-button {
   color: var(--colar-gray-1);
 }
+
+.Toastify__close-button {
+  display: flex;
+  justify-content: flex-end;
+}
