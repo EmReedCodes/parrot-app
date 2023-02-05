@@ -8,29 +8,10 @@ const WordForm = ({ list, setList }) => {
 
   const { user } = useSelector(state => state.auth)
   const { isSuccess, isError } = useSelector(state => state.wordBank)
-//     toast.success('Successfully added to bank.', {
-//       position: "top-right",
-// autoClose: 2500,
-// hideProgressBar: false,
-// closeOnClick: true,
-// pauseOnHover: true,
-// draggable: true,
-// progress: undefined,
-// theme: "light",
-  //  });
-  useEffect(() => {
-    if (isSuccess === true) {
-    toast.success('Successfully added to bank.')
-    }
-    if (isError) {
-      toast.warn('Something went wrong, please try again.')
-    }
-}, [isError, isSuccess])
 
   const dispatch = useDispatch()
 
   const onSubmit = e => {
-
     if (!word) {
       return toast.warn("Please enter word")
     }
@@ -45,6 +26,18 @@ const WordForm = ({ list, setList }) => {
       e.preventDefault()
       dispatch(createWordForBank({ word }))
       setWord("")
+      if (isSuccess === true) {
+        toast.success("Successfully added to bank.", {
+          position: "top-right",
+          autoClose: 2500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true
+        })
+      } else if (isError === true) {
+        toast.warn("something went wrong, please try again.")
+      }
     }
   }
 
