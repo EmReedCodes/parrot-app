@@ -8,6 +8,19 @@ import { toast } from "react-toastify"
 import Modal from "../../components/modal/Modal"
 import List from "./List"
 
+
+  //order of delete account
+  //click on delete password
+  //actions: open modal
+  //if click yes back to page where you must confirm password
+  //action:
+  //password correct
+  //action:
+  //begin delete sequence
+  //password incorrect
+  //action:
+  //warn password is incorrect
+
 const Settings = () => {
   //TODO: useReducer here instead?
   //check this out https://nazrhan-mohcine.medium.com/react-hooks-work-with-usestate-and-usereducer-effectively-471646cdf925
@@ -20,38 +33,26 @@ const Settings = () => {
   const [passwordConfirmed, setPassWordConfirmed] = useState(false)
   const [getList, setGetList] = useState(false)
 
-  //ran into issue needing reponse back with inSuccess and isError from two seperate dispatches thus the extra useStates... Need to solve this
-
   useEffect(() => {
-    if (isSuccess === true && !passwordConfirmed) {
-      setPassWordConfirmed(true)
-    }
-    if (isError === true) {
-      toast.warn("password incorrect")
-    }
-  }, [isError, isSuccess, dispatch, navigate, passwordConfirmed])
-
-  //window.location.reload() causes glitch on logout, if I dont have it when trying to hit login sends you to dash, is confused
-
-  useEffect(() => {
-    if (passwordConfirmed) {
-      dispatch(deleteSelf())
-
-      if (isSuccess === true) {
-        toast.success('Account deleted')
+    const deleteAccount = () => {
+      if (passwordConfirmed) {
+        dispatch(deleteSelf())
+        toast.success("Account deleted")
         dispatch(reset())
         localStorage.clear()
         navigate("/")
         window.location.reload()
         return
-      } 
-      if (isError === true) {
+      }
+      if (isError === true && passwordConfirmed) {
         toast.warn("Something went wrong.")
       }
     }
-  }, [isSuccess, navigate, passwordConfirmed, dispatch, isError])
+    deleteAccount()
+  }, [passwordConfirmed])
 
   const toggleModal = () => {
+    //this is there so user can decide to click again and cancel
     if (!modalToggle && !userDelete) {
       setModalToggle(true)
     } else {
@@ -59,13 +60,20 @@ const Settings = () => {
       setUserDelete(false)
     }
   }
-  const onSubmit = e => {
+
+  function onSubmit(e) {
     e.preventDefault()
     dispatch(confirmPWInput({ pwAttempt: pwAttempt.current.value }))
+    if (isSuccess === true && !passwordConfirmed) {
+      setPassWordConfirmed(true)
+    } else if (isError === true && !passwordConfirmed) {
+      toast.warn("Password incorrect. Please try again.")
+    }
     e.target.reset()
   }
 
   //TODO: create counter give users 3 chances
+  //make another action that checks for is success and is error and sets correct state
   const beginDelete = () => {
     setUserDelete(true)
     setModalToggle(false)
@@ -73,16 +81,16 @@ const Settings = () => {
 
   const modalText = () => {
     return (
-        <>
-          <h3>Deleting your account will destroy all data associated with your username.</h3>
-          <h4>Are you sure?</h4>
-          <button onClick={() => beginDelete()}>Yes</button>
-          <button onClick={() => setModalToggle(false)}>Cancel</button>
-        </>
+      <>
+        <h3>Deleting your account will destroy all data associated with your username.</h3>
+        <h4>Are you sure?</h4>
+        <button onClick={() => beginDelete()}>Yes</button>
+        <button onClick={() => setModalToggle(false)}>Cancel</button>
+      </>
     )
   }
 
-  //TODO: need to check if there is any list 
+  //TODO: need to check if there is any list
 
   const displayList = () => {
     if (getList === false) {
@@ -95,7 +103,6 @@ const Settings = () => {
 
   return (
     <section className="settings wordGame">
-
       <span>
         Click{" "}
         <button onClick={() => displayList()} className="inline-btn">
@@ -110,7 +117,12 @@ const Settings = () => {
           Delete Account
         </button>
       </span>
-      <Modal className="modalAnimate" open={modalToggle} onClick={() => setModalToggle(false)} text={modalText()} />
+      <Modal
+        className="modalAnimate"
+        open={modalToggle}
+        onClick={() => setModalToggle(false)}
+        text={modalText()}
+      />
 
       {userDelete && (
         <form onSubmit={onSubmit}>
