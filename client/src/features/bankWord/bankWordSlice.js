@@ -19,7 +19,6 @@ const initialState = {
 export const createWordForBank = createAsyncThunk("word/save", async (speechData, thunkAPI) => {
   try {
     const token = thunkAPI.getState().auth.user.token
-    console.log(speechData, 'slice create')
     return await bankWordService.saveWord(speechData, token)
   } catch (error) {
     const message =
@@ -66,7 +65,6 @@ export const updateAndReplaceWord = createAsyncThunk("word/replace", async (text
 export const deleteWordForList = createAsyncThunk("word/delete", async (_id, thunkAPI) => {
   try {
     const token = thunkAPI.getState().auth.user.token
-    console.log(_id, " word _id slice delte")
     return await bankWordService.deleteBankWord(_id, token)
   } catch (error) {
     const message =
@@ -112,6 +110,7 @@ export const bankWordSlice = createSlice({
       .addCase(createWordForBank.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
+        state.isError = false
         //since were creating the list it has to be less than 10? hmmmmm 
         if (state.wordBank.length < 10) {
           state.wordBank.push(action.payload)
@@ -150,7 +149,6 @@ export const bankWordSlice = createSlice({
       .addCase(deleteWordForList.fulfilled, (state, action) => {
         state.isLoading = false
         state.isSuccess = true
-        //TODO: blog about this mistake I made and how I fixed it
         //I needed to send back the _id for the action.payload
         state.wordBank = state.wordBank.filter(word => word._id !== action.payload._id)
         

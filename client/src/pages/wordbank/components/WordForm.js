@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { createWordForBank } from "../../../features/bankWord/bankWordSlice"
 import { toast } from "react-toastify"
@@ -7,15 +7,36 @@ const WordForm = ({ list, setList }) => {
   const [word, setWord] = useState("")
 
   const { user } = useSelector(state => state.auth)
+  const { isSuccess, isError } = useSelector(state => state.wordBank)
+//     toast.success('Successfully added to bank.', {
+//       position: "top-right",
+// autoClose: 2500,
+// hideProgressBar: false,
+// closeOnClick: true,
+// pauseOnHover: true,
+// draggable: true,
+// progress: undefined,
+// theme: "light",
+  //  });
+  useEffect(() => {
+    if (isSuccess === true) {
+    toast.success('Successfully added to bank.')
+    }
+    if (isError) {
+      toast.warn('Something went wrong, please try again.')
+    }
+}, [isError, isSuccess])
 
   const dispatch = useDispatch()
 
   const onSubmit = e => {
+
     if (!word) {
       return toast.warn("Please enter word")
     }
     if (!user) {
       e.preventDefault()
+      //this is how I added to the list without a render
       setList([...list, word])
       console.log(list)
       setWord("")
