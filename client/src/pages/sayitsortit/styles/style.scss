@@ -101,12 +101,20 @@
 [data-theme="dark"] #sortTile {
   background-color: #320064;
 }
+//still struggling with animation as it continues to do animation on each tile move except on click
 #sortTile {
   display: grid;
   font-weight: 700;
   background-color: #8a3adb;
   border-color: transparent;
   font-size: 2em;
+    &.correct {
+      background-color: #4dbb09;
+    }
+    &.incorrect {
+      background-color: #bf2a15;
+      //animation: var(--animation-shake-x);
+    }
 }
 
 // @media (min-width: 576px) {

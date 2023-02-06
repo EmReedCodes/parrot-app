@@ -17,19 +17,25 @@ import SortableItem from "./SortableItem"
 import { v4 as uuidv4 } from "uuid"
 import shuffle from "lodash/shuffle"
 import Submission from "./Submission"
-import { useContext } from "react"
+import { useContext, useMemo } from "react"
 import { WordContext } from "../../SayItSortIt"
 
 
 
 const SortMatch = () => {
-
+  const [pushed, setPushed] = useState(null);
   const [saidWord, setSaidWord] = useContext(WordContext)
   const [items, setItems] = useState([])
- 
-  const [initialItems, setInitialItems] = useState([])
   
-  //TODO: color is always null, using color but not setting it
+  const [initialItems, setInitialItems] = useState([])
+
+  const triggerAnimatation = useMemo(() => {
+    if (pushed === true) {
+      
+    }
+  })
+  
+
   
   useEffect(() => {
     const words = []
@@ -86,9 +92,6 @@ const SortMatch = () => {
         <DndContext
           sensors={sensors}
           collisionDetection={closestCenter}
-          //onDragEnd={handleDragEnd}
-          // onDragStart={handleDragStart}
-          // onDragOver={handleDragOver}
           onDragEnd={handleDragEnd}
           onDragCancel={onDragCancel}
         >

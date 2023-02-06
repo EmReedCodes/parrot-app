@@ -31,7 +31,9 @@ function App() {
             <Route path="/about" element={<About />}></Route>
           </Routes>
 
-          <ToastContainer />
+          <ToastContainer
+            autoClose={2500}
+          />
         </main>
         <Footer />
       </Router>

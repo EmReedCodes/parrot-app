@@ -115,6 +115,12 @@
   border-color: transparent;
   font-size: 2em;
 }
+#sortTile.correct {
+  background-color: #4dbb09;
+}
+#sortTile.incorrect {
+  background-color: #bf2a15;
+}
 
 @media (min-width: 768px) {
   .sortItHome button {

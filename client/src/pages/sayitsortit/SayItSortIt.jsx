@@ -78,6 +78,7 @@ const SortItSpellIt = () => {
   }
   //TODO: slow speed down on repeated word
   const speechHandler = text => {
+     
     if (saidWord) {
       const msg = new SpeechSynthesisUtterance()
       msg.text = text
