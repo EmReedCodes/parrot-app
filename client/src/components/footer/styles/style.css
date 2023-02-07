@@ -49,4 +49,27 @@
   color: var(--colar-orange-6);
   -webkit-animation: var(--animation-shake-x) forwards;
           animation: var(--animation-shake-x) forwards;
+}
+
+[data-theme=dark] footer ul li a {
+  color: var(--colar-gray-4);
+}
+[data-theme=dark] footer ul li a:hover {
+  color: var(--colar-gray-2);
+}
+
+footer ul {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1em;
+}
+footer ul li {
+  list-style: none;
+}
+footer ul li a {
+  text-decoration: none;
+  color: var(--colar-gray-9);
+}
+footer ul li a:hover {
+  color: var(--colar-gray-11);
 }/*# sourceMappingURL=style.css.map */

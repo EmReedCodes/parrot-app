@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Confetti from "../../../../hooks/useConfetti"
 import Modal from "../../../../components/modal/Modal"
 import { useDispatch, useSelector } from "react-redux"
@@ -8,10 +8,17 @@ import { toast } from "react-toastify"
 export default function Submission({ items, setItems, word, initialItems }) {
   const [isVisible, setIsVisible] = useState(false)
   const [modalToggle, setModalToggle] = useState(false)
+  const [checkStatus, setCheckStatus] = useState(false)
   const dispatch = useDispatch()
   const { user } = useSelector(state => state.auth)
+  //TODO: toast isn't firing every success for some reason 
   const { isSuccess, isError } = useSelector(state => state.wordBank)
 
+  useEffect(() => {
+    if (checkStatus === true) {
+      
+    }
+  })
   const checkAnswer = () => {
     const checkLetter = Object.values(items).map((item, idx) => item.letter === word[idx])
     setItems(current =>
@@ -39,6 +46,7 @@ export default function Submission({ items, setItems, word, initialItems }) {
   const onSubmit = e => {
     dispatch(createWordForBank({ word }))
     if (isSuccess === true) {
+      console.log('issuccess triggered')
       toast.success('Successfully added to the bank.')
     }else if (isError === true) {
       toast.warn('Something went wrong, please try again.')

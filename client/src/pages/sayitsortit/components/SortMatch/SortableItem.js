@@ -9,7 +9,7 @@ const SORTABLE_TRANSITION_DURATION = 250;
 const SortableItem = (props) => {
   const [clicked, setClicked] = useState(false)
     const { id, item, color } = props;
- console.log(color)
+
       const {
     setNodeRef,
     listeners,

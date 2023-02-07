@@ -9,6 +9,7 @@ import { FaMicrophoneAltSlash } from "react-icons/fa"
 import { FaMicrophoneAlt } from "react-icons/fa"
 import { createSpeechlySpeechRecognition } from "@speechly/speech-recognition-polyfill/dist/createSpeechRecognition"
 
+//TODO: I could have split up Say It Sort It with different routes
 const appId = process.env.REACT_APP_SPEECHLY_ID
 const SpeechlySpeechRecognition = createSpeechlySpeechRecognition(appId)
 SpeechRecognition.applyPolyfill(SpeechlySpeechRecognition)
@@ -76,7 +77,7 @@ const SortItSpellIt = () => {
     setBackgroundClass("")
     resetTranscript()
   }
-  //TODO: slow speed down on repeated word
+
   const speechHandler = text => {
      
     if (saidWord) {
