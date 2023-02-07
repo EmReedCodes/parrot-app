@@ -3,11 +3,12 @@ import { FaRegPlayCircle } from "react-icons/fa"
 import SortMatch from "./components/SortMatch"
 import { IconContext } from "react-icons"
 import { useState, useEffect, createContext } from "react"
+import { createSpeechlySpeechRecognition } from '@speechly/speech-recognition-polyfill';
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition"
 import { toast } from "react-toastify"
 import { FaMicrophoneAltSlash } from "react-icons/fa"
 import { FaMicrophoneAlt } from "react-icons/fa"
-import { createSpeechlySpeechRecognition } from "@speechly/speech-recognition-polyfill/dist/createSpeechRecognition"
+
 
 //TODO: I could have split up Say It Sort It with different routes
 const appId = process.env.REACT_APP_SPEECHLY_ID
@@ -51,15 +52,17 @@ const SortItSpellIt = () => {
     listening,
     browserSupportsSpeechRecognition,
     isMicrophoneAvailable,
-    resetTranscript
+    resetTranscript,
+    abortListening
   } = useSpeechRecognition({ commands })
-
+  const startListening = () => SpeechRecognition.startListening({ continuous: true });
   //TODO: rework all these if's
 
   useEffect(() => {
     if (finalTranscript !== "") {
-      SpeechRecognition.stopListening()
+      SpeechRecognition.abortListening()
       setSaidWord(finalTranscript.toLowerCase())
+      console.log('hitting useeffect')
     }
   }, [finalTranscript, setSaidWord, saidWord])
 
@@ -124,7 +127,7 @@ const SortItSpellIt = () => {
         </IconContext.Provider>
       )}
 
-      {!saidWord && !listening && <button onClick={SpeechRecognition.startListening}>Start</button>}
+      {!saidWord && !listening && <button onClick={startListening}>Start</button>}
       {!saidWord && listening && <button onClick={SpeechRecognition.abortListening}>Cancel</button>}
 
       {saidWord && (

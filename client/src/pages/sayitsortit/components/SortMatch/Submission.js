@@ -15,10 +15,16 @@ export default function Submission({ items, setItems, word, initialItems }) {
   const { isSuccess, isError } = useSelector(state => state.wordBank)
 
   useEffect(() => {
-    if (checkStatus === true) {
-      
+    if (checkStatus && isSuccess === true) {
+      console.log('worked in usueffect')
+      toast.success('Successfully added to the bank.')
+      setCheckStatus(false)
+    } else if (checkStatus && isError) {
+      console.log('useeffect error')
+      toast.warn('Something went wrong, please try again.')
+      setCheckStatus(false)
     }
-  })
+  }, [checkStatus, isSuccess, isError])
   const checkAnswer = () => {
     const checkLetter = Object.values(items).map((item, idx) => item.letter === word[idx])
     setItems(current =>
@@ -45,12 +51,13 @@ export default function Submission({ items, setItems, word, initialItems }) {
 
   const onSubmit = e => {
     dispatch(createWordForBank({ word }))
-    if (isSuccess === true) {
-      console.log('issuccess triggered')
-      toast.success('Successfully added to the bank.')
-    }else if (isError === true) {
-      toast.warn('Something went wrong, please try again.')
-    }
+    setCheckStatus(true)
+    // if (isSuccess === true) {
+    //   console.log('issuccess triggered')
+    //   toast.success('Successfully added to the bank.')
+    // }else if (isError === true) {
+    //   toast.warn('Something went wrong, please try again.')
+   // }
     setModalToggle(false)
   }
 //TODO: fix spacing with modal btn 

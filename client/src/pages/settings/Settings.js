@@ -60,7 +60,8 @@ const Settings = () => {
       setUserDelete(false)
     }
   }
-
+//TODO: enable enter key to also work
+  //https://reactgo.com/react-trigger-button-click/
   function onSubmit(e) {
     e.preventDefault()
     dispatch(confirmPWInput({ pwAttempt: pwAttempt.current.value }))
