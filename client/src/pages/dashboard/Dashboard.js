@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { reset } from "../../features/auth/authSlice"
 import { createWordForBank } from "../../features/bankWord/bankWordSlice"
-import parrotImage from "../../assets/parrotsmaller.png"
-import smallerParrotImage from "../../assets/parrotevensmaller.png"
 import smallestParrotImage from "../../assets/evensmallersmallerparrot.png"
 import smallParrot from "../../assets/smallParrot1.png"
 import './styles/style.css'
@@ -60,8 +58,7 @@ const Dashboard = () => {
     <section className="wordGame verticalCenter">
       <h1>Welcome back {user.name}!</h1>
       <div className="dashboardImage">
-        {/* <img src={parrotImage} className="parrot-logo" alt="cartoon parrot" /> */}
-        <ProgressiveImage src={smallestParrotImage} placeholder={smallestParrotImage}>
+        <ProgressiveImage src={smallestParrotImage} placeholder={smallParrot}>
           {(src, loading) => (
             <img
             className={`image${loading ? " loading" : " loaded"}`}

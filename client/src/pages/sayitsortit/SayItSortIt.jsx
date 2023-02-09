@@ -9,6 +9,7 @@ import { toast } from "react-toastify"
 import { FaMicrophoneAltSlash } from "react-icons/fa"
 import { FaMicrophoneAlt } from "react-icons/fa"
 import useWindowSize from "../../hooks/useWindowSize"
+import Modal from "../../components/modal/Modal"
 
 //TODO: I could have split up Say It Sort It with different routes
 //TODO: force change to landscape if screen is small enough
@@ -17,14 +18,21 @@ const appId = process.env.REACT_APP_SPEECHLY_ID
 const SpeechlySpeechRecognition = createSpeechlySpeechRecognition(appId)
 SpeechRecognition.applyPolyfill(SpeechlySpeechRecognition)
 
+
+
 export const WordContext = createContext("")
 
 //TODO how to get action only on first instance of the word appearing. previously adding animations made it happen every time the array would rearrange itself. Only want it to happen one single time.
 
 const SortItSpellIt = () => {
-  const [saidWord, setSaidWord] = useState("")
 
+
+  
+  const [saidWord, setSaidWord] = useState("")
+  const [modalToggle, setModalToggle] = useState(false)
   const [backgroundClass, setBackgroundClass] = useState("")
+
+  const size = useWindowSize()
 
   const commands = [
     {
@@ -56,15 +64,28 @@ const SortItSpellIt = () => {
     isMicrophoneAvailable,
     resetTranscript,
   } = useSpeechRecognition({ commands })
-  const startListening = () => SpeechRecognition.startListening({ continuous: true });
+ // const startListening = () => SpeechRecognition.startListening({ continuous: true });
   //TODO: rework all these if's
 
+  // useEffect(() => {
+  //   if (finalTranscript !== "") {
+  //     SpeechRecognition.abortListening()
+  //     setSaidWord(finalTranscript.toLowerCase())
+  //     if (finalTranscript.length > 7) {
+  //       setModalToggle(true)
+  //     }
+  //   }
+  // }, [finalTranscript, setSaidWord])
+//check screen width
   useEffect(() => {
-    if (finalTranscript !== "") {
+    if (finalTranscript.length > 7 && size.width < 768) {
+      setModalToggle(true)
+      return
+    } else if (finalTranscript !== '') {
       SpeechRecognition.abortListening()
       setSaidWord(finalTranscript.toLowerCase())
     }
-  }, [finalTranscript, setSaidWord, saidWord])
+  }, [finalTranscript, setSaidWord])
 
   if (!browserSupportsSpeechRecognition) {
     console.log("Try chrome")
@@ -88,6 +109,21 @@ const SortItSpellIt = () => {
       msg.text = text
       window.speechSynthesis.speak(msg)
     }
+  }
+
+  const toggleModalForMobile = () => {
+    SpeechRecognition.abortListening()
+    setSaidWord(finalTranscript.toLowerCase())
+    setModalToggle(false)
+  }
+
+  const modalText = () => {
+    return (
+      <>
+        <p>Turn your phone to landscape for a better experience.</p>
+        
+      </>
+    )
   }
 
   return (
@@ -127,7 +163,7 @@ const SortItSpellIt = () => {
         </IconContext.Provider>
       )}
 
-      {!saidWord && !listening && <button onClick={startListening}>Start</button>}
+      {!saidWord && !listening && <button onClick={SpeechRecognition.startListening}>Start</button>}
       {!saidWord && listening && <button onClick={SpeechRecognition.abortListening}>Cancel</button>}
 
       {saidWord && (
@@ -135,6 +171,9 @@ const SortItSpellIt = () => {
           <SortMatch />
         </WordContext.Provider>
       )}
+ 
+        <Modal open={modalToggle} onClick={() => toggleModalForMobile()} text={modalText()} />
+
     </section>
   )
 }

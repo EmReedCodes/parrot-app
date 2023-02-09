@@ -4,7 +4,7 @@
   align-items: center;
 }
 .verticalCenter .dashLinks {
-  width: 70%;
+  width: 100%;
 }
 .verticalCenter .dashLinks button {
   font-weight: 700;
@@ -12,6 +12,11 @@
   max-width: 100%;
 }
 
+@media (screen-width: 768px) {
+  .dashLinks {
+    width: 70%;
+  }
+}
 .dashboardImage {
   padding-bottom: 2em;
 }

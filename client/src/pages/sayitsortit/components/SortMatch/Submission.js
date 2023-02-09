@@ -52,12 +52,6 @@ export default function Submission({ items, setItems, word, initialItems }) {
   const onSubmit = e => {
     dispatch(createWordForBank({ word }))
     setCheckStatus(true)
-    // if (isSuccess === true) {
-    //   console.log('issuccess triggered')
-    //   toast.success('Successfully added to the bank.')
-    // }else if (isError === true) {
-    //   toast.warn('Something went wrong, please try again.')
-   // }
     setModalToggle(false)
   }
 //TODO: fix spacing with modal btn 

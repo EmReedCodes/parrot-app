@@ -3,7 +3,7 @@ import { ReactComponent as ParrotLogo } from "./../../parrot.svg"
 
 const Home = () => {
   return (
-    <section className="wordGame">
+    <section className="wordGame verticalCenter">
       <h1>Welcome to Parrot!</h1>
 
       <h4>Practice your speech with repetition and spelling.</h4>
@@ -12,7 +12,7 @@ const Home = () => {
         <ParrotLogo className="parrotLogo" alt="blue cartoon parrot" />
       </div>
 
-      <section className="home-btns">
+      <section className="dashLinks">
         <Link to="/login">
           <button>Login</button>
         </Link>
