@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom"
-
+import { useState } from "react"
 const DropdownMenu = ({ list, action = null, label }) => {
-
+//   const [isDropDownClicked, setIsDropDownClicked] = useState(null)
+//   const closeDropDown = () => {
+  
+// }
   return (
-    <details role="list" dir="rtl">
-      <summary aria-expanded="true" role="link" className="secondary">
+    <details className="dropDown" role="list" dir="rtl">
+      <summary aria-haspopup="listbox" role="link" className="secondary">
         {label}
       </summary>
       <ul role="listbox">
@@ -16,7 +19,7 @@ const DropdownMenu = ({ list, action = null, label }) => {
                 {item.toggle}
               </div>
             ) : (
-              <Link to={item.link}>{item.title}</Link>
+                <Link to={item.link}>{item.title}</Link>
             )}
           </li>
         ))}

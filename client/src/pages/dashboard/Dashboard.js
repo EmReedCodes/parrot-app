@@ -5,8 +5,11 @@ import { useSelector, useDispatch } from "react-redux"
 import { reset } from "../../features/auth/authSlice"
 import { createWordForBank } from "../../features/bankWord/bankWordSlice"
 import parrotImage from "../../assets/parrotsmaller.png"
+import smallerParrotImage from "../../assets/parrotevensmaller.png"
+import smallestParrotImage from "../../assets/evensmallersmallerparrot.png"
+import smallParrot from "../../assets/smallParrot1.png"
 import './styles/style.css'
-
+import ProgressiveImage from 'react-progressive-graceful-image'
 const Dashboard = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -16,7 +19,7 @@ const Dashboard = () => {
   const { isSuccess } = useSelector(state => state.wordBank)
   const [localStorageConfirmed, setLocalStorageConfirmed] = useState(false)
   const [list, setLocalList] = useState()
- // const [list, _, __, removeList] = useLocalStorage("list", localList)
+ 
 
   useEffect(() => {
     const localStorageList = localStorage.getItem("list") !== '[]' || null ? JSON.parse(localStorage.getItem("list")) : null
@@ -54,10 +57,21 @@ const Dashboard = () => {
   }, [dispatch, localStorageConfirmed, isSuccess, list])
 
   return (
-    <section className="wordGame dash verticalCenter">
+    <section className="wordGame verticalCenter">
       <h1>Welcome back {user.name}!</h1>
       <div className="dashboardImage">
-        <img src={parrotImage} className="parrot-logo" alt="cartoon parrot" />
+        {/* <img src={parrotImage} className="parrot-logo" alt="cartoon parrot" /> */}
+        <ProgressiveImage src={smallestParrotImage} placeholder={smallestParrotImage}>
+          {(src, loading) => (
+            <img
+            className={`image${loading ? " loading" : " loaded"}`}
+            src={src}
+            alt="sea beach"
+            // width="700"
+            // height="465"
+          />
+          )}
+        </ProgressiveImage>
       </div>
       <div className="dashLinks">
         <Link className="sortGame" to="/sayitsortit">

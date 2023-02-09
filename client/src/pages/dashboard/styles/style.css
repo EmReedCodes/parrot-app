@@ -1,27 +1,19 @@
-.dashboardImage {
-  padding-bottom: 2em;
+.verticalCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
-.dashboardImage img {
-  display: block;
-  margin: 0 auto;
-  max-width: 17rem;
+.verticalCenter .dashLinks {
+  width: 70%;
 }
-
-.parrotLogo {
-  display: block;
-  margin: auto;
-  max-height: 12rem;
-}
-@media (var(--lg-n-above)) {
-  .parrotLogo {
-    max-height: 12rem;
-  }
-}
-
-.dashLinks * {
+.verticalCenter .dashLinks button {
   font-weight: 700;
   outline: transparent;
+  max-width: 100%;
+}
+
+.dashboardImage {
+  padding-bottom: 2em;
 }
 
 [data-theme=dark] .dashLinks a:hover {

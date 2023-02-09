@@ -74,7 +74,6 @@ const Navbar = () => {
   return (
 
       <nav className="container-fluid nav-contain-background">
-  
 
      
       <div className="left-nav dropdown-container">

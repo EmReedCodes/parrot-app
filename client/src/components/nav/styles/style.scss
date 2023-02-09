@@ -33,6 +33,10 @@ nav a {
   }
 }
 
+details[role=list][open] summary::before {
+  height: 100vh;
+}
+
 [data-theme="dark"] summary[role="link"].secondary,
 a.secondary {
   color: var(--colar-gray-4);

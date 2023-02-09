@@ -1,28 +1,83 @@
+.verticalCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    .dashLinks {
+      width: 70%;
+      button {
+        font-weight: 700;
+        outline: transparent;
+        max-width: 100%;
+      }
+  }
+}
+  //width: 100%;
+  //justify-content: center;
+  // .dashLinks {
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  // }
+
+// .dashboardImage{
+//   padding-bottom: 2em;
+// }
+
+// .dashboardImage img {
+//   display: block;
+//   margin: 0 auto;
+//   //max-width: 17rem;
+// }
+
+
+// // .parrotLogo {
+// //     display: block;
+// //     margin: auto;
+// //     max-height: 12rem;
+// //     @media (var(--lg-n-above)){
+// //       max-height: 12rem;
+// //     }
+// //   }
+  
+
+
 .dashboardImage{
   padding-bottom: 2em;
 }
 
-.dashboardImage img {
-  display: block;
-  margin: 0 auto;
-  max-width: 17rem;
-}
+// .dashboardImage img {
+//   display: block;
+//   margin: 0 auto;
+//   //max-width: 17rem;
+// }
 
 
-.parrotLogo {
-    display: block;
-    margin: auto;
-    max-height: 12rem;
-    @media (var(--lg-n-above)){
-      max-height: 12rem;
-    }
-  }
+// .parrotLogo {
+//     display: block;
+//     margin: auto;
+//     max-height: 12rem;
+//     @media (var(--lg-n-above)){
+//       max-height: 12rem;
+//     }
+//   }
   
   //~~~~~~~Dashboard
-  .dashLinks *{
-    font-weight: 700;
-    outline: transparent;
-  }
+  // .dashLinks {
+  //   // display: flex;
+  //   // flex-direction: column;
+  //   // justify-content: center;
+  //   display: flex;
+  //   flex-direction: column;
+  //   //align-items: center;
+  //   justify-content: center;
+
+  // }
+
+  // .dashLinks button{
+  //   font-weight: 700;
+  //   outline: transparent;
+  //   max-width: 70%;
+  // }
   
   [data-theme=dark]
   .dashLinks a:hover {

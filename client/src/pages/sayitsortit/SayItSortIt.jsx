@@ -8,9 +8,11 @@ import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognitio
 import { toast } from "react-toastify"
 import { FaMicrophoneAltSlash } from "react-icons/fa"
 import { FaMicrophoneAlt } from "react-icons/fa"
-
+import useWindowSize from "../../hooks/useWindowSize"
 
 //TODO: I could have split up Say It Sort It with different routes
+//TODO: force change to landscape if screen is small enough
+//https://stackoverflow.com/questions/55663491/how-to-detect-screen-orientation-in-mobile-website-when-using-react-js-and-orien
 const appId = process.env.REACT_APP_SPEECHLY_ID
 const SpeechlySpeechRecognition = createSpeechlySpeechRecognition(appId)
 SpeechRecognition.applyPolyfill(SpeechlySpeechRecognition)
@@ -53,7 +55,6 @@ const SortItSpellIt = () => {
     browserSupportsSpeechRecognition,
     isMicrophoneAvailable,
     resetTranscript,
-    abortListening
   } = useSpeechRecognition({ commands })
   const startListening = () => SpeechRecognition.startListening({ continuous: true });
   //TODO: rework all these if's
@@ -62,7 +63,6 @@ const SortItSpellIt = () => {
     if (finalTranscript !== "") {
       SpeechRecognition.abortListening()
       setSaidWord(finalTranscript.toLowerCase())
-      console.log('hitting useeffect')
     }
   }, [finalTranscript, setSaidWord, saidWord])
 
