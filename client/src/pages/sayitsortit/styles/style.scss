@@ -1,14 +1,5 @@
-// .containReplay {
-//   cursor: pointer;
-//   padding: 2em;
-//   margin: 0 auto;
-//   width: 40%;
-//   animation: var(--animation-scale-down) reverse, var(--animation-fade-out) reverse;
-//   animation-timing-function: var(--ease-squish-5);
-//   animation-duration: 1s;
-// }
-
-.sortItHome {
+//easter egg background
+.verticalCenter {
   &.red {
     background-color: hsla(0, 100%, 50%, 0.2);
   }
@@ -18,9 +9,6 @@
   &.blue {
     background-color: hsla(180, 100%, 50%, 0.2);
   }
-  &.green {
-    background-color: hsla(120, 100%, 25%, 0.2);
-  }
   &.purple {
     background-color: hsla(300, 100%, 25%, 0.2);
   }
@@ -29,27 +17,8 @@
   }
 }
 
-.replay-btn {
-  display: block;
-  margin: 0 auto;
-  width: 4em;
-  height: 4em;
-  animation: var(--animation-scale-down) reverse, var(--animation-fade-out) reverse;
-  animation-timing-function: var(--ease-squish-5);
-  animation-duration: 1s;
-  width: fit-content;
-}
-
-.reset-btn {
-  display: block;
-  margin: 0 auto;
-  width: fit-content;
-}
-
-.playIcon {
-  width: 5rem;
-  height: 5rem;
-  padding-right: 0.3rem;
+.submitReset {
+  width: 100%;
 }
 
 .microphone {
@@ -82,11 +51,6 @@
     }
   }
 }
-.surprise-background {
-  &.red {
-    background-color: #ffa38c;
-  }
-}
 
 .sortContainer {
   display: grid;
@@ -95,19 +59,14 @@
   grid-auto-rows: 1fr;
   gap: 0em 0.5em;
   height: 100%;
-  margin: 3em 0 3em 0;
+  margin: 3em 0 4em 0;
   width: 100%;
-}
-[data-theme="dark"] #sortTile {
-  background-color: #320064;
-}
-//still struggling with animation as it continues to do animation on each tile move except on click
-#sortTile {
-  display: grid;
-  font-weight: 700;
-  background-color: #8a3adb;
-  border-color: transparent;
-  font-size: 2em;
+  #sortTile {
+    display: grid;
+    font-weight: 700;
+    background-color: #8a3adb;
+    border-color: transparent;
+    font-size: 2em;
     &.correct {
       background-color: #4dbb09;
     }
@@ -115,20 +74,15 @@
       background-color: #bf2a15;
       //animation: var(--animation-shake-x);
     }
+  }
 }
 
-// @media (min-width: 576px) {
-//   #sortTile {
-//     font-size: 2em;
-//   }
-// }
-
 @media (min-width: 768px) {
-  .sortItHome button {
-    max-width: 50%;
-    margin: 0 auto;
+  .sortContainer {
+    #sortTile {
+      font-size: 3em;
+    }
   }
-
   .submitReset {
     display: flex;
     justify-content: space-between;
@@ -136,9 +90,6 @@
     button {
       width: 20%;
     }
-  }
-  #sortTile {
-    font-size: 3em;
   }
 }
 

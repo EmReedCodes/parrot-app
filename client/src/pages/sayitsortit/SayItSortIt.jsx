@@ -64,7 +64,7 @@ const SortItSpellIt = () => {
     isMicrophoneAvailable,
     resetTranscript,
   } = useSpeechRecognition({ commands })
- // const startListening = () => SpeechRecognition.startListening({ continuous: true });
+
   //TODO: rework all these if's
 
   // useEffect(() => {
@@ -120,27 +120,25 @@ const SortItSpellIt = () => {
   const modalText = () => {
     return (
       <>
-        <p>Turn your phone to landscape for a better experience.</p>
+        <p>Turn your device to landscape for a better experience.</p>
         
       </>
     )
   }
 
   return (
-    <section className={`${backgroundClass} sortItHome`}>
+    <section className={`${backgroundClass} verticalCenter`}>
       {!saidWord ? (
         <>
           <h2>Let's get to sorting!</h2>
           <h5>Click start and speak a word to begin.</h5>
-          <p>Say It Spell It works best with 8 letters or less currently.</p>
         </>
       ) : (
-        <h5>Click or tap to hold and drag the tile.</h5>
+        <h4>Click or tap to hold and drag the tile.</h4>
       )}
-      <p>Microphone: {listening ? "on" : "off"}</p>
       {saidWord && (
         <>
-          <button className="reset-btn" onClick={() => resetWord()}>
+          <button className="fit-content-btn" onClick={() => resetWord()}>
             Restart
           </button>
 

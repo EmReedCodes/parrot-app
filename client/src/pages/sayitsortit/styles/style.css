@@ -1,49 +1,21 @@
-.sortItHome.red {
+.verticalCenter.red {
   background-color: hsla(0deg, 100%, 50%, 0.2);
 }
-.sortItHome.green {
+.verticalCenter.green {
   background-color: hsla(120deg, 100%, 25%, 0.2);
 }
-.sortItHome.blue {
+.verticalCenter.blue {
   background-color: hsla(180deg, 100%, 50%, 0.2);
 }
-.sortItHome.green {
-  background-color: hsla(120deg, 100%, 25%, 0.2);
-}
-.sortItHome.purple {
+.verticalCenter.purple {
   background-color: hsla(300deg, 100%, 25%, 0.2);
 }
-.sortItHome.yellow {
+.verticalCenter.yellow {
   background-color: hsla(60deg, 100%, 50%, 0.2);
 }
 
-.replay-btn {
-  display: block;
-  margin: 0 auto;
-  width: 4em;
-  height: 4em;
-  animation: var(--animation-scale-down) reverse, var(--animation-fade-out) reverse;
-  -webkit-animation-timing-function: var(--ease-squish-5);
-          animation-timing-function: var(--ease-squish-5);
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
-.reset-btn {
-  display: block;
-  margin: 0 auto;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
-.playIcon {
-  width: 5rem;
-  height: 5rem;
-  padding-right: 0.3rem;
+.submitReset {
+  width: 100%;
 }
 
 .microphone, .microphone-on {
@@ -89,10 +61,6 @@
   }
 }
 
-.surprise-background.red {
-  background-color: #ffa38c;
-}
-
 .sortContainer {
   display: grid;
   grid-auto-flow: column;
@@ -100,32 +68,26 @@
   grid-auto-rows: 1fr;
   gap: 0em 0.5em;
   height: 100%;
-  margin: 3em 0 3em 0;
+  margin: 3em 0 4em 0;
   width: 100%;
 }
-
-[data-theme=dark] #sortTile {
-  background-color: #320064;
-}
-
-#sortTile {
+.sortContainer #sortTile {
   display: grid;
   font-weight: 700;
   background-color: #8a3adb;
   border-color: transparent;
   font-size: 2em;
 }
-#sortTile.correct {
+.sortContainer #sortTile.correct {
   background-color: #4dbb09;
 }
-#sortTile.incorrect {
+.sortContainer #sortTile.incorrect {
   background-color: #bf2a15;
 }
 
 @media (min-width: 768px) {
-  .sortItHome button {
-    max-width: 50%;
-    margin: 0 auto;
+  .sortContainer #sortTile {
+    font-size: 3em;
   }
   .submitReset {
     display: flex;
@@ -133,8 +95,5 @@
   }
   .submitReset button {
     width: 20%;
-  }
-  #sortTile {
-    font-size: 3em;
   }
 }/*# sourceMappingURL=style.css.map */

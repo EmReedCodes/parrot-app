@@ -46,6 +46,10 @@ button {
   --primary-hover: var(--colar-cyan-7);
 }
 
+a {
+  text-decoration: none;
+}
+
 [data-theme="dark"] button {
   --primary: var(--colar-cyan-7);
   --primary-hover: var(--colar-cyan-6);
@@ -55,12 +59,7 @@ button {
 
 //global icons styles
 //icon in button
-.containIcon {
-  margin: 0 auto;
-  width: fit-content;
-  background: transparent;
-  border: none;
-}
+
 
 .icon {
   color: var(--colar-gray-10);
@@ -73,6 +72,55 @@ button {
 .containLogo {
   padding-bottom: 1em;
 }
+
+//create main cenetered page
+
+//default btn 100% mobile / 50% fullscreen
+//link-btn (button within Link) a 100% - 
+.verticalCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: unset;
+  .fit-content-btn, .containIcon {
+    width: fit-content;
+  }
+  button {
+    width: 100%;
+  }
+  a {
+    width: 100%;
+  }
+
+}
+
+
+
+
+//a > button edge case for Link to
+@media (min-width: 768px){
+  .verticalCenter {
+    button {
+      width: 50%;
+    }
+    a {
+      width: 50%;
+      button {
+        width: 100%;
+      }
+    }
+    }
+
+
+}
+//What a mess Im trying to fix. 
+.containIcon {
+  //in case no verticalCenter for word bank if so remove width below
+  width: fit-content;
+  background: transparent;
+  border: none;
+}
+
 
 //LOGIN & REGISTER
 
@@ -102,12 +150,12 @@ article div:nth-of-type(2) {
 
 //setting width for game pages and other pages
 
-@media (min-width: 768px) {
-  .wordGame {
-    margin: 0 auto;
-    max-width: 70%;
-  }
-}
+// @media (min-width: 768px) {
+//   .wordGame {
+//     margin: 0 auto;
+//     max-width: 70%;
+//   }
+// }
 
 h1,
 h2,

@@ -5,9 +5,10 @@ import { useState } from 'react';
 
 const SORTABLE_TRANSITION_DURATION = 250;
 
+//so when submitted if answer is incorrect run shake animation
 
 const SortableItem = (props) => {
-  const [clicked, setClicked] = useState(false)
+  const [clicked, setClicked] = useState(true)
     const { id, item, color } = props;
 
       const {
@@ -28,19 +29,15 @@ const SortableItem = (props) => {
     const style = {
         transition,
         transform: CSS.Transform.toString(transform),
-        //border: '2px solid black',
         opacity: isDragging ? 0.5 : 1,
-        //  background: color,
-    //   width: "15%",
-    //   height: "20%"
-    
+        //  background: color,    
      }
    
     return (
       <div
         id='sortTile'
         className={color}
-        // onAnimationEnd={() => setClicked(false)}
+        onAnimationEnd={() => setClicked(false)}
             ref={setNodeRef}
             {...attributes}
             {...listeners}

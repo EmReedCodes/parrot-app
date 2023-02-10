@@ -37,18 +37,13 @@ button {
   --primary-hover: var(--colar-cyan-7);
 }
 
+a {
+  text-decoration: none;
+}
+
 [data-theme=dark] button {
   --primary: var(--colar-cyan-7);
   --primary-hover: var(--colar-cyan-6);
-}
-
-.containIcon {
-  margin: 0 auto;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  background: transparent;
-  border: none;
 }
 
 .icon {
@@ -61,6 +56,43 @@ button {
 
 .containLogo {
   padding-bottom: 1em;
+}
+
+.verticalCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: unset;
+}
+.verticalCenter .fit-content-btn, .verticalCenter .containIcon {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.verticalCenter button {
+  width: 100%;
+}
+.verticalCenter a {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .verticalCenter button {
+    width: 50%;
+  }
+  .verticalCenter a {
+    width: 50%;
+  }
+  .verticalCenter a button {
+    width: 100%;
+  }
+}
+.containIcon {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background: transparent;
+  border: none;
 }
 
 article div:nth-of-type(2) {
@@ -82,12 +114,6 @@ article div:nth-of-type(2) {
 @media (min-width: 992px) {
   .grid > div:nth-of-type(2) {
     display: block;
-  }
-}
-@media (min-width: 768px) {
-  .wordGame {
-    margin: 0 auto;
-    max-width: 70%;
   }
 }
 h1,

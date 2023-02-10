@@ -55,7 +55,7 @@ const Dashboard = () => {
   }, [dispatch, localStorageConfirmed, isSuccess, list])
 
   return (
-    <section className="wordGame verticalCenter">
+    <section className="verticalCenter">
       <h1>Welcome back {user.name}!</h1>
       <div className="dashboardImage">
         <ProgressiveImage src={smallestParrotImage} placeholder={smallParrot}>
@@ -70,14 +70,18 @@ const Dashboard = () => {
           )}
         </ProgressiveImage>
       </div>
-      <div className="dashLinks">
-        <Link className="sortGame" to="/sayitsortit">
-          <button>Sort It Spell It</button>
-        </Link>
-        <Link className="bankGame" to="/wordbank">
-          <button>Word Bank</button>
-        </Link>
-      </div>
+  
+      <Link to="/sayitsortit">
+     <button type="button" className="sortGame">
+          Say It Sort It
+     </button>
+ </Link>
+ <Link to="/wordbank">
+     <button type="button" className="bankGame">
+          Word Bank
+     </button>
+ </Link>
+    
     </section>
   )
 }
