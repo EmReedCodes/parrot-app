@@ -9,26 +9,27 @@ const WordList = props => {
 
 
   return (
-    <ul className="wordsList">
-      {userLoggedIn
-        ? wordBank.map(item => (
-            <li key={item._id} id={item._id}>
-              {item.text}
-
-              <span className="dlt-btn" onClick={() => dispatch(deleteWordForList(item._id))}>
-                <AiFillDelete />
-              </span>
-            </li>
-          ))
-        : list.map((item, idx) => (
-            <li key={idx.toString()} id={idx.toString()}>
-              {item}
-              <span className="dlt-btn" onClick={() => deleteListItem(item)}>
-                <AiFillDelete />
-              </span>
-            </li>
-          ))}
-    </ul>
+    <section className="bank-list-container">
+      <ul className="wordsList">
+        {userLoggedIn
+          ? wordBank.map(item => (
+              <li key={item._id} id={item._id}>
+                {item.text}
+                <span className="dlt-btn" onClick={() => dispatch(deleteWordForList(item._id))}>
+                  <AiFillDelete />
+                </span>
+              </li>
+            ))
+          : list.map((item, idx) => (
+              <li key={idx.toString()} id={idx.toString()}>
+                {item}
+                <span className="dlt-btn" onClick={() => deleteListItem(item)}>
+                  <AiFillDelete />
+                </span>
+              </li>
+            ))}
+      </ul>
+    </section>
   )
 }
 

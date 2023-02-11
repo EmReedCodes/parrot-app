@@ -24,21 +24,13 @@ body {
 }
 
 main {
+  display: flex;
+  align-items: center;
   flex: 1;
-  padding: 1em 0;
 }
 
 input {
   min-width: 100%;
-}
-
-button {
-  --primary: var(--colar-cyan-8);
-  --primary-hover: var(--colar-cyan-7);
-}
-
-a {
-  text-decoration: none;
 }
 
 [data-theme=dark] button {
@@ -46,6 +38,47 @@ a {
   --primary-hover: var(--colar-cyan-6);
 }
 
+button {
+  --primary: var(--colar-cyan-8);
+  --primary-hover: var(--colar-cyan-7);
+}
+
+.fit-content-btn, .containIcon {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+a {
+  text-decoration: none;
+}
+
+.verticalCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-bottom: unset;
+}
+.verticalCenter section {
+  width: 100%;
+}
+.verticalCenter a {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  button {
+    width: 50%;
+  }
+  .verticalCenter a {
+    width: 50%;
+  }
+  .verticalCenter a button {
+    width: 100%;
+  }
+}
 .icon {
   color: var(--colar-gray-10);
 }
@@ -58,41 +91,13 @@ a {
   padding-bottom: 1em;
 }
 
-.verticalCenter {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: unset;
-}
-.verticalCenter .fit-content-btn, .verticalCenter .containIcon {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-.verticalCenter button {
-  width: 100%;
-}
-.verticalCenter a {
-  width: 100%;
-}
-
-@media (min-width: 768px) {
-  .verticalCenter button {
-    width: 50%;
-  }
-  .verticalCenter a {
-    width: 50%;
-  }
-  .verticalCenter a button {
-    width: 100%;
-  }
-}
 .containIcon {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
   background: transparent;
   border: none;
+}
+.containIcon .replay-btn {
+  width: 3em;
+  height: 3em;
 }
 
 article div:nth-of-type(2) {
@@ -126,7 +131,7 @@ p {
 }
 
 [data-theme=dark] .Toastify__toast {
-  background-color: #1B2832;
+  background-color: #1b2832;
   color: var(--colar-gray-1);
 }
 
@@ -137,4 +142,13 @@ p {
 .Toastify__close-button {
   display: flex;
   justify-content: flex-end;
+}
+
+.modal-btn {
+  width: 100%;
+  margin-top: 1em;
+}
+
+.textInModal p {
+  padding: 0.5em 0 0.5em 0;
 }/*# sourceMappingURL=main.css.map */

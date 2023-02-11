@@ -1,6 +1,5 @@
-//rechecked OK
 import axios from "axios"
-import { toast } from "react-toastify"
+
 
 //http method allows you to seperate into different sub routes
 const API_URL = "/api/word/"
@@ -14,17 +13,12 @@ const saveWord = async (speechData, token) => {
   }
 
   const response = await axios.post(API_URL, speechData, config)
-  //I should just check for isSuccess once where the dispatch happened not here
-  // if (response.status === 200) {
-  
-  // }
 
   return response.data
 }
 
 // replace speech word
 const updateWord = async (textData, token) => {
-
   const config = {
     headers: {
       Authorization: `Bearer ${token}`
@@ -32,23 +26,12 @@ const updateWord = async (textData, token) => {
   }
 
   const response = await axios.patch(API_URL + "update", textData, config)
-  if (response.status === 200) {
-    toast('🦄 Wow so easy!', {
-      position: "top-right",
-      autoClose: 2500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      });
-  }
+  //can check response.state === 200 create new message?
   return response.data
 }
 
 //get words for list
-const allWords = async (token) => {
+const allWords = async token => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`
@@ -71,10 +54,9 @@ const deleteBankWord = async (_id, token) => {
   const response = await axios.delete(API_URL + _id, config)
   console.log(response)
   return response.data
- 
 }
 
-const getBankWords = async (token) => {
+const getBankWords = async token => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`

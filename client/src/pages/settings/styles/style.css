@@ -1,3 +1,10 @@
+.settings {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-self: flex-start;
+  margin-top: 3em;
+}
 .settings > span {
   display: block;
   padding: 2em 0;
@@ -6,22 +13,16 @@
   all: unset;
   font-weight: 700;
 }
-
-.settings ul {
+.settings .settings ul {
   all: unset;
 }
-
-.containList {
-  margin: 0 auto;
-  max-width: 80%;
+.settings .containList {
   height: 40vh;
 }
-
-[data-theme=dark] .holdAllWords {
+.settings [data-theme=dark] .holdAllWords {
   background-color: rgb(27, 40, 50);
 }
-
-.holdAllWords {
+.settings .holdAllWords {
   display: flex;
   width: 100%;
   align-content: center;
@@ -30,32 +31,47 @@
   overflow-y: auto;
   overflow-x: auto;
 }
-
-.holdAllWords ul {
+.settings .holdAllWords ul {
   width: 100%;
 }
-
-.itemWord {
+.settings .itemWord {
   width: 80%;
 }
-
-.word {
+.settings .word {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.5em 1em;
 }
-.word .save {
+.settings .word .save {
   display: none;
 }
-.word.editing .itemWord {
+.settings .word.editing .itemWord {
   padding: 0.5em 0 0.5em 0;
   transition: all 0.15s ease-in-out;
   background: rgba(138, 137, 137, 0.3);
 }
-.word.editing .save {
+.settings .word.editing .save {
   display: initial;
 }
-.word.editing .edit {
+.settings .word.editing .edit {
   display: none;
+}
+
+@media (min-width: 768px) {
+  .containList {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+  .containList .holdAllWords {
+    width: 65%;
+  }
+  .modal-split-btns {
+    display: flex;
+    justify-content: space-around;
+  }
+  .modal-split-btns button {
+    width: 25%;
+  }
 }/*# sourceMappingURL=style.css.map */

@@ -1,68 +1,89 @@
-.settings > span {
-  display: block;
-  padding: 2em 0;
+.settings {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-self: flex-start;
+  margin-top: 3em;
+  > span {
+    display: block;
+    padding: 2em 0;
+    .inline-btn {
+      all: unset;
+      font-weight: 700;
+    }
+  }
 
-  .inline-btn {
+  .settings ul {
     all: unset;
-    font-weight: 700;
   }
-}
 
-.settings ul {
-  all: unset;
-}
+  //list
 
-//list
-
-.containList {
-  margin: 0 auto;
-  max-width: 80%;
-  height: 40vh;
-}
-
-//can probably fix this nesting
-[data-theme="dark"] 
-.holdAllWords {
-  background-color: rgba(27, 40, 50);
-}
-
-.holdAllWords {
-  display: flex;
-  width: 100%;
-  align-content: center;
-  background-color: rgba(220, 224, 224, 0.642);
-  max-height: 100%;
-  overflow-y: auto;
-  overflow-x: auto;
-}
-.holdAllWords ul {
-  width: 100%;
-}
-
-.itemWord {
-  width: 80%;
-}
-
-.word {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5em 1em;
-
-  .save {
-    display: none;
+  .containList {
+    height: 40vh;
   }
-  &.editing {
-    .itemWord {
-      padding: 0.5em 0 0.5em 0;
-      transition: all 0.15s ease-in-out;
-      background: rgba(138, 137, 137, 0.3);
-    }
+
+  [data-theme="dark"] .holdAllWords {
+    background-color: rgba(27, 40, 50);
+  }
+
+  .holdAllWords {
+    display: flex;
+    width: 100%;
+    align-content: center;
+    background-color: rgba(220, 224, 224, 0.642);
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+  .holdAllWords ul {
+    width: 100%;
+  }
+
+  .itemWord {
+    width: 80%;
+  }
+
+  .word {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 1em;
+
     .save {
-      display: initial;
-    }
-    .edit {
       display: none;
+    }
+    &.editing {
+      .itemWord {
+        padding: 0.5em 0 0.5em 0;
+        transition: all 0.15s ease-in-out;
+        background: rgba(138, 137, 137, 0.3);
+      }
+      .save {
+        display: initial;
+      }
+      .edit {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .containList {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    .holdAllWords {
+      width: 65%;
+    }
+  }
+  //settings modal
+  .modal-split-btns {
+    display: flex;
+    justify-content: space-around;
+    button {
+      width: 25%;
     }
   }
 }

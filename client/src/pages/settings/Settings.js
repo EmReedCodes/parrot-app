@@ -85,8 +85,10 @@ const Settings = () => {
       <>
         <h3>Deleting your account will destroy all data associated with your username.</h3>
         <h4>Are you sure?</h4>
-        <button onClick={() => beginDelete()}>Yes</button>
-        <button onClick={() => setModalToggle(false)}>Cancel</button>
+        <div className="modal-split-btns">
+          <button onClick={() => beginDelete()}>Yes</button>
+          <button onClick={() => setModalToggle(false)}>Cancel</button>
+        </div>
       </>
     )
   }

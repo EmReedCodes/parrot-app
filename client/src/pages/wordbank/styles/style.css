@@ -1,30 +1,64 @@
-.wordsList li {
-  display: flex;
-  justify-content: space-between;
+.containIcon {
+  margin: 0 auto;
 }
 
 .repeatText {
   margin-bottom: 1rem;
   padding: 0.5rem;
   text-decoration: underline;
-  text-underline-offset: 0.5em;
+  text-underline-offset: 0.3em;
 }
 
-.replay-btn {
-  width: 3em;
-  height: 3em;
+.wordsList li {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media (min-width: 768px) {
-  .practiceRepeatWord {
+  .repeat-word-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 2.5rem;
   }
-  .containIcon {
+  .repeat-word-container .practiceRepeatWord {
+    width: 40%;
+    display: flex;
+  }
+  .repeat-word-container .practiceRepeatWord .containIcon {
     margin: unset;
   }
-  .wordBank-play {
-    display: inline-block;
+  .repeat-word-container .practiceRepeatWord .repeatText {
+    text-align: start;
+    flex: 1;
+  }
+  .repeat-word-container .range {
+    width: 70%;
+  }
+  .repeat-word-container .next-btn {
+    width: 20%;
+  }
+  .bank-form-container, .bank-list-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .bank-form-container form, .bank-list-container form {
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .bank-form-container form input, .bank-list-container form input {
+    flex-grow: 1;
+  }
+  .bank-form-container form button, .bank-list-container form button {
+    min-width: -webkit-fit-content;
+    min-width: -moz-fit-content;
+    min-width: fit-content;
+  }
+  .wordsList {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -31,18 +31,23 @@ const RepeatWord = ({ wordBank, list, userLoggedIn }) => {
   }
 //TODO: Why did I put button here smh smh smh smh 
   return (
-    <>
+    
+      <section className="repeat-word-container">
       <section className="practiceRepeatWord">
-        {ourText ?
-          <h2 className="repeatText">{ourText}</h2>
-          :
-          <h2 className="repeatText">Hit Next To Start</h2>
-        }
-        <button className="containIcon wordbank-play" onClick={() => speechHandler(ourText)}>
-          <IconContext.Provider value={{ className: "replay-btn icon" }}>
-            <FaRegPlayCircle />
-          </IconContext.Provider>
-        </button>
+  
+          {ourText ?
+            <h2 className="repeatText">{ourText}</h2>
+            :
+            <h2 className="repeatText">Hit Next To Start</h2>
+          }
+    
+     
+          <button className="containIcon" onClick={() => speechHandler(ourText)}>
+            <IconContext.Provider value={{ className: "replay-btn icon" }}>
+              <FaRegPlayCircle />
+            </IconContext.Provider>
+          </button>
+  
       </section>
       
       <div className="range range-output">
@@ -58,13 +63,13 @@ const RepeatWord = ({ wordBank, list, userLoggedIn }) => {
         />
       </div>
 
-      <div className="contain-btns">
+    
         <button className="next-btn" onClick={() => randomizeList()}>
           Next
           <MdNavigateNext />{" "}
         </button>
-      </div>
-    </>
+
+        </section>
   )
 }
 

@@ -42,9 +42,9 @@ const WordForm = ({ list, setList }) => {
   }
 
   return (
-    <section className="form">
+    <section className="bank-form-container">
       <form onSubmit={onSubmit}>
-        <div className="form-group">
+    
           <input
             type="text"
             name="text"
@@ -53,12 +53,12 @@ const WordForm = ({ list, setList }) => {
             value={word}
             onChange={e => setWord(e.target.value)}
           />
-        </div>
-        <div className="form-group">
+     
+       
           <button className="btn btn-block" type="submit">
             Add Word
           </button>
-        </div>
+    
       </form>
     </section>
   )

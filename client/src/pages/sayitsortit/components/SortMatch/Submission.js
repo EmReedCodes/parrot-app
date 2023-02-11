@@ -11,17 +11,17 @@ export default function Submission({ items, setItems, word, initialItems }) {
   const [checkStatus, setCheckStatus] = useState(false)
   const dispatch = useDispatch()
   const { user } = useSelector(state => state.auth)
-  //TODO: toast isn't firing every success for some reason 
+  //TODO: toast isn't firing every success for some reason
   const { isSuccess, isError } = useSelector(state => state.wordBank)
 
   useEffect(() => {
     if (checkStatus && isSuccess === true) {
-      console.log('worked in usueffect')
-      toast.success('Successfully added to the bank.')
+      console.log("worked in usueffect")
+      toast.success("Successfully added to the bank.")
       setCheckStatus(false)
     } else if (checkStatus && isError) {
-      console.log('useeffect error')
-      toast.warn('Something went wrong, please try again.')
+      console.log("useeffect error")
+      toast.warn("Something went wrong, please try again.")
       setCheckStatus(false)
     }
   }, [checkStatus, isSuccess, isError])
@@ -54,15 +54,17 @@ export default function Submission({ items, setItems, word, initialItems }) {
     setCheckStatus(true)
     setModalToggle(false)
   }
-//TODO: fix spacing with modal btn 
+  //TODO: fix spacing with modal btn
   const modalText = () => {
     return (
       <>
         <h3>Hooray! You spell like a pro!</h3>
-        <span className="modal-text">
+        <p className="modal-text">
           Would you like to add <strong>{word}</strong> to your wordBank?
-        </span>
-        <button id="modal-btn" onClick={e => onSubmit(e)}>Save</button>
+        </p>
+        <button className="modal-btn" onClick={e => onSubmit(e)}>
+          Save
+        </button>
       </>
     )
   }

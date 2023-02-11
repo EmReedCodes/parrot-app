@@ -2,6 +2,16 @@
 // picocss
 @import "https://octoshrimpy.github.io/microcss/micro.css";
 
+//mixins
+//TODO make a seperate mixins page, redo a lot of repeat styles
+@mixin vertical-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+//fix to microcss / overrides
+
 html {
   scroll-behavior: smooth;
 }
@@ -20,8 +30,6 @@ body {
   box-shadow: none;
 }
 
-//fix to microcss / overrides
-
 #root {
   min-height: 100vh;
   display: flex;
@@ -29,37 +37,66 @@ body {
 }
 
 main {
+  display: flex;
+  align-items: center;
   flex: 1;
-  padding: 1em 0;
 }
 
 input {
   min-width: 100%;
 }
 
-
 //====================
 // your scss here
-
-button {
-  --primary: var(--colar-cyan-8);
-  --primary-hover: var(--colar-cyan-7);
-}
-
-a {
-  text-decoration: none;
-}
 
 [data-theme="dark"] button {
   --primary: var(--colar-cyan-7);
   --primary-hover: var(--colar-cyan-6);
 }
 
-// ICONS
+button {
+  --primary: var(--colar-cyan-8);
+  --primary-hover: var(--colar-cyan-7);
+}
 
-//global icons styles
-//icon in button
+//smaller btn option
+.fit-content-btn {
+  width: fit-content;
+}
 
+a {
+  text-decoration: none;
+}
+
+//create main cenetered page
+.verticalCenter {
+  @include vertical-column;
+  height: 100%;
+  margin-bottom: unset;
+  section {
+    width: 100%;
+  }
+  a {
+    width: 100%;
+  }
+}
+
+//a > button edge case for Link to
+@media (min-width: 768px) {
+  button {
+    width: 50%;
+  }
+  .verticalCenter {
+    a {
+      width: 50%;
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+//Icon styling
 
 .icon {
   color: var(--colar-gray-10);
@@ -73,57 +110,17 @@ a {
   padding-bottom: 1em;
 }
 
-//create main cenetered page
-
-//default btn 100% mobile / 50% fullscreen
-//link-btn (button within Link) a 100% - 
-.verticalCenter {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: unset;
-  .fit-content-btn, .containIcon {
-    width: fit-content;
-  }
-  button {
-    width: 100%;
-  }
-  a {
-    width: 100%;
-  }
-
-}
-
-
-
-
-//a > button edge case for Link to
-@media (min-width: 768px){
-  .verticalCenter {
-    button {
-      width: 50%;
-    }
-    a {
-      width: 50%;
-      button {
-        width: 100%;
-      }
-    }
-    }
-
-
-}
-//What a mess Im trying to fix. 
 .containIcon {
-  //in case no verticalCenter for word bank if so remove width below
-  width: fit-content;
+  @extend .fit-content-btn;
   background: transparent;
   border: none;
+  .replay-btn {
+    width: 3em;
+    height: 3em;
+  }
 }
 
-
 //LOGIN & REGISTER
-
 article div:nth-of-type(2) {
   display: none;
 }
@@ -148,15 +145,6 @@ article div:nth-of-type(2) {
   }
 }
 
-//setting width for game pages and other pages
-
-// @media (min-width: 768px) {
-//   .wordGame {
-//     margin: 0 auto;
-//     max-width: 70%;
-//   }
-// }
-
 h1,
 h2,
 h3,
@@ -166,18 +154,15 @@ p {
   text-align: center;
 }
 
-//toast - Should have been able to set theme directly. 
-//State wasnt updating without a render. Complications. :(
+//toast - Should have been able to set theme directly.
+//State wasnt updating without a render. so coded it into the styling
 
-[data-theme=dark]
-.Toastify__toast {
-  background-color: #1B2832;
-  color: var(--colar-gray-1)
-
+[data-theme="dark"] .Toastify__toast {
+  background-color: #1b2832;
+  color: var(--colar-gray-1);
 }
 
-[data-theme=dark]
-.Toastify__close-button {
+[data-theme="dark"] .Toastify__close-button {
   color: var(--colar-gray-1);
 }
 
@@ -186,3 +171,17 @@ p {
   justify-content: flex-end;
 }
 
+//universal modal styling
+
+.modal-btn {
+  width: 100%;
+  margin-top: 1em;
+}
+.textInModal p {
+  padding: 0.5em 0 0.5em 0;
+}
+
+// .modalAnimate{
+//   animation:
+//   var(--animation-slide-in-down);
+// }

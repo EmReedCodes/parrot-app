@@ -33,12 +33,12 @@ const WordBank = () => {
   }, [])
 
   return (
-    <section className="wordGame">
+    <section className="verticalCenter wordbank-container">
       <h1>Word Bank</h1>
 
-      <section className="repeatSide">
+      
         <RepeatWord wordBank={wordBank} list={list} userLoggedIn={userLoggedIn} />
-      </section>
+
 
       <WordForm list={list} setList={setList} />
       <WordList

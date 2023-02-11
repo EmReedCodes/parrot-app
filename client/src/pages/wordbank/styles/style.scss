@@ -1,32 +1,65 @@
-.wordsList li {
-  display: flex;
-  justify-content: space-between;
+.containIcon {
+  margin: 0 auto;
 }
 
 .repeatText {
   margin-bottom: 1rem;
   padding: 0.5rem;
   text-decoration: underline;
-  text-underline-offset: 0.5em;
+  text-underline-offset: 0.3em;
 }
-
-.replay-btn {
-  width: 3em;
-  height: 3em;
+.wordsList li {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media (min-width: 768px) {
-  .practiceRepeatWord {
+  .repeat-word-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    gap: 2.5rem;
+    .practiceRepeatWord {
+      width: 40%;
+      .containIcon {
+        margin: unset;
+      }
+      display: flex;
+      .repeatText {
+        text-align: start;
+        flex: 1;
+      }
+    }
+    .range {
+      width: 70%;
+    }
+    .next-btn {
+      width: 20%;
+    }
   }
 
-  .containIcon {
-    margin: unset;
+  .bank-form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-
-  .wordBank-play {
-    display: inline-block;
+  .bank-form-container form {
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    input {
+      flex-grow: 1;
+    }
+    button {
+      min-width: fit-content;
+    }
+  }
+  .bank-list-container {
+    @extend .bank-form-container;
+  }
+  .wordsList {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
   }
 }
