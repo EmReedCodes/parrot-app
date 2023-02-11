@@ -85,10 +85,18 @@
   }
   .submitReset {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 
     button {
       width: 20%;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .sortContainer {
+    #sortTile {
+      font-size: 3.5em;
     }
   }
 }

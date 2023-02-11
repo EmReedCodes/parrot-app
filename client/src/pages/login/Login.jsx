@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
-
+//TODO make reusable form component
 const Login = () => {
   const [authData, setAuthData] = useState({
     email: "",
@@ -76,7 +76,7 @@ const Login = () => {
             onChange={onChange}
           />
 
-          <button type="submit" className="btn btn-block">
+          <button type="submit">
             Submit
           </button>
         </form>
