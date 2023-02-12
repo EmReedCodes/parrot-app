@@ -9,10 +9,6 @@
   display: block;
   padding: 2em 0;
 }
-.settings > span .inline-btn {
-  all: unset;
-  font-weight: 700;
-}
 .settings .settings ul {
   all: unset;
 }

@@ -3,31 +3,25 @@ import { FaRegPlayCircle } from "react-icons/fa"
 import SortMatch from "./components/SortMatch"
 import { IconContext } from "react-icons"
 import { useState, useEffect, createContext } from "react"
-import { createSpeechlySpeechRecognition } from '@speechly/speech-recognition-polyfill';
+import { createSpeechlySpeechRecognition } from "@speechly/speech-recognition-polyfill"
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition"
 import { toast } from "react-toastify"
-import { FaMicrophoneAltSlash } from "react-icons/fa"
-import { FaMicrophoneAlt } from "react-icons/fa"
+import { FaMicrophoneAltSlash, FaMicrophoneAlt, FaRedoAlt } from "react-icons/fa"
 import useWindowSize from "../../hooks/useWindowSize"
 import Modal from "../../components/modal/Modal"
 
 //TODO: I could have split up Say It Sort It with different routes
-//TODO: force change to landscape if screen is small enough
+
 //https://stackoverflow.com/questions/55663491/how-to-detect-screen-orientation-in-mobile-website-when-using-react-js-and-orien
 const appId = process.env.REACT_APP_SPEECHLY_ID
 const SpeechlySpeechRecognition = createSpeechlySpeechRecognition(appId)
 SpeechRecognition.applyPolyfill(SpeechlySpeechRecognition)
-
-
 
 export const WordContext = createContext("")
 
 //TODO how to get action only on first instance of the word appearing. previously adding animations made it happen every time the array would rearrange itself. Only want it to happen one single time.
 
 const SortItSpellIt = () => {
-
-
-  
   const [saidWord, setSaidWord] = useState("")
   const [modalToggle, setModalToggle] = useState(false)
   const [backgroundClass, setBackgroundClass] = useState("")
@@ -62,7 +56,7 @@ const SortItSpellIt = () => {
     listening,
     browserSupportsSpeechRecognition,
     isMicrophoneAvailable,
-    resetTranscript,
+    resetTranscript
   } = useSpeechRecognition({ commands })
 
   //TODO: rework all these if's
@@ -76,12 +70,12 @@ const SortItSpellIt = () => {
   //     }
   //   }
   // }, [finalTranscript, setSaidWord])
-//check screen width
+  //check screen width
   useEffect(() => {
     if (finalTranscript.length > 7 && size.width < 768) {
       setModalToggle(true)
       return
-    } else if (finalTranscript !== '') {
+    } else if (finalTranscript !== "") {
       SpeechRecognition.abortListening()
       setSaidWord(finalTranscript.toLowerCase())
     }
@@ -96,6 +90,7 @@ const SortItSpellIt = () => {
     return toast.error("Microphone must be on")
   }
 
+  //move reset word use ref maybe
   const resetWord = () => {
     setSaidWord("")
     setBackgroundClass("")
@@ -103,7 +98,6 @@ const SortItSpellIt = () => {
   }
 
   const speechHandler = text => {
-     
     if (saidWord) {
       const msg = new SpeechSynthesisUtterance()
       msg.text = text
@@ -121,27 +115,34 @@ const SortItSpellIt = () => {
     return (
       <>
         <p>Turn your device to landscape for a better experience.</p>
-        
       </>
     )
   }
-
+  //TODO create a help button for better instructions
   return (
     <section className={`${backgroundClass} verticalCenter`}>
+      {saidWord && (
+        <button className="inline-btn restart-btn" onClick={() => resetWord()}>
+          Restart{" "}
+          <IconContext.Provider value={{ className: "restart-icon" }}>
+            <FaRedoAlt />
+          </IconContext.Provider>
+        </button>
+      )}
       {!saidWord ? (
         <>
           <h2>Let's get to sorting!</h2>
           <h5>Click start and speak a word to begin.</h5>
         </>
       ) : (
-        <h4>Click or tap to hold and drag the tile.</h4>
+        <div className="intro-reset-container">
+          <h4>Click or tap to hold and drag the tile.</h4>
+        </div>
       )}
+
       {saidWord && (
         <>
-          <button className="fit-content-btn" onClick={() => resetWord()}>
-            Restart
-          </button>
-
+          <span>Replay</span>
           <button className="containIcon" onClick={() => speechHandler(saidWord)}>
             <IconContext.Provider value={{ className: "replay-btn icon" }}>
               <FaRegPlayCircle />
@@ -169,9 +170,7 @@ const SortItSpellIt = () => {
           <SortMatch />
         </WordContext.Provider>
       )}
- 
-        <Modal open={modalToggle} onClick={() => toggleModalForMobile()} text={modalText()} />
-
+      <Modal open={modalToggle} onClick={() => toggleModalForMobile()} text={modalText()} />
     </section>
   )
 }

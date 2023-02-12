@@ -64,6 +64,12 @@ button {
   width: fit-content;
 }
 
+//transparent background 
+.inline-btn {
+  all: unset;
+  font-weight: 700;
+}
+
 a {
   text-decoration: none;
 }

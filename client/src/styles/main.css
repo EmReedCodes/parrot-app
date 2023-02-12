@@ -49,6 +49,11 @@ button {
   width: fit-content;
 }
 
+.inline-btn {
+  all: unset;
+  font-weight: 700;
+}
+
 a {
   text-decoration: none;
 }
