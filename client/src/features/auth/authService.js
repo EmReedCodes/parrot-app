@@ -1,22 +1,22 @@
-import axios from 'axios'
-const API_URL = '/api/user/'
+import axios from "axios"
+const API_URL = "/api/user/"
 
 //Register user
-const register = async (authData) => {
+const register = async authData => {
   //we are making the req then putting the response into the variable
   const response = await axios.post(API_URL, authData)
   //when using axios it puts the response in data (the word)
   if (response.data) {
-    localStorage.setItem('user', JSON.stringify(response.data))
+    localStorage.setItem("user", JSON.stringify(response.data))
   }
   return response.data
 }
 
 //login user
-const login = async (authData) => {
+const login = async authData => {
   const response = await axios.post(API_URL + "login", authData)
   if (response.data) {
-    localStorage.setItem('user', JSON.stringify(response.data))
+    localStorage.setItem("user", JSON.stringify(response.data))
   }
 
   return response.data
@@ -28,46 +28,28 @@ const confirmPW = async (pwInput, token) => {
       Authorization: `Bearer ${token}`
     }
   }
-  console.log(config)
+
   const response = await axios.post(API_URL + "confirm", pwInput, config)
- // console.log(response)
-  if (response.status === 200) {
-    console.log('pw correct')
-  }
-  if (response.status === 400) {
-    console.log('incorrect')
-  }
+
   return response.data
- 
 }
 
-const deleteUser = async (token) => {
+const deleteUser = async token => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`
     }
   }
   const response = await axios.delete(API_URL + "delete", config)
- // console.log(response)
-  if (response.status === 201) {
-    
-    console.log('success')
-  }
-  if (response.status === 403) {
-    console.log('incorrect')
-  }
-  return response.data
- 
-}
 
+  return response.data
+}
 
 //TODO: redirect to home on logout mucho errors
 //logout user
 const logout = () => {
-  localStorage.removeItem('user')
+  localStorage.removeItem("user")
 }
-
-
 
 //anything we create and want to export put inside here
 const authService = {
@@ -76,7 +58,6 @@ const authService = {
   logout,
   confirmPW,
   deleteUser
-  
 }
 
 export default authService

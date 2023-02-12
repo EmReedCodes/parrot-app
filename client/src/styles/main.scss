@@ -1,5 +1,5 @@
 //====================
-// picocss
+// picocss & open props
 @import "https://octoshrimpy.github.io/microcss/micro.css";
 
 //mixins
@@ -64,7 +64,7 @@ button {
   width: fit-content;
 }
 
-//transparent background 
+//transparent background
 .inline-btn {
   all: unset;
   font-weight: 700;
@@ -199,3 +199,7 @@ p {
 //   animation:
 //   var(--animation-slide-in-down);
 // }
+
+.input-by-btn {
+  
+}

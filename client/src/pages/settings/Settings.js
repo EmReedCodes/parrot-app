@@ -105,13 +105,13 @@ const Settings = () => {
   }
 
   return (
-    <section className="settings wordGame">
+    <section className="settings">
       <span>
         Click{" "}
         <button onClick={() => displayList()} className="inline-btn">
           here
         </button>{" "}
-        for full word bank
+        to see your full word bank.  
       </span>
       {getList && <List />}
 
@@ -137,7 +137,7 @@ const Settings = () => {
             placeholder="Confirm password"
           />
 
-          <button type="submit" className="btn btn-block">
+          <button type="submit" className="delete-btn">
             Submit
           </button>
         </form>

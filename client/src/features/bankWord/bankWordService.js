@@ -1,6 +1,5 @@
 import axios from "axios"
 
-
 //http method allows you to seperate into different sub routes
 const API_URL = "/api/word/"
 
@@ -52,7 +51,7 @@ const deleteBankWord = async (_id, token) => {
   }
 
   const response = await axios.delete(API_URL + _id, config)
-  console.log(response)
+
   return response.data
 }
 

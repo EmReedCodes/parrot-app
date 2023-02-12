@@ -19,15 +19,12 @@
     height: 40vh;
   }
 
-  [data-theme="dark"] .holdAllWords {
-    background-color: rgba(27, 40, 50);
-  }
-
   .holdAllWords {
     display: flex;
     width: 100%;
     align-content: center;
-    background-color: rgba(220, 224, 224, 0.642);
+    //background-color: rgba(220, 224, 224, 0.642);
+    background-color: var(--dropdown-background-color);
     max-height: 100%;
     overflow-y: auto;
     overflow-x: auto;
@@ -53,7 +50,9 @@
       .itemWord {
         padding: 0.5em 0 0.5em 0;
         transition: all 0.15s ease-in-out;
-        background: rgba(138, 137, 137, 0.3);
+        width: 100%;
+        //background: rgba(138, 137, 137, 0.3);
+        background: var(--dropdown-hover-background-color);
       }
       .save {
         display: initial;
@@ -63,6 +62,10 @@
       }
     }
   }
+}
+
+.editSaveDelete {
+  margin-left: 1em;
 }
 
 @media (min-width: 768px) {
@@ -80,6 +83,16 @@
     justify-content: space-around;
     button {
       width: 25%;
+    }
+  }
+  .settings form {
+    display: flex;
+    width: 60%;
+    input {
+      flex-grow: 1;
+    }
+    button {
+      min-width: fit-content;
     }
   }
 }
