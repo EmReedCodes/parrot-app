@@ -14,8 +14,9 @@
   background-color: hsla(60deg, 100%, 50%, 0.2);
 }
 
-.restart-btn {
-  margin-left: 85%;
+.restart-btn-container {
+  align-self: flex-end;
+  margin-bottom: 1em;
 }
 
 .submitReset {

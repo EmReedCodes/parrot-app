@@ -6,8 +6,8 @@ import { reset } from "../../features/auth/authSlice"
 import { createWordForBank } from "../../features/bankWord/bankWordSlice"
 import smallestParrotImage from "../../assets/evensmallersmallerparrot.png"
 import smallParrot from "../../assets/smallParrot1.png"
-import './styles/style.css'
-import ProgressiveImage from 'react-progressive-graceful-image'
+import "./styles/style.css"
+import ProgressiveImage from "react-progressive-graceful-image"
 const Dashboard = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -17,12 +17,14 @@ const Dashboard = () => {
   const { isSuccess } = useSelector(state => state.wordBank)
   const [localStorageConfirmed, setLocalStorageConfirmed] = useState(false)
   const [list, setLocalList] = useState()
- 
 
   useEffect(() => {
-    const localStorageList = localStorage.getItem("list") !== '[]' || null ? JSON.parse(localStorage.getItem("list")) : null
+    const localStorageList =
+      localStorage.getItem("list") !== "[]" || null
+        ? JSON.parse(localStorage.getItem("list"))
+        : null
     if (localStorageList) {
-      console.log(localStorageList, 'its running')
+      console.log(localStorageList, "its running")
       setLocalList(localStorageList)
       setLocalStorageConfirmed(true)
     }
@@ -55,33 +57,32 @@ const Dashboard = () => {
   }, [dispatch, localStorageConfirmed, isSuccess, list])
 
   return (
-    <section className="verticalCenter">
+    <section className="verticalCenter dash-container">
       <h1>Welcome back {user.name}!</h1>
       <div className="dashboardImage">
         <ProgressiveImage src={smallestParrotImage} placeholder={smallParrot}>
           {(src, loading) => (
             <img
-            className={`image${loading ? " loading" : " loaded"}`}
-            src={src}
-            alt="sea beach"
-            // width="700"
-            // height="465"
-          />
+              className={`image${loading ? " loading" : " loaded"}`}
+              src={src}
+              alt="sea beach"
+              // width="700"
+              // height="465"
+            />
           )}
         </ProgressiveImage>
       </div>
-  
+
       <Link to="/sayitsortit">
-     <button type="button" className="sortGame">
+        <button type="button" className="sortGame">
           Say It Sort It
-     </button>
- </Link>
- <Link to="/wordbank">
-     <button type="button" className="bankGame">
+        </button>
+      </Link>
+      <Link to="/wordbank">
+        <button type="button" className="bankGame">
           Word Bank
-     </button>
- </Link>
-    
+        </button>
+      </Link>
     </section>
   )
 }

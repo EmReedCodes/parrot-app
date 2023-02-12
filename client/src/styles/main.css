@@ -12,11 +12,6 @@ body {
   color: var(--colar-gray-3);
 }
 
-:focus:not(:focus-visible) {
-  outline: 0;
-  box-shadow: none;
-}
-
 #root {
   min-height: 100vh;
   display: flex;

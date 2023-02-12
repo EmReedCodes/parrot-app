@@ -72,7 +72,7 @@ const SortItSpellIt = () => {
   // }, [finalTranscript, setSaidWord])
   //check screen width
   useEffect(() => {
-    if (finalTranscript.length > 7 && size.width < 768) {
+    if (finalTranscript.length > 5 && size.width < 768) {
       setModalToggle(true)
       return
     } else if (finalTranscript !== "") {
@@ -122,12 +122,14 @@ const SortItSpellIt = () => {
   return (
     <section className={`${backgroundClass} verticalCenter`}>
       {saidWord && (
-        <button className="inline-btn restart-btn" onClick={() => resetWord()}>
-          Restart{" "}
-          <IconContext.Provider value={{ className: "restart-icon" }}>
-            <FaRedoAlt />
-          </IconContext.Provider>
-        </button>
+        <div className="restart-btn-container">
+          <button className="inline-btn restart-btn" onClick={() => resetWord()}>
+            Restart{" "}
+            <IconContext.Provider value={{ className: "restart-icon" }}>
+              <FaRedoAlt />
+            </IconContext.Provider>
+          </button>
+        </div>
       )}
       {!saidWord ? (
         <>
