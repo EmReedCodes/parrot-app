@@ -6,6 +6,7 @@
   .sortGame {
     background-color: #a8ace4;
     color: #2b2e6e;
+  
     &:hover {
       background-color: #b8bbef;
     }
@@ -23,6 +24,7 @@
   .sortGame {
     background-color: #474dd1;
     color: #e8e9fc;
+    font-weight: 700;
     &:hover {
       background-color: #5a61e9;
     }
@@ -30,6 +32,7 @@
   .bankGame {
     background-color: #d18647;
     color: #f8ede4;
+    font-weight: 700;
     &:hover {
       background-color: #e3995c;
     }

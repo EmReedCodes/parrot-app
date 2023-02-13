@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { createWordForBank } from "../../../features/bankWord/bankWordSlice"
 import { toast } from "react-toastify"
@@ -18,6 +18,7 @@ const WordForm = ({ list, setList }) => {
     if (!user) {
       e.preventDefault()
       //this is how I added to the list without a render
+      //Thanks past me for the reminder above
       setList([...list, word])
       console.log(list)
       setWord("")
@@ -44,21 +45,18 @@ const WordForm = ({ list, setList }) => {
   return (
     <section className="bank-form-container">
       <form onSubmit={onSubmit}>
-    
-          <input
-            type="text"
-            name="text"
-            id="text"
-            placeholder="enter word"
-            value={word}
-            onChange={e => setWord(e.target.value)}
-          />
-     
-       
-          <button className="btn btn-block" type="submit">
-            Add Word
-          </button>
-    
+        <input
+          type="text"
+          name="text"
+          id="text"
+          placeholder="enter word"
+          value={word}
+          onChange={e => setWord(e.target.value)}
+        />
+
+        <button className="btn btn-block" type="submit">
+          Add Word
+        </button>
       </form>
     </section>
   )

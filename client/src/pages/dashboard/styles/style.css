@@ -20,6 +20,7 @@
 .dash-container .sortGame {
   background-color: #474dd1;
   color: #e8e9fc;
+  font-weight: 700;
 }
 .dash-container .sortGame:hover {
   background-color: #5a61e9;
@@ -27,6 +28,7 @@
 .dash-container .bankGame {
   background-color: #d18647;
   color: #f8ede4;
+  font-weight: 700;
 }
 .dash-container .bankGame:hover {
   background-color: #e3995c;

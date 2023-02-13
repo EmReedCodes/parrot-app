@@ -24,7 +24,6 @@ const Dashboard = () => {
         ? JSON.parse(localStorage.getItem("list"))
         : null
     if (localStorageList) {
-      console.log(localStorageList, "its running")
       setLocalList(localStorageList)
       setLocalStorageConfirmed(true)
     }
