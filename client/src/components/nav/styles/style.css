@@ -4,6 +4,10 @@
   justify-content: space-between;
 }
 
+.nav-logo {
+  padding: var(--nav-element-spacing-vertical) var(--nav-element-spacing-horizontal);
+}
+
 @media (min-width: 768px) {
   .nav-contain-background {
     background-color: rgba(11, 114, 133, 0.6);
@@ -52,7 +56,8 @@ a.secondary:is([aria-current], :hover, :active, :focus) {
   color: var(--colar-gray-11);
 }
 
-details[role=list] summary + ul, li[role=list] > ul {
+details[role=list] summary + ul,
+li[role=list] > ul {
   right: unset;
 }
 

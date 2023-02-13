@@ -52,7 +52,6 @@
     flex-grow: 1;
   }
   .bank-form-container form button, .bank-list-container form button {
-    min-width: -webkit-fit-content;
     min-width: -moz-fit-content;
     min-width: fit-content;
   }

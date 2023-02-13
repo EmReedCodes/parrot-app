@@ -6,7 +6,7 @@ const Home = () => {
     <section className="verticalCenter">
       <h1>Welcome to Parrot!</h1>
 
-      <h4>Practice your speech with repetition and spelling.</h4>
+      <h2>Practice your speech with repetition and spelling.</h2>
 
       <div className="containLogo">
         <ParrotLogo className="parrotLogo" alt="blue cartoon parrot" />

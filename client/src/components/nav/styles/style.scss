@@ -1,10 +1,11 @@
-
-
 .nav-contain-background {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  //background-color: #151f27;
+}
+
+.nav-logo {
+  padding: var(--nav-element-spacing-vertical) var(--nav-element-spacing-horizontal);
 }
 
 @media (min-width: 768px) {
@@ -33,7 +34,7 @@ nav a {
   }
 }
 
-details[role=list][open] summary::before {
+details[role="list"][open] summary::before {
   height: 100vh;
 }
 
@@ -52,11 +53,11 @@ a.secondary {
   &:is([aria-current], :hover, :active, :focus) {
     background-color: transparent;
     color: var(--colar-gray-11);
-
   }
 }
 
-details[role=list] summary+ul, li[role=list]>ul {
+details[role="list"] summary + ul,
+li[role="list"] > ul {
   right: unset;
 }
 

@@ -24,31 +24,25 @@
   height: 2em;
 }
 .social.twitter:hover {
-  color: var(--colar-cyan-7);
-  -webkit-animation: var(--animation-spin);
-          animation: var(--animation-spin);
-  -webkit-animation-timing-function: var(--ease-1);
-          animation-timing-function: var(--ease-1);
+  color: var(--colar-purple-5);
+  animation: var(--animation-spin);
+  animation-timing-function: var(--ease-1);
 }
 .social.linkedin:hover {
   color: var(--colar-blue-6);
-  -webkit-animation: var(--animation-scale-up) forwards;
-          animation: var(--animation-scale-up) forwards;
+  animation: var(--animation-scale-up) forwards;
 }
 .social.github:hover {
   color: var(--colar-teal-8);
-  -webkit-animation: var(--animation-float);
-          animation: var(--animation-float);
+  animation: var(--animation-float);
 }
 .social.portfolio:hover {
   color: var(--colar-indigo-7);
-  -webkit-animation: var(--animation-pulse) forwards;
-          animation: var(--animation-pulse) forwards;
+  animation: var(--animation-pulse) forwards;
 }
 .social.blog:hover {
   color: var(--colar-orange-6);
-  -webkit-animation: var(--animation-shake-x) forwards;
-          animation: var(--animation-shake-x) forwards;
+  animation: var(--animation-shake-x) forwards;
 }
 
 [data-theme=dark] footer ul li a {

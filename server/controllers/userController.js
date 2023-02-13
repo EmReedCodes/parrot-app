@@ -109,7 +109,6 @@ const getSelf = asyncHandler(async (req, res) => {
 //access private
 const deleteUser = asyncHandler(async (req, res) => {
     const user = await User.findById({ _id: req.user._id })
-    
     if (user) {
         //TODO: promise.all ? 
         const byeUser = await User.findByIdAndRemove({ _id: req.user._id })

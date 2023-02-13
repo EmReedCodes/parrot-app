@@ -1,16 +1,13 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
 const DropdownMenu = ({ list, action = null, label }) => {
-//   const [isDropDownClicked, setIsDropDownClicked] = useState(null)
-//   const closeDropDown = () => {
-  
-// }
+
   return (
     <details className="dropDown" role="list" dir="rtl">
       <summary aria-haspopup="listbox" role="link" className="secondary">
         {label}
       </summary>
-      <ul role="listbox">
+      <ul role="list">
         {list.map(item => (
           <li key={item.title} onClick={item.title === "logout" ? action : undefined}>
             {item.toggle ? (

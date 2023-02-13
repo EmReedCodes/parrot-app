@@ -26,30 +26,41 @@ const Settings = () => {
   //check this out https://nazrhan-mohcine.medium.com/react-hooks-work-with-usestate-and-usereducer-effectively-471646cdf925
   const pwAttempt = useRef(null)
   const dispatch = useDispatch()
-  const { isSuccess, isError } = useSelector(state => state.auth)
+  const { isSuccess, isError, message } = useSelector(state => state.auth)
   const navigate = useNavigate()
   const [modalToggle, setModalToggle] = useState(false)
   const [userDelete, setUserDelete] = useState(false)
   const [passwordConfirmed, setPassWordConfirmed] = useState(false)
   const [getList, setGetList] = useState(false)
 
-  useEffect(() => {
-    const deleteAccount = () => {
-      if (passwordConfirmed) {
-        dispatch(deleteSelf())
-        toast.success("Account deleted")
-        dispatch(reset())
-        localStorage.clear()
-        navigate("/")
-        window.location.reload()
-        return
-      }
-      if (isError === true && passwordConfirmed) {
-        toast.warn("Something went wrong.")
-      }
+  // useEffect(() => {
+  //   const deleteAccount = () => {
+  //     if (passwordConfirmed) {
+  //       dispatch(deleteSelf())
+  //       toast.success("Account deleted")
+  //       dispatch(reset())
+  //       localStorage.clear()
+  //       navigate("/")
+  //       window.location.reload()
+  //       return
+  //     }
+  //     if (isError === true && passwordConfirmed) {
+  //       toast.warn("Something went wrong.")
+  //     }
+  //   }
+  //   deleteAccount()
+  // }, [passwordConfirmed])
+
+  const successfulPWConfirmation = () => {
+    if (passwordConfirmed) {
+      dispatch(deleteSelf())
+      dispatch(reset())
+      localStorage.clear()
+      navigate("/")
+      window.location.reload()
+      toast.success("Account deleted.")
     }
-    deleteAccount()
-  }, [passwordConfirmed])
+  }
 
   const toggleModal = () => {
     //this is there so user can decide to click again and cancel
@@ -62,13 +73,16 @@ const Settings = () => {
   }
 //TODO: enable enter key to also work
   //https://reactgo.com/react-trigger-button-click/
-  function onSubmit(e) {
+  async function onSubmit(e) {
     e.preventDefault()
-    dispatch(confirmPWInput({ pwAttempt: pwAttempt.current.value }))
+    await dispatch(confirmPWInput({ pwAttempt: pwAttempt.current.value }))
     if (isSuccess === true && !passwordConfirmed) {
       setPassWordConfirmed(true)
+      successfulPWConfirmation()
     } else if (isError === true && !passwordConfirmed) {
       toast.warn("Password incorrect. Please try again.")
+    } else {
+      toast.warn("Something went wrong on our end. Please try again.")
     }
     e.target.reset()
   }
@@ -147,3 +161,136 @@ const Settings = () => {
 }
 
 export default Settings
+
+
+
+
+//original below
+
+
+// const Settings = () => {
+//   //TODO: useReducer here instead?
+//   //check this out https://nazrhan-mohcine.medium.com/react-hooks-work-with-usestate-and-usereducer-effectively-471646cdf925
+//   const pwAttempt = useRef(null)
+//   const dispatch = useDispatch()
+//   const { isSuccess, isError } = useSelector(state => state.auth)
+//   const navigate = useNavigate()
+//   const [modalToggle, setModalToggle] = useState(false)
+//   const [userDelete, setUserDelete] = useState(false)
+//   const [passwordConfirmed, setPassWordConfirmed] = useState(false)
+//   const [getList, setGetList] = useState(false)
+
+//   useEffect(() => {
+//     const deleteAccount = () => {
+//       if (passwordConfirmed) {
+//         dispatch(deleteSelf())
+//         toast.success("Account deleted")
+//         dispatch(reset())
+//         localStorage.clear()
+//         navigate("/")
+//         window.location.reload()
+//         return
+//       }
+//       if (isError === true && passwordConfirmed) {
+//         toast.warn("Something went wrong.")
+//       }
+//     }
+//     deleteAccount()
+//   }, [passwordConfirmed])
+
+//   const toggleModal = () => {
+//     //this is there so user can decide to click again and cancel
+//     if (!modalToggle && !userDelete) {
+//       setModalToggle(true)
+//     } else {
+//       setModalToggle(false)
+//       setUserDelete(false)
+//     }
+//   }
+// //TODO: enable enter key to also work
+//   //https://reactgo.com/react-trigger-button-click/
+//   function onSubmit(e) {
+//     e.preventDefault()
+//     dispatch(confirmPWInput({ pwAttempt: pwAttempt.current.value }))
+//     if (isSuccess === true && !passwordConfirmed) {
+//       setPassWordConfirmed(true)
+//     } else if (isError === true && !passwordConfirmed) {
+//       toast.warn("Password incorrect. Please try again.")
+//     }
+//     e.target.reset()
+//   }
+
+//   //TODO: create counter give users 3 chances
+//   //make another action that checks for is success and is error and sets correct state
+//   const beginDelete = () => {
+//     setUserDelete(true)
+//     setModalToggle(false)
+//   }
+
+//   const modalText = () => {
+//     return (
+//       <>
+//         <h3>Deleting your account will destroy all data associated with your username.</h3>
+//         <h4>Are you sure?</h4>
+//         <div className="modal-split-btns">
+//           <button onClick={() => beginDelete()}>Yes</button>
+//           <button onClick={() => setModalToggle(false)}>Cancel</button>
+//         </div>
+//       </>
+//     )
+//   }
+
+//   //TODO: need to check if there is any list
+
+//   const displayList = () => {
+//     if (getList === false) {
+//       dispatch(getAllWords())
+//       setGetList(true)
+//     } else {
+//       setGetList(false)
+//     }
+//   }
+
+//   return (
+//     <section className="settings">
+//       <span>
+//         Click{" "}
+//         <button onClick={() => displayList()} className="inline-btn">
+//           here
+//         </button>{" "}
+//         to see your full word bank.  
+//       </span>
+//       {getList && <List />}
+
+//       <span aria-label="button">
+//         <button onClick={() => toggleModal()} className="inline-btn">
+//           Delete Account
+//         </button>
+//       </span>
+//       <Modal
+//         className="modalAnimate"
+//         open={modalToggle}
+//         onClick={() => setModalToggle(false)}
+//         text={modalText()}
+//       />
+
+//       {userDelete && (
+//         <form onSubmit={onSubmit}>
+//           <input
+//             type="password"
+//             id="password"
+//             name="password"
+//             ref={pwAttempt}
+//             placeholder="Confirm password"
+//           />
+
+//           <button type="submit" className="delete-btn">
+//             Submit
+//           </button>
+//         </form>
+//       )}
+//     </section>
+//   )
+// }
+
+// export default Settings

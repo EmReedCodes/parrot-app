@@ -50,13 +50,17 @@ input {
 // your scss here
 
 [data-theme="dark"] button {
-  --primary: var(--colar-cyan-7);
-  --primary-hover: var(--colar-cyan-6);
+  --primary: var(--colar-cyan-9);
+  --primary-hover: var(--colar-cyan-8);
+  color: var(--colar-gray-1);
+  font-weight: 600;
 }
 
 button {
-  --primary: var(--colar-cyan-8);
-  --primary-hover: var(--colar-cyan-7);
+  --primary: #7abbc8;
+  --primary-hover:#82c8d6;
+  color: var(--colar-gray-10);
+  font-weight: 600;
 }
 
 //smaller btn option
@@ -168,6 +172,10 @@ p {
   text-align: center;
 }
 
+.verticalCenter h2 {
+  font-size: 1.5em;
+}
+
 //toast - Should have been able to set theme directly.
 //State wasnt updating without a render. so coded it into the styling
 
@@ -200,6 +208,3 @@ p {
 //   var(--animation-slide-in-down);
 // }
 
-.input-by-btn {
-  
-}
