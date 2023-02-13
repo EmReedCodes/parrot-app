@@ -2,15 +2,14 @@ import "./styles/style.css"
 import { useNavigate } from "react-router-dom"
 import { useState, useRef, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { deleteSelf, confirmPWInput, reset } from "../../features/auth/authSlice"
+import { confirmPWInput, reset } from "../../features/auth/authSlice"
 import { getAllWords } from "../../features/bankWord/bankWordSlice"
 import { toast } from "react-toastify"
 import Modal from "../../components/modal/Modal"
 import List from "./List"
 
 const Settings = () => {
-  //TODO: useReducer here instead?
-  //check this out https://nazrhan-mohcine.medium.com/react-hooks-work-with-usestate-and-usereducer-effectively-471646cdf925
+
   const pwAttempt = useRef(null)
   const dispatch = useDispatch()
   const { isSuccess, isError, isLoading } = useSelector(state => state.auth)
@@ -19,6 +18,7 @@ const Settings = () => {
   const [userDelete, setUserDelete] = useState(false)
   const [getList, setGetList] = useState(false)
 
+  //TODO: need to add the message from DB in case PW correct and there just was an error
   useEffect(() => {
     const checkIfPWConfirmed = () => {
       if (isSuccess && !isLoading) {

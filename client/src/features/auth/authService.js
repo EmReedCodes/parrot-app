@@ -34,17 +34,6 @@ const confirmPW = async (pwInput, token) => {
   return response.data
 }
 
-const deleteUser = async token => {
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
-  }
-  const response = await axios.delete(API_URL + "delete", config)
-
-  return response.data
-}
-
 //TODO: redirect to home on logout mucho errors
 //logout user
 const logout = () => {
@@ -57,7 +46,7 @@ const authService = {
   login,
   logout,
   confirmPW,
-  deleteUser
+
 }
 
 export default authService

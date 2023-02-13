@@ -78,7 +78,7 @@ const loginUser = asyncHandler(async (req, res) => {
 //access Private
 const confirmPW = asyncHandler(async (req, res) => {
   const user = await User.findById({ _id: req.user._id })
-  // console.log(user, 'pwattempt serv')
+
   if (await bcrypt.compare(req.body.pwAttempt, user.password)) {
     const byeUser = await User.findByIdAndRemove({ _id: req.user._id })
     const byeData = await Dictaphone.deleteMany({ user: req.user._id })
@@ -113,5 +113,4 @@ module.exports = {
   loginUser,
   getSelf,
   confirmPW,
-  deleteUser
 }

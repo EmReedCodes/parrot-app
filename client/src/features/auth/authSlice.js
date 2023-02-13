@@ -65,46 +65,11 @@ export const confirmPWInput = createAsyncThunk('auth/confirmPWInput', async (pwI
 })
 
 
-export const deleteSelf = createAsyncThunk('auth/deleteSelf', async (_, thunkAPI) => {
-    try {
-        
-        //console.log(user, 'delete user info client side')
-        const token = thunkAPI.getState().auth.user.token
-       console.log(token)
-        return await authService.deleteUser(token)
-      } catch (error) {
-        const message =
-          (error.response && error.response.data && error.response.data.message) ||
-          error.message ||
-          error.toString()
-        return thunkAPI.rejectWithValue(message)
-      }
-})
-
 //logout user
 export const logout = createAsyncThunk('auth/logout', async () => {
     return await authService.logout()
 })
 
-
-// export const resetPassword = createAsyncThunk(
-//     'auth/resetPassword',
-//     async (authData, thunkAPI) => {
-//       try {
-//         const token = thunkAPI.getState().auth.user.token
-//         return await authService.resetPassword(authData, token)
-//       } catch (error) {
-//         const message =
-//           (error.response &&
-//             error.response.data &&
-//             error.response.data.message) ||
-//           error.message ||
-//           error.toString()
-//         return thunkAPI.rejectWithValue(message)
-//       }
-//     }
-// )
-    
 
 export const authSlice = createSlice({
     name: 'auth',
@@ -169,22 +134,6 @@ export const authSlice = createSlice({
                 state.isError = true
                 state.message = action.payload
             })
-            .addCase(deleteSelf.pending, (state, action) => {
-                state.isLoading = true
-            })
-            .addCase(deleteSelf.fulfilled, (state, action) => {
-                state.isLoading = false
-                state.isSuccess = true
-                state.isError = false
-                state.message = action.payload
-                state.user = null
-            })
-            .addCase(deleteSelf.rejected, (state, action) => {
-                state.isLoading = false
-                state.isError = true
-                state.message = action.payload
-            })
-         
             .addCase(logout.fulfilled, (state) => {
                 state.user = null
             })
