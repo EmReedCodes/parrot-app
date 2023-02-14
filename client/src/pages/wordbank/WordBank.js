@@ -35,7 +35,7 @@ const WordBank = () => {
   return (
     <section className="verticalCenter wordbank-container">
       <h1>Word Bank</h1>
-
+      <p>Practice repeating words from your bank or adding new ones to the list.</p>
       
         <RepeatWord wordBank={wordBank} list={list} userLoggedIn={userLoggedIn} />
 

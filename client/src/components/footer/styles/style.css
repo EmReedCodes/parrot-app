@@ -1,16 +1,29 @@
-@media (min-width: 768px) {
-  [data-theme=dark] footer {
-    background-color: rgba(16, 152, 173, 0.5);
-  }
-  footer {
-    background-color: rgba(11, 114, 133, 0.6);
-    -webkit-backdrop-filter: saturate(180%) blur(10px);
-            backdrop-filter: saturate(180%) blur(10px);
-  }
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
+footer ul {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1em;
+  margin-bottom: 0;
+}
+footer ul li {
+  list-style: none;
+}
+footer ul li a {
+  text-decoration: none;
+  color: var(--colar-gray-9);
+}
+footer ul li a:hover {
+  color: var(--colar-gray-11);
+}
+
 .holdSocialIcon {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 1em;
   margin: 1em 0;
 }
 
@@ -52,19 +65,13 @@
   color: var(--colar-gray-2);
 }
 
-footer ul {
-  display: flex;
-  justify-content: flex-end;
-  gap: 1em;
-  margin-bottom: 0;
-}
-footer ul li {
-  list-style: none;
-}
-footer ul li a {
-  text-decoration: none;
-  color: var(--colar-gray-9);
-}
-footer ul li a:hover {
-  color: var(--colar-gray-11);
+@media (min-width: 768px) {
+  [data-theme=dark] footer {
+    background-color: rgba(16, 152, 173, 0.5);
+  }
+  footer {
+    background-color: rgba(11, 114, 133, 0.6);
+    -webkit-backdrop-filter: saturate(180%) blur(10px);
+            backdrop-filter: saturate(180%) blur(10px);
+  }
 }/*# sourceMappingURL=style.css.map */

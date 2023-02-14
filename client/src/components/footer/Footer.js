@@ -8,6 +8,7 @@ import { IconContext } from "react-icons"
 const Footer = () => {
   return (
     <footer className="container-fluid">
+     
       <div className="holdSocialIcon">
         <a
           href="https://twitter.com/EmReedCodes"
