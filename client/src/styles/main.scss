@@ -34,6 +34,8 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  --background-color: #fcfcfc;
+  // //background-color: rgba(250,250,250, .50);
 }
 
 main {
@@ -57,7 +59,7 @@ input {
 }
 
 button {
-  --primary: #7abbc8;
+  --primary: #75b3bf;
   --primary-hover:#82c8d6;
   color: var(--colar-gray-10);
   font-weight: 600;
