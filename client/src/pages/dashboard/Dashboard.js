@@ -40,20 +40,21 @@ const Dashboard = () => {
       return
     }
 
-    return () => {
-      dispatch(reset())
-      return
-    }
+    // return () => {
+    //   dispatch(reset())
+    //   return
+    // }
   }, [user, navigate, isError, message, dispatch])
 
   useEffect(() => {
     if (localStorageConfirmed) {
       dispatch(createWordForBank({ list }))
+      if (isSuccess) {
+        localStorage.removeItem("list")
+      }
     }
-    if (isSuccess) {
-      localStorage.removeItem("list")
-    }
-  }, [dispatch, localStorageConfirmed, isSuccess, list])
+    
+  }, [localStorageConfirmed, isSuccess])
 
   return (
     <section className="verticalCenter dash-container">

@@ -7,7 +7,7 @@ import { useState, useEffect } from "react"
 
 
 function useLocalStorage(key, initialValue) {
-  const [state, setState] = useState(initialValue)
+  const [state, setState] = useState(initialValue || false)
   const localStorageValue = localStorage.getItem(key)
 
   useEffect(() => {
