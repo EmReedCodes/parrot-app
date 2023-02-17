@@ -19,42 +19,48 @@ const Dashboard = () => {
   const [list, setLocalList] = useState()
 
   useEffect(() => {
-    const localStorageList =
+    const list =
       localStorage.getItem("list") !== "[]" || null
         ? JSON.parse(localStorage.getItem("list"))
         : null
-    if (localStorageList) {
-      setLocalList(localStorageList)
-      setLocalStorageConfirmed(true)
-    }
-  }, [])
-
-  //if for some reason a non user sees a dashboard
-  useEffect(() => {
-    if (isError) {
-      console.log(message)
-    }
-
-    if (!user) {
+       if (!user) {
       navigate("/login")
       return
     }
-
-    // return () => {
-    //   dispatch(reset())
-    //   return
-    // }
-  }, [user, navigate, isError, message, dispatch])
-
-  useEffect(() => {
-    if (localStorageConfirmed) {
+    if (list) {
       dispatch(createWordForBank({ list }))
       if (isSuccess) {
         localStorage.removeItem("list")
       }
     }
+  }, [])
+
+  //if for some reason a non user sees a dashboard
+  // useEffect(() => {
+  //   if (isError) {
+  //     console.log(message)
+  //   }
+
+  //   if (!user) {
+  //     navigate("/login")
+  //     return
+  //   }
+
+  //   // return () => {
+  //   //   dispatch(reset())
+  //   //   return
+  //   // }
+  // }, [user, navigate, isError, message, dispatch])
+
+  // useEffect(() => {
+  //   if (localStorageConfirmed) {
+  //     dispatch(createWordForBank({ list }))
+  //     if (isSuccess) {
+  //       localStorage.removeItem("list")
+  //     }
+  //   }
     
-  }, [localStorageConfirmed, isSuccess])
+  // }, [])
 
   return (
     <section className="verticalCenter dash-container">
