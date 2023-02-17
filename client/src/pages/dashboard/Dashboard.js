@@ -13,54 +13,30 @@ const Dashboard = () => {
   const dispatch = useDispatch()
   //TODO: its not perfect but having issues send locallist multiple times or trying to send it when list is just an empty array, ensuring it wasn't empty or null specifically was my current solution though I know that isnt great
 
-  const { user, isError, message } = useSelector(state => state.auth)
+  const { user } = useSelector(state => state.auth)
   const { isSuccess } = useSelector(state => state.wordBank)
   const [localStorageConfirmed, setLocalStorageConfirmed] = useState(false)
-  const [list, setLocalList] = useState()
 
   useEffect(() => {
     const list =
       localStorage.getItem("list") !== "[]" || null
         ? JSON.parse(localStorage.getItem("list"))
         : null
-       if (!user) {
+    if (!user) {
       navigate("/login")
       return
     }
     if (list) {
       dispatch(createWordForBank({ list }))
-      if (isSuccess) {
-        localStorage.removeItem("list")
-      }
+      setLocalStorageConfirmed(true)
     }
   }, [])
 
-  //if for some reason a non user sees a dashboard
-  // useEffect(() => {
-  //   if (isError) {
-  //     console.log(message)
-  //   }
-
-  //   if (!user) {
-  //     navigate("/login")
-  //     return
-  //   }
-
-  //   // return () => {
-  //   //   dispatch(reset())
-  //   //   return
-  //   // }
-  // }, [user, navigate, isError, message, dispatch])
-
-  // useEffect(() => {
-  //   if (localStorageConfirmed) {
-  //     dispatch(createWordForBank({ list }))
-  //     if (isSuccess) {
-  //       localStorage.removeItem("list")
-  //     }
-  //   }
-    
-  // }, [])
+  useEffect(() => {
+    if (isSuccess && localStorageConfirmed) {
+      localStorage.removeItem("list")
+    }
+  }, [isSuccess, localStorageConfirmed])
 
   return (
     <section className="verticalCenter dash-container">

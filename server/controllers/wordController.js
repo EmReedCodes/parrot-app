@@ -43,9 +43,9 @@ const saveWord = async (req, res) => {
           user: req.user._id
         }
       })
-     console.log(wordsArray, 'wordsarray')
+
       const sendWords = await DictaphoneWord.insertMany(wordsArray)
-      console.log(sendWords, 'sendwords')
+
       res.status(200).json(sendWords)
     }
     if (req.body.word) {
@@ -85,10 +85,7 @@ const replaceWord = async (req, res) => {
 //id from collection
 const deleteWord = async (req, res) => {
   try {
-    console.log(req.params._id)
-
     const word = await DictaphoneWord.findOneAndDelete({ _id: req.params._id })
-    console.log("Deleted Todo")
     res.status(200).json({ _id: req.params._id })
   } catch (err) {
     console.log(err)
