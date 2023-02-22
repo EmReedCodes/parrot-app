@@ -10,7 +10,7 @@
 
 @media (min-width: 768px) {
   .nav-contain-background {
-    background-color: rgba(11, 114, 133, 0.6);
+    background-color: rgba(11, 114, 133, 0.5);
     -webkit-backdrop-filter: saturate(180%) blur(10px);
             backdrop-filter: saturate(180%) blur(10px);
     top: 0;

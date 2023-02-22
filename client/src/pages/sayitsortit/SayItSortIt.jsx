@@ -72,7 +72,7 @@ const SortItSpellIt = () => {
   // }, [finalTranscript, setSaidWord])
   //check screen width
   useEffect(() => {
-    if (finalTranscript.length > 5 && size.width < 768) {
+    if (finalTranscript.length > 5 && size.width < 500) {
       setModalToggle(true)
       return
     } else if (finalTranscript !== "") {

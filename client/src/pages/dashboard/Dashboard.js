@@ -11,7 +11,7 @@ import ProgressiveImage from "react-progressive-graceful-image"
 const Dashboard = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  //TODO: its not perfect but having issues send locallist multiple times or trying to send it when list is just an empty array, ensuring it wasn't empty or null specifically was my current solution though I know that isnt great
+
 
   const { user } = useSelector(state => state.auth)
   const { isSuccess } = useSelector(state => state.wordBank)

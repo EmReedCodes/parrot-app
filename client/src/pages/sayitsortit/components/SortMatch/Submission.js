@@ -16,11 +16,9 @@ export default function Submission({ items, setItems, word, initialItems }) {
 
   useEffect(() => {
     if (checkStatus && isSuccess === true) {
-      console.log("worked in usueffect")
       toast.success("Successfully added to the bank.")
       setCheckStatus(false)
     } else if (checkStatus && isError) {
-      console.log("useeffect error")
       toast.warn("Something went wrong, please try again.")
       setCheckStatus(false)
     }
