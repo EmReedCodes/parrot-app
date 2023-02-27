@@ -20,7 +20,10 @@
 
 ## Demo
 
-<img height="400px" align="center" src="https://i.imgur.com/0wUlt4S.jpg" />
+<img height="200px" width="200px" align="center" src="https://user-images.githubusercontent.com/96320126/221619273-63089c1c-80b7-4b70-a0fe-25f0e18b83af.mp4" />
+
+
+
 
 
 ### Built With
@@ -34,10 +37,9 @@
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Add ticks for slider range
+- [x] Cross browser supprt
 - [ ] Update/change user password
 - [ ] Figure out how to add instructions for users to fork and download
-- [ ] Add lang button 
 - [ ] Drag and Drop feature
 
 
@@ -46,7 +48,9 @@
 ## Version History
 
 * 0.3
-    * still in production
+    ~~* still in production~~
+* 0.9
+  * initial soft release
 
 
 <!-- ACKNOWLEDGMENTS -->
