@@ -6,7 +6,7 @@ import { useState } from 'react';
 const SORTABLE_TRANSITION_DURATION = 250;
 
 //so when submitted if answer is incorrect run shake animation
-
+//using state clicked to add class
 const SortableItem = (props) => {
   const [clicked, setClicked] = useState(true)
     const { id, item, color } = props;
@@ -29,8 +29,7 @@ const SortableItem = (props) => {
     const style = {
         transition,
         transform: CSS.Transform.toString(transform),
-        opacity: isDragging ? 0.5 : 1,
-        //  background: color,    
+        opacity: isDragging ? 0.5 : 1, 
      }
    
     return (
@@ -42,7 +41,6 @@ const SortableItem = (props) => {
             {...attributes}
             {...listeners}
             style={style}
-            
         >
             {item}
         </div>
