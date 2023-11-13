@@ -3,7 +3,7 @@ import { FaRegPlayCircle } from "react-icons/fa"
 import SortMatch from "./components/SortMatch"
 import { IconContext } from "react-icons"
 import { useState, useEffect, createContext } from "react"
-import { createSpeechlySpeechRecognition } from "@speechly/speech-recognition-polyfill"
+// import { createSpeechlySpeechRecognition } from "@speechly/speech-recognition-polyfill"
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition"
 import { toast } from "react-toastify"
 import { FaMicrophoneAltSlash, FaMicrophoneAlt, FaRedoAlt } from "react-icons/fa"
@@ -13,9 +13,9 @@ import Modal from "../../components/modal/Modal"
 //TODO: I could have split up Say It Sort It with different routes
 
 //https://stackoverflow.com/questions/55663491/how-to-detect-screen-orientation-in-mobile-website-when-using-react-js-and-orien
-const appId = process.env.REACT_APP_SPEECHLY_ID
-const SpeechlySpeechRecognition = createSpeechlySpeechRecognition(appId)
-SpeechRecognition.applyPolyfill(SpeechlySpeechRecognition)
+// const appId = process.env.REACT_APP_SPEECHLY_ID
+// const SpeechlySpeechRecognition = createSpeechlySpeechRecognition(appId)
+// SpeechRecognition.applyPolyfill(SpeechlySpeechRecognition)
 
 export const WordContext = createContext("")
 
