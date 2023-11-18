@@ -11,7 +11,7 @@ import useWindowSize from "../../hooks/useWindowSize"
 import Modal from "../../components/modal/Modal"
 
 //TODO: I could have split up Say It Sort It with different routes
-
+//testing 2
 //https://stackoverflow.com/questions/55663491/how-to-detect-screen-orientation-in-mobile-website-when-using-react-js-and-orien
 // const appId = process.env.REACT_APP_SPEECHLY_ID
 // const SpeechlySpeechRecognition = createSpeechlySpeechRecognition(appId)
